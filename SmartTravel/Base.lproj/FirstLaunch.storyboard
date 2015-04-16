@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SZi-60-P43">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Term Of Usage View Controller-->
@@ -15,12 +16,45 @@
                     <view key="view" contentMode="scaleToFill" id="Fud-Ou-8A4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_bg" translatesAutoresizingMaskIntoConstraints="NO" id="XfM-mM-OlR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="dRN-IM-M5e"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Term of Use" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Poh-HU-hyn">
+                                <rect key="frame" x="234" y="25" width="132" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XfM-mM-OlR" firstAttribute="centerX" secondItem="Poh-HU-hyn" secondAttribute="centerX" id="1bi-3R-7lq"/>
+                            <constraint firstAttribute="centerY" secondItem="Poh-HU-hyn" secondAttribute="centerY" id="2Hc-qJ-lCC"/>
+                            <constraint firstItem="XfM-mM-OlR" firstAttribute="top" secondItem="Fud-Ou-8A4" secondAttribute="topMargin" id="COV-VL-tRC"/>
+                            <constraint firstAttribute="trailing" secondItem="XfM-mM-OlR" secondAttribute="trailing" id="cey-qc-aca"/>
+                            <constraint firstAttribute="centerX" secondItem="Poh-HU-hyn" secondAttribute="centerX" id="iCc-1r-rkk"/>
+                            <constraint firstItem="XfM-mM-OlR" firstAttribute="centerY" secondItem="Poh-HU-hyn" secondAttribute="centerY" id="mmK-3E-xMA"/>
+                            <constraint firstItem="XfM-mM-OlR" firstAttribute="leading" secondItem="Fud-Ou-8A4" secondAttribute="leading" id="zHs-qJ-LDw"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2Hc-qJ-lCC"/>
+                                <exclude reference="iCc-1r-rkk"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLx-q4-uJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="37" y="324"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="top_bg" width="85" height="89"/>
+    </resources>
 </document>

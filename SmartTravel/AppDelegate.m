@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <GBVersionTracking/GBVersionTracking.h>
 
 @interface AppDelegate ()
 
@@ -16,8 +17,21 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [GBVersionTracking track];
+    
+    if ([GBVersionTracking isFirstLaunchForVersion] || YES) {
+        self.window.rootViewController = [self loadControllerFromStoryboard:@"FirstLaunch"];
+        [self.window makeKeyAndVisible];
+    }
+    
     return YES;
+}
+
+- (UIViewController*)loadControllerFromStoryboard:(NSString *)storyboardName
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+    return [storyboard instantiateInitialViewController];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
