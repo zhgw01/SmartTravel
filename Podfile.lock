@@ -1,10 +1,13 @@
 PODS:
+  - GBVersionTracking (1.2.0)
   - PKRevealController (2.0.6)
 
 DEPENDENCIES:
+  - GBVersionTracking
   - PKRevealController
 
 SPEC CHECKSUMS:
+  GBVersionTracking: 4e1004f12dadb9e2aedfe99e8d4ee591596f720f
   PKRevealController: 4f175a432ad868c806dce1ebb3fd8a35d228bdb5
 
 COCOAPODS: 0.36.0

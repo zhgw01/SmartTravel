@@ -3,6 +3,7 @@
 
 target 'SmartTravel' do
 pod 'PKRevealController'
+pod 'GBVersionTracking'
 end
 
 target 'SmartTravelTests' do
