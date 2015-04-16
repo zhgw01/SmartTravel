@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6613E4635B5E884F0B519EDB /* libPods-SmartTravel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */; };
 		9B6A85B11ADFDEFF00667170 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A85B01ADFDEFF00667170 /* main.m */; };
 		9B6A85B41ADFDEFF00667170 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A85B31ADFDEFF00667170 /* AppDelegate.m */; };
 		9B6A85B71ADFDEFF00667170 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A85B61ADFDEFF00667170 /* ViewController.m */; };
@@ -27,6 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartTravel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B0D027AB13F8856B8F4BA29 /* Pods-SmartTravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravel/Pods-SmartTravel.debug.xcconfig"; sourceTree = "<group>"; };
+		6928DA7D73FEF35E1EBF313F /* Pods-SmartTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravel/Pods-SmartTravel.release.xcconfig"; sourceTree = "<group>"; };
 		9B6A85AB1ADFDEFF00667170 /* SmartTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B6A85AF1ADFDEFF00667170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B6A85B01ADFDEFF00667170 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6613E4635B5E884F0B519EDB /* libPods-SmartTravel.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +65,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5144BF6598479F6C7B046745 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9B6A85A21ADFDEFF00667170 = {
 			isa = PBXGroup;
 			children = (
 				9B6A85AD1ADFDEFF00667170 /* SmartTravel */,
 				9B6A85C71ADFDF0000667170 /* SmartTravelTests */,
 				9B6A85AC1ADFDEFF00667170 /* Products */,
+				EBBE7086B285E4C69B80CD01 /* Pods */,
+				5144BF6598479F6C7B046745 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +134,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EBBE7086B285E4C69B80CD01 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3B0D027AB13F8856B8F4BA29 /* Pods-SmartTravel.debug.xcconfig */,
+				6928DA7D73FEF35E1EBF313F /* Pods-SmartTravel.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B6A85CE1ADFDF0000667170 /* Build configuration list for PBXNativeTarget "SmartTravel" */;
 			buildPhases = (
+				F438F13402278AB20B8E4A53 /* Check Pods Manifest.lock */,
 				9B6A85A71ADFDEFF00667170 /* Sources */,
 				9B6A85A81ADFDEFF00667170 /* Frameworks */,
 				9B6A85A91ADFDEFF00667170 /* Resources */,
+				145FA6AE1F1CD9AF0D7293DF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,6 +240,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		145FA6AE1F1CD9AF0D7293DF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartTravel/Pods-SmartTravel-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F438F13402278AB20B8E4A53 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9B6A85A71ADFDEFF00667170 /* Sources */ = {
@@ -342,6 +401,7 @@
 		};
 		9B6A85CF1ADFDF0000667170 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B0D027AB13F8856B8F4BA29 /* Pods-SmartTravel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -353,6 +413,7 @@
 		};
 		9B6A85D01ADFDF0000667170 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6928DA7D73FEF35E1EBF313F /* Pods-SmartTravel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -415,6 +476,7 @@
 				9B6A85D01ADFDF0000667170 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B6A85D11ADFDF0000667170 /* Build configuration list for PBXNativeTarget "SmartTravelTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +485,7 @@
 				9B6A85D31ADFDF0000667170 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
