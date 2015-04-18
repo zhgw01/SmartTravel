@@ -9,6 +9,7 @@
 #import "TermOfUsageViewController.h"
 
 @interface TermOfUsageViewController ()
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
@@ -20,6 +21,15 @@
     [super viewDidLoad];
     [[UIApplication sharedApplication] setStatusBarHidden:YES
                                             withAnimation:UIStatusBarAnimationFade];
+    [self loadTermOfUsage];
+}
+
+- (void)loadTermOfUsage
+{
+    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"termofusage" ofType:@"html"];
+    NSString *htmlData = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
+    
+    [self.webView loadHTMLString:htmlData baseURL:nil];
 }
 
 - (BOOL)prefersStatusBarHidden {
