@@ -17,27 +17,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_bg" translatesAutoresizingMaskIntoConstraints="NO" id="XfM-mM-OlR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dRN-IM-M5e"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Term of Use" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Poh-HU-hyn">
-                                <rect key="frame" x="240" y="12" width="121" height="27"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <rect key="frame" x="234" y="9" width="133" height="27"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQa-qn-VtB">
-                                <rect key="frame" x="0.0" y="50" width="600" height="550"/>
+                                <rect key="frame" x="0.0" y="41" width="600" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="50I-6K-TcY">
                                 <rect key="frame" x="0.0" y="560" width="600" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTu-w3-CTJ">
-                                        <rect key="frame" x="36" y="5" width="104" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wvw-u6-kpM">
+                                        <rect key="frame" x="460" y="5" width="104" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="104" id="tuf-21-MiT"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Not Agree"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                        <state key="normal" title="Agree">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="5"/>
@@ -45,13 +50,14 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wvw-u6-kpM">
-                                        <rect key="frame" x="460" y="5" width="104" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTu-w3-CTJ">
+                                        <rect key="frame" x="36" y="5" width="104" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Agree">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="104" id="tuf-21-MiT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                        <state key="normal" title="Not Agree"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="5"/>
@@ -70,26 +76,20 @@
                                     <constraint firstAttribute="trailing" secondItem="Wvw-u6-kpM" secondAttribute="trailing" constant="36" id="j5Y-0g-LEI"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_bg" translatesAutoresizingMaskIntoConstraints="NO" id="XfM-mM-OlR">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="dRN-IM-M5e"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XfM-mM-OlR" firstAttribute="centerX" secondItem="Poh-HU-hyn" secondAttribute="centerX" id="1bi-3R-7lq"/>
                             <constraint firstAttribute="bottom" secondItem="50I-6K-TcY" secondAttribute="bottom" id="9g9-xM-8p7"/>
                             <constraint firstItem="XfM-mM-OlR" firstAttribute="top" secondItem="Fud-Ou-8A4" secondAttribute="topMargin" id="COV-VL-tRC"/>
-                            <constraint firstItem="BQa-qn-VtB" firstAttribute="top" secondItem="XfM-mM-OlR" secondAttribute="bottom" id="Rlg-9G-N8w"/>
+                            <constraint firstItem="BQa-qn-VtB" firstAttribute="top" secondItem="XfM-mM-OlR" secondAttribute="bottom" constant="-9" id="Rlg-9G-N8w"/>
                             <constraint firstAttribute="trailing" secondItem="BQa-qn-VtB" secondAttribute="trailing" id="bve-Gz-U6o"/>
                             <constraint firstAttribute="trailing" secondItem="XfM-mM-OlR" secondAttribute="trailing" id="cey-qc-aca"/>
                             <constraint firstItem="50I-6K-TcY" firstAttribute="leading" secondItem="Fud-Ou-8A4" secondAttribute="leading" id="e1Z-jn-G8c"/>
                             <constraint firstAttribute="trailing" secondItem="50I-6K-TcY" secondAttribute="trailing" id="fhz-VI-Ho8"/>
                             <constraint firstItem="klN-pD-jU5" firstAttribute="top" secondItem="BQa-qn-VtB" secondAttribute="bottom" id="gir-aU-Vpc"/>
                             <constraint firstItem="BQa-qn-VtB" firstAttribute="leading" secondItem="Fud-Ou-8A4" secondAttribute="leading" id="hu1-Eu-sVS"/>
-                            <constraint firstItem="XfM-mM-OlR" firstAttribute="centerY" secondItem="Poh-HU-hyn" secondAttribute="centerY" id="mmK-3E-xMA"/>
+                            <constraint firstItem="XfM-mM-OlR" firstAttribute="centerY" secondItem="Poh-HU-hyn" secondAttribute="centerY" constant="3" id="mmK-3E-xMA"/>
                             <constraint firstItem="XfM-mM-OlR" firstAttribute="leading" secondItem="Fud-Ou-8A4" secondAttribute="leading" id="zHs-qJ-LDw"/>
                         </constraints>
                     </view>
