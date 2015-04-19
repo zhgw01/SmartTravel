@@ -51,7 +51,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="onAccept:" destination="SZi-60-P43" eventType="touchUpInside" id="UTB-Dm-ORH"/>
+                                            <segue destination="YLL-8B-pgo" kind="show" identifier="ShowGuideViewController" id="1Wt-Wi-iLi"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTu-w3-CTJ">
@@ -109,6 +109,36 @@
             </objects>
             <point key="canvasLocation" x="849" y="324"/>
         </scene>
+        <!--Guide View Controller-->
+        <scene sceneID="fT6-Kw-98M">
+            <objects>
+                <viewController id="YLL-8B-pgo" customClass="GuideViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mDT-I2-fbZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="HOq-YB-4V0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W2V-Ax-nRw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help" translatesAutoresizingMaskIntoConstraints="NO" id="cxL-tv-Pgw">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cxL-tv-Pgw" secondAttribute="trailing" id="Kal-5E-oca"/>
+                            <constraint firstItem="cxL-tv-Pgw" firstAttribute="top" secondItem="W2V-Ax-nRw" secondAttribute="topMargin" id="RGs-p5-Cyp"/>
+                            <constraint firstItem="cxL-tv-Pgw" firstAttribute="leading" secondItem="W2V-Ax-nRw" secondAttribute="leading" id="UyG-hH-gee"/>
+                            <constraint firstItem="HOq-YB-4V0" firstAttribute="top" secondItem="cxL-tv-Pgw" secondAttribute="bottom" id="qEK-GP-96K"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xil-xs-PqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1531" y="324"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="YVc-TM-8Rd">
             <objects>
@@ -130,6 +160,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="help" width="750" height="1334"/>
         <image name="top_bg" width="85" height="89"/>
     </resources>
 </document>

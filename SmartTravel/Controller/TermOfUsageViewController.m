@@ -10,6 +10,8 @@
 #import "TermUsage.h"
 #import "GuideViewController.h"
 
+#define SHOW_GUIDEVIEW_SEGUE @"ShowGuideViewController"
+
 @interface TermOfUsageViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
@@ -39,11 +41,12 @@
 }
 
 
-- (IBAction)onAccept:(id)sender {
-    [TermUsage setAgree:YES];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier  isEqual: SHOW_GUIDEVIEW_SEGUE]) {
+        [TermUsage setAgree:YES];
+    }
     
-    UIViewController* guideController = [[GuideViewController alloc] init];
-    [self.navigationController pushViewController:guideController animated:YES];
 }
 
 @end
