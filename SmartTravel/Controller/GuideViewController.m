@@ -21,6 +21,8 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
     tap.numberOfTapsRequired = 1;
     [self.view addGestureRecognizer:tap];
+    
+    [self performSelector:@selector(onExit) withObject:nil afterDelay:3];
 }
 
 
