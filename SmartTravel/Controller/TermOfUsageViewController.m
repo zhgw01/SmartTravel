@@ -8,6 +8,7 @@
 
 #import "TermOfUsageViewController.h"
 #import "TermUsage.h"
+#import "GuideViewController.h"
 
 @interface TermOfUsageViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -41,6 +42,8 @@
 - (IBAction)onAccept:(id)sender {
     [TermUsage setAgree:YES];
     
+    UIViewController* guideController = [[GuideViewController alloc] init];
+    [self.navigationController pushViewController:guideController animated:YES];
 }
 
 @end

@@ -17,6 +17,8 @@
 		9B6A85BF1ADFDF0000667170 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B6A85BD1ADFDF0000667170 /* LaunchScreen.xib */; };
 		9B6A85CB1ADFDF0000667170 /* SmartTravelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A85CA1ADFDF0000667170 /* SmartTravelTests.m */; };
 		9B7E59511AE37FD10008D25C /* TermUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E59501AE37FD10008D25C /* TermUsage.m */; };
+		9B7E59551AE3882A0008D25C /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E59531AE3882A0008D25C /* GuideViewController.m */; };
+		9B7E59561AE3882A0008D25C /* GuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B7E59541AE3882A0008D25C /* GuideViewController.xib */; };
 		9BC3392F1AE296250046AAB5 /* termofusage.html in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3392E1AE296250046AAB5 /* termofusage.html */; };
 		9BCEBC791ADFF317003C9F05 /* TermOfUsageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCEBC781ADFF317003C9F05 /* TermOfUsageViewController.m */; };
 /* End PBXBuildFile section */
@@ -51,6 +53,9 @@
 		9B6A85CA1ADFDF0000667170 /* SmartTravelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartTravelTests.m; sourceTree = "<group>"; };
 		9B7E594F1AE37FD10008D25C /* TermUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TermUsage.h; path = Model/TermUsage.h; sourceTree = "<group>"; };
 		9B7E59501AE37FD10008D25C /* TermUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TermUsage.m; path = Model/TermUsage.m; sourceTree = "<group>"; };
+		9B7E59521AE3882A0008D25C /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuideViewController.h; path = Controller/GuideViewController.h; sourceTree = "<group>"; };
+		9B7E59531AE3882A0008D25C /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GuideViewController.m; path = Controller/GuideViewController.m; sourceTree = "<group>"; };
+		9B7E59541AE3882A0008D25C /* GuideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GuideViewController.xib; path = Controller/GuideViewController.xib; sourceTree = "<group>"; };
 		9BC3392E1AE296250046AAB5 /* termofusage.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = termofusage.html; sourceTree = "<group>"; };
 		9BCEBC771ADFF317003C9F05 /* TermOfUsageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TermOfUsageViewController.h; path = Controller/TermOfUsageViewController.h; sourceTree = "<group>"; };
 		9BCEBC781ADFF317003C9F05 /* TermOfUsageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TermOfUsageViewController.m; path = Controller/TermOfUsageViewController.m; sourceTree = "<group>"; };
@@ -86,6 +91,7 @@
 		9B295C071ADFF03200758837 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9B7E59541AE3882A0008D25C /* GuideViewController.xib */,
 				9B6A85B81ADFDF0000667170 /* Main.storyboard */,
 				9B295C081ADFF0B200758837 /* FirstLaunch.storyboard */,
 			);
@@ -97,6 +103,8 @@
 			children = (
 				9BCEBC771ADFF317003C9F05 /* TermOfUsageViewController.h */,
 				9BCEBC781ADFF317003C9F05 /* TermOfUsageViewController.m */,
+				9B7E59521AE3882A0008D25C /* GuideViewController.h */,
+				9B7E59531AE3882A0008D25C /* GuideViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -267,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BC3392F1AE296250046AAB5 /* termofusage.html in Resources */,
+				9B7E59561AE3882A0008D25C /* GuideViewController.xib in Resources */,
 				9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */,
 				9B6A85BA1ADFDF0000667170 /* Main.storyboard in Resources */,
 				9B6A85BF1ADFDF0000667170 /* LaunchScreen.xib in Resources */,
@@ -326,6 +335,7 @@
 				9B6A85B11ADFDEFF00667170 /* main.m in Sources */,
 				9BCEBC791ADFF317003C9F05 /* TermOfUsageViewController.m in Sources */,
 				9B7E59511AE37FD10008D25C /* TermUsage.m in Sources */,
+				9B7E59551AE3882A0008D25C /* GuideViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
