@@ -7,6 +7,7 @@
 //
 
 #import "GuideViewController.h"
+#import "AppDelegate.h"
 
 @interface GuideViewController ()
 
@@ -16,6 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
+    tap.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:tap];
 }
 
 
@@ -23,5 +28,16 @@
     return YES;
 }
 
+- (IBAction)onTap:(id)sender {
+    [self onExit];
+}
+
+- (void)onExit {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController* rootController = [storyboard instantiateInitialViewController];
+    AppDelegate * delegate = [UIApplication sharedApplication].delegate;
+    delegate.window.rootViewController = rootController;
+
+}
 
 @end
