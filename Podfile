@@ -4,6 +4,7 @@
 target 'SmartTravel' do
 pod 'PKRevealController'
 pod 'GBVersionTracking'
+pod 'Google-Maps-iOS-SDK'
 end
 
 target 'SmartTravelTests' do
