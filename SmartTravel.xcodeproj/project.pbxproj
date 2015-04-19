@@ -16,6 +16,7 @@
 		9B6A85BC1ADFDF0000667170 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B6A85BB1ADFDF0000667170 /* Images.xcassets */; };
 		9B6A85BF1ADFDF0000667170 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B6A85BD1ADFDF0000667170 /* LaunchScreen.xib */; };
 		9B6A85CB1ADFDF0000667170 /* SmartTravelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A85CA1ADFDF0000667170 /* SmartTravelTests.m */; };
+		9B7E59511AE37FD10008D25C /* TermUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E59501AE37FD10008D25C /* TermUsage.m */; };
 		9BC3392F1AE296250046AAB5 /* termofusage.html in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3392E1AE296250046AAB5 /* termofusage.html */; };
 		9BCEBC791ADFF317003C9F05 /* TermOfUsageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCEBC781ADFF317003C9F05 /* TermOfUsageViewController.m */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,8 @@
 		9B6A85C41ADFDF0000667170 /* SmartTravelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartTravelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B6A85C91ADFDF0000667170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B6A85CA1ADFDF0000667170 /* SmartTravelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartTravelTests.m; sourceTree = "<group>"; };
+		9B7E594F1AE37FD10008D25C /* TermUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TermUsage.h; path = Model/TermUsage.h; sourceTree = "<group>"; };
+		9B7E59501AE37FD10008D25C /* TermUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TermUsage.m; path = Model/TermUsage.m; sourceTree = "<group>"; };
 		9BC3392E1AE296250046AAB5 /* termofusage.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = termofusage.html; sourceTree = "<group>"; };
 		9BCEBC771ADFF317003C9F05 /* TermOfUsageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TermOfUsageViewController.h; path = Controller/TermOfUsageViewController.h; sourceTree = "<group>"; };
 		9BCEBC781ADFF317003C9F05 /* TermOfUsageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TermOfUsageViewController.m; path = Controller/TermOfUsageViewController.m; sourceTree = "<group>"; };
@@ -101,6 +104,8 @@
 		9B295C0C1ADFF0C500758837 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9B7E594F1AE37FD10008D25C /* TermUsage.h */,
+				9B7E59501AE37FD10008D25C /* TermUsage.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				9B6A85B41ADFDEFF00667170 /* AppDelegate.m in Sources */,
 				9B6A85B11ADFDEFF00667170 /* main.m in Sources */,
 				9BCEBC791ADFF317003C9F05 /* TermOfUsageViewController.m in Sources */,
+				9B7E59511AE37FD10008D25C /* TermUsage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

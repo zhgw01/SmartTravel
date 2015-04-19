@@ -7,6 +7,7 @@
 //
 
 #import "TermOfUsageViewController.h"
+#import "TermUsage.h"
 
 @interface TermOfUsageViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -34,6 +35,12 @@
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+
+- (IBAction)onAccept:(id)sender {
+    [TermUsage setAgree:YES];
+    
 }
 
 @end
