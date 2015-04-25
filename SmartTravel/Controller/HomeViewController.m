@@ -7,8 +7,10 @@
 //
 
 #import "HomeViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface HomeViewController ()
+@property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 
 @end
 
@@ -16,7 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    // Zoom to Edmonton
+    GMSCameraPosition* edmontonPosition = [GMSCameraPosition cameraWithLatitude:53.5501400 longitude:-113.4687100 zoom:8.0];
+    self.mapView.camera = edmontonPosition;
 }
 
 - (void)didReceiveMemoryWarning {
