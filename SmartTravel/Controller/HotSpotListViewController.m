@@ -9,6 +9,9 @@
 #import "HotSpotListViewController.h"
 
 @interface HotSpotListViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *collisionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *vruLabel;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
