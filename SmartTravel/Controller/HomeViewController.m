@@ -20,7 +20,7 @@
     [super viewDidLoad];
     
     // Zoom to Edmonton
-    GMSCameraPosition* edmontonPosition = [GMSCameraPosition cameraWithLatitude:53.5501400 longitude:-113.4687100 zoom:8.0];
+    GMSCameraPosition* edmontonPosition = [GMSCameraPosition cameraWithLatitude:53.5501400 longitude:-113.4687100 zoom:12.0];
     self.mapView.camera = edmontonPosition;
 }
 
