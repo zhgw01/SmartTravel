@@ -29,7 +29,14 @@
                             <constraint firstItem="884-d3-8lS" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-44" id="cjr-E6-EM9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="sMH-ab-1en"/>
+                    <navigationItem key="navigationItem" id="sMH-ab-1en">
+                        <barButtonItem key="leftBarButtonItem" image="button_list" id="Kbj-Ui-6eA">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="button_setting" id="KoC-c8-iaL">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="884-d3-8lS" id="jap-cb-n08"/>
                     </connections>
@@ -61,6 +68,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="button_list" width="56" height="39"/>
+        <image name="button_setting" width="52" height="51"/>
         <image name="top_bg" width="85" height="89"/>
     </resources>
 </document>
