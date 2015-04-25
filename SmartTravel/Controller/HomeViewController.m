@@ -23,7 +23,9 @@
     GMSCameraPosition* edmontonPosition = [GMSCameraPosition cameraWithLatitude:53.5501400 longitude:-113.4687100 zoom:12.0];
     self.mapView.camera = edmontonPosition;
     
-    //setup navigationbar
+    //setup navigation
+    self.title = @"Smart Travel";
+    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"top_bg"]
                              forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
