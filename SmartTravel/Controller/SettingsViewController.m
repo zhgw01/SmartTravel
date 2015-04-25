@@ -9,6 +9,9 @@
 #import "SettingsViewController.h"
 
 @interface SettingsViewController ()
+@property (weak, nonatomic) IBOutlet UISwitch *gpsSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *pushNotificationSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *voiceMessageSwitch;
 
 @end
 
