@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <GBVersionTracking/GBVersionTracking.h>
+#import "TermUsage.h"
 
 @interface AppDelegate ()
 
@@ -18,9 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [GBVersionTracking track];
     
-    if ([GBVersionTracking isFirstLaunchForVersion] || YES) {
+    if (![TermUsage agree]) {
         self.window.rootViewController = [self loadControllerFromStoryboard:@"FirstLaunch"];
         [self.window makeKeyAndVisible];
     }
