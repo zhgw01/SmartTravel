@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JBD-u7-yrp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Cd2-aD-ewE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -39,7 +39,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="hotspotListButton" destination="Kbj-Ui-6eA" id="B9N-wP-atN"/>
                         <outlet property="mapView" destination="884-d3-8lS" id="jap-cb-n08"/>
+                        <outlet property="settingsButton" destination="KoC-c8-iaL" id="DLw-3J-n8s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -224,7 +226,30 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fki-eH-8cL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="421" y="305"/>
+            <point key="canvasLocation" x="433" y="305"/>
+        </scene>
+        <!--Reveal View Controller-->
+        <scene sceneID="4z8-Q2-pzl">
+            <objects>
+                <viewController id="Cd2-aD-ewE" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ajt-Ro-pGT"/>
+                        <viewControllerLayoutGuide type="bottom" id="DXp-n4-Bk7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dxc-8L-1Zq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="tEd-je-gPE" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="R5t-4R-YJF"/>
+                        <segue destination="baB-r8-cLL" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="YaR-78-mbs"/>
+                        <segue destination="JBD-u7-yrp" kind="custom" identifier="sw_right" customClass="SWRevealViewControllerSegueSetController" id="25L-PX-FBI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zgi-hT-Vgs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-313" y="305"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="fTT-vL-AMm">
@@ -407,7 +432,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1WV-bY-s7d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="409" y="974"/>
+            <point key="canvasLocation" x="441" y="1050"/>
         </scene>
     </scenes>
     <resources>

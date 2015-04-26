@@ -2,8 +2,7 @@
 # platform :ios, '7.0'
 
 target 'SmartTravel' do
-pod 'PKRevealController'
-pod 'GBVersionTracking'
+pod 'SWRevealViewController'
 pod 'Google-Maps-iOS-SDK'
 end
 

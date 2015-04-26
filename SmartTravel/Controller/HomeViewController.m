@@ -8,9 +8,12 @@
 
 #import "HomeViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import <SWRevealViewController/SWRevealViewController.h>
 
 @interface HomeViewController ()
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *hotspotListButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 
 @end
 
@@ -19,17 +22,42 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setupNavigationBar];
+    [self setupSideBarMenu];
+    [self zoomToEdmonton];
+    
+
+    
+}
+
+- (void) zoomToEdmonton
+{
     // Zoom to Edmonton
     GMSCameraPosition* edmontonPosition = [GMSCameraPosition cameraWithLatitude:53.5501400 longitude:-113.4687100 zoom:12.0];
     self.mapView.camera = edmontonPosition;
-    
+}
+
+- (void) setupNavigationBar
+{
     //setup navigation
     self.title = @"Smart Travel";
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"top_bg"]
-                             forBarMetrics:UIBarMetricsDefault];
+                                                  forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
+}
+
+- (void) setupSideBarMenu
+{
+    if (self.revealViewController != nil) {
+        self.hotspotListButton.target = self.revealViewController;
+        self.hotspotListButton.action = @selector(revealToggle:);
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        
+        self.settingsButton.target = self.revealViewController;
+        self.settingsButton.action = @selector(rightRevealToggle:);
+    }
 }
 
 
