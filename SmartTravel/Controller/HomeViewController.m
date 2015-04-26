@@ -55,8 +55,8 @@
         self.settingsButton.target = self.revealViewController;
         self.settingsButton.action = @selector(rightRevealToggle:);
         
-        self.revealViewController.rearViewRevealWidth = 310;
-        self.revealViewController.rightViewRevealWidth = 320;
+        self.revealViewController.rearViewRevealWidth = 300;
+        self.revealViewController.rightViewRevealWidth = 300;
         
         self.revealViewController.delegate = self;
     }

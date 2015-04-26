@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Cd2-aD-ewE">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -65,10 +66,10 @@
                                 <color key="backgroundColor" red="0.31764705882352939" green="0.71372549019607845" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFE-vU-s9j" userLabel="LogoView">
-                                <rect key="frame" x="0.0" y="0.0" width="310" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="DvD-9i-NiN">
-                                        <rect key="frame" x="63" y="8" width="184" height="28"/>
+                                        <rect key="frame" x="58" y="8" width="184" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="PDl-IJ-zqO"/>
                                             <constraint firstAttribute="height" constant="28" id="ULM-Bb-OsM"/>
@@ -84,7 +85,7 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="DvD-9i-NiN" secondAttribute="centerX" id="PCF-Rf-QbY"/>
-                                    <constraint firstAttribute="width" constant="310" id="T9V-tu-QD1"/>
+                                    <constraint firstAttribute="width" constant="300" id="T9V-tu-QD1"/>
                                     <constraint firstAttribute="centerY" secondItem="DvD-9i-NiN" secondAttribute="centerY" id="bf5-X5-osv"/>
                                     <constraint firstAttribute="height" constant="44" id="rRo-Zn-bHK"/>
                                     <constraint firstAttribute="height" secondItem="DvD-9i-NiN" secondAttribute="height" id="yra-Hx-waO"/>
@@ -169,7 +170,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="e8B-aC-8n1">
-                                <rect key="frame" x="85" y="47" width="225" height="553"/>
+                                <rect key="frame" x="85" y="47" width="215" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                             </tableView>
@@ -285,35 +286,35 @@
                                 <rect key="frame" x="0.0" y="48" width="600" height="552"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZfF-a0-w77" userLabel="sperator view">
-                                        <rect key="frame" x="302" y="90" width="280" height="1"/>
+                                        <rect key="frame" x="312" y="90" width="270" height="1"/>
                                         <color key="backgroundColor" red="0.6705882352941176" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="cmZ-Gv-WdZ"/>
-                                            <constraint firstAttribute="width" constant="280" id="kM9-ME-T23"/>
+                                            <constraint firstAttribute="width" constant="270" id="kM9-ME-T23"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALz-bf-xCL" userLabel="sperator view">
-                                        <rect key="frame" x="302" y="181" width="280" height="1"/>
+                                        <rect key="frame" x="312" y="181" width="270" height="1"/>
                                         <color key="backgroundColor" red="0.6705882353" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="PKf-e1-Zi8"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YtW-cx-QUq" userLabel="sperator view">
-                                        <rect key="frame" x="302" y="272" width="280" height="1"/>
+                                        <rect key="frame" x="312" y="272" width="270" height="1"/>
                                         <color key="backgroundColor" red="0.6705882353" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="3Ev-Vp-Pqi"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4C-eR-LL8">
-                                        <rect key="frame" x="302" y="16" width="37" height="31"/>
+                                        <rect key="frame" x="312" y="16" width="37" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="0.1803921568627451" green="0.18823529411764706" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description See Mac in Person at the Apple Retail Store and have all your questions answred" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUg-9t-ieg">
-                                        <rect key="frame" x="302" y="57" width="280" height="24"/>
+                                        <rect key="frame" x="312" y="57" width="270" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" red="0.58431372549019611" green="0.58431372549019611" blue="0.58431372549019611" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -322,7 +323,7 @@
                                         <rect key="frame" x="533" y="16" width="51" height="31"/>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description See Mac in Person at the Apple Retail Store and have all your questions answred" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQZ-hK-8qD">
-                                        <rect key="frame" x="302" y="149" width="280" height="24"/>
+                                        <rect key="frame" x="312" y="149" width="270" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" red="0.58431372550000005" green="0.58431372550000005" blue="0.58431372550000005" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -331,13 +332,13 @@
                                         <rect key="frame" x="533" y="108" width="51" height="31"/>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push Notification" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKx-xZ-YIK">
-                                        <rect key="frame" x="302" y="108" width="138" height="31"/>
+                                        <rect key="frame" x="312" y="108" width="138" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="0.18039215689999999" green="0.18823529410000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description See Mac in Person at the Apple Retail Store and have all your questions answred" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kq-Q9-T7q">
-                                        <rect key="frame" x="302" y="240" width="280" height="24"/>
+                                        <rect key="frame" x="312" y="240" width="270" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" red="0.58431372550000005" green="0.58431372550000005" blue="0.58431372550000005" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -346,7 +347,7 @@
                                         <rect key="frame" x="533" y="199" width="51" height="31"/>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voice Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfA-hd-t1W">
-                                        <rect key="frame" x="302" y="199" width="122" height="31"/>
+                                        <rect key="frame" x="312" y="199" width="122" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="0.18039215689999999" green="0.18823529410000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
