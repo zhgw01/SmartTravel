@@ -10,7 +10,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <SWRevealViewController/SWRevealViewController.h>
 
-@interface HomeViewController ()
+@interface HomeViewController ()<SWRevealViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hotspotListButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
@@ -25,9 +25,6 @@
     [self setupNavigationBar];
     [self setupSideBarMenu];
     [self zoomToEdmonton];
-    
-
-    
 }
 
 - (void) zoomToEdmonton
@@ -60,15 +57,23 @@
         
         self.revealViewController.rearViewRevealWidth = 310;
         self.revealViewController.rightViewRevealWidth = 320;
+        
+        self.revealViewController.delegate = self;
     }
 }
 
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - SWRevealViewController Delegate
+- (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position
+{
+    if (position != FrontViewPositionLeft) {
+        self.mapView.userInteractionEnabled = NO;
+    }
+    else {
+        self.mapView.userInteractionEnabled = YES;
+    }
 }
+
 
 /*
 #pragma mark - Navigation
