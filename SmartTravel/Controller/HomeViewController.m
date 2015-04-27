@@ -71,6 +71,9 @@
 - (IBAction)zoomOut:(id)sender {
     NSLog(@"Zoom out");
 }
+- (IBAction)locateMe:(id)sender {
+    NSLog(@"Locate Current Location");
+}
 
 #pragma mark - SWRevealViewController Delegate
 - (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position

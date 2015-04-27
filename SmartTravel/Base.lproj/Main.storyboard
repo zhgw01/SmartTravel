@@ -44,15 +44,28 @@
                                     <action selector="zoomOut:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xZy-hB-RF9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rek-as-vJl">
+                                <rect key="frame" x="14" y="548" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="JcL-Nm-QaE"/>
+                                    <constraint firstAttribute="height" constant="40" id="YZU-ri-VYb"/>
+                                </constraints>
+                                <state key="normal" image="button_locateme"/>
+                                <connections>
+                                    <action selector="locateMe:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Rsc-o5-eHt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="p8d-SR-cXF" secondAttribute="centerY" multiplier="5:8" constant="50" id="6Rc-RX-vx2"/>
                             <constraint firstItem="lNC-a3-Xkz" firstAttribute="trailing" secondItem="p8d-SR-cXF" secondAttribute="trailing" id="8wP-CX-42H"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="rek-as-vJl" secondAttribute="bottom" constant="12" id="FZ0-0J-s7G"/>
                             <constraint firstItem="lNC-a3-Xkz" firstAttribute="bottom" secondItem="p8d-SR-cXF" secondAttribute="bottom" id="GkP-mD-ZL3"/>
                             <constraint firstItem="oeP-Ss-vtz" firstAttribute="trailing" secondItem="p8d-SR-cXF" secondAttribute="trailing" id="N6L-hg-NPB"/>
                             <constraint firstItem="oeP-Ss-vtz" firstAttribute="leading" secondItem="p8d-SR-cXF" secondAttribute="leading" id="O3l-WL-Dkq"/>
                             <constraint firstItem="oeP-Ss-vtz" firstAttribute="height" secondItem="p8d-SR-cXF" secondAttribute="height" multiplier="1:2" id="Wtq-ld-wy3"/>
+                            <constraint firstItem="rek-as-vJl" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="14" id="XUK-AD-q6j"/>
                             <constraint firstAttribute="trailing" secondItem="884-d3-8lS" secondAttribute="trailing" id="Y4F-et-uUf"/>
                             <constraint firstAttribute="bottom" secondItem="884-d3-8lS" secondAttribute="bottom" id="YE0-Iv-mR6"/>
                             <constraint firstAttribute="trailing" secondItem="p8d-SR-cXF" secondAttribute="trailing" constant="10" id="aw6-Qy-boG"/>
@@ -470,6 +483,7 @@
     </scenes>
     <resources>
         <image name="button_list" width="56" height="39"/>
+        <image name="button_locateme" width="80" height="79"/>
         <image name="button_setting" width="52" height="51"/>
         <image name="button_zoom" width="106" height="206"/>
         <image name="logo" width="184" height="56"/>
