@@ -62,6 +62,15 @@
     }
 }
 
+#pragma mark - Button Action
+
+- (IBAction)zoomIn:(id)sender {
+    NSLog(@"Zoom In");
+}
+
+- (IBAction)zoomOut:(id)sender {
+    NSLog(@"Zoom out");
+}
 
 #pragma mark - SWRevealViewController Delegate
 - (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position
