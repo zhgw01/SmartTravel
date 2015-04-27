@@ -299,13 +299,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryi-f3-o1n" userLabel="header view">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vch-c7-eRc">
-                                        <rect key="frame" x="264" y="10" width="72" height="25"/>
-                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="21"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F5J-k6-EcZ">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title_setting" translatesAutoresizingMaskIntoConstraints="NO" id="F5J-k6-EcZ">
                                         <rect key="frame" x="200" y="8" width="200" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="76w-xu-xH8"/>
@@ -316,8 +310,6 @@
                                 <color key="backgroundColor" red="0.71372549019999998" green="0.73333333329999995" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="JOm-CU-BNI"/>
-                                    <constraint firstAttribute="centerY" secondItem="Vch-c7-eRc" secondAttribute="centerY" id="d5q-2N-CQ4"/>
-                                    <constraint firstAttribute="centerX" secondItem="Vch-c7-eRc" secondAttribute="centerX" id="mDm-Ko-aAP"/>
                                     <constraint firstAttribute="centerY" secondItem="F5J-k6-EcZ" secondAttribute="centerY" id="mRm-Co-eCa"/>
                                     <constraint firstAttribute="centerX" secondItem="F5J-k6-EcZ" secondAttribute="centerX" id="rb9-S7-wIA"/>
                                 </constraints>
@@ -481,6 +473,7 @@
         <image name="button_setting" width="52" height="51"/>
         <image name="button_zoom" width="106" height="206"/>
         <image name="logo" width="184" height="56"/>
+        <image name="title_setting" width="194" height="53"/>
         <image name="top_bg" width="85" height="89"/>
     </resources>
 </document>
