@@ -65,11 +65,13 @@
 #pragma mark - Button Action
 
 - (IBAction)zoomIn:(id)sender {
-    NSLog(@"Zoom In");
+    GMSCameraUpdate *zoomIn = [GMSCameraUpdate zoomIn];
+    [self.mapView animateWithCameraUpdate:zoomIn];
 }
 
 - (IBAction)zoomOut:(id)sender {
-    NSLog(@"Zoom out");
+    GMSCameraUpdate *zoomOut = [GMSCameraUpdate zoomOut];
+    [self.mapView animateWithCameraUpdate:zoomOut];
 }
 - (IBAction)locateMe:(id)sender {
     NSLog(@"Locate Current Location");
