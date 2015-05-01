@@ -10,10 +10,12 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <SWRevealViewController/SWRevealViewController.h>
 
-@interface HomeViewController ()<SWRevealViewControllerDelegate>
+@interface HomeViewController ()<SWRevealViewControllerDelegate, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hotspotListButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
+
+@property (strong, nonatomic) CLLocationManager* locationManager;
 
 @end
 
@@ -24,7 +26,16 @@
     
     [self setupNavigationBar];
     [self setupSideBarMenu];
+    [self setupMap];
     [self zoomToEdmonton];
+}
+
+- (void) setupMap
+{
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
+    [self requestLocationAuthorization];
 }
 
 - (void) zoomToEdmonton
@@ -74,7 +85,16 @@
     [self.mapView animateWithCameraUpdate:zoomOut];
 }
 - (IBAction)locateMe:(id)sender {
-    NSLog(@"Locate Current Location");
+    
+    if (!self.mapView.myLocationEnabled) {
+        [self requestLocationAuthorization];
+    }
+}
+
+- (void) requestLocationAuthorization {
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
 }
 
 #pragma mark - SWRevealViewController Delegate
@@ -88,6 +108,14 @@
     }
 }
 
+#pragma mark - Location Manager Delegate
+
+- (void) locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        self.mapView.myLocationEnabled = YES;
+    }
+}
 
 /*
 #pragma mark - Navigation
