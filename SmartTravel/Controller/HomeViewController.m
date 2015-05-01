@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
+@property (strong, nonatomic) GMSMarker* locationMarker;
 
 @end
 
@@ -113,7 +114,20 @@
 - (void) locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
     if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
-        self.mapView.myLocationEnabled = YES;
+        //self.mapView.myLocationEnabled = YES;
+        [self.locationManager startUpdatingLocation];
+    }
+}
+
+- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    CLLocation* location = locations.lastObject;
+    if (self.locationMarker == nil) {
+        self.locationMarker = [GMSMarker markerWithPosition:location.coordinate];
+        self.locationMarker.icon = [UIImage imageNamed:@"icon_currentlocation"];
+        self.locationMarker.map = self.mapView;
+    } else {
+        self.locationMarker.position = location.coordinate;
     }
 }
 
