@@ -132,8 +132,8 @@
         self.locationMarker.position = location.coordinate;
     }
     
-    GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:location.coordinate];
-    [self.mapView animateWithCameraUpdate:newTarget];
+    //GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:location.coordinate];
+    //[self.mapView animateWithCameraUpdate:newTarget];
 }
 
 /*
