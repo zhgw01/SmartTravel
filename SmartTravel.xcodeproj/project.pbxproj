@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E2E79F51E63E734D1BFE0B5 /* libPods-SmartTravelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEEC9CCD391050A8D1BA199 /* libPods-SmartTravelTests.a */; };
 		6613E4635B5E884F0B519EDB /* libPods-SmartTravel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */; };
+		9B1900FC1AF523B200CF18B6 /* VRU.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1900FB1AF523B200CF18B6 /* VRU.m */; };
 		9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B295C081ADFF0B200758837 /* FirstLaunch.storyboard */; };
 		9B47AB4F1AF4FB4F006AA102 /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B47AB4E1AF4FB4F006AA102 /* Collision.m */; };
 		9B5EE8641AF3EEE600524F4A /* default.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9B5EE8631AF3EEE600524F4A /* default.gpx */; };
@@ -50,6 +51,8 @@
 		5EEEC9CCD391050A8D1BA199 /* libPods-SmartTravelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartTravelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6928DA7D73FEF35E1EBF313F /* Pods-SmartTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravel/Pods-SmartTravel.release.xcconfig"; sourceTree = "<group>"; };
 		8D390935FB46D35A2294BF7D /* Pods-SmartTravelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravelTests/Pods-SmartTravelTests.release.xcconfig"; sourceTree = "<group>"; };
+		9B1900FA1AF523B200CF18B6 /* VRU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VRU.h; path = Model/VRU.h; sourceTree = "<group>"; };
+		9B1900FB1AF523B200CF18B6 /* VRU.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VRU.m; path = Model/VRU.m; sourceTree = "<group>"; };
 		9B295C091ADFF0B200758837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FirstLaunch.storyboard; sourceTree = "<group>"; };
 		9B47AB4D1AF4FB4F006AA102 /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collision.h; path = Model/Collision.h; sourceTree = "<group>"; };
 		9B47AB4E1AF4FB4F006AA102 /* Collision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Collision.m; path = Model/Collision.m; sourceTree = "<group>"; };
@@ -157,6 +160,8 @@
 				9B47AB4E1AF4FB4F006AA102 /* Collision.m */,
 				9B6C7DA61AF500C500DF6FA9 /* DBManager.h */,
 				9B6C7DA71AF500C500DF6FA9 /* DBManager.m */,
+				9B1900FA1AF523B200CF18B6 /* VRU.h */,
+				9B1900FB1AF523B200CF18B6 /* VRU.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 				9B812DD91AEB3E9D008F17B6 /* HotSpotListViewController.m in Sources */,
 				9B812DDC1AEB3EB7008F17B6 /* SettingsViewController.m in Sources */,
 				9B6A85B11ADFDEFF00667170 /* main.m in Sources */,
+				9B1900FC1AF523B200CF18B6 /* VRU.m in Sources */,
 				9BCEBC791ADFF317003C9F05 /* TermOfUsageViewController.m in Sources */,
 				9B7E59511AE37FD10008D25C /* TermUsage.m in Sources */,
 				9B5EE8691AF3F6B400524F4A /* CircleMarker.m in Sources */,

@@ -40,18 +40,29 @@
 
 - (void)testReadModel {
 
-    Class s = [Collision.class superclass];
     
-    XCTAssert([Collision.class isSubclassOfClass:MTLModel.class]);
+    NSError *error = nil;
+
+    FMResultSet *resultSet = [self.db executeQuery:@"select * from Collision"];
+    if ([resultSet next]) {
+        Collision *collision = [MTLFMDBAdapter modelOfClass:Collision.class fromFMResultSet:resultSet error:&error];
+        XCTAssertNotNil(collision);
+    }
+}
+
+- (void)testWriteModel {
     
-//    NSError *error = nil;
-//
-//    FMResultSet *resultSet = [self.db executeQuery:@"select * from Collision"];
-//    if ([resultSet next]) {
-//        Collision *collision = [MTLFMDBAdapter modelOfClass:Collision.class fromFMResultSet:resultSet error:&error];
-//        XCTAssertNotNil(collision);
-//    }
+    Collision *collision = [[Collision alloc] init];
+    collision.locationCode = @"test-location-code";
+    collision.location = @"test-location";
+    collision.count = @1;
+    collision.latitude =@100.0;
+    collision.longtitude = @100.0;
     
+    NSString *stmt = [MTLFMDBAdapter insertStatementForModel:collision];
+    NSArray *param = [MTLFMDBAdapter columnValues:collision];
+    BOOL result = [self.db executeUpdate:stmt withArgumentsInArray:param];
+    XCTAssertTrue(result);
 }
 
 @end
