@@ -5,11 +5,11 @@ target 'SmartTravel' do
 pod 'SWRevealViewController'
 pod 'Google-Maps-iOS-SDK'
 pod 'FMDB'
-pod 'Mantle'
-pod "MTLFMDBAdapter"
+pod 'MTLFMDBAdapter'
 end
 
 target 'SmartTravelTests' do
-
+pod 'OCMockito'
 end
+
 

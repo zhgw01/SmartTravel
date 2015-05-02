@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E2E79F51E63E734D1BFE0B5 /* libPods-SmartTravelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEEC9CCD391050A8D1BA199 /* libPods-SmartTravelTests.a */; };
 		6613E4635B5E884F0B519EDB /* libPods-SmartTravel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */; };
 		9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B295C081ADFF0B200758837 /* FirstLaunch.storyboard */; };
+		9B47AB4F1AF4FB4F006AA102 /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B47AB4E1AF4FB4F006AA102 /* Collision.m */; };
 		9B5EE8641AF3EEE600524F4A /* default.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9B5EE8631AF3EEE600524F4A /* default.gpx */; };
 		9B5EE8691AF3F6B400524F4A /* CircleMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EE8681AF3F6B400524F4A /* CircleMarker.m */; };
 		9B6A85B11ADFDEFF00667170 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A85B01ADFDEFF00667170 /* main.m */; };
@@ -17,7 +19,9 @@
 		9B6A85BA1ADFDF0000667170 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6A85B81ADFDF0000667170 /* Main.storyboard */; };
 		9B6A85BC1ADFDF0000667170 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B6A85BB1ADFDF0000667170 /* Images.xcassets */; };
 		9B6A85BF1ADFDF0000667170 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B6A85BD1ADFDF0000667170 /* LaunchScreen.xib */; };
-		9B6A85CB1ADFDF0000667170 /* SmartTravelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A85CA1ADFDF0000667170 /* SmartTravelTests.m */; };
+		9B6C7DA31AF4FFA300DF6FA9 /* testDb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9B6C7DA21AF4FFA300DF6FA9 /* testDb.sqlite */; };
+		9B6C7DA51AF4FFCD00DF6FA9 /* CollisionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C7DA41AF4FFCD00DF6FA9 /* CollisionTests.m */; };
+		9B6C7DA81AF500C500DF6FA9 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C7DA71AF500C500DF6FA9 /* DBManager.m */; };
 		9B7E59511AE37FD10008D25C /* TermUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E59501AE37FD10008D25C /* TermUsage.m */; };
 		9B7E59551AE3882A0008D25C /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E59531AE3882A0008D25C /* GuideViewController.m */; };
 		9B7E595B1AE38F610008D25C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B7E595A1AE38F610008D25C /* MapKit.framework */; };
@@ -40,10 +44,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		171AC3DFEC430AD99FCFEE1E /* Pods-SmartTravelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravelTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravelTests/Pods-SmartTravelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartTravel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B0D027AB13F8856B8F4BA29 /* Pods-SmartTravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravel/Pods-SmartTravel.debug.xcconfig"; sourceTree = "<group>"; };
+		5EEEC9CCD391050A8D1BA199 /* libPods-SmartTravelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartTravelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6928DA7D73FEF35E1EBF313F /* Pods-SmartTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravel/Pods-SmartTravel.release.xcconfig"; sourceTree = "<group>"; };
+		8D390935FB46D35A2294BF7D /* Pods-SmartTravelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravelTests/Pods-SmartTravelTests.release.xcconfig"; sourceTree = "<group>"; };
 		9B295C091ADFF0B200758837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FirstLaunch.storyboard; sourceTree = "<group>"; };
+		9B47AB4D1AF4FB4F006AA102 /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collision.h; path = Model/Collision.h; sourceTree = "<group>"; };
+		9B47AB4E1AF4FB4F006AA102 /* Collision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Collision.m; path = Model/Collision.m; sourceTree = "<group>"; };
 		9B5EE8631AF3EEE600524F4A /* default.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default.gpx; sourceTree = "<group>"; };
 		9B5EE8671AF3F6B400524F4A /* CircleMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircleMarker.h; path = View/CircleMarker.h; sourceTree = "<group>"; };
 		9B5EE8681AF3F6B400524F4A /* CircleMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircleMarker.m; path = View/CircleMarker.m; sourceTree = "<group>"; };
@@ -59,7 +68,10 @@
 		9B6A85BE1ADFDF0000667170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9B6A85C41ADFDF0000667170 /* SmartTravelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartTravelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B6A85C91ADFDF0000667170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B6A85CA1ADFDF0000667170 /* SmartTravelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartTravelTests.m; sourceTree = "<group>"; };
+		9B6C7DA21AF4FFA300DF6FA9 /* testDb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = testDb.sqlite; sourceTree = "<group>"; };
+		9B6C7DA41AF4FFCD00DF6FA9 /* CollisionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionTests.m; sourceTree = "<group>"; };
+		9B6C7DA61AF500C500DF6FA9 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBManager.h; path = Model/DBManager.h; sourceTree = "<group>"; };
+		9B6C7DA71AF500C500DF6FA9 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBManager.m; path = Model/DBManager.m; sourceTree = "<group>"; };
 		9B7E594F1AE37FD10008D25C /* TermUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TermUsage.h; path = Model/TermUsage.h; sourceTree = "<group>"; };
 		9B7E59501AE37FD10008D25C /* TermUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TermUsage.m; path = Model/TermUsage.m; sourceTree = "<group>"; };
 		9B7E59521AE3882A0008D25C /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuideViewController.h; path = Controller/GuideViewController.h; sourceTree = "<group>"; };
@@ -92,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E2E79F51E63E734D1BFE0B5 /* libPods-SmartTravelTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +117,7 @@
 				9B7E595C1AE38F660008D25C /* CoreLocation.framework */,
 				9B7E595A1AE38F610008D25C /* MapKit.framework */,
 				1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */,
+				5EEEC9CCD391050A8D1BA199 /* libPods-SmartTravelTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -139,6 +153,10 @@
 			children = (
 				9B7E594F1AE37FD10008D25C /* TermUsage.h */,
 				9B7E59501AE37FD10008D25C /* TermUsage.m */,
+				9B47AB4D1AF4FB4F006AA102 /* Collision.h */,
+				9B47AB4E1AF4FB4F006AA102 /* Collision.m */,
+				9B6C7DA61AF500C500DF6FA9 /* DBManager.h */,
+				9B6C7DA71AF500C500DF6FA9 /* DBManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -204,8 +222,8 @@
 		9B6A85C71ADFDF0000667170 /* SmartTravelTests */ = {
 			isa = PBXGroup;
 			children = (
-				9B6A85CA1ADFDF0000667170 /* SmartTravelTests.m */,
 				9B6A85C81ADFDF0000667170 /* Supporting Files */,
+				9B6C7DA41AF4FFCD00DF6FA9 /* CollisionTests.m */,
 			);
 			path = SmartTravelTests;
 			sourceTree = "<group>";
@@ -213,6 +231,7 @@
 		9B6A85C81ADFDF0000667170 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9B6C7DA21AF4FFA300DF6FA9 /* testDb.sqlite */,
 				9B6A85C91ADFDF0000667170 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -223,6 +242,8 @@
 			children = (
 				3B0D027AB13F8856B8F4BA29 /* Pods-SmartTravel.debug.xcconfig */,
 				6928DA7D73FEF35E1EBF313F /* Pods-SmartTravel.release.xcconfig */,
+				171AC3DFEC430AD99FCFEE1E /* Pods-SmartTravelTests.debug.xcconfig */,
+				8D390935FB46D35A2294BF7D /* Pods-SmartTravelTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -253,9 +274,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B6A85D11ADFDF0000667170 /* Build configuration list for PBXNativeTarget "SmartTravelTests" */;
 			buildPhases = (
+				2E66B30782904D38A1CE32E8 /* Check Pods Manifest.lock */,
 				9B6A85C01ADFDF0000667170 /* Sources */,
 				9B6A85C11ADFDF0000667170 /* Frameworks */,
 				9B6A85C21ADFDF0000667170 /* Resources */,
+				FDEB9675A778653F5CD99EAF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -323,6 +346,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B6C7DA31AF4FFA300DF6FA9 /* testDb.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +368,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartTravel/Pods-SmartTravel-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2E66B30782904D38A1CE32E8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		F438F13402278AB20B8E4A53 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -359,6 +398,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		FDEB9675A778653F5CD99EAF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartTravelTests/Pods-SmartTravelTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -366,8 +420,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B47AB4F1AF4FB4F006AA102 /* Collision.m in Sources */,
 				9B6A85B71ADFDEFF00667170 /* ViewController.m in Sources */,
 				9B6A85B41ADFDEFF00667170 /* AppDelegate.m in Sources */,
+				9B6C7DA81AF500C500DF6FA9 /* DBManager.m in Sources */,
 				9B812DD91AEB3E9D008F17B6 /* HotSpotListViewController.m in Sources */,
 				9B812DDC1AEB3EB7008F17B6 /* SettingsViewController.m in Sources */,
 				9B6A85B11ADFDEFF00667170 /* main.m in Sources */,
@@ -383,7 +439,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B6A85CB1ADFDF0000667170 /* SmartTravelTests.m in Sources */,
+				9B6C7DA51AF4FFCD00DF6FA9 /* CollisionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +587,7 @@
 		};
 		9B6A85D21ADFDF0000667170 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 171AC3DFEC430AD99FCFEE1E /* Pods-SmartTravelTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -550,6 +607,7 @@
 		};
 		9B6A85D31ADFDF0000667170 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D390935FB46D35A2294BF7D /* Pods-SmartTravelTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
