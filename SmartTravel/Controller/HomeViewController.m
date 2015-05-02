@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "CircleMarker.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <SWRevealViewController/SWRevealViewController.h>
 
@@ -16,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
-@property (strong, nonatomic) GMSMarker* locationMarker;
+@property (strong, nonatomic) CircleMarker* locationMarker;
 
 @end
 
@@ -123,8 +124,9 @@
 {
     CLLocation* location = locations.lastObject;
     if (self.locationMarker == nil) {
-        self.locationMarker = [GMSMarker markerWithPosition:location.coordinate];
-        self.locationMarker.icon = [UIImage imageNamed:@"icon_currentlocation"];
+        self.locationMarker = [CircleMarker markerWithPosition:location.coordinate];
+        //self.locationMarker.icon = [UIImage imageNamed:@"icon_currentlocation"];
+        [self.locationMarker loadImages];
         self.locationMarker.map = self.mapView;
     } else {
         self.locationMarker.position = location.coordinate;

@@ -10,6 +10,7 @@
 		6613E4635B5E884F0B519EDB /* libPods-SmartTravel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */; };
 		9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B295C081ADFF0B200758837 /* FirstLaunch.storyboard */; };
 		9B5EE8641AF3EEE600524F4A /* default.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9B5EE8631AF3EEE600524F4A /* default.gpx */; };
+		9B5EE8691AF3F6B400524F4A /* CircleMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EE8681AF3F6B400524F4A /* CircleMarker.m */; };
 		9B6A85B11ADFDEFF00667170 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A85B01ADFDEFF00667170 /* main.m */; };
 		9B6A85B41ADFDEFF00667170 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A85B31ADFDEFF00667170 /* AppDelegate.m */; };
 		9B6A85B71ADFDEFF00667170 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A85B61ADFDEFF00667170 /* ViewController.m */; };
@@ -44,6 +45,8 @@
 		6928DA7D73FEF35E1EBF313F /* Pods-SmartTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravel/Pods-SmartTravel.release.xcconfig"; sourceTree = "<group>"; };
 		9B295C091ADFF0B200758837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FirstLaunch.storyboard; sourceTree = "<group>"; };
 		9B5EE8631AF3EEE600524F4A /* default.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default.gpx; sourceTree = "<group>"; };
+		9B5EE8671AF3F6B400524F4A /* CircleMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircleMarker.h; path = View/CircleMarker.h; sourceTree = "<group>"; };
+		9B5EE8681AF3F6B400524F4A /* CircleMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircleMarker.m; path = View/CircleMarker.m; sourceTree = "<group>"; };
 		9B6A85AB1ADFDEFF00667170 /* SmartTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B6A85AF1ADFDEFF00667170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B6A85B01ADFDEFF00667170 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -108,8 +111,8 @@
 		9B295C071ADFF03200758837 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9B6A85B81ADFDF0000667170 /* Main.storyboard */,
-				9B295C081ADFF0B200758837 /* FirstLaunch.storyboard */,
+				9B5EE8671AF3F6B400524F4A /* CircleMarker.h */,
+				9B5EE8681AF3F6B400524F4A /* CircleMarker.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -140,6 +143,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		9B5EE8661AF3F65E00524F4A /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				9B6A85B81ADFDF0000667170 /* Main.storyboard */,
+				9B295C081ADFF0B200758837 /* FirstLaunch.storyboard */,
+			);
+			name = StoryBoard;
+			sourceTree = "<group>";
+		};
 		9B6A85A21ADFDEFF00667170 = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +175,7 @@
 		9B6A85AD1ADFDEFF00667170 /* SmartTravel */ = {
 			isa = PBXGroup;
 			children = (
+				9B5EE8661AF3F65E00524F4A /* StoryBoard */,
 				9B295C0C1ADFF0C500758837 /* Model */,
 				9B295C071ADFF03200758837 /* View */,
 				9B295C0B1ADFF0BA00758837 /* Controller */,
@@ -360,6 +373,7 @@
 				9B6A85B11ADFDEFF00667170 /* main.m in Sources */,
 				9BCEBC791ADFF317003C9F05 /* TermOfUsageViewController.m in Sources */,
 				9B7E59511AE37FD10008D25C /* TermUsage.m in Sources */,
+				9B5EE8691AF3F6B400524F4A /* CircleMarker.m in Sources */,
 				9B7E59601AE3966F0008D25C /* HomeViewController.m in Sources */,
 				9B7E59551AE3882A0008D25C /* GuideViewController.m in Sources */,
 			);
