@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <FMDB/FMDB.h>
 
 @interface DBManager : NSObject
 
-@property (nonatomic, copy) NSString* path;
-@property (nonatomic, readonly) FMDatabase* db;
++(DBManager *)sharedInstance;
+
+-(NSArray*)selectAllCollisions;
+
+-(NSArray*)selectAllVRUs;
 
 @end

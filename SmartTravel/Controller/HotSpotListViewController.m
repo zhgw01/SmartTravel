@@ -7,13 +7,10 @@
 //
 
 #import "HotSpotListViewController.h"
-#import "AppDelegate.h"
+#import "DBManager.h"
 #import "Collision.h"
 #import "VRU.h"
 #import "HotSpotTableViewCell.h"
-
-static NSString * const kCollisionsQuerySmt = @"select * from Collision";
-static NSString * const kVRUsQuerySmt = @"select * from VRU";
 
 typedef enum : NSUInteger {
     HotSpotTypeCollision,
@@ -27,8 +24,8 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UILabel *vruLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (nonatomic, strong) NSMutableArray* collisions;
-@property (nonatomic, strong) NSMutableArray* vrus;
+@property (nonatomic, strong) NSArray* collisions;
+@property (nonatomic, strong) NSArray* vrus;
 
 @property (nonatomic, assign) HotSpotType type;
 
@@ -51,50 +48,18 @@ typedef enum : NSUInteger {
     self.selectionViewColor= [UIColor colorWithRed:0.3 green:0.64 blue:0.76 alpha:1];
     self.unSelectionViewColor= [UIColor colorWithRed:0.69 green:0.69 blue:0.69 alpha:1];
     
-    self.collisions = [[NSMutableArray alloc] init];
-    self.vrus = [[NSMutableArray alloc] init];
-    
     // Query all collsions and VRUs from database
     // and update count labels
-    AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
-    NSUInteger collisionCount = [self getCollisions:appDelegate];
-    self.collisionLabel.text = [NSString stringWithFormat:@"%lu", collisionCount];
+    self.collisions = [[DBManager sharedInstance] selectAllCollisions];
+    self.collisionLabel.text = [NSString stringWithFormat:@"%lu", self.collisions.count];
     
-    NSUInteger vruCount = [self getVRUs:appDelegate];
-    self.vruLabel.text = [NSString stringWithFormat:@"%lu", vruCount];
+    self.vrus = [[DBManager sharedInstance] selectAllVRUs];
+    self.vruLabel.text = [NSString stringWithFormat:@"%lu", self.vrus.count];
     
     // Default tab is collision
     self.type = HotSpotTypeCollision;
     self.collsionHotSpotIndicatorView.backgroundColor = self.selectionViewColor;
     self.vruHotSpotIndicatorView.backgroundColor = self.unSelectionViewColor;
-}
-
-- (NSUInteger)getCollisions:(AppDelegate*)appDelegate
-{
-    FMResultSet *resultSet = [appDelegate.database executeQuery:kCollisionsQuerySmt];
-    NSError *error = nil;
-    while ([resultSet next])
-    {
-        Collision *collision = [MTLFMDBAdapter modelOfClass:Collision.class fromFMResultSet:resultSet error:&error];
-        NSAssert(collision, @"Collsion should be non nil");
-        [self.collisions addObject:collision];
-    }
-    
-    return [self.collisions count];
-}
-
-- (NSUInteger)getVRUs:(AppDelegate*)appDelegate
-{
-    FMResultSet *resultSet = [appDelegate.database executeQuery:kVRUsQuerySmt];
-    NSError *error = nil;
-    while ([resultSet next])
-    {
-        VRU *vru = [MTLFMDBAdapter modelOfClass:VRU.class fromFMResultSet:resultSet error:&error];
-        NSAssert(vru, @"VRU should be non nil");
-        [self.vrus addObject:vru];
-    }
-    
-    return [self.vrus count];
 }
 
 - (void)didReceiveMemoryWarning {
