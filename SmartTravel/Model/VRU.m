@@ -15,6 +15,7 @@
     return @{
              @"locationCode": @"LOC_CODE",
              @"location": @"LOCATION",
+             @"portion": @"PORTION",
              @"count": @"COUNT",
              @"latitude": @"LAT",
              @"longtitude": @"LONG"

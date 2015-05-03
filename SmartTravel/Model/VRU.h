@@ -14,6 +14,7 @@
 
 @property (nonatomic, copy) NSString *locationCode;
 @property (nonatomic, copy) NSString *location;
+@property (nonatomic, copy) NSString *portion;
 @property (nonatomic, copy) NSNumber *count;
 @property (nonatomic, copy) NSNumber *latitude;
 @property (nonatomic, copy) NSNumber *longtitude;

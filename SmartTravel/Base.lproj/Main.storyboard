@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Cd2-aD-ewE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Cd2-aD-ewE">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -106,9 +106,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gw5-dR-rjs">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gw5-dR-rjs" userLabel="CollisionSelectionIndicatorView">
                                 <rect key="frame" x="75" y="47" width="10" height="277"/>
                                 <color key="backgroundColor" red="0.31764705882352939" green="0.71372549019607845" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SP8-fd-ZMe" userLabel="VRUSelectionIndicatorView">
+                                <rect key="frame" x="75" y="324" width="10" height="277"/>
+                                <color key="backgroundColor" red="0.31764705879999999" green="0.71372549019999998" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFE-vU-s9j" userLabel="LogoView">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
@@ -152,65 +156,92 @@
                                             <constraint firstAttribute="width" constant="55" id="kiL-YN-KcJ"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDf-BK-T1r">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDf-BK-T1r" userLabel="collisionCount">
                                         <rect key="frame" x="0.0" y="117" width="75" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collision " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNJ-K0-8bz">
-                                        <rect key="frame" x="0.0" y="159" width="75" height="15"/>
+                                        <rect key="frame" x="0.0" y="159" width="75" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                         <color key="textColor" red="0.11372549019607843" green="0.20000000000000001" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZX-sl-FfL">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZX-sl-FfL" userLabel="vruCount">
                                         <rect key="frame" x="0.0" y="394" width="75" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <color key="textColor" red="0.95294117647058818" green="0.78431372549019607" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VRU" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV7-PT-zZp">
-                                        <rect key="frame" x="0.0" y="438" width="75" height="15"/>
+                                        <rect key="frame" x="0.0" y="438" width="75" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                         <color key="textColor" red="0.1137254902" green="0.20000000000000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hot Spot" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OtR-cK-Vuo">
-                                        <rect key="frame" x="0.0" y="453" width="75" height="15"/>
+                                        <rect key="frame" x="0.0" y="452" width="75" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                         <color key="textColor" red="0.1137254902" green="0.20000000000000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hot Spot" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ef-ku-WXC">
-                                        <rect key="frame" x="0.0" y="174" width="75" height="15"/>
+                                        <rect key="frame" x="0.0" y="173" width="75" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                         <color key="textColor" red="0.1137254902" green="0.20000000000000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="saa-Iq-2Fp" userLabel="CollisionButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="94" height="276.5"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="collisionButtonPressed:" destination="tEd-je-gPE" eventType="touchUpInside" id="p97-7y-UA7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HvW-AF-c2P" userLabel="VRUButton">
+                                        <rect key="frame" x="18" y="276.5" width="94" height="276.5"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="vruButtonPressed:" destination="tEd-je-gPE" eventType="touchUpInside" id="ne5-Tz-kCk"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="HvW-AF-c2P" secondAttribute="width" multiplier="0.8" id="0z7-Z6-Riy"/>
                                     <constraint firstAttribute="centerY" secondItem="vSj-cj-3oJ" secondAttribute="centerY" id="1qy-fJ-2EA"/>
                                     <constraint firstAttribute="centerY" secondItem="CDf-BK-T1r" secondAttribute="centerY" multiplier="2:1" id="257-7o-xfC"/>
                                     <constraint firstItem="6Ef-ku-WXC" firstAttribute="top" secondItem="rNJ-K0-8bz" secondAttribute="bottom" id="2EL-GD-G9g"/>
+                                    <constraint firstItem="saa-Iq-2Fp" firstAttribute="leading" secondItem="Rzg-aw-n90" secondAttribute="leading" id="2hT-qL-bmU"/>
                                     <constraint firstAttribute="trailing" secondItem="CDf-BK-T1r" secondAttribute="trailing" id="3l9-1P-LYT"/>
+                                    <constraint firstItem="saa-Iq-2Fp" firstAttribute="top" secondItem="Rzg-aw-n90" secondAttribute="top" id="3mT-hn-3hH"/>
                                     <constraint firstItem="rNJ-K0-8bz" firstAttribute="top" secondItem="CDf-BK-T1r" secondAttribute="bottom" id="9ov-3D-sIc"/>
                                     <constraint firstItem="DV7-PT-zZp" firstAttribute="leading" secondItem="Rzg-aw-n90" secondAttribute="leading" id="Brs-1I-Pp0"/>
                                     <constraint firstItem="rNJ-K0-8bz" firstAttribute="leading" secondItem="Rzg-aw-n90" secondAttribute="leading" id="D3p-EV-Fx5"/>
+                                    <constraint firstAttribute="bottom" secondItem="HvW-AF-c2P" secondAttribute="bottom" id="DZR-i1-yHq"/>
                                     <constraint firstItem="OtR-cK-Vuo" firstAttribute="leading" secondItem="Rzg-aw-n90" secondAttribute="leading" id="Ewl-Co-kc8"/>
                                     <constraint firstItem="mZX-sl-FfL" firstAttribute="leading" secondItem="Rzg-aw-n90" secondAttribute="leading" id="MRs-gp-CI0"/>
                                     <constraint firstAttribute="trailing" secondItem="6Ef-ku-WXC" secondAttribute="trailing" id="OQb-HH-6d3"/>
                                     <constraint firstAttribute="trailing" secondItem="OtR-cK-Vuo" secondAttribute="trailing" id="SK4-U3-b5I"/>
                                     <constraint firstAttribute="trailing" secondItem="rNJ-K0-8bz" secondAttribute="trailing" id="Slx-80-MeQ"/>
                                     <constraint firstAttribute="trailing" secondItem="DV7-PT-zZp" secondAttribute="trailing" id="WW0-ZU-ga3"/>
+                                    <constraint firstItem="HvW-AF-c2P" firstAttribute="height" secondItem="Rzg-aw-n90" secondAttribute="height" multiplier="0.5" id="Yd5-ew-guQ"/>
+                                    <constraint firstItem="HvW-AF-c2P" firstAttribute="leading" secondItem="Rzg-aw-n90" secondAttribute="leading" constant="18" id="bmT-Lc-jib"/>
                                     <constraint firstAttribute="trailing" secondItem="mZX-sl-FfL" secondAttribute="trailing" id="cq7-nh-Lke"/>
                                     <constraint firstItem="OtR-cK-Vuo" firstAttribute="top" secondItem="DV7-PT-zZp" secondAttribute="bottom" id="gcn-Lb-G6W"/>
                                     <constraint firstAttribute="centerX" secondItem="vSj-cj-3oJ" secondAttribute="centerX" id="iUW-oj-jo0"/>
+                                    <constraint firstAttribute="width" secondItem="saa-Iq-2Fp" secondAttribute="width" multiplier="0.8" id="jfs-ax-eId"/>
                                     <constraint firstItem="6Ef-ku-WXC" firstAttribute="leading" secondItem="Rzg-aw-n90" secondAttribute="leading" id="jwk-me-DgB"/>
                                     <constraint firstAttribute="centerY" secondItem="mZX-sl-FfL" secondAttribute="centerY" multiplier="2:3" id="mCV-hW-WUb"/>
                                     <constraint firstItem="CDf-BK-T1r" firstAttribute="leading" secondItem="Rzg-aw-n90" secondAttribute="leading" id="qBC-79-yFO"/>
                                     <constraint firstAttribute="width" constant="75" id="tTJ-4b-3Ry"/>
+                                    <constraint firstItem="saa-Iq-2Fp" firstAttribute="height" secondItem="Rzg-aw-n90" secondAttribute="height" multiplier="0.5" id="xok-FY-KYB"/>
                                     <constraint firstItem="DV7-PT-zZp" firstAttribute="top" secondItem="mZX-sl-FfL" secondAttribute="bottom" constant="2" id="ySk-tV-xvZ"/>
                                 </constraints>
                             </view>
@@ -218,6 +249,10 @@
                                 <rect key="frame" x="85" y="47" width="215" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="tEd-je-gPE" id="QZf-Zd-Pxy"/>
+                                    <outlet property="delegate" destination="tEd-je-gPE" id="Udi-uB-Zyd"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
@@ -232,20 +267,20 @@
                             <constraint firstItem="NFE-vU-s9j" firstAttribute="leading" secondItem="OXf-0N-oam" secondAttribute="leading" id="Zsx-va-epS"/>
                             <constraint firstItem="e8B-aC-8n1" firstAttribute="trailing" secondItem="NFE-vU-s9j" secondAttribute="trailing" id="bUx-CZ-s4I"/>
                             <constraint firstItem="vSj-cj-3oJ" firstAttribute="bottom" secondItem="gw5-dR-rjs" secondAttribute="bottom" id="ey2-EV-0by"/>
+                            <constraint firstItem="gw5-dR-rjs" firstAttribute="width" secondItem="SP8-fd-ZMe" secondAttribute="width" id="fsj-2P-PPl"/>
+                            <constraint firstItem="SP8-fd-ZMe" firstAttribute="top" secondItem="gw5-dR-rjs" secondAttribute="bottom" id="g58-5J-pL3"/>
+                            <constraint firstItem="gw5-dR-rjs" firstAttribute="leading" secondItem="SP8-fd-ZMe" secondAttribute="leading" id="ggz-wX-KF9"/>
                             <constraint firstItem="Rzg-aw-n90" firstAttribute="trailing" secondItem="gw5-dR-rjs" secondAttribute="leading" id="i85-Vx-RpP"/>
+                            <constraint firstItem="gw5-dR-rjs" firstAttribute="height" secondItem="SP8-fd-ZMe" secondAttribute="height" id="iMV-pP-PRa"/>
                             <constraint firstItem="Rzg-aw-n90" firstAttribute="leading" secondItem="OXf-0N-oam" secondAttribute="leading" id="qL5-qk-7Pa"/>
                             <constraint firstItem="e8B-aC-8n1" firstAttribute="leading" secondItem="gw5-dR-rjs" secondAttribute="trailing" id="rgI-Ga-8HM"/>
-                            <constraint firstItem="e8B-aC-8n1" firstAttribute="bottom" secondItem="vSj-cj-3oJ" secondAttribute="bottom" constant="276" id="tqv-vT-9mo"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="tqv-vT-9mo"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="collisionLabel" destination="CDf-BK-T1r" id="r8S-RS-OWZ"/>
-                        <outlet property="tableView" destination="e8B-aC-8n1" id="YRv-5B-2Ch"/>
+                        <outlet property="collsionHotSpotIndicatorView" destination="gw5-dR-rjs" id="X7a-DY-Ocy"/>
+                        <outlet property="tableView" destination="e8B-aC-8n1" id="i9L-33-sOO"/>
+                        <outlet property="vruHotSpotIndicatorView" destination="SP8-fd-ZMe" id="nfW-oC-NNZ"/>
                         <outlet property="vruLabel" destination="mZX-sl-FfL" id="dPT-tM-DL0"/>
                     </connections>
                 </viewController>
