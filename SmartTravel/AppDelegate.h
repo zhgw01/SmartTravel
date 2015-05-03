@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FMDB/FMDB.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) FMDatabase *database;
 
 @end
 

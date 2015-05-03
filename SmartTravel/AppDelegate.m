@@ -18,6 +18,10 @@
 
 static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
 
+// TODO: Currently, data in smartTravelDb are for test purpose.
+// Please refill real data into smartTravelDb
+static NSString * const kDbName = @"smartTravelDb";
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     
@@ -28,6 +32,16 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
     
     //Initialize GMap
     [GMSServices provideAPIKey:GMAP_API_KEY];
+    
+    //Initialize db connection
+    NSString *dbFile = [[NSBundle mainBundle] pathForResource:kDbName ofType:@"sqlite"];
+    NSAssert(dbFile, @"Can't find db file in main bundle");
+    
+    self.database = [FMDatabase databaseWithPath:dbFile];
+    NSAssert(self.database, @"Initialize db failed");
+    
+    BOOL res = [self.database open];
+    NSAssert(res, @"Open db failed");
     
     return YES;
 }
@@ -58,6 +72,10 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    // Close db connection
+    BOOL res = [self.database close];
+    NSAssert(res, @"Close db failed");
 }
 
 @end
