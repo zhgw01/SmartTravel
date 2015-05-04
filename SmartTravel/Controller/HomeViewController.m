@@ -10,8 +10,9 @@
 #import "CircleMarker.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <SWRevealViewController/SWRevealViewController.h>
+#import "HotSpotListViewController.h"
 
-@interface HomeViewController ()<SWRevealViewControllerDelegate, CLLocationManagerDelegate>
+@interface HomeViewController ()<SWRevealViewControllerDelegate, CLLocationManagerDelegate, HotSpotListViewControllerMapDelegate>
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hotspotListButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
@@ -104,9 +105,21 @@
 {
     if (position != FrontViewPositionLeft) {
         self.mapView.userInteractionEnabled = NO;
+        
+        HotSpotListViewController* hotSpotListVC = (HotSpotListViewController*)revealController.rearViewController;
+        if (hotSpotListVC)
+        {
+            hotSpotListVC.mapDelegate = self;
+        }
     }
     else {
         self.mapView.userInteractionEnabled = YES;
+        
+        HotSpotListViewController* hotSpotListVC = (HotSpotListViewController*)revealController.rearViewController;
+        if (hotSpotListVC)
+        {
+            hotSpotListVC.mapDelegate = nil;
+        }
     }
 }
 
@@ -145,5 +158,28 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - <HotSpotListViewControllerMapDelegate> methods
+
+- (void)hotSpotTableViewCellDidSelectWithLatitude:(NSNumber*)latitude
+                                     andLongitude:(NSNumber*)longitude
+{
+    // Hide HotSpotListView
+    [self.revealViewController revealToggle:self];
+
+    if (latitude == nil || longitude == nil)
+    {
+        // Zoom to default location if input is not valid
+        [self zoomToEdmonton];
+    }
+    else
+    {
+        // Zoom to hot spot location
+        GMSCameraPosition* targetPos = [GMSCameraPosition cameraWithLatitude:[latitude doubleValue]
+                                                                   longitude:[longitude doubleValue]
+                                                                        zoom:16.0];
+        self.mapView.camera = targetPos;
+    }
+}
 
 @end

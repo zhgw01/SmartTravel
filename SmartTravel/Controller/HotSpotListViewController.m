@@ -158,7 +158,25 @@ typedef enum : NSUInteger {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // TODO: Implement
-    // Show the location in map
+    NSNumber* latitude = nil;
+    NSNumber* longtitude = nil;
+    
+    if (self.type == HotSpotTypeCollision)
+    {
+        Collision* collision = [self.collisions objectAtIndex:indexPath.row];
+        latitude = [collision.latitude copy];
+        longtitude = [collision.longtitude copy];
+    }
+    else if (self.type == HotSpotTypeVRU)
+    {
+        VRU* vru = [self.vrus objectAtIndex:indexPath.row];
+        latitude = [vru.latitude copy];
+        longtitude = [vru.longtitude copy];
+    }
+
+    if ([self.mapDelegate respondsToSelector:@selector(hotSpotTableViewCellDidSelectWithLatitude:andLongitude:)])
+    {
+        [self.mapDelegate hotSpotTableViewCellDidSelectWithLatitude:latitude andLongitude:longtitude];
+    }
 }
 @end
