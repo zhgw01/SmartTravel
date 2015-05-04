@@ -59,7 +59,7 @@ typedef enum : NSUInteger {
     // Default tab is collision
     self.type = HotSpotTypeCollision;
     self.collsionHotSpotIndicatorView.backgroundColor = self.selectionViewColor;
-    self.vruHotSpotIndicatorView.backgroundColor = self.unSelectionViewColor;
+    self.vruHotSpotIndicatorView.backgroundColor = self.unSelectionViewColor;    
 }
 
 - (void)didReceiveMemoryWarning {
