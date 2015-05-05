@@ -19,6 +19,7 @@
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) CircleMarker* locationMarker;
+@property (assign, nonatomic) BOOL zoomToCurrent;
 
 @end
 
@@ -31,6 +32,8 @@
     [self setupSideBarMenu];
     [self setupMap];
     [self zoomToEdmonton];
+    
+    self.zoomToCurrent = NO;
 }
 
 - (void) setupMap
@@ -92,6 +95,9 @@
     if (!self.mapView.myLocationEnabled) {
         [self requestLocationAuthorization];
     }
+    
+    self.zoomToCurrent = YES;
+    
 }
 
 - (void) requestLocationAuthorization {
@@ -145,8 +151,12 @@
         self.locationMarker.position = location.coordinate;
     }
     
-    //GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:location.coordinate];
-    //[self.mapView animateWithCameraUpdate:newTarget];
+    if (self.zoomToCurrent) {
+        GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:location.coordinate];
+        [self.mapView animateWithCameraUpdate:newTarget];
+        
+        self.zoomToCurrent = NO;
+    }
 }
 
 /*
