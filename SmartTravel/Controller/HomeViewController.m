@@ -11,6 +11,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <SWRevealViewController/SWRevealViewController.h>
 #import "HotSpotListViewController.h"
+#import "MarkerManager.h"
 
 @interface HomeViewController ()<SWRevealViewControllerDelegate, CLLocationManagerDelegate, HotSpotListViewControllerMapDelegate>
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
@@ -20,6 +21,7 @@
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) CircleMarker* locationMarker;
 @property (assign, nonatomic) BOOL zoomToCurrent;
+@property (strong, nonatomic) MarkerManager* markerManager;
 
 @end
 
@@ -34,6 +36,7 @@
     [self zoomToEdmonton];
     
     self.zoomToCurrent = NO;
+    self.markerManager = [[MarkerManager alloc] init];
 }
 
 - (void) setupMap
@@ -136,6 +139,7 @@
     if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         //self.mapView.myLocationEnabled = YES;
         [self.locationManager startUpdatingLocation];
+        [self.markerManager drawMarkers:self.mapView];
     }
 }
 

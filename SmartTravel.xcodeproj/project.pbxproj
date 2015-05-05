@@ -35,6 +35,7 @@
 		9B812DDC1AEB3EB7008F17B6 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B812DDB1AEB3EB7008F17B6 /* SettingsViewController.m */; };
 		9BC3392F1AE296250046AAB5 /* termofusage.html in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3392E1AE296250046AAB5 /* termofusage.html */; };
 		9BCEBC791ADFF317003C9F05 /* TermOfUsageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCEBC781ADFF317003C9F05 /* TermOfUsageViewController.m */; };
+		9BDBCA461AF8EEE600F23275 /* MarkerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDBCA451AF8EEE600F23275 /* MarkerManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,8 @@
 		9BC3392E1AE296250046AAB5 /* termofusage.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = termofusage.html; sourceTree = "<group>"; };
 		9BCEBC771ADFF317003C9F05 /* TermOfUsageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TermOfUsageViewController.h; path = Controller/TermOfUsageViewController.h; sourceTree = "<group>"; };
 		9BCEBC781ADFF317003C9F05 /* TermOfUsageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TermOfUsageViewController.m; path = Controller/TermOfUsageViewController.m; sourceTree = "<group>"; };
+		9BDBCA441AF8EEE600F23275 /* MarkerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkerManager.h; path = ViewModel/MarkerManager.h; sourceTree = "<group>"; };
+		9BDBCA451AF8EEE600F23275 /* MarkerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarkerManager.m; path = ViewModel/MarkerManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +211,7 @@
 		9B6A85AD1ADFDEFF00667170 /* SmartTravel */ = {
 			isa = PBXGroup;
 			children = (
+				9BDBCA431AF8EE8F00F23275 /* ViewModel */,
 				9B5EE8661AF3F65E00524F4A /* StoryBoard */,
 				9B295C0C1ADFF0C500758837 /* Model */,
 				9B295C071ADFF03200758837 /* View */,
@@ -251,6 +255,15 @@
 				9B6A85C91ADFDF0000667170 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9BDBCA431AF8EE8F00F23275 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9BDBCA441AF8EEE600F23275 /* MarkerManager.h */,
+				9BDBCA451AF8EEE600F23275 /* MarkerManager.m */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		EBBE7086B285E4C69B80CD01 /* Pods */ = {
@@ -452,6 +465,7 @@
 				9B5EE8691AF3F6B400524F4A /* CircleMarker.m in Sources */,
 				9B7E59601AE3966F0008D25C /* HomeViewController.m in Sources */,
 				9B7E59551AE3882A0008D25C /* GuideViewController.m in Sources */,
+				9BDBCA461AF8EEE600F23275 /* MarkerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
