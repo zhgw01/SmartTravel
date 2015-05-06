@@ -12,6 +12,7 @@
 #import <SWRevealViewController/SWRevealViewController.h>
 #import "HotSpotListViewController.h"
 #import "WarningView.h"
+#import "MarkerManager.h"
 
 @interface HomeViewController ()<SWRevealViewControllerDelegate, CLLocationManagerDelegate, HotSpotListViewControllerMapDelegate>
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
@@ -20,6 +21,8 @@
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) CircleMarker* locationMarker;
+@property (assign, nonatomic) BOOL zoomToCurrent;
+@property (strong, nonatomic) MarkerManager* markerManager;
 
 @end
 
@@ -32,6 +35,9 @@
     [self setupSideBarMenu];
     [self setupMap];
     [self zoomToEdmonton];
+    
+    self.zoomToCurrent = NO;
+    self.markerManager = [[MarkerManager alloc] init];
 }
 
 - (void) setupMap
@@ -97,6 +103,9 @@
     if (!self.mapView.myLocationEnabled) {
         [self requestLocationAuthorization];
     }
+    
+    self.zoomToCurrent = YES;
+    
 }
 
 - (void) requestLocationAuthorization {
@@ -135,6 +144,7 @@
     if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         //self.mapView.myLocationEnabled = YES;
         [self.locationManager startUpdatingLocation];
+        [self.markerManager drawMarkers:self.mapView];
     }
 }
 
@@ -150,8 +160,12 @@
         self.locationMarker.position = location.coordinate;
     }
     
-    //GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:location.coordinate];
-    //[self.mapView animateWithCameraUpdate:newTarget];
+    if (self.zoomToCurrent) {
+        GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:location.coordinate];
+        [self.mapView animateWithCameraUpdate:newTarget];
+        
+        self.zoomToCurrent = NO;
+    }
 }
 
 /*
