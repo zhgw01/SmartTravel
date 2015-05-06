@@ -10,24 +10,24 @@
 
 @interface WarningView ()
 
-@property (weak, nonatomic) IBOutlet UIView *view;
 @property (weak, nonatomic) IBOutlet UIView *gripView;
 @property (weak, nonatomic) IBOutlet UIView *gripBackgroundView;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rankLabel;
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
+
+@property (assign, nonatomic) WarningType type;
 
 @end
 
 @implementation WarningView
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (void)awakeFromNib
 {
-    [[NSBundle mainBundle] loadNibNamed:@"WarningView" owner:self options:nil];
-    // Set the view equal width and 1/3 height with parent
-    CGRect myFrame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height * 0.3);
-    if (self = [super initWithFrame:myFrame])
-    {
-        [self addSubview:self.view];
-    }
-    return self;
+    self.gripView.layer.cornerRadius = 4.0f;
+    self.gripView.layer.masksToBounds = YES;
 }
 
 /*
@@ -38,16 +38,6 @@
 }
 */
 
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    self.view.frame = self.frame;
-    
-    self.gripView.layer.cornerRadius = 4.0f;
-    self.gripView.layer.masksToBounds = YES;
-}
-
 - (void)didMoveToSuperview
 {
     UIPanGestureRecognizer* panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
@@ -57,10 +47,95 @@
 - (void)handlePan:(UIPanGestureRecognizer*)recognizer
 {
     CGPoint translatePoint = [recognizer translationInView:self.gripBackgroundView];
-    // Do not dismiss this view if the pan distance is too small
+    // Do not hide this view if the pan distance is too small
     if (translatePoint.y < -5)
     {
-        [self removeFromSuperview];
+        self.hidden = YES;
+    }
+}
+
+- (NSString*)getTypeString:(WarningType)type
+{
+    switch (type) {
+        case CollisionWarning:
+            return @"Car/Bus";
+            break;
+        case VRUWarningType:
+            return @"Bicyle/Pedestrian";
+        case WarningTypeCnt:
+            return nil;
+        default:
+            break;
+    }
+}
+
+- (UIColor*)getTypeColor:(WarningType)type
+{
+    switch (type) {
+        case CollisionWarning:
+            return [UIColor redColor];
+            break;
+        case VRUWarningType:
+            return [UIColor orangeColor];
+        case WarningTypeCnt:
+            return nil;
+        default:
+            break;
+    }
+}
+
+- (void)updateType:(WarningType)type
+          location:(NSString*)location
+              rank:(NSNumber*)rank
+             count:(NSNumber*)count
+          distance:(NSNumber*)distance
+{
+    BOOL needsDisplay = NO;
+    
+    if (type != self.type)
+    {
+        self.type = type;
+        UIColor* typeColor = [self getTypeColor:type];
+        self.typeLabel.textColor = typeColor;
+        self.typeLabel.text = [self getTypeString:type];
+        
+        self.distanceLabel.textColor = typeColor;
+        needsDisplay = YES;
+    }
+    
+    if (![location isEqualToString:self.locationLabel.text])
+    {
+        self.locationLabel.text = location;
+        needsDisplay = YES;
+    }
+    
+    NSNumberFormatter* numberFormat = [[NSNumberFormatter alloc] init];
+    numberFormat.numberStyle = NSNumberFormatterNoStyle;
+    
+    NSString* rankStr = [numberFormat stringFromNumber:rank];
+    if (![rankStr isEqualToString:self.rankLabel.text])
+    {
+        self.rankLabel.text = rankStr;
+        needsDisplay = YES;
+    }
+    
+    NSString* countStr = [numberFormat stringFromNumber:count];
+    if (![countStr isEqualToString:self.countLabel.text])
+    {
+        self.countLabel.text = countStr;
+        needsDisplay = YES;
+    }
+    
+    NSString* distanceStr = [numberFormat stringFromNumber:distance];
+    if (![distanceStr isEqualToString:self.distanceLabel.text])
+    {
+        self.distanceLabel.text = [NSString stringWithFormat:@"%@ m", distanceStr];
+        needsDisplay = YES;
+    }
+    
+    if (needsDisplay)
+    {
+        [self setNeedsDisplay];
     }
 }
 

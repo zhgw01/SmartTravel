@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, WarningType) {
+    CollisionWarning,
+    VRUWarningType,
+    WarningTypeCnt
+};
+
 @interface WarningView : UIView
+
+- (void)updateType:(WarningType)type
+          location:(NSString*)location
+              rank:(NSNumber*)rank
+             count:(NSNumber*)count
+          distance:(NSNumber*)distance;
 
 @end
