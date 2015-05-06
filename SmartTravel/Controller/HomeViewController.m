@@ -24,6 +24,8 @@
 @property (assign, nonatomic) BOOL zoomToCurrent;
 @property (strong, nonatomic) MarkerManager* markerManager;
 
+@property (strong, nonatomic) WarningView *warningView;
+
 @end
 
 @implementation HomeViewController
@@ -34,10 +36,24 @@
     [self setupNavigationBar];
     [self setupSideBarMenu];
     [self setupMap];
+    [self setupWarning];
     [self zoomToEdmonton];
     
     self.zoomToCurrent = NO;
     self.markerManager = [[MarkerManager alloc] init];
+}
+
+- (void)setupWarning
+{
+    self.warningView = [[[NSBundle mainBundle] loadNibNamed:@"WarningView" owner:self options:nil] firstObject];
+    [self.view addSubview:self.warningView ];
+    
+    self.warningView.frame = CGRectMake(self.view.frame.origin.x,
+                                        self.view.frame.origin.y + self.navigationController.navigationBar.frame.size.height,
+                                        self.view.frame.size.width,
+                                        self.view.frame.size.height * 0.3);
+    
+    self.warningView.hidden = YES;
 }
 
 - (void) setupMap
@@ -89,14 +105,21 @@
     GMSCameraUpdate *zoomIn = [GMSCameraUpdate zoomIn];
     [self.mapView animateWithCameraUpdate:zoomIn];
     
-//    Comment out following codes to test warning view
-//    WarningView* warning = [[WarningView alloc] initWithFrame:self.view.frame];
-//    [self.view addSubview:warning];
+    // Comment out following codes to test warning view
+    self.warningView.hidden = !self.warningView.hidden;
 }
 
 - (IBAction)zoomOut:(id)sender {
     GMSCameraUpdate *zoomOut = [GMSCameraUpdate zoomOut];
     [self.mapView animateWithCameraUpdate:zoomOut];
+    
+    // Comment out following codes to test warning view
+    [self.warningView updateType:VRUWarningType
+                        location:@"locate test string"
+                            rank:[NSNumber numberWithInt:2]
+                           count:[NSNumber numberWithInt:10]
+                        distance:[NSNumber numberWithFloat:300.5]];
+
 }
 - (IBAction)locateMe:(id)sender {
     

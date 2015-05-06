@@ -22,16 +22,17 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="447-5n-PAM" userLabel="LocationLabel">
-                        <rect key="frame" x="8" y="25" width="180" height="16"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="180" id="ZPe-3H-0vv"/>
-                        </constraints>
+                        <rect key="frame" x="8" y="25" width="258.5" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed3-TA-p5O" userLabel="CountLabel">
-                        <rect key="frame" x="281" y="25.5" width="35.5" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed3-TA-p5O" userLabel="CountLabel">
+                        <rect key="frame" x="286.5" y="25.5" width="30" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="ZJf-iE-7HK"/>
+                            <constraint firstAttribute="width" constant="30" id="bV7-UD-JQM"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -39,6 +40,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="447-5n-PAM" firstAttribute="leading" secondItem="RUV-KK-iha" secondAttribute="leading" id="04K-gN-UbF"/>
+                    <constraint firstItem="Ed3-TA-p5O" firstAttribute="leading" secondItem="447-5n-PAM" secondAttribute="trailing" constant="20" id="0uO-Lh-i7b"/>
                     <constraint firstItem="RUV-KK-iha" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="7Kd-C7-rgx"/>
                     <constraint firstItem="Ed3-TA-p5O" firstAttribute="top" secondItem="447-5n-PAM" secondAttribute="top" id="Eov-Ad-Rji"/>
                     <constraint firstItem="447-5n-PAM" firstAttribute="top" secondItem="RUV-KK-iha" secondAttribute="bottom" constant="2" id="Mkb-P3-yTU"/>
