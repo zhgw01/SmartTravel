@@ -88,10 +88,6 @@
 - (IBAction)zoomIn:(id)sender {
     GMSCameraUpdate *zoomIn = [GMSCameraUpdate zoomIn];
     [self.mapView animateWithCameraUpdate:zoomIn];
-    
-//    Comment out following codes to test warning view
-//    WarningView* warning = [[WarningView alloc] initWithFrame:self.view.frame];
-//    [self.view addSubview:warning];
 }
 
 - (IBAction)zoomOut:(id)sender {
@@ -198,6 +194,13 @@
                                                                         zoom:16.0];
         self.mapView.camera = targetPos;
     }
+}
+
+#pragma mark - Pop Views, maybe we can make it a delegate
+-(void)popWarningView
+{
+    WarningView* warning = [[WarningView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:warning];
 }
 
 @end

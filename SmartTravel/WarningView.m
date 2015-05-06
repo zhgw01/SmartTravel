@@ -22,7 +22,7 @@
 {
     [[NSBundle mainBundle] loadNibNamed:@"WarningView" owner:self options:nil];
     // Set the view equal width and 1/3 height with parent
-    CGRect myFrame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height * 0.3);
+    CGRect myFrame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height * 0.35);
     if (self = [super initWithFrame:myFrame])
     {
         [self addSubview:self.view];
