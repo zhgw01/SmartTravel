@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6751"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VRUWarningView">
+            <connections>
+                <outlet property="gripBackgroundView" destination="qMd-pw-02X" id="Xtd-3S-Q79"/>
+                <outlet property="gripView" destination="BMd-ze-nQf" id="aw4-az-a25"/>
+                <outlet property="view" destination="iN0-l3-epB" id="JHy-Iu-mgg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WarningView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qMd-pw-02X" userLabel="GripBKView">
+                    <rect key="frame" x="0.0" y="584" width="600" height="16"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMd-ze-nQf" userLabel="GripView">
+                            <rect key="frame" x="270" y="4" width="60" height="8"/>
+                            <color key="backgroundColor" red="0.38039215686274508" green="0.76078431372549016" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="CbQ-7e-Z8u" userLabel="Height - (16) - GripBKView"/>
+                        <constraint firstItem="BMd-ze-nQf" firstAttribute="centerX" secondItem="qMd-pw-02X" secondAttribute="centerX" id="Hrh-BG-fmR"/>
+                        <constraint firstItem="BMd-ze-nQf" firstAttribute="height" secondItem="qMd-pw-02X" secondAttribute="height" multiplier="1:2" id="JVJ-zT-jz9"/>
+                        <constraint firstItem="BMd-ze-nQf" firstAttribute="width" secondItem="qMd-pw-02X" secondAttribute="width" multiplier="1:10" id="Z2f-Rm-KCa"/>
+                        <constraint firstItem="BMd-ze-nQf" firstAttribute="centerY" secondItem="qMd-pw-02X" secondAttribute="centerY" id="brp-0Y-CJV"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="qMd-pw-02X" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Jbj-jp-Edx" userLabel="Horizontal Space - GripBKView- View"/>
+                <constraint firstItem="qMd-pw-02X" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="xs9-1M-D3Z" userLabel="Vertical Space - GripBKView- View"/>
+                <constraint firstItem="qMd-pw-02X" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="yQl-LR-XSn" userLabel="Horizontal Space - GripBKView - View"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
