@@ -1,18 +1,18 @@
 PODS:
-  - FMDB (2.4):
-    - FMDB/standard (= 2.4)
-  - FMDB/common (2.4)
-  - FMDB/standard (2.4):
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
     - FMDB/common
-  - Google-Maps-iOS-SDK (1.9.0)
-  - Mantle (1.5.1):
-    - Mantle/extobjc (= 1.5.1)
-  - Mantle/extobjc (1.5.1)
-  - MTLFMDBAdapter (0.1.5):
+  - Google-Maps-iOS-SDK (1.9.2)
+  - Mantle (1.5.4):
+    - Mantle/extobjc (= 1.5.4)
+  - Mantle/extobjc (1.5.4)
+  - MTLFMDBAdapter (0.1.8):
     - FMDB (~> 2.3)
     - Mantle (~> 1.5)
-  - OCHamcrest (4.0.1)
-  - OCMockito (1.3.1):
+  - OCHamcrest (4.1.1)
+  - OCMockito (1.4.0):
     - OCHamcrest (~> 4.0)
   - SWRevealViewController (2.3.0)
 
@@ -24,12 +24,12 @@ DEPENDENCIES:
   - SWRevealViewController
 
 SPEC CHECKSUMS:
-  FMDB: 0b2fa25e5264ef177973c0cb8c02c711107979aa
-  Google-Maps-iOS-SDK: d176593f33f931a500474a46c2a3c3d6d4b187cd
-  Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
-  MTLFMDBAdapter: 0050411a678c877a7ed76c47183b9259c54d5be8
-  OCHamcrest: b464725bbb48d0f1cd9c6f4ec3cb35fe0c4f2b94
-  OCMockito: 57b8c4bb54ff3a4a14eb2174f9e57faf9f56efb6
-  SWRevealViewController: f6d80638b8e12323e87ac79562345403a799cb77
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  Google-Maps-iOS-SDK: 4c008abdb68e03ae125c7f674be841d369e2b3de
+  Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
+  MTLFMDBAdapter: 491e80bb9fcda3f6a9e7b2cbad4a8e7be93189be
+  OCHamcrest: 6f03ffa81d12feab872638490a44ab0a6d3aca10
+  OCMockito: 4981140c9a9ec06c31af40f636e3c0f25f27e6b2
+  SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-COCOAPODS: 0.36.0
+COCOAPODS: 0.37.0

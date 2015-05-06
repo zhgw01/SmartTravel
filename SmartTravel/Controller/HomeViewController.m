@@ -10,14 +10,19 @@
 #import "CircleMarker.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <SWRevealViewController/SWRevealViewController.h>
+#import "HotSpotListViewController.h"
+#import "WarningView.h"
+#import "MarkerManager.h"
 
-@interface HomeViewController ()<SWRevealViewControllerDelegate, CLLocationManagerDelegate>
+@interface HomeViewController ()<SWRevealViewControllerDelegate, CLLocationManagerDelegate, HotSpotListViewControllerMapDelegate>
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hotspotListButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) CircleMarker* locationMarker;
+@property (assign, nonatomic) BOOL zoomToCurrent;
+@property (strong, nonatomic) MarkerManager* markerManager;
 
 @end
 
@@ -30,6 +35,9 @@
     [self setupSideBarMenu];
     [self setupMap];
     [self zoomToEdmonton];
+    
+    self.zoomToCurrent = NO;
+    self.markerManager = [[MarkerManager alloc] init];
 }
 
 - (void) setupMap
@@ -91,6 +99,9 @@
     if (!self.mapView.myLocationEnabled) {
         [self requestLocationAuthorization];
     }
+    
+    self.zoomToCurrent = YES;
+    
 }
 
 - (void) requestLocationAuthorization {
@@ -104,9 +115,21 @@
 {
     if (position != FrontViewPositionLeft) {
         self.mapView.userInteractionEnabled = NO;
+        
+        HotSpotListViewController* hotSpotListVC = (HotSpotListViewController*)revealController.rearViewController;
+        if (hotSpotListVC)
+        {
+            hotSpotListVC.mapDelegate = self;
+        }
     }
     else {
         self.mapView.userInteractionEnabled = YES;
+        
+        HotSpotListViewController* hotSpotListVC = (HotSpotListViewController*)revealController.rearViewController;
+        if (hotSpotListVC)
+        {
+            hotSpotListVC.mapDelegate = nil;
+        }
     }
 }
 
@@ -117,6 +140,7 @@
     if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         //self.mapView.myLocationEnabled = YES;
         [self.locationManager startUpdatingLocation];
+        [self.markerManager drawMarkers:self.mapView];
     }
 }
 
@@ -132,18 +156,51 @@
         self.locationMarker.position = location.coordinate;
     }
     
-    //GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:location.coordinate];
-    //[self.mapView animateWithCameraUpdate:newTarget];
+    if (self.zoomToCurrent) {
+        GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:location.coordinate];
+        [self.mapView animateWithCameraUpdate:newTarget];
+        
+        self.zoomToCurrent = NO;
+    }
 }
 
 /*
 #pragma mark - Navigation
-
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - <HotSpotListViewControllerMapDelegate> methods
+
+- (void)hotSpotTableViewCellDidSelectWithLatitude:(NSNumber*)latitude
+                                     andLongitude:(NSNumber*)longitude
+{
+    // Hide HotSpotListView
+    [self.revealViewController revealToggle:self];
+
+    if (latitude == nil || longitude == nil)
+    {
+        // Zoom to default location if input is not valid
+        [self zoomToEdmonton];
+    }
+    else
+    {
+        // Zoom to hot spot location
+        GMSCameraPosition* targetPos = [GMSCameraPosition cameraWithLatitude:[latitude doubleValue]
+                                                                   longitude:[longitude doubleValue]
+                                                                        zoom:16.0];
+        self.mapView.camera = targetPos;
+    }
+}
+
+#pragma mark - Pop Views, maybe we can make it a delegate
+-(void)popWarningView
+{
+    WarningView* warning = [[WarningView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:warning];
+}
 
 @end

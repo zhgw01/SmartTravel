@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol HotSpotListViewControllerMapDelegate <NSObject>
+
+- (void)hotSpotTableViewCellDidSelectWithLatitude:(NSNumber*)latitude
+                                     andLongitude:(NSNumber*)longitude;
+
+@end
+
 @interface HotSpotListViewController : UIViewController
+
+@property (nonatomic, assign) id<HotSpotListViewControllerMapDelegate> mapDelegate;
 
 @end
