@@ -1,14 +1,14 @@
 //
-//  VRUWarningView.m
+//  WarningView.m
 //  SmartTravel
 //
 //  Created by Pengyu Chen on 5/5/15.
 //  Copyright (c) 2015 Gongwei. All rights reserved.
 //
 
-#import "VRUWarningView.h"
+#import "WarningView.h"
 
-@interface VRUWarningView ()
+@interface WarningView ()
 
 @property (weak, nonatomic) IBOutlet UIView *view;
 @property (weak, nonatomic) IBOutlet UIView *gripView;
@@ -16,11 +16,11 @@
 
 @end
 
-@implementation VRUWarningView
+@implementation WarningView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    [[NSBundle mainBundle] loadNibNamed:@"VRUWarningView" owner:self options:nil];
+    [[NSBundle mainBundle] loadNibNamed:@"WarningView" owner:self options:nil];
     // Set the view equal width and 1/3 height with parent
     CGRect myFrame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height * 0.3);
     if (self = [super initWithFrame:myFrame])

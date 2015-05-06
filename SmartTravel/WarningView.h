@@ -1,5 +1,5 @@
 //
-//  VRUWarningView.h
+//  WarningView.h
 //  SmartTravel
 //
 //  Created by Pengyu Chen on 5/5/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VRUWarningView : UIView
+@interface WarningView : UIView
 
 @end

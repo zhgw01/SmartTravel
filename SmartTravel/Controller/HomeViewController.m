@@ -11,7 +11,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <SWRevealViewController/SWRevealViewController.h>
 #import "HotSpotListViewController.h"
-#import "VRUWarningView.h"
+#import "WarningView.h"
 
 @interface HomeViewController ()<SWRevealViewControllerDelegate, CLLocationManagerDelegate, HotSpotListViewControllerMapDelegate>
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
@@ -82,10 +82,10 @@
 - (IBAction)zoomIn:(id)sender {
     GMSCameraUpdate *zoomIn = [GMSCameraUpdate zoomIn];
     [self.mapView animateWithCameraUpdate:zoomIn];
-    /* Comment out following code to thest VRU warning view
-    VRUWarningView* vruWarning = [[VRUWarningView alloc] initWithFrame:self.view.frame];
-    [self.view addSubview:vruWarning];
-     */
+    
+//    Comment out following codes to test warning view
+//    WarningView* warning = [[WarningView alloc] initWithFrame:self.view.frame];
+//    [self.view addSubview:warning];
 }
 
 - (IBAction)zoomOut:(id)sender {
