@@ -16,6 +16,7 @@
              @"locationCode": @"LOC_CODE",
              @"location": @"LOCATION",
              @"portion": @"PORTION",
+             @"rank": @"RANK",
              @"count": @"COUNT",
              @"latitude": @"LAT",
              @"longtitude": @"LONG"

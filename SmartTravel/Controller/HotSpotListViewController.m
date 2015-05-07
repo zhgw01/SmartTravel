@@ -133,7 +133,16 @@ typedef enum : NSUInteger {
     if (self.type == HotSpotTypeCollision)
     {
         Collision* collision = [self.collisions objectAtIndex:indexPath.row];
-        [cell configureType:nil location:collision.location count:collision.count];
+        // TODO: no type (Intersection or Midblock) info in current Collision structure and database
+        // Just a placeholder here to demo
+        if (indexPath.row % 2)
+        {
+            [cell configureType:@"Intersection<Placeholder>" location:collision.location count:collision.count];
+        }
+        else
+        {
+            [cell configureType:@"Middleblock<Placeholder>" location:collision.location count:collision.count];
+        }
     }
     else if (self.type == HotSpotTypeVRU)
     {
@@ -158,25 +167,29 @@ typedef enum : NSUInteger {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSNumber* latitude = nil;
-    NSNumber* longtitude = nil;
+    NSDictionary* info = nil;
     
     if (self.type == HotSpotTypeCollision)
     {
         Collision* collision = [self.collisions objectAtIndex:indexPath.row];
-        latitude = [collision.latitude copy];
-        longtitude = [collision.longtitude copy];
+        info = [[NSDictionary alloc] initWithObjectsAndKeys:
+                @"collision", @"type",
+                collision, @"data",
+                nil];
+        
     }
     else if (self.type == HotSpotTypeVRU)
     {
         VRU* vru = [self.vrus objectAtIndex:indexPath.row];
-        latitude = [vru.latitude copy];
-        longtitude = [vru.longtitude copy];
+        info = [[NSDictionary alloc] initWithObjectsAndKeys:
+                @"vru", @"type",
+                vru, @"data",
+                nil];
     }
 
-    if ([self.mapDelegate respondsToSelector:@selector(hotSpotTableViewCellDidSelectWithLatitude:andLongitude:)])
+    if ([self.mapDelegate respondsToSelector:@selector(hotSpotTableViewCellDidSelect:)])
     {
-        [self.mapDelegate hotSpotTableViewCellDidSelectWithLatitude:latitude andLongitude:longtitude];
+        [self.mapDelegate hotSpotTableViewCellDidSelect:info];
     }
 }
 @end
