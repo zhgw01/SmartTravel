@@ -21,7 +21,7 @@
 - (void)awakeFromNib {
     // Initialization code
     self.backgroundColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
-    self.countLabel.layer.cornerRadius = 4.f;
+    self.countLabel.layer.cornerRadius = 6.f;
     self.countLabel.layer.masksToBounds = YES;
 }
 

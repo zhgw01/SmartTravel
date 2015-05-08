@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *rankLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *unitLabel;
 
 @property (assign, nonatomic) WarningType type;
 
@@ -28,6 +29,7 @@
 {
     self.gripView.layer.cornerRadius = 4.0f;
     self.gripView.layer.masksToBounds = YES;
+    self.type = WarningTypeCnt;
 }
 
 /*
@@ -57,7 +59,7 @@
 - (NSString*)getTypeString:(WarningType)type
 {
     switch (type) {
-        case CollisionWarning:
+        case CollisionWarningType:
             return @"Car/Bus";
             break;
         case VRUWarningType:
@@ -72,7 +74,7 @@
 - (UIColor*)getTypeColor:(WarningType)type
 {
     switch (type) {
-        case CollisionWarning:
+        case CollisionWarningType:
             return [UIColor redColor];
             break;
         case VRUWarningType:
@@ -100,6 +102,7 @@
         self.typeLabel.text = [self getTypeString:type];
         
         self.distanceLabel.textColor = typeColor;
+        self.unitLabel.textColor = typeColor;
         needsDisplay = YES;
     }
     
@@ -129,7 +132,7 @@
     NSString* distanceStr = [numberFormat stringFromNumber:distance];
     if (![distanceStr isEqualToString:self.distanceLabel.text])
     {
-        self.distanceLabel.text = [NSString stringWithFormat:@"%@ m", distanceStr];
+        self.distanceLabel.text = distanceStr;
         needsDisplay = YES;
     }
     

@@ -10,8 +10,7 @@
 
 @protocol HotSpotListViewControllerMapDelegate <NSObject>
 
-- (void)hotSpotTableViewCellDidSelectWithLatitude:(NSNumber*)latitude
-                                     andLongitude:(NSNumber*)longitude;
+- (void)hotSpotTableViewCellDidSelect:(NSDictionary*)info;
 
 @end
 

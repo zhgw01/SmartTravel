@@ -13,6 +13,8 @@
 #import "HotSpotListViewController.h"
 #import "WarningView.h"
 #import "MarkerManager.h"
+#import "Collision.h"
+#import "VRU.h"
 
 @interface HomeViewController ()<SWRevealViewControllerDelegate, CLLocationManagerDelegate, HotSpotListViewControllerMapDelegate>
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
@@ -25,6 +27,8 @@
 @property (strong, nonatomic) MarkerManager* markerManager;
 
 @property (strong, nonatomic) WarningView *warningView;
+@property (copy, nonatomic) CLLocation *recentLocation;
+@property (strong, nonatomic) CLLocation* defaultLocation;
 
 @end
 
@@ -41,6 +45,10 @@
     
     self.zoomToCurrent = NO;
     self.markerManager = [[MarkerManager alloc] init];
+    
+    self.recentLocation = nil;
+    // Set default location to Edmonton
+    self.defaultLocation = [[CLLocation alloc] initWithLatitude:53.5501400  longitude:-113.4687100];
 }
 
 - (void)setupWarning
@@ -67,7 +75,9 @@
 - (void) zoomToEdmonton
 {
     // Zoom to Edmonton
-    GMSCameraPosition* edmontonPosition = [GMSCameraPosition cameraWithLatitude:53.5501400 longitude:-113.4687100 zoom:12.0];
+    GMSCameraPosition* edmontonPosition = [GMSCameraPosition cameraWithLatitude:self.defaultLocation.coordinate.latitude
+                                                                      longitude:self.defaultLocation.coordinate.longitude
+                                                                           zoom:12.0];
     self.mapView.camera = edmontonPosition;
 }
 
@@ -109,18 +119,12 @@
     self.warningView.hidden = !self.warningView.hidden;
 }
 
-- (IBAction)zoomOut:(id)sender {
+- (IBAction)zoomOut:(id)sender
+{
     GMSCameraUpdate *zoomOut = [GMSCameraUpdate zoomOut];
     [self.mapView animateWithCameraUpdate:zoomOut];
-    
-    // Comment out following codes to test warning view
-    [self.warningView updateType:VRUWarningType
-                        location:@"locate test string"
-                            rank:[NSNumber numberWithInt:2]
-                           count:[NSNumber numberWithInt:10]
-                        distance:[NSNumber numberWithFloat:300.5]];
-
 }
+
 - (IBAction)locateMe:(id)sender {
     
     if (!self.mapView.myLocationEnabled) {
@@ -173,18 +177,18 @@
 
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    CLLocation* location = locations.lastObject;
+    self.recentLocation = locations.lastObject;
     if (self.locationMarker == nil) {
-        self.locationMarker = [CircleMarker markerWithPosition:location.coordinate];
+        self.locationMarker = [CircleMarker markerWithPosition:self.recentLocation.coordinate];
         //self.locationMarker.icon = [UIImage imageNamed:@"icon_currentlocation"];
         [self.locationMarker loadImages];
         self.locationMarker.map = self.mapView;
     } else {
-        self.locationMarker.position = location.coordinate;
+        self.locationMarker.position = self.recentLocation.coordinate;
     }
     
     if (self.zoomToCurrent) {
-        GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:location.coordinate];
+        GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:self.recentLocation.coordinate];
         [self.mapView animateWithCameraUpdate:newTarget];
         
         self.zoomToCurrent = NO;
@@ -202,24 +206,75 @@
 
 #pragma mark - <HotSpotListViewControllerMapDelegate> methods
 
-- (void)hotSpotTableViewCellDidSelectWithLatitude:(NSNumber*)latitude
-                                     andLongitude:(NSNumber*)longitude
+- (void)hotSpotTableViewCellDidSelect:(NSDictionary*)info
 {
+    NSAssert(info, @"The cell user selected has no info");
+
     // Hide HotSpotListView
     [self.revealViewController revealToggle:self];
-
-    if (latitude == nil || longitude == nil)
+    
+    // TODO: Collision and VRU may inherit from common base class
+    // But will decide later after the data scheme stable so that we can see how much they can share.
+    NSString* cellTypeStr = [info objectForKey:@"type"];
+    if ([cellTypeStr isEqualToString:@"collision"])
     {
-        // Zoom to default location if input is not valid
-        [self zoomToEdmonton];
+        Collision* collision = [info objectForKey:@"data"];
+        NSAssert(collision, @"The cell user selected has no collision data");
+        
+        // Zoom to hot spot location
+        double latitude = [collision.latitude doubleValue];
+        double longtitude = [collision.longtitude doubleValue];
+        GMSCameraPosition* targetPos = [GMSCameraPosition cameraWithLatitude:latitude
+                                                                   longitude:longtitude
+                                                                        zoom:16.0];
+        self.mapView.camera = targetPos;
+        CLLocation* targetLoc = [[CLLocation alloc] initWithLatitude:latitude longitude:longtitude];
+        
+        // Update warning view
+        if (!self.warningView.hidden)
+        {
+            double distance = (self.recentLocation) ?
+            [self.recentLocation distanceFromLocation:targetLoc] :
+            [self.defaultLocation distanceFromLocation:targetLoc];
+
+            [self.warningView updateType:CollisionWarningType
+                                location:collision.location
+                                    rank:collision.rank
+                                   count:collision.count
+                                distance:[NSNumber numberWithDouble:distance]];
+        }
+    }
+    else if ([cellTypeStr isEqualToString:@"vru"])
+    {
+        VRU* vru = [info objectForKey:@"data"];
+        NSAssert(vru, @"The cell user selected has no vru data");
+        
+        // Zoom to hot spot location
+        double latitude = [vru.latitude doubleValue];
+        double longtitude = [vru.longtitude doubleValue];
+        GMSCameraPosition* targetPos = [GMSCameraPosition cameraWithLatitude:latitude
+                                                                   longitude:longtitude
+                                                                        zoom:16.0];
+        self.mapView.camera = targetPos;
+        CLLocation* targetLoc = [[CLLocation alloc] initWithLatitude:latitude longitude:longtitude];
+
+        // Update warning view
+        if (!self.warningView.hidden)
+        {
+            double distance = (self.recentLocation) ?
+            [self.recentLocation distanceFromLocation:targetLoc] :
+            [self.defaultLocation distanceFromLocation:targetLoc];
+            
+            [self.warningView updateType:VRUWarningType
+                                location:vru.location
+                                    rank:vru.rank
+                                   count:vru.count
+                                distance:[NSNumber numberWithDouble:distance]];
+        }
     }
     else
     {
-        // Zoom to hot spot location
-        GMSCameraPosition* targetPos = [GMSCameraPosition cameraWithLatitude:[latitude doubleValue]
-                                                                   longitude:[longitude doubleValue]
-                                                                        zoom:16.0];
-        self.mapView.camera = targetPos;
+        NSAssert(NO, @"The cell user selected has no valid type info");
     }
 }
 

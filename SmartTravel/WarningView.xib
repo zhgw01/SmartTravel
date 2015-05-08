@@ -59,7 +59,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collisions:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJK-1q-M08">
-                    <rect key="frame" x="12" y="155.5" width="57.5" height="21"/>
+                    <rect key="frame" x="12" y="155" width="57.5" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="EFO-99-9AB"/>
                     </constraints>
@@ -100,6 +100,12 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8QE-ow-HoG" userLabel="unitLabel">
+                    <rect key="frame" x="309" y="121.5" width="19" height="26.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
@@ -123,6 +129,8 @@
                 <constraint firstItem="TJK-1q-M08" firstAttribute="top" secondItem="N1U-bC-8Wh" secondAttribute="bottom" constant="35" id="fnh-af-fTb"/>
                 <constraint firstItem="mrY-qB-AeV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="j0e-uB-Z5H" userLabel="Horizontal Space - (100) - HSplitView - Warning View"/>
                 <constraint firstItem="9U8-1Y-tCl" firstAttribute="top" secondItem="mrY-qB-AeV" secondAttribute="bottom" id="ls5-Nq-TQP"/>
+                <constraint firstItem="8QE-ow-HoG" firstAttribute="leading" secondItem="Q5O-j1-PhW" secondAttribute="trailing" constant="10" id="ped-5a-j5C"/>
+                <constraint firstItem="8QE-ow-HoG" firstAttribute="baseline" secondItem="Q5O-j1-PhW" secondAttribute="baseline" id="q4l-Kl-uWQ"/>
                 <constraint firstItem="Q5O-j1-PhW" firstAttribute="top" secondItem="mrY-qB-AeV" secondAttribute="bottom" constant="10" id="q8w-Cs-74O"/>
                 <constraint firstItem="TJK-1q-M08" firstAttribute="trailing" secondItem="N1U-bC-8Wh" secondAttribute="trailing" id="qOQ-AK-PvD"/>
                 <constraint firstItem="nqH-rR-ug3" firstAttribute="top" secondItem="Y04-2x-mdo" secondAttribute="bottom" constant="10" id="tb7-KW-tYY"/>
@@ -138,6 +146,7 @@
                 <outlet property="locationLabel" destination="Y04-2x-mdo" id="aWw-gg-lVf"/>
                 <outlet property="rankLabel" destination="a5A-tV-pZE" id="Vv8-J3-c7M"/>
                 <outlet property="typeLabel" destination="nqH-rR-ug3" id="jtp-dl-u2C"/>
+                <outlet property="unitLabel" destination="8QE-ow-HoG" id="fxH-dO-YyX"/>
             </connections>
         </view>
     </objects>
