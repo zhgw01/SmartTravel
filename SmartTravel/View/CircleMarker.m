@@ -18,16 +18,17 @@
 
 - (void) loadImages
 {
-    NSUInteger imageNumber = 8;
-    NSMutableArray *imageArray = [[NSMutableArray alloc] initWithCapacity:imageNumber];
-    
-    for (NSUInteger i = 1; i <= imageNumber; ++i) {
-        NSString* imageName = [NSString stringWithFormat:@"loading-%lu", (unsigned long)i];
-        UIImage* image = [UIImage imageNamed:imageName];
-        [imageArray addObject:image];
-    }
-    
-    self.icon = [UIImage animatedImageWithImages:imageArray duration:1];
+//    NSUInteger imageNumber = 8;
+//    NSMutableArray *imageArray = [[NSMutableArray alloc] initWithCapacity:imageNumber];
+//    
+//    for (NSUInteger i = 1; i <= imageNumber; ++i) {
+//        NSString* imageName = [NSString stringWithFormat:@"loading-%lu", (unsigned long)i];
+//        UIImage* image = [UIImage imageNamed:imageName];
+//        [imageArray addObject:image];
+//    }
+//    
+//    self.icon = [UIImage animatedImageWithImages:imageArray duration:1];
+    self.icon = [UIImage imageNamed:@"icon_currentlocation"];
 }
 
 
