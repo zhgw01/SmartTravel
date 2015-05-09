@@ -6,6 +6,7 @@ pod 'SWRevealViewController'
 pod 'Google-Maps-iOS-SDK'
 pod 'FMDB'
 pod 'MTLFMDBAdapter'
+pod 'Geo-Utilities'
 end
 
 target 'SmartTravelTests' do

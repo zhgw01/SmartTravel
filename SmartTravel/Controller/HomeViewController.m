@@ -10,6 +10,7 @@
 #import "CircleMarker.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <SWRevealViewController/SWRevealViewController.h>
+#import <Geo-Utilities/CLLocation+Navigation.h>
 #import "HotSpotListViewController.h"
 #import "WarningView.h"
 #import "MarkerManager.h"
@@ -27,8 +28,9 @@
 @property (strong, nonatomic) MarkerManager* markerManager;
 
 @property (strong, nonatomic) WarningView *warningView;
-@property (copy, nonatomic) CLLocation *recentLocation;
+@property (copy, nonatomic)   CLLocation *recentLocation;
 @property (strong, nonatomic) CLLocation* defaultLocation;
+@property (assign, nonatomic) CLLocationDirection direction;
 
 @end
 
@@ -177,7 +179,10 @@
 
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
+    CLLocation* lastLocation = self.recentLocation;
     self.recentLocation = locations.lastObject;
+    self.direction = [lastLocation kv_bearingOnRhumbLineToCoordinate:self.recentLocation.coordinate];
+    
     if (self.locationMarker == nil) {
         self.locationMarker = [CircleMarker markerWithPosition:self.recentLocation.coordinate];
         //self.locationMarker.icon = [UIImage imageNamed:@"icon_currentlocation"];
@@ -186,6 +191,8 @@
     } else {
         self.locationMarker.position = self.recentLocation.coordinate;
     }
+    
+    NSLog(@"Heading: %f", self.recentLocation.course);
     
     if (self.zoomToCurrent) {
         GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:self.recentLocation.coordinate];
