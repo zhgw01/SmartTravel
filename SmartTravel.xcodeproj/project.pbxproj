@@ -38,6 +38,7 @@
 		9BC3392F1AE296250046AAB5 /* termofusage.html in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3392E1AE296250046AAB5 /* termofusage.html */; };
 		9BCEBC791ADFF317003C9F05 /* TermOfUsageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCEBC781ADFF317003C9F05 /* TermOfUsageViewController.m */; };
 		9BDBCA461AF8EEE600F23275 /* MarkerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDBCA451AF8EEE600F23275 /* MarkerManager.m */; };
+		9BF1281A1AFE537D008E72DA /* Direction.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF128191AFE537D008E72DA /* Direction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,8 @@
 		9BCEBC781ADFF317003C9F05 /* TermOfUsageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TermOfUsageViewController.m; path = Controller/TermOfUsageViewController.m; sourceTree = "<group>"; };
 		9BDBCA441AF8EEE600F23275 /* MarkerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkerManager.h; path = ViewModel/MarkerManager.h; sourceTree = "<group>"; };
 		9BDBCA451AF8EEE600F23275 /* MarkerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarkerManager.m; path = ViewModel/MarkerManager.m; sourceTree = "<group>"; };
+		9BF128181AFE537D008E72DA /* Direction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Direction.h; path = Model/Direction.h; sourceTree = "<group>"; };
+		9BF128191AFE537D008E72DA /* Direction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Direction.m; path = Model/Direction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +186,8 @@
 				9B6C7DA71AF500C500DF6FA9 /* DBManager.m */,
 				9B1900FA1AF523B200CF18B6 /* VRU.h */,
 				9B1900FB1AF523B200CF18B6 /* VRU.m */,
+				9BF128181AFE537D008E72DA /* Direction.h */,
+				9BF128191AFE537D008E72DA /* Direction.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -470,6 +475,7 @@
 				9B6A85B11ADFDEFF00667170 /* main.m in Sources */,
 				9B1900FC1AF523B200CF18B6 /* VRU.m in Sources */,
 				9BCEBC791ADFF317003C9F05 /* TermOfUsageViewController.m in Sources */,
+				9BF1281A1AFE537D008E72DA /* Direction.m in Sources */,
 				9B7E59511AE37FD10008D25C /* TermUsage.m in Sources */,
 				9B5EE8691AF3F6B400524F4A /* CircleMarker.m in Sources */,
 				9B7E59601AE3966F0008D25C /* HomeViewController.m in Sources */,
