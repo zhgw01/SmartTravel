@@ -1,12 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<gpx
-xmlns="http://www.topografix.com/GPX/1/1"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd"
-version="1.1" 
-creator="gpx-poi.com">
-   <wpt lat="53.550140" lon="-113.468710">
-      <time>2015-05-01T17:26:17Z</time>
-      <name>Edmonton</name>
-   </wpt>
+<?xml version="1.0"?>
+<gpx creator="GPS Visualizer http://www.gpsvisualizer.com/" version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+    <wpt lat="53.54616" lon="-113.4937">
+        <name>53.5461629,-113.4937663</name>
+    </wpt>
+    <wpt lat="53.55109" lon="-113.49372">
+        <name>53.5510967,-113.4937234</name>
+    </wpt>
+    <trk>
+        <name>53.5461629,-113.4937663 - 53.5510967,-113.4937234 (550 米 / 1 分钟)</name>
+        <trkseg>
+            <trkpt lat="53.54616" lon="-113.4937"></trkpt>
+            <trkpt lat="53.55109" lon="-113.49372"></trkpt>
+        </trkseg>
+    </trk>
 </gpx>
