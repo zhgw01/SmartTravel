@@ -1,5 +1,5 @@
 //
-//  TopPedestrian.h
+//  TopCyclist.h
 //  SmartTravel
 //
 //  Created by Pengyu Chen on 15/5/10.
@@ -10,7 +10,7 @@
 #import <Mantle/Mantle.h>
 #import <MTLFMDBAdapter/MTLFMDBAdapter.h>
 
-@interface TopPedestrian : MTLModel<MTLFMDBSerializing>
+@interface TopCyclist : MTLModel<MTLFMDBSerializing>
 
 @property (nonatomic, copy) NSString *locationCode;
 @property (nonatomic, copy) NSString *location;

@@ -1,13 +1,13 @@
 //
-//  TopCyclist.m
+//  TopMotorcyclist.m
 //  SmartTravel
 //
 //  Copyright (c) 2015年 Gongwei. All rights reserved.
 //
 
-#import "TopCyclist.h"
+#import "TopMotorcyclist.h"
 
-@implementation TopCyclist
+@implementation TopMotorcyclist
 
 + (NSDictionary *)FMDBColumnsByPropertyKey
 {
@@ -29,7 +29,7 @@
 
 + (NSString *)FMDBTableName
 {
-    return @"Top_Cyclist";
+    return @"Top_Motorcyclist";
 }
 
 @end

@@ -1,19 +1,20 @@
 //
-//  TopIntersection.m
+//  TopPedestrian.m
 //  SmartTravel
 //
 //  Copyright (c) 2015年 Gongwei. All rights reserved.
 //
 
-#import "TopIntersection.h"
+#import "TopPedestrian.h"
 
-@implementation TopIntersection
+@implementation TopPedestrian
 
 + (NSDictionary *)FMDBColumnsByPropertyKey
 {
     return @{
              @"locationCode": @"LOC_CODE",
              @"location": @"LOCATION",
+             @"portion": @"PORTION",
              @"count": @"COUNT",
              @"rank": @"RANK",
              @"latitude": @"LAT",
@@ -28,7 +29,7 @@
 
 + (NSString *)FMDBTableName
 {
-    return @"Top_Intersection";
+    return @"Top_Pedestrian";
 }
 
 @end

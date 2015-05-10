@@ -25,9 +25,13 @@ static NSString * const kTopPedestrianQuerySmt = @"select * from Top_Pedestrian"
 static NSString * const kTopCyclistQuerySmt = @"select * from Top_Cyclist";
 static NSString * const kTopMotorcyclistQuerySmt = @"select * from Top_Motorcyclist";
 
+static NSString * const kTemplateDbName = @"smartTravelTemplate";
+static NSString * const kMainDbName = @"smartTravel";
+
 @interface DBManager()
 
 @property (nonatomic, strong) FMDatabase* topLocationDb;
+@property (nonatomic, strong) FMDatabase* mainDb;
 
 @end
 
@@ -47,13 +51,51 @@ static NSString * const kTopMotorcyclistQuerySmt = @"select * from Top_Motorcycl
 {
     if (self = [super init])
     {
-        NSString* dbPath = [[NSBundle mainBundle] pathForResource:kTopLocationDbName ofType:@"sqlite"];
-        if([[NSFileManager defaultManager] fileExistsAtPath:dbPath])
+        NSString* userDocumentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+        static NSString* dbExt = @"sqlite";
+
+        // Copy TopLocation to user document and initialize
+        if ([self copyResourceFromAppBundle:kTopLocationDbName toUserDocumentWithNewName:kTopLocationDbName withExt:dbExt])
         {
-            self.topLocationDb = [FMDatabase databaseWithPath:dbPath];
+            NSString* topLocationDbPath = [[userDocumentDir stringByAppendingPathComponent:kTopLocationDbName] stringByAppendingPathExtension:dbExt];
+            self.topLocationDb = [FMDatabase databaseWithPath:topLocationDbPath];
+        }
+        
+        // Copy Main to user document and initialize
+        if ([self copyResourceFromAppBundle:kTemplateDbName toUserDocumentWithNewName:kMainDbName withExt:dbExt])
+        {
+            NSString* mainDbPath = [[userDocumentDir stringByAppendingPathComponent:kMainDbName] stringByAppendingPathExtension:dbExt];
+            self.mainDb = [FMDatabase databaseWithPath:mainDbPath];
         }
     }
     return self;
+}
+
+// Return YES if copy succeeded or the target file exists
+- (BOOL)copyResourceFromAppBundle:(NSString*)oldFileName
+        toUserDocumentWithNewName:(NSString*)newFileName
+                          withExt:(NSString*)ext
+{
+    NSString* userDocumentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString* targetPath = [[userDocumentDir stringByAppendingPathComponent:newFileName] stringByAppendingPathExtension:ext];
+
+    NSString* sourcePath = [[NSBundle mainBundle] pathForResource:oldFileName ofType:ext];
+    
+    if([[NSFileManager defaultManager] fileExistsAtPath:sourcePath])
+    {
+        if (![[NSFileManager defaultManager] fileExistsAtPath:targetPath])
+        {
+            NSError* error = nil;
+            [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:targetPath error:&error];
+            return !error;
+        }
+        else
+        {
+            return YES;
+        }
+    }
+    
+    return NO;
 }
 
 -(NSArray*)selectAllCollisions

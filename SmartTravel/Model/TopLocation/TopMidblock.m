@@ -1,13 +1,13 @@
 //
-//  TopIntersection.m
+//  TopMiddleblock.m
 //  SmartTravel
 //
 //  Copyright (c) 2015年 Gongwei. All rights reserved.
 //
 
-#import "TopIntersection.h"
+#import "TopMidblock.h"
 
-@implementation TopIntersection
+@implementation TopMidblock
 
 + (NSDictionary *)FMDBColumnsByPropertyKey
 {
@@ -28,7 +28,7 @@
 
 + (NSString *)FMDBTableName
 {
-    return @"Top_Intersection";
+    return @"Top_Midblock";
 }
 
 @end
