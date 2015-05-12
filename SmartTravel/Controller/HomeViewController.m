@@ -17,6 +17,11 @@
 #import "Collision.h"
 #import "VRU.h"
 
+// For debug and test only
+#ifdef DEBUG
+#import "DBDateAdapter.h"
+#endif
+
 @interface HomeViewController ()<SWRevealViewControllerDelegate, CLLocationManagerDelegate, HotSpotListViewControllerMapDelegate>
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hotspotListButton;
@@ -128,12 +133,26 @@
 }
 
 - (IBAction)locateMe:(id)sender {
+#ifdef DEBUG
+//    NSDateComponents* com = [[NSDateComponents alloc] init];
+//    [com setDay:9];
+//    [com setMonth:5];
+//    [com setYear:2015];
+//    
+//    NSCalendar* cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+//    NSDate* date = [cal dateFromComponents:com];
+    NSDate* date = [NSDate date];
     
+    DBDateAdapter* dbDate = [[DBDateAdapter alloc] initWith:date];
+    NSLog(dbDate.isWeekDay ? @"Today is weekday" : @"Today is NOT weekday");
+    NSLog(dbDate.isSchoolDay ? @"Today is school day" : @"Today is NOT school day");
+#else
     if (!self.mapView.myLocationEnabled) {
         [self requestLocationAuthorization];
     }
     
     self.zoomToCurrent = YES;
+#endif
     
 }
 

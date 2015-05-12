@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 Gongwei. All rights reserved.
 //
 
-#import <FMDB/FMDB.h>
 #import "DBManager.h"
 #import "TopIntersection.h"
 #import "TopMidblock.h"
@@ -28,10 +27,12 @@ static NSString * const kTopMotorcyclistQuerySmt = @"select * from Top_Motorcycl
 static NSString * const kTemplateDbName = @"smartTravelTemplate";
 static NSString * const kMainDbName = @"smartTravel";
 
+NSString * const MAIN_DB_TBL_WM_DAYTYPE = @"TBL_WM_DAYTYPE";
+
 @interface DBManager()
 
-@property (nonatomic, strong) FMDatabase* topLocationDb;
-@property (nonatomic, strong) FMDatabase* mainDb;
+@property (readwrite, strong) FMDatabase* topLocationDb;
+@property (readwrite, strong) FMDatabase* mainDb;
 
 @end
 
@@ -208,8 +209,7 @@ static NSString * const kMainDbName = @"smartTravel";
     NSMutableArray* array = [[NSMutableArray alloc] init];
     
     NSError *error = nil;
-    FMResultSet *resultSet = nil;
-    resultSet = [db executeQuery:smt];
+    FMResultSet *resultSet = [db executeQuery:smt];
     while ([resultSet next])
     {
         MTLModel* item = [MTLFMDBAdapter modelOfClass:class fromFMResultSet:resultSet error:&error];
