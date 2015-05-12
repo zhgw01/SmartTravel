@@ -11,12 +11,7 @@
 #import "Collision.h"
 #import "VRU.h"
 #import "HotSpotTableViewCell.h"
-
-typedef enum : NSUInteger {
-    HotSpotTypeCollision,
-    HotSpotTypeVRU,
-    HotSpotTypeNumber
-} HotSpotType;
+#import "HotSpot.h"
 
 @interface HotSpotListViewController ()
 
@@ -49,11 +44,17 @@ typedef enum : NSUInteger {
     self.unSelectionViewColor= [UIColor colorWithRed:0.69 green:0.69 blue:0.69 alpha:1];
     
     // Query all collsions and VRUs from database
-    // and update count labels
-    self.collisions = [[DBManager sharedInstance] selectAllCollisions];
-    self.collisionLabel.text = [NSString stringWithFormat:@"%lu", self.collisions.count];
+    NSComparator hotSpotCmptr = ^NSComparisonResult(id obj1, id obj2)
+    {
+        HotSpot* hotSpot1 = (HotSpot*)obj1;
+        HotSpot* hotSpot2 = (HotSpot*)obj2;
+        return [hotSpot1.count compare:hotSpot2.count];
+    };
+    self.collisions = [[[DBManager sharedInstance] selectAllCollisions] sortedArrayUsingComparator:hotSpotCmptr];
+    self.vrus = [[[DBManager sharedInstance] selectAllVRUs] sortedArrayUsingComparator:hotSpotCmptr];
     
-    self.vrus = [[DBManager sharedInstance] selectAllVRUs];
+    // and update count labels
+    self.collisionLabel.text = [NSString stringWithFormat:@"%lu", self.collisions.count];
     self.vruLabel.text = [NSString stringWithFormat:@"%lu", self.vrus.count];
     
     // Default tab is collision
@@ -132,28 +133,17 @@ typedef enum : NSUInteger {
     
     if (self.type == HotSpotTypeCollision)
     {
-        Collision* collision = [self.collisions objectAtIndex:indexPath.row];
-        // TODO: no type (Intersection or Midblock) info in current Collision structure and database
-        // Just a placeholder here to demo
-        if (indexPath.row % 2)
-        {
-            [cell configureType:@"Intersection<Placeholder>" location:collision.location count:collision.count];
-        }
-        else
-        {
-            [cell configureType:@"Middleblock<Placeholder>" location:collision.location count:collision.count];
-        }
+        HotSpot* hotSpot = [self.collisions objectAtIndex:indexPath.row];
+        [cell configureType:hotSpot.tag location:hotSpot.location count:hotSpot.count];
     }
     else if (self.type == HotSpotTypeVRU)
     {
-        VRU* vru = [self.vrus objectAtIndex:indexPath.row];
-        NSString* typeStr =  [[vru.portion componentsSeparatedByString:@"-"] lastObject];
-        [cell configureType:typeStr location:vru.location count:vru.count];
+        HotSpot* hotSpot = [self.vrus objectAtIndex:indexPath.row];
+        [cell configureType:hotSpot.tag location:hotSpot.location count:hotSpot.count];
     }
     else
     {
-        NSAssert(NO, @"Error: Unsupported hot spot type");
-        return nil;
+        NSAssert(NO, @"Unsupported hot spot type");
     }
     
     return cell;
@@ -167,29 +157,23 @@ typedef enum : NSUInteger {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary* info = nil;
-    
+    HotSpot* hotSpot = nil;
     if (self.type == HotSpotTypeCollision)
     {
-        Collision* collision = [self.collisions objectAtIndex:indexPath.row];
-        info = [[NSDictionary alloc] initWithObjectsAndKeys:
-                @"collision", @"type",
-                collision, @"data",
-                nil];
-        
+        hotSpot = [self.collisions objectAtIndex:indexPath.row];
     }
     else if (self.type == HotSpotTypeVRU)
     {
-        VRU* vru = [self.vrus objectAtIndex:indexPath.row];
-        info = [[NSDictionary alloc] initWithObjectsAndKeys:
-                @"vru", @"type",
-                vru, @"data",
-                nil];
+        hotSpot = [self.vrus objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        NSAssert(NO, @"Unsupported hot spot type");
     }
 
     if ([self.mapDelegate respondsToSelector:@selector(hotSpotTableViewCellDidSelect:)])
     {
-        [self.mapDelegate hotSpotTableViewCellDidSelect:info];
+        [self.mapDelegate hotSpotTableViewCellDidSelect:hotSpot];
     }
 }
 @end

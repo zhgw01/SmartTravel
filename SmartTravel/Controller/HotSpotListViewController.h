@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HotSpot.h"
 
 @protocol HotSpotListViewControllerMapDelegate <NSObject>
 
-- (void)hotSpotTableViewCellDidSelect:(NSDictionary*)info;
+- (void)hotSpotTableViewCellDidSelect:(HotSpot*)hotSpot;
 
 @end
 

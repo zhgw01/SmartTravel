@@ -213,75 +213,37 @@
 
 #pragma mark - <HotSpotListViewControllerMapDelegate> methods
 
-- (void)hotSpotTableViewCellDidSelect:(NSDictionary*)info
+- (void)hotSpotTableViewCellDidSelect:(HotSpot*)hotSpot
 {
-    NSAssert(info, @"The cell user selected has no info");
-
+    NSAssert(hotSpot, @"The cell user selected has no hot spot info");
+    
     // Hide HotSpotListView
     [self.revealViewController revealToggle:self];
     
-    // TODO: Collision and VRU may inherit from common base class
-    // But will decide later after the data scheme stable so that we can see how much they can share.
-    NSString* cellTypeStr = [info objectForKey:@"type"];
-    if ([cellTypeStr isEqualToString:@"collision"])
+    // Zoom to hot spot location
+    double latitude = [hotSpot.latitude doubleValue];
+    double longtitude = [hotSpot.longtitude doubleValue];
+    GMSCameraPosition* targetPos = [GMSCameraPosition cameraWithLatitude:latitude
+                                                               longitude:longtitude
+                                                                    zoom:16.0];
+    self.mapView.camera = targetPos;
+    CLLocation* targetLoc = [[CLLocation alloc] initWithLatitude:latitude longitude:longtitude];
+    
+    // Update warning view
+    if (!self.warningView.hidden)
     {
-        Collision* collision = [info objectForKey:@"data"];
-        NSAssert(collision, @"The cell user selected has no collision data");
+        double distance = (self.recentLocation) ?
+        [self.recentLocation distanceFromLocation:targetLoc] :
+        [self.defaultLocation distanceFromLocation:targetLoc];
         
-        // Zoom to hot spot location
-        double latitude = [collision.latitude doubleValue];
-        double longtitude = [collision.longtitude doubleValue];
-        GMSCameraPosition* targetPos = [GMSCameraPosition cameraWithLatitude:latitude
-                                                                   longitude:longtitude
-                                                                        zoom:16.0];
-        self.mapView.camera = targetPos;
-        CLLocation* targetLoc = [[CLLocation alloc] initWithLatitude:latitude longitude:longtitude];
+        NSAssert(hotSpot.type != HotSpotTypeCnt, @"Unsupported hot spot info");
+        WarningType warningType = (hotSpot.type == HotSpotTypeCollision) ? CollisionWarningType : VRUWarningType;
         
-        // Update warning view
-        if (!self.warningView.hidden)
-        {
-            double distance = (self.recentLocation) ?
-            [self.recentLocation distanceFromLocation:targetLoc] :
-            [self.defaultLocation distanceFromLocation:targetLoc];
-
-            [self.warningView updateType:CollisionWarningType
-                                location:collision.location
-                                    rank:collision.rank
-                                   count:collision.count
-                                distance:[NSNumber numberWithDouble:distance]];
-        }
-    }
-    else if ([cellTypeStr isEqualToString:@"vru"])
-    {
-        VRU* vru = [info objectForKey:@"data"];
-        NSAssert(vru, @"The cell user selected has no vru data");
-        
-        // Zoom to hot spot location
-        double latitude = [vru.latitude doubleValue];
-        double longtitude = [vru.longtitude doubleValue];
-        GMSCameraPosition* targetPos = [GMSCameraPosition cameraWithLatitude:latitude
-                                                                   longitude:longtitude
-                                                                        zoom:16.0];
-        self.mapView.camera = targetPos;
-        CLLocation* targetLoc = [[CLLocation alloc] initWithLatitude:latitude longitude:longtitude];
-
-        // Update warning view
-        if (!self.warningView.hidden)
-        {
-            double distance = (self.recentLocation) ?
-            [self.recentLocation distanceFromLocation:targetLoc] :
-            [self.defaultLocation distanceFromLocation:targetLoc];
-            
-            [self.warningView updateType:VRUWarningType
-                                location:vru.location
-                                    rank:vru.rank
-                                   count:vru.count
-                                distance:[NSNumber numberWithDouble:distance]];
-        }
-    }
-    else
-    {
-        NSAssert(NO, @"The cell user selected has no valid type info");
+        [self.warningView updateType:warningType
+                            location:hotSpot.location
+                                rank:hotSpot.rank
+                               count:hotSpot.count
+                            distance:[NSNumber numberWithDouble:distance]];
     }
 }
 
