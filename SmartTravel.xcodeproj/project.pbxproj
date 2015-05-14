@@ -17,6 +17,7 @@
 		420096291AFEF37B00B43630 /* TopMotorcyclist.m in Sources */ = {isa = PBXBuildFile; fileRef = 420096281AFEF37B00B43630 /* TopMotorcyclist.m */; };
 		4200962B1AFF0FFA00B43630 /* HotSpot.h in Sources */ = {isa = PBXBuildFile; fileRef = 4200962A1AFF0FFA00B43630 /* HotSpot.h */; };
 		4200962D1AFF102900B43630 /* HotSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4200962C1AFF102900B43630 /* HotSpot.m */; };
+		420AC76F1B04AF0100198C0E /* DBLocationAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 420AC76E1B04AF0100198C0E /* DBLocationAdapter.m */; };
 		4239D62C1B0218D700C7D72D /* DBDateAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4239D62B1B0218D700C7D72D /* DBDateAdapter.m */; };
 		425C64911AF8E71100BE9086 /* WarningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425C64901AF8E71100BE9086 /* WarningView.m */; };
 		425C64931AF8E72800BE9086 /* WarningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425C64921AF8E72800BE9086 /* WarningView.xib */; };
@@ -79,6 +80,8 @@
 		420096281AFEF37B00B43630 /* TopMotorcyclist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopMotorcyclist.m; path = Model/TopLocation/TopMotorcyclist.m; sourceTree = "<group>"; };
 		4200962A1AFF0FFA00B43630 /* HotSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotSpot.h; sourceTree = "<group>"; };
 		4200962C1AFF102900B43630 /* HotSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotSpot.m; sourceTree = "<group>"; };
+		420AC76D1B04AF0100198C0E /* DBLocationAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBLocationAdapter.h; sourceTree = "<group>"; };
+		420AC76E1B04AF0100198C0E /* DBLocationAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBLocationAdapter.m; sourceTree = "<group>"; };
 		4239D62A1B0218D700C7D72D /* DBDateAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDateAdapter.h; sourceTree = "<group>"; };
 		4239D62B1B0218D700C7D72D /* DBDateAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDateAdapter.m; sourceTree = "<group>"; };
 		425C648F1AF8E71100BE9086 /* WarningView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WarningView.h; sourceTree = "<group>"; };
@@ -236,6 +239,8 @@
 				4200962C1AFF102900B43630 /* HotSpot.m */,
 				4239D62A1B0218D700C7D72D /* DBDateAdapter.h */,
 				4239D62B1B0218D700C7D72D /* DBDateAdapter.m */,
+				420AC76D1B04AF0100198C0E /* DBLocationAdapter.h */,
+				420AC76E1B04AF0100198C0E /* DBLocationAdapter.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -525,6 +530,7 @@
 				4290A0AD1AF6050100CB46E5 /* HotSpotTableViewCell.m in Sources */,
 				4200962D1AFF102900B43630 /* HotSpot.m in Sources */,
 				420096201AFEF19200B43630 /* TopMidblock.m in Sources */,
+				420AC76F1B04AF0100198C0E /* DBLocationAdapter.m in Sources */,
 				420096291AFEF37B00B43630 /* TopMotorcyclist.m in Sources */,
 				9B6C7DA81AF500C500DF6FA9 /* DBManager.m in Sources */,
 				9B812DD91AEB3E9D008F17B6 /* HotSpotListViewController.m in Sources */,
