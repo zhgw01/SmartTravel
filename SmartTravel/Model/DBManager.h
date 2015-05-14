@@ -10,6 +10,7 @@
 #import <FMDB/FMDB.h>
 
 extern NSString * const MAIN_DB_TBL_COLLISION_LOCATION;
+extern NSString * const MAIN_DB_TBL_WM_REASON_CONDITION;
 extern NSString * const MAIN_DB_TBL_WM_DAYTYPE;
 
 @interface DBManager : NSObject

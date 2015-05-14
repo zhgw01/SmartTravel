@@ -21,6 +21,7 @@
 #ifdef DEBUG
 #import "DBDateAdapter.h"
 #import "DBLocationAdapter.h"
+#import "DBReasonAdapter.h"
 #endif
 
 @interface HomeViewController ()<SWRevealViewControllerDelegate, CLLocationManagerDelegate, HotSpotListViewControllerMapDelegate>
@@ -155,6 +156,10 @@
 //                                                   atLatitude:56.25015
 //                                                   longtitude:-114.56970];
 //    NSLog(@"There total %lu locations within 100 meters", nearbyLocations.count);
+    
+    DBReasonAdapter* dbReasonAdapter = [[DBReasonAdapter alloc] init];
+    NSArray* reasonIds = [dbReasonAdapter getReasonIDsOfDate:[NSDate date]];
+    NSLog(@"Valid reason count is %lu", (unsigned long)reasonIds.count);
 #else
     if (!self.mapView.myLocationEnabled) {
         [self requestLocationAuthorization];
