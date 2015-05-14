@@ -20,6 +20,7 @@
 // For debug and test only
 #ifdef DEBUG
 #import "DBDateAdapter.h"
+#import "DBLocationAdapter.h"
 #endif
 
 @interface HomeViewController ()<SWRevealViewControllerDelegate, CLLocationManagerDelegate, HotSpotListViewControllerMapDelegate>
@@ -134,6 +135,7 @@
 
 - (IBAction)locateMe:(id)sender {
 #ifdef DEBUG
+// Test DBDateAdapter
 //    NSDateComponents* com = [[NSDateComponents alloc] init];
 //    [com setDay:9];
 //    [com setMonth:5];
@@ -141,11 +143,18 @@
 //    
 //    NSCalendar* cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 //    NSDate* date = [cal dateFromComponents:com];
-    NSDate* date = [NSDate date];
+//    NSDate* date = [NSDate date];
+//    
+//    DBDateAdapter* dbDate = [[DBDateAdapter alloc] initWith:date];
+//    NSLog(dbDate.isWeekDay ? @"Today is weekday" : @"Today is NOT weekday");
+//    NSLog(dbDate.isSchoolDay ? @"Today is school day" : @"Today is NOT school day");
     
-    DBDateAdapter* dbDate = [[DBDateAdapter alloc] initWith:date];
-    NSLog(dbDate.isWeekDay ? @"Today is weekday" : @"Today is NOT weekday");
-    NSLog(dbDate.isSchoolDay ? @"Today is school day" : @"Today is NOT school day");
+// Test DBLocationAdapter
+//    DBLocationAdapter* dbLocation = [[DBLocationAdapter alloc] init];
+//    NSArray* nearbyLocations = [dbLocation getLocCodesInRange:1000
+//                                                   atLatitude:56.25015
+//                                                   longtitude:-114.56970];
+//    NSLog(@"There total %lu locations within 100 meters", nearbyLocations.count);
 #else
     if (!self.mapView.myLocationEnabled) {
         [self requestLocationAuthorization];

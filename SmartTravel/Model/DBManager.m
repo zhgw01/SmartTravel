@@ -27,6 +27,7 @@ static NSString * const kTopMotorcyclistQuerySmt = @"select * from Top_Motorcycl
 static NSString * const kTemplateDbName = @"smartTravelTemplate";
 static NSString * const kMainDbName = @"smartTravel";
 
+NSString * const MAIN_DB_TBL_COLLISION_LOCATION = @"TBL_COLLISION_LOCATION";
 NSString * const MAIN_DB_TBL_WM_DAYTYPE = @"TBL_WM_DAYTYPE";
 
 @interface DBManager()
