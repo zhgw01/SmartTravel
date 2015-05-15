@@ -9,11 +9,14 @@
 #import <Mantle/MTLJSONAdapter.h>
 #import "JsonManager.h"
 #import "JSONCollisionLocation.h"
+#import "JSONLocationReason.h"
+#import "JSONWMDayType.h"
+#import "JSONWMReasonCondition.h"
 
 NSString * const kJSON_TBL_COLLISION_LOCATION = @"TBL_COLLISION_LOCATION";
 NSString * const kJSON_TBL_LOCATION_REASON = @"TBL_LOCATION_REASON";
 NSString * const kJSON_TBL_WM_DAYTYPE = @"TBL_WM_DAYTYPE";
-NSString * const kJSON_TBL_WM_REASON_CONDITION = @"TBL_WSM_REASON_CONDITION";
+NSString * const kJSON_TBL_WM_REASON_CONDITION = @"TBL_WM_REASON_CONDITION";
 
 @implementation JsonManager
 
@@ -40,18 +43,15 @@ NSString * const kJSON_TBL_WM_REASON_CONDITION = @"TBL_WSM_REASON_CONDITION";
     }
     else if ([fileName isEqualToString:kJSON_TBL_LOCATION_REASON])
     {
-        // TODO: CPY
-        return nil;
+        return [JSONLocationReason class];
     }
     else if ([fileName isEqualToString:kJSON_TBL_WM_DAYTYPE])
     {
-        // TODO: CPY
-        return nil;
+        return [JSONWMDayType class];        
     }
     else if ([fileName isEqualToString:kJSON_TBL_WM_REASON_CONDITION])
     {
-        // TODO: CPY
-        return nil;
+        return [JSONWMReasonCondition class];
     }
     return nil;
 }
