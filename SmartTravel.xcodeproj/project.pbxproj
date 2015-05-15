@@ -19,6 +19,9 @@
 		4200962D1AFF102900B43630 /* HotSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4200962C1AFF102900B43630 /* HotSpot.m */; };
 		420AC76F1B04AF0100198C0E /* DBLocationAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 420AC76E1B04AF0100198C0E /* DBLocationAdapter.m */; };
 		420AC7721B04C5A300198C0E /* DBReasonAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 420AC7711B04C5A300198C0E /* DBReasonAdapter.m */; };
+		4225C9411B0646EB005C4C63 /* JSONLocationReason.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225C9401B0646EB005C4C63 /* JSONLocationReason.m */; };
+		4225C9441B0649C5005C4C63 /* JSONWMDayType.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225C9431B0649C5005C4C63 /* JSONWMDayType.m */; };
+		4225C9471B064BA6005C4C63 /* JSONWMReasonCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225C9461B064BA6005C4C63 /* JSONWMReasonCondition.m */; };
 		4239D62C1B0218D700C7D72D /* DBDateAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4239D62B1B0218D700C7D72D /* DBDateAdapter.m */; };
 		425C64911AF8E71100BE9086 /* WarningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425C64901AF8E71100BE9086 /* WarningView.m */; };
 		425C64931AF8E72800BE9086 /* WarningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425C64921AF8E72800BE9086 /* WarningView.xib */; };
@@ -92,6 +95,12 @@
 		420AC76E1B04AF0100198C0E /* DBLocationAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBLocationAdapter.m; sourceTree = "<group>"; };
 		420AC7701B04C5A300198C0E /* DBReasonAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBReasonAdapter.h; sourceTree = "<group>"; };
 		420AC7711B04C5A300198C0E /* DBReasonAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBReasonAdapter.m; sourceTree = "<group>"; };
+		4225C93F1B0646EB005C4C63 /* JSONLocationReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONLocationReason.h; sourceTree = "<group>"; };
+		4225C9401B0646EB005C4C63 /* JSONLocationReason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONLocationReason.m; sourceTree = "<group>"; };
+		4225C9421B0649C5005C4C63 /* JSONWMDayType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONWMDayType.h; sourceTree = "<group>"; };
+		4225C9431B0649C5005C4C63 /* JSONWMDayType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONWMDayType.m; sourceTree = "<group>"; };
+		4225C9451B064BA6005C4C63 /* JSONWMReasonCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONWMReasonCondition.h; sourceTree = "<group>"; };
+		4225C9461B064BA6005C4C63 /* JSONWMReasonCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONWMReasonCondition.m; sourceTree = "<group>"; };
 		4239D62A1B0218D700C7D72D /* DBDateAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDateAdapter.h; sourceTree = "<group>"; };
 		4239D62B1B0218D700C7D72D /* DBDateAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBDateAdapter.m; sourceTree = "<group>"; };
 		425C648F1AF8E71100BE9086 /* WarningView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WarningView.h; sourceTree = "<group>"; };
@@ -205,6 +214,12 @@
 				4261DD961B0632D600521A17 /* JsonManager.m */,
 				4261DD981B0636E600521A17 /* JSONCollisionLocation.h */,
 				4261DD991B0636E600521A17 /* JSONCollisionLocation.m */,
+				4225C93F1B0646EB005C4C63 /* JSONLocationReason.h */,
+				4225C9401B0646EB005C4C63 /* JSONLocationReason.m */,
+				4225C9421B0649C5005C4C63 /* JSONWMDayType.h */,
+				4225C9431B0649C5005C4C63 /* JSONWMDayType.m */,
+				4225C9451B064BA6005C4C63 /* JSONWMReasonCondition.h */,
+				4225C9461B064BA6005C4C63 /* JSONWMReasonCondition.m */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -582,6 +597,7 @@
 				4261DD861B0610CA00521A17 /* DBLocationReasonAdapter.m in Sources */,
 				9B6A85B41ADFDEFF00667170 /* AppDelegate.m in Sources */,
 				4290A0AD1AF6050100CB46E5 /* HotSpotTableViewCell.m in Sources */,
+				4225C9441B0649C5005C4C63 /* JSONWMDayType.m in Sources */,
 				420AC7721B04C5A300198C0E /* DBReasonAdapter.m in Sources */,
 				4200962D1AFF102900B43630 /* HotSpot.m in Sources */,
 				420096201AFEF19200B43630 /* TopMidblock.m in Sources */,
@@ -600,10 +616,12 @@
 				9B7E59601AE3966F0008D25C /* HomeViewController.m in Sources */,
 				4200961C1AFEF05800B43630 /* TopIntersection.m in Sources */,
 				420096231AFEF25600B43630 /* TopPedestrian.m in Sources */,
+				4225C9471B064BA6005C4C63 /* JSONWMReasonCondition.m in Sources */,
 				420096261AFEF31C00B43630 /* TopCyclist.m in Sources */,
 				9B7E59551AE3882A0008D25C /* GuideViewController.m in Sources */,
 				425C64911AF8E71100BE9086 /* WarningView.m in Sources */,
 				9BDBCA461AF8EEE600F23275 /* MarkerManager.m in Sources */,
+				4225C9411B0646EB005C4C63 /* JSONLocationReason.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
