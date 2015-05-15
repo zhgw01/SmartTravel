@@ -29,6 +29,7 @@ static NSString * const kMainDbName = @"smartTravel";
 
 NSString * const MAIN_DB_TBL_COLLISION_LOCATION = @"TBL_COLLISION_LOCATION";
 NSString * const MAIN_DB_TBL_WM_REASON_CONDITION = @"TBL_WM_REASON_CONDITION";
+NSString * const MAIN_DB_TBL_LOCATION_REASON = @"TBL_LOCATION_REASON";
 NSString * const MAIN_DB_TBL_WM_DAYTYPE = @"TBL_WM_DAYTYPE";
 
 @interface DBManager()

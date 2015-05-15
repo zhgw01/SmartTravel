@@ -16,13 +16,7 @@
 #import "MarkerManager.h"
 #import "Collision.h"
 #import "VRU.h"
-
-// For debug and test only
-#ifdef DEBUG
-#import "DBDateAdapter.h"
-#import "DBLocationAdapter.h"
-#import "DBReasonAdapter.h"
-#endif
+#import "DBLocationReasonAdapter.h"
 
 @interface HomeViewController ()<SWRevealViewControllerDelegate, CLLocationManagerDelegate, HotSpotListViewControllerMapDelegate>
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
@@ -38,6 +32,8 @@
 @property (copy, nonatomic)   CLLocation *recentLocation;
 @property (strong, nonatomic) CLLocation* defaultLocation;
 @property (assign, nonatomic) CLLocationDirection direction;
+
+@property (strong, nonatomic) DBLocationReasonAdapter* locationReasonAdapter;
 
 @end
 
@@ -71,6 +67,8 @@
                                         self.view.frame.size.height * 0.3);
     
     self.warningView.hidden = YES;
+    
+    self.locationReasonAdapter = [[DBLocationReasonAdapter alloc] init];
 }
 
 - (void) setupMap
@@ -135,39 +133,12 @@
 }
 
 - (IBAction)locateMe:(id)sender {
-#ifdef DEBUG
-// Test DBDateAdapter
-//    NSDateComponents* com = [[NSDateComponents alloc] init];
-//    [com setDay:9];
-//    [com setMonth:5];
-//    [com setYear:2015];
-//    
-//    NSCalendar* cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-//    NSDate* date = [cal dateFromComponents:com];
-//    NSDate* date = [NSDate date];
-//    
-//    DBDateAdapter* dbDate = [[DBDateAdapter alloc] initWith:date];
-//    NSLog(dbDate.isWeekDay ? @"Today is weekday" : @"Today is NOT weekday");
-//    NSLog(dbDate.isSchoolDay ? @"Today is school day" : @"Today is NOT school day");
-    
-// Test DBLocationAdapter
-//    DBLocationAdapter* dbLocation = [[DBLocationAdapter alloc] init];
-//    NSArray* nearbyLocations = [dbLocation getLocCodesInRange:1000
-//                                                   atLatitude:56.25015
-//                                                   longtitude:-114.56970];
-//    NSLog(@"There total %lu locations within 100 meters", nearbyLocations.count);
-    
-    DBReasonAdapter* dbReasonAdapter = [[DBReasonAdapter alloc] init];
-    NSArray* reasonIds = [dbReasonAdapter getReasonIDsOfDate:[NSDate date]];
-    NSLog(@"Valid reason count is %lu", (unsigned long)reasonIds.count);
-#else
+
     if (!self.mapView.myLocationEnabled) {
         [self requestLocationAuthorization];
     }
     
     self.zoomToCurrent = YES;
-#endif
-    
 }
 
 - (void) requestLocationAuthorization {
@@ -232,6 +203,17 @@
         [self.mapView animateWithCameraUpdate:newTarget];
         
         self.zoomToCurrent = NO;
+    }
+    
+    // Get warning data list
+    NSArray* warnings = [self.locationReasonAdapter getLocationReasonsAtLatitude:self.recentLocation.coordinate.latitude
+                                                                     longititude:self.recentLocation.coordinate.longitude
+                                                                          ofDate:[NSDate date]
+                                                                     inDirection:self.direction
+                                                                    withinRadius:100];
+    for (NSDictionary* waringData in warnings)
+    {
+        NSLog(@"You're in range of %@", (NSString*)[waringData objectForKey:@"Loc_code"]);
     }
 }
 

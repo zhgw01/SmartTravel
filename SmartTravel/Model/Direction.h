@@ -21,4 +21,6 @@ typedef NS_ENUM(NSUInteger, Direction) {
 
 -(instancetype)initWithCLLocationDirection: (CLLocationDirection) coreDirection;
 
++(NSString*)directionToString:(Direction)direction;
+
 @end
