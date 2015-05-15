@@ -1,0 +1,4260 @@
+[
+    {
+        "location_name": "164 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.475382286,
+        "latitude": 53.6261352837,
+        "loc_code": "SCHOOLZONE_1133"
+    },
+    {
+        "location_name": "GRIESBACH ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.497899181,
+        "latitude": 53.6081025306,
+        "loc_code": "SCHOOLZONE_1134"
+    },
+    {
+        "location_name": "GRIESBACH SCHOOL ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.495899263,
+        "latitude": 53.6073176554,
+        "loc_code": "SCHOOLZONE_1135"
+    },
+    {
+        "location_name": "SIR ARTHUR CURRIE WAY NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.499795075,
+        "latitude": 53.6069408327,
+        "loc_code": "SCHOOLZONE_1136"
+    },
+    {
+        "location_name": "120 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.40223736,
+        "latitude": 53.5735347604,
+        "loc_code": "SCHOOLZONE_1137"
+    },
+    {
+        "location_name": "119 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.401863127,
+        "latitude": 53.5719093612,
+        "loc_code": "SCHOOLZONE_1138"
+    },
+    {
+        "location_name": "39 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.401470966,
+        "latitude": 53.5727228783,
+        "loc_code": "SCHOOLZONE_1139"
+    },
+    {
+        "location_name": "40 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.403006987,
+        "latitude": 53.5727208666,
+        "loc_code": "SCHOOLZONE_1140"
+    },
+    {
+        "location_name": "140 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.434119013,
+        "latitude": 53.602359737,
+        "loc_code": "SCHOOLZONE_1141"
+    },
+    {
+        "location_name": "61 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.435603824,
+        "latitude": 53.6014023363,
+        "loc_code": "SCHOOLZONE_1142"
+    },
+    {
+        "location_name": "140 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.484660279,
+        "latitude": 53.6031472232,
+        "loc_code": "SCHOOLZONE_1143"
+    },
+    {
+        "location_name": "94 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.485859455,
+        "latitude": 53.6035389619,
+        "loc_code": "SCHOOLZONE_1144"
+    },
+    {
+        "location_name": "94 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.485775012,
+        "latitude": 53.6044388119,
+        "loc_code": "SCHOOLZONE_1145"
+    },
+    {
+        "location_name": "94 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.48553601,
+        "latitude": 53.6034144682,
+        "loc_code": "SCHOOLZONE_1146"
+    },
+    {
+        "location_name": "30 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.387854807,
+        "latitude": 53.6035899057,
+        "loc_code": "SCHOOLZONE_1147"
+    },
+    {
+        "location_name": "139 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.388975057,
+        "latitude": 53.6028511253,
+        "loc_code": "SCHOOLZONE_1148"
+    },
+    {
+        "location_name": "132A STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.549466752,
+        "latitude": 53.59546418,
+        "loc_code": "SCHOOLZONE_1149"
+    },
+    {
+        "location_name": "134 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.550930617,
+        "latitude": 53.5946442332,
+        "loc_code": "SCHOOLZONE_1150"
+    },
+    {
+        "location_name": "134 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.55195523,
+        "latitude": 53.5953793876,
+        "loc_code": "SCHOOLZONE_1151"
+    },
+    {
+        "location_name": "106 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.476097959,
+        "latitude": 53.5526282228,
+        "loc_code": "SCHOOLZONE_1152"
+    },
+    {
+        "location_name": "92 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.47736596,
+        "latitude": 53.5517908711,
+        "loc_code": "SCHOOLZONE_1153"
+    },
+    {
+        "location_name": "105A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.476210355,
+        "latitude": 53.5515544593,
+        "loc_code": "SCHOOLZONE_1154"
+    },
+    {
+        "location_name": "90 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.474928322,
+        "latitude": 53.5523387673,
+        "loc_code": "SCHOOLZONE_1155"
+    },
+    {
+        "location_name": "BEAUMARIS ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.508321737,
+        "latitude": 53.6214863168,
+        "loc_code": "SCHOOLZONE_1156"
+    },
+    {
+        "location_name": "109 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.509553175,
+        "latitude": 53.6221354496,
+        "loc_code": "SCHOOLZONE_1157"
+    },
+    {
+        "location_name": "91 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.47970486,
+        "latitude": 53.6351597889,
+        "loc_code": "SCHOOLZONE_1158"
+    },
+    {
+        "location_name": "CLAREVIEW ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.384457733,
+        "latitude": 53.5944772316,
+        "loc_code": "SCHOOLZONE_1159"
+    },
+    {
+        "location_name": "132 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.456629626,
+        "latitude": 53.5922506917,
+        "loc_code": "SCHOOLZONE_1160"
+    },
+    {
+        "location_name": "74 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.455522203,
+        "latitude": 53.593062967,
+        "loc_code": "SCHOOLZONE_1161"
+    },
+    {
+        "location_name": "133 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.456677234,
+        "latitude": 53.5938630524,
+        "loc_code": "SCHOOLZONE_1162"
+    },
+    {
+        "location_name": "76 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.457860891,
+        "latitude": 53.5930331339,
+        "loc_code": "SCHOOLZONE_1163"
+    },
+    {
+        "location_name": "102 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.495552754,
+        "latitude": 53.566538032,
+        "loc_code": "SCHOOLZONE_1164"
+    },
+    {
+        "location_name": "115 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.494801209,
+        "latitude": 53.5657730805,
+        "loc_code": "SCHOOLZONE_1165"
+    },
+    {
+        "location_name": "145 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.539288821,
+        "latitude": 53.606707839,
+        "loc_code": "SCHOOLZONE_1166"
+    },
+    {
+        "location_name": "144 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.432617585,
+        "latitude": 53.6059824959,
+        "loc_code": "SCHOOLZONE_1167"
+    },
+    {
+        "location_name": "144 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.432595743,
+        "latitude": 53.6058465583,
+        "loc_code": "SCHOOLZONE_1168"
+    },
+    {
+        "location_name": "117 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.466035446,
+        "latitude": 53.5688911437,
+        "loc_code": "SCHOOLZONE_1169"
+    },
+    {
+        "location_name": "116 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.466418339,
+        "latitude": 53.5673467666,
+        "loc_code": "SCHOOLZONE_1170"
+    },
+    {
+        "location_name": "81 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.465529617,
+        "latitude": 53.5681153037,
+        "loc_code": "SCHOOLZONE_1171"
+    },
+    {
+        "location_name": "HERMITAGE ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.406761335,
+        "latitude": 53.5861565043,
+        "loc_code": "SCHOOLZONE_1172"
+    },
+    {
+        "location_name": "HERMITAGE ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.406596648,
+        "latitude": 53.5862096682,
+        "loc_code": "SCHOOLZONE_1173"
+    },
+    {
+        "location_name": "54 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.424573709,
+        "latitude": 53.575783216,
+        "loc_code": "SCHOOLZONE_1174"
+    },
+    {
+        "location_name": "121 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.425343449,
+        "latitude": 53.5750829715,
+        "loc_code": "SCHOOLZONE_1175"
+    },
+    {
+        "location_name": "122 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.425334841,
+        "latitude": 53.5767116037,
+        "loc_code": "SCHOOLZONE_1176"
+    },
+    {
+        "location_name": "162 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.526986554,
+        "latitude": 53.6227952031,
+        "loc_code": "SCHOOLZONE_1177"
+    },
+    {
+        "location_name": "172 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.505189923,
+        "latitude": 53.6333759927,
+        "loc_code": "SCHOOLZONE_1178"
+    },
+    {
+        "location_name": "85 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.470853541,
+        "latitude": 53.5804749398,
+        "loc_code": "SCHOOLZONE_1179"
+    },
+    {
+        "location_name": "124 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.470417316,
+        "latitude": 53.5798415927,
+        "loc_code": "SCHOOLZONE_1180"
+    },
+    {
+        "location_name": "130 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.505261875,
+        "latitude": 53.5895811825,
+        "loc_code": "SCHOOLZONE_1181"
+    },
+    {
+        "location_name": "131A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.505289523,
+        "latitude": 53.5910999005,
+        "loc_code": "SCHOOLZONE_1182"
+    },
+    {
+        "location_name": "LAUDERDALE ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.503765548,
+        "latitude": 53.5910968161,
+        "loc_code": "SCHOOLZONE_1183"
+    },
+    {
+        "location_name": "107 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.504051005,
+        "latitude": 53.5903397619,
+        "loc_code": "SCHOOLZONE_1184"
+    },
+    {
+        "location_name": "108 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.506588911,
+        "latitude": 53.5901062708,
+        "loc_code": "SCHOOLZONE_1185"
+    },
+    {
+        "location_name": "117 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.523232244,
+        "latitude": 53.6056123288,
+        "loc_code": "SCHOOLZONE_1186"
+    },
+    {
+        "location_name": "161A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.457379653,
+        "latitude": 53.6223847794,
+        "loc_code": "SCHOOLZONE_1187"
+    },
+    {
+        "location_name": "32 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.389873088,
+        "latitude": 53.5610934707,
+        "loc_code": "SCHOOLZONE_1188"
+    },
+    {
+        "location_name": "107 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.392541641,
+        "latitude": 53.5605510208,
+        "loc_code": "SCHOOLZONE_1189"
+    },
+    {
+        "location_name": "129A STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.547159178,
+        "latitude": 53.5767797198,
+        "loc_code": "SCHOOLZONE_1190"
+    },
+    {
+        "location_name": "122B AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.549104957,
+        "latitude": 53.5768504834,
+        "loc_code": "SCHOOLZONE_1191"
+    },
+    {
+        "location_name": "131 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.549975343,
+        "latitude": 53.5761083766,
+        "loc_code": "SCHOOLZONE_1192"
+    },
+    {
+        "location_name": "72 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.449112442,
+        "latitude": 53.6102271526,
+        "loc_code": "SCHOOLZONE_1193"
+    },
+    {
+        "location_name": "149A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.449710441,
+        "latitude": 53.6113553105,
+        "loc_code": "SCHOOLZONE_1194"
+    },
+    {
+        "location_name": "107 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.504753092,
+        "latitude": 53.5556587841,
+        "loc_code": "SCHOOLZONE_1195"
+    },
+    {
+        "location_name": "108 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.506598227,
+        "latitude": 53.5556576614,
+        "loc_code": "SCHOOLZONE_1196"
+    },
+    {
+        "location_name": "149A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.460387256,
+        "latitude": 53.6108647171,
+        "loc_code": "SCHOOLZONE_1197"
+    },
+    {
+        "location_name": "76 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.460156571,
+        "latitude": 53.6121935438,
+        "loc_code": "SCHOOLZONE_1198"
+    },
+    {
+        "location_name": "116 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.539820508,
+        "latitude": 53.5668464939,
+        "loc_code": "SCHOOLZONE_1199"
+    },
+    {
+        "location_name": "127 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.54118351,
+        "latitude": 53.566223847,
+        "loc_code": "SCHOOLZONE_1200"
+    },
+    {
+        "location_name": "128 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.411498909,
+        "latitude": 53.587818069,
+        "loc_code": "SCHOOLZONE_1201"
+    },
+    {
+        "location_name": "135 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.484521088,
+        "latitude": 53.5967712472,
+        "loc_code": "SCHOOLZONE_1202"
+    },
+    {
+        "location_name": "92 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.483480768,
+        "latitude": 53.5960930769,
+        "loc_code": "SCHOOLZONE_1203"
+    },
+    {
+        "location_name": "21 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.372146521,
+        "latitude": 53.6113022739,
+        "loc_code": "SCHOOLZONE_1204"
+    },
+    {
+        "location_name": "150 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.484061846,
+        "latitude": 53.6109694911,
+        "loc_code": "SCHOOLZONE_1205"
+    },
+    {
+        "location_name": "94 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.48534755,
+        "latitude": 53.6100892499,
+        "loc_code": "SCHOOLZONE_1206"
+    },
+    {
+        "location_name": "DELWOOD ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.455305046,
+        "latitude": 53.5968228311,
+        "loc_code": "SCHOOLZONE_1207"
+    },
+    {
+        "location_name": "73 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.453929259,
+        "latitude": 53.5961417032,
+        "loc_code": "SCHOOLZONE_1208"
+    },
+    {
+        "location_name": "134 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.435321413,
+        "latitude": 53.5954537364,
+        "loc_code": "SCHOOLZONE_1209"
+    },
+    {
+        "location_name": "62 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.43667684,
+        "latitude": 53.594524696,
+        "loc_code": "SCHOOLZONE_1210"
+    },
+    {
+        "location_name": "132A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.392033488,
+        "latitude": 53.5930378618,
+        "loc_code": "SCHOOLZONE_1211"
+    },
+    {
+        "location_name": "132A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.394461552,
+        "latitude": 53.5927319843,
+        "loc_code": "SCHOOLZONE_1212"
+    },
+    {
+        "location_name": "121 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.413209019,
+        "latitude": 53.5750773308,
+        "loc_code": "SCHOOLZONE_1213"
+    },
+    {
+        "location_name": "129 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.544261139,
+        "latitude": 53.588204698,
+        "loc_code": "SCHOOLZONE_1214"
+    },
+    {
+        "location_name": "129 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.54541028,
+        "latitude": 53.587569924,
+        "loc_code": "SCHOOLZONE_1215"
+    },
+    {
+        "location_name": "ABBOTTSFIELD ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.392555004,
+        "latitude": 53.5750888824,
+        "loc_code": "SCHOOLZONE_1216"
+    },
+    {
+        "location_name": "34 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.393690687,
+        "latitude": 53.57431713,
+        "loc_code": "SCHOOLZONE_1217"
+    },
+    {
+        "location_name": "121 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.394064851,
+        "latitude": 53.5750919037,
+        "loc_code": "SCHOOLZONE_1218"
+    },
+    {
+        "location_name": "73 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.447534808,
+        "latitude": 53.5597452977,
+        "loc_code": "SCHOOLZONE_1219"
+    },
+    {
+        "location_name": "109 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.448585246,
+        "latitude": 53.5600258901,
+        "loc_code": "SCHOOLZONE_1220"
+    },
+    {
+        "location_name": "134 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.407350869,
+        "latitude": 53.5946851079,
+        "loc_code": "SCHOOLZONE_1221"
+    },
+    {
+        "location_name": "134 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.408377966,
+        "latitude": 53.5947442022,
+        "loc_code": "SCHOOLZONE_1222"
+    },
+    {
+        "location_name": "135A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.50400659,
+        "latitude": 53.5971396258,
+        "loc_code": "SCHOOLZONE_1223"
+    },
+    {
+        "location_name": "107 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.505075324,
+        "latitude": 53.5961523552,
+        "loc_code": "SCHOOLZONE_1224"
+    },
+    {
+        "location_name": "34 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.393728788,
+        "latitude": 53.5617793764,
+        "loc_code": "SCHOOLZONE_1225"
+    },
+    {
+        "location_name": "116 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.4001444,
+        "latitude": 53.5685860205,
+        "loc_code": "SCHOOLZONE_1226"
+    },
+    {
+        "location_name": "38 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.399953574,
+        "latitude": 53.5691401942,
+        "loc_code": "SCHOOLZONE_1227"
+    },
+    {
+        "location_name": "78 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.460218064,
+        "latitude": 53.5896954758,
+        "loc_code": "SCHOOLZONE_1228"
+    },
+    {
+        "location_name": "130 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.459434611,
+        "latitude": 53.5891499341,
+        "loc_code": "SCHOOLZONE_1229"
+    },
+    {
+        "location_name": "124 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.539971599,
+        "latitude": 53.5792714458,
+        "loc_code": "SCHOOLZONE_1230"
+    },
+    {
+        "location_name": "123 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.539972517,
+        "latitude": 53.5777606111,
+        "loc_code": "SCHOOLZONE_1231"
+    },
+    {
+        "location_name": "HERMITAGE ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.389287147,
+        "latitude": 53.5808794552,
+        "loc_code": "SCHOOLZONE_1232"
+    },
+    {
+        "location_name": "HERMITAGE ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.389411729,
+        "latitude": 53.5807939213,
+        "loc_code": "SCHOOLZONE_1233"
+    },
+    {
+        "location_name": "95A STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.488637095,
+        "latitude": 53.5604987597,
+        "loc_code": "SCHOOLZONE_1234"
+    },
+    {
+        "location_name": "112 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.488078513,
+        "latitude": 53.5610504811,
+        "loc_code": "SCHOOLZONE_1235"
+    },
+    {
+        "location_name": "140 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.476977352,
+        "latitude": 53.6029593844,
+        "loc_code": "SCHOOLZONE_1236"
+    },
+    {
+        "location_name": "88A STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.47620836,
+        "latitude": 53.6039990392,
+        "loc_code": "SCHOOLZONE_1237"
+    },
+    {
+        "location_name": "55 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.426125156,
+        "latitude": 53.5689231765,
+        "loc_code": "SCHOOLZONE_1238"
+    },
+    {
+        "location_name": "119 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.436654837,
+        "latitude": 53.571916145,
+        "loc_code": "SCHOOLZONE_1239"
+    },
+    {
+        "location_name": "62 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.436823168,
+        "latitude": 53.5726311695,
+        "loc_code": "SCHOOLZONE_1240"
+    },
+    {
+        "location_name": "19A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.427987941,
+        "latitude": 53.4507164505,
+        "loc_code": "SCHOOLZONE_1241"
+    },
+    {
+        "location_name": "56 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.426722039,
+        "latitude": 53.4501640829,
+        "loc_code": "SCHOOLZONE_1242"
+    },
+    {
+        "location_name": "128A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.483803918,
+        "latitude": 53.5869323708,
+        "loc_code": "SCHOOLZONE_1243"
+    },
+    {
+        "location_name": "93 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.484738876,
+        "latitude": 53.5878871684,
+        "loc_code": "SCHOOLZONE_1244"
+    },
+    {
+        "location_name": "149 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.431209356,
+        "latitude": 53.6113464149,
+        "loc_code": "SCHOOLZONE_1245"
+    },
+    {
+        "location_name": "59 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.431960781,
+        "latitude": 53.6106913232,
+        "loc_code": "SCHOOLZONE_1246"
+    },
+    {
+        "location_name": "136 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.550545359,
+        "latitude": 53.5979628983,
+        "loc_code": "SCHOOLZONE_1247"
+    },
+    {
+        "location_name": "134 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.551944725,
+        "latitude": 53.597171452,
+        "loc_code": "SCHOOLZONE_1248"
+    },
+    {
+        "location_name": "103 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.50085241,
+        "latitude": 53.6237503464,
+        "loc_code": "SCHOOLZONE_1249"
+    },
+    {
+        "location_name": "107 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.504141487,
+        "latitude": 53.5880653278,
+        "loc_code": "SCHOOLZONE_1250"
+    },
+    {
+        "location_name": "129 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.503267387,
+        "latitude": 53.5874302902,
+        "loc_code": "SCHOOLZONE_1251"
+    },
+    {
+        "location_name": "95 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.488115056,
+        "latitude": 53.6355129339,
+        "loc_code": "SCHOOLZONE_1252"
+    },
+    {
+        "location_name": "KIRKNESS ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.386990354,
+        "latitude": 53.6106030528,
+        "loc_code": "SCHOOLZONE_1253"
+    },
+    {
+        "location_name": "106 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.5036309,
+        "latitude": 53.513638223,
+        "loc_code": "SCHOOLZONE_1254"
+    },
+    {
+        "location_name": "78 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.504911215,
+        "latitude": 53.5142440537,
+        "loc_code": "SCHOOLZONE_1255"
+    },
+    {
+        "location_name": "76 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.502450828,
+        "latitude": 53.5122844532,
+        "loc_code": "SCHOOLZONE_1256"
+    },
+    {
+        "location_name": "77 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.50201674,
+        "latitude": 53.513292323,
+        "loc_code": "SCHOOLZONE_1257"
+    },
+    {
+        "location_name": "105 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.500466201,
+        "latitude": 53.5128073958,
+        "loc_code": "SCHOOLZONE_1258"
+    },
+    {
+        "location_name": "UNIVERSITY AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.500382535,
+        "latitude": 53.5121651887,
+        "loc_code": "SCHOOLZONE_1259"
+    },
+    {
+        "location_name": "40 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.53576004,
+        "latitude": 53.4763814132,
+        "loc_code": "SCHOOLZONE_1260"
+    },
+    {
+        "location_name": "40 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.535768205,
+        "latitude": 53.4762813177,
+        "loc_code": "SCHOOLZONE_1261"
+    },
+    {
+        "location_name": "117 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.535169498,
+        "latitude": 53.4773578507,
+        "loc_code": "SCHOOLZONE_1262"
+    },
+    {
+        "location_name": "40 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.540324697,
+        "latitude": 53.4763136521,
+        "loc_code": "SCHOOLZONE_1263"
+    },
+    {
+        "location_name": "120 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.541210668,
+        "latitude": 53.4758903173,
+        "loc_code": "SCHOOLZONE_1264"
+    },
+    {
+        "location_name": "39A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.541982992,
+        "latitude": 53.4753828565,
+        "loc_code": "SCHOOLZONE_1265"
+    },
+    {
+        "location_name": "53 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.574894168,
+        "latitude": 53.4903087047,
+        "loc_code": "SCHOOLZONE_1266"
+    },
+    {
+        "location_name": "53 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.574905597,
+        "latitude": 53.4904427637,
+        "loc_code": "SCHOOLZONE_1267"
+    },
+    {
+        "location_name": "148 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.57508056,
+        "latitude": 53.4946856203,
+        "loc_code": "SCHOOLZONE_1268"
+    },
+    {
+        "location_name": "56 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.577063157,
+        "latitude": 53.4938654349,
+        "loc_code": "SCHOOLZONE_1269"
+    },
+    {
+        "location_name": "RIVERBEND ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.578266385,
+        "latitude": 53.4931525988,
+        "loc_code": "SCHOOLZONE_1270"
+    },
+    {
+        "location_name": "TAYLOR GREEN NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.576432473,
+        "latitude": 53.4475034886,
+        "loc_code": "SCHOOLZONE_1271"
+    },
+    {
+        "location_name": "TERWILLEGAR COMMON NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.575680432,
+        "latitude": 53.4460329789,
+        "loc_code": "SCHOOLZONE_1272"
+    },
+    {
+        "location_name": "TERWILLEGAR WAY NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.574101402,
+        "latitude": 53.4455292667,
+        "loc_code": "SCHOOLZONE_1273"
+    },
+    {
+        "location_name": "RHATIGAN ROAD EAST NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.583328489,
+        "latitude": 53.4750335701,
+        "loc_code": "SCHOOLZONE_1274"
+    },
+    {
+        "location_name": "REHWINKEL ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.581645336,
+        "latitude": 53.4738378733,
+        "loc_code": "SCHOOLZONE_1275"
+    },
+    {
+        "location_name": "SADDLEBACK ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.52813765,
+        "latitude": 53.457314066,
+        "loc_code": "SCHOOLZONE_1276"
+    },
+    {
+        "location_name": "25 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.526297595,
+        "latitude": 53.4570738749,
+        "loc_code": "SCHOOLZONE_1277"
+    },
+    {
+        "location_name": "63 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.54608898,
+        "latitude": 53.5001238192,
+        "loc_code": "SCHOOLZONE_1278"
+    },
+    {
+        "location_name": "127 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.547081376,
+        "latitude": 53.4989474131,
+        "loc_code": "SCHOOLZONE_1279"
+    },
+    {
+        "location_name": "RUTHERFORD ROAD SW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.53632855,
+        "latitude": 53.4194804649,
+        "loc_code": "SCHOOLZONE_1280"
+    },
+    {
+        "location_name": "76 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.524017257,
+        "latitude": 53.5122478011,
+        "loc_code": "SCHOOLZONE_1281"
+    },
+    {
+        "location_name": "157 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.592074257,
+        "latitude": 53.5368384339,
+        "loc_code": "SCHOOLZONE_1282"
+    },
+    {
+        "location_name": "158 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.593820308,
+        "latitude": 53.5368395588,
+        "loc_code": "SCHOOLZONE_1283"
+    },
+    {
+        "location_name": "98 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.592947175,
+        "latitude": 53.536186119,
+        "loc_code": "SCHOOLZONE_1284"
+    },
+    {
+        "location_name": "99 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.592947363,
+        "latitude": 53.5374913604,
+        "loc_code": "SCHOOLZONE_1285"
+    },
+    {
+        "location_name": "117 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.523128901,
+        "latitude": 53.5438174716,
+        "loc_code": "SCHOOLZONE_1286"
+    },
+    {
+        "location_name": "118 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.524970343,
+        "latitude": 53.5438141194,
+        "loc_code": "SCHOOLZONE_1287"
+    },
+    {
+        "location_name": "102 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.523679859,
+        "latitude": 53.5430227957,
+        "loc_code": "SCHOOLZONE_1288"
+    },
+    {
+        "location_name": "103 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.524041451,
+        "latitude": 53.5446091383,
+        "loc_code": "SCHOOLZONE_1289"
+    },
+    {
+        "location_name": "118 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.534298735,
+        "latitude": 53.523879238,
+        "loc_code": "SCHOOLZONE_1290"
+    },
+    {
+        "location_name": "119 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.536727219,
+        "latitude": 53.5238924477,
+        "loc_code": "SCHOOLZONE_1291"
+    },
+    {
+        "location_name": "12 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.525089479,
+        "latitude": 53.4432806212,
+        "loc_code": "SCHOOLZONE_1292"
+    },
+    {
+        "location_name": "113 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.524647041,
+        "latitude": 53.4423374389,
+        "loc_code": "SCHOOLZONE_1293"
+    },
+    {
+        "location_name": "113 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.524787264,
+        "latitude": 53.4423265509,
+        "loc_code": "SCHOOLZONE_1294"
+    },
+    {
+        "location_name": "BULYEA ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.571468245,
+        "latitude": 53.4742756196,
+        "loc_code": "SCHOOLZONE_1295"
+    },
+    {
+        "location_name": "86 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.513523463,
+        "latitude": 53.5219435854,
+        "loc_code": "SCHOOLZONE_1296"
+    },
+    {
+        "location_name": "87 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.513526868,
+        "latitude": 53.5228917753,
+        "loc_code": "SCHOOLZONE_1297"
+    },
+    {
+        "location_name": "83 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.60511274,
+        "latitude": 53.5167634358,
+        "loc_code": "SCHOOLZONE_1298"
+    },
+    {
+        "location_name": "163 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.602873824,
+        "latitude": 53.516047855,
+        "loc_code": "SCHOOLZONE_1299"
+    },
+    {
+        "location_name": "106 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.504496173,
+        "latitude": 53.4731326553,
+        "loc_code": "SCHOOLZONE_1300"
+    },
+    {
+        "location_name": "106 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.504655826,
+        "latitude": 53.473052396,
+        "loc_code": "SCHOOLZONE_1301"
+    },
+    {
+        "location_name": "36A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.505987247,
+        "latitude": 53.4712041907,
+        "loc_code": "SCHOOLZONE_1302"
+    },
+    {
+        "location_name": "143 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.56716849,
+        "latitude": 53.492102615,
+        "loc_code": "SCHOOLZONE_1303"
+    },
+    {
+        "location_name": "74 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.531272937,
+        "latitude": 53.5103551774,
+        "loc_code": "SCHOOLZONE_1304"
+    },
+    {
+        "location_name": "73 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.531071442,
+        "latitude": 53.5092032725,
+        "loc_code": "SCHOOLZONE_1305"
+    },
+    {
+        "location_name": "42 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.505157768,
+        "latitude": 53.4788302043,
+        "loc_code": "SCHOOLZONE_1306"
+    },
+    {
+        "location_name": "106 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.504140375,
+        "latitude": 53.4783848132,
+        "loc_code": "SCHOOLZONE_1307"
+    },
+    {
+        "location_name": "106 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.504328777,
+        "latitude": 53.4783833327,
+        "loc_code": "SCHOOLZONE_1308"
+    },
+    {
+        "location_name": "78 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.602805414,
+        "latitude": 53.510533264,
+        "loc_code": "SCHOOLZONE_1309"
+    },
+    {
+        "location_name": "68 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.51834593,
+        "latitude": 53.5048092326,
+        "loc_code": "SCHOOLZONE_1310"
+    },
+    {
+        "location_name": "112 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.52006344,
+        "latitude": 53.5035065389,
+        "loc_code": "SCHOOLZONE_1311"
+    },
+    {
+        "location_name": "60A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.503653557,
+        "latitude": 53.4963131261,
+        "loc_code": "SCHOOLZONE_1312"
+    },
+    {
+        "location_name": "106 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.50440579,
+        "latitude": 53.4956390707,
+        "loc_code": "SCHOOLZONE_1313"
+    },
+    {
+        "location_name": "190 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.651394324,
+        "latitude": 53.4900944009,
+        "loc_code": "SCHOOLZONE_1314"
+    },
+    {
+        "location_name": "107 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.50791349,
+        "latitude": 53.4873563881,
+        "loc_code": "SCHOOLZONE_1315"
+    },
+    {
+        "location_name": "48 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.52954479,
+        "latitude": 53.4857126306,
+        "loc_code": "SCHOOLZONE_1316"
+    },
+    {
+        "location_name": "115 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.528806582,
+        "latitude": 53.4850188034,
+        "loc_code": "SCHOOLZONE_1317"
+    },
+    {
+        "location_name": "84 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.587616617,
+        "latitude": 53.5171295874,
+        "loc_code": "SCHOOLZONE_1318"
+    },
+    {
+        "location_name": "51 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.544741658,
+        "latitude": 53.4881733791,
+        "loc_code": "SCHOOLZONE_1319"
+    },
+    {
+        "location_name": "124 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.546187657,
+        "latitude": 53.4875847599,
+        "loc_code": "SCHOOLZONE_1320"
+    },
+    {
+        "location_name": "154 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.585710391,
+        "latitude": 53.5088385425,
+        "loc_code": "SCHOOLZONE_1321"
+    },
+    {
+        "location_name": "76 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.586131469,
+        "latitude": 53.5080697087,
+        "loc_code": "SCHOOLZONE_1322"
+    },
+    {
+        "location_name": "31 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.527750234,
+        "latitude": 53.4638795305,
+        "loc_code": "SCHOOLZONE_1323"
+    },
+    {
+        "location_name": "32A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.506614854,
+        "latitude": 53.4649464804,
+        "loc_code": "SCHOOLZONE_1324"
+    },
+    {
+        "location_name": "85 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.491132062,
+        "latitude": 53.5209521449,
+        "loc_code": "SCHOOLZONE_1325"
+    },
+    {
+        "location_name": "86 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.490043481,
+        "latitude": 53.5218095223,
+        "loc_code": "SCHOOLZONE_1326"
+    },
+    {
+        "location_name": "100 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.488686551,
+        "latitude": 53.5210413847,
+        "loc_code": "SCHOOLZONE_1327"
+    },
+    {
+        "location_name": "101 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.491264998,
+        "latitude": 53.5216084942,
+        "loc_code": "SCHOOLZONE_1328"
+    },
+    {
+        "location_name": "98 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.482838977,
+        "latitude": 53.5074760446,
+        "loc_code": "SCHOOLZONE_1329"
+    },
+    {
+        "location_name": "72 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.484137145,
+        "latitude": 53.5085365917,
+        "loc_code": "SCHOOLZONE_1330"
+    },
+    {
+        "location_name": "70 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.484160034,
+        "latitude": 53.5066384946,
+        "loc_code": "SCHOOLZONE_1331"
+    },
+    {
+        "location_name": "MILL WOODS ROAD EAST NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.403804848,
+        "latitude": 53.4475735126,
+        "loc_code": "SCHOOLZONE_1332"
+    },
+    {
+        "location_name": "17 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.402897923,
+        "latitude": 53.445820172,
+        "loc_code": "SCHOOLZONE_1333"
+    },
+    {
+        "location_name": "89 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.434533453,
+        "latitude": 53.5242632999,
+        "loc_code": "SCHOOLZONE_1334"
+    },
+    {
+        "location_name": "68A STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.432277442,
+        "latitude": 53.5234598689,
+        "loc_code": "SCHOOLZONE_1335"
+    },
+    {
+        "location_name": "71 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.436835342,
+        "latitude": 53.5240556135,
+        "loc_code": "SCHOOLZONE_1336"
+    },
+    {
+        "location_name": "37 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.398429803,
+        "latitude": 53.4616868158,
+        "loc_code": "SCHOOLZONE_1337"
+    },
+    {
+        "location_name": "38 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.427119144,
+        "latitude": 53.4729228293,
+        "loc_code": "SCHOOLZONE_1338"
+    },
+    {
+        "location_name": "TAMARACK GREEN NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.360526847,
+        "latitude": 53.4700073932,
+        "loc_code": "SCHOOLZONE_1339"
+    },
+    {
+        "location_name": "TAMARACK ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.363417646,
+        "latitude": 53.4696142182,
+        "loc_code": "SCHOOLZONE_1340"
+    },
+    {
+        "location_name": "76 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.448930874,
+        "latitude": 53.5122755399,
+        "loc_code": "SCHOOLZONE_1341"
+    },
+    {
+        "location_name": "80 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.450441998,
+        "latitude": 53.5113401452,
+        "loc_code": "SCHOOLZONE_1342"
+    },
+    {
+        "location_name": "78 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.447775631,
+        "latitude": 53.5110964168,
+        "loc_code": "SCHOOLZONE_1343"
+    },
+    {
+        "location_name": "79 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.459642087,
+        "latitude": 53.5151373527,
+        "loc_code": "SCHOOLZONE_1344"
+    },
+    {
+        "location_name": "85 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.458312223,
+        "latitude": 53.5146389661,
+        "loc_code": "SCHOOLZONE_1345"
+    },
+    {
+        "location_name": "87 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.461344341,
+        "latitude": 53.5145239593,
+        "loc_code": "SCHOOLZONE_1346"
+    },
+    {
+        "location_name": "62 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.428189754,
+        "latitude": 53.5482232245,
+        "loc_code": "SCHOOLZONE_1347"
+    },
+    {
+        "location_name": "SAVARYN DRIVE SW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.462383353,
+        "latitude": 53.4131283412,
+        "loc_code": "SCHOOLZONE_1348"
+    },
+    {
+        "location_name": "22 AVENUE SW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.459949675,
+        "latitude": 53.412807214,
+        "loc_code": "SCHOOLZONE_1349"
+    },
+    {
+        "location_name": "100 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.435279656,
+        "latitude": 53.5402658105,
+        "loc_code": "SCHOOLZONE_1350"
+    },
+    {
+        "location_name": "68 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.433849008,
+        "latitude": 53.5398579289,
+        "loc_code": "SCHOOLZONE_1351"
+    },
+    {
+        "location_name": "71 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.436877689,
+        "latitude": 53.5397991971,
+        "loc_code": "SCHOOLZONE_1352"
+    },
+    {
+        "location_name": "MILL WOODS ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.44826343,
+        "latitude": 53.4599767398,
+        "loc_code": "SCHOOLZONE_1353"
+    },
+    {
+        "location_name": "41 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.400640013,
+        "latitude": 53.4768438627,
+        "loc_code": "SCHOOLZONE_1354"
+    },
+    {
+        "location_name": "23 Avenue 50 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.42008359,
+        "latitude": 53.4547584567,
+        "loc_code": "00230050-NW00-0"
+    },
+    {
+        "location_name": "23 Avenue 91 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.466592514,
+        "latitude": 53.4518270618,
+        "loc_code": "00230091-NW00-0"
+    },
+    {
+        "location_name": "23 Avenue 111 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.516351898,
+        "latitude": 53.4539143562,
+        "loc_code": "00230111-NW00-0"
+    },
+    {
+        "location_name": "23 Avenue TERWILLEGAR DRIVE NBD",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.588296575,
+        "latitude": 53.4573000448,
+        "loc_code": "0023675N-NW00-0"
+    },
+    {
+        "location_name": "31 Avenue GATEWAY BOULEVARD",
+        "roadway_portion": "MID STREET",
+        "longitude": -113.492041015,
+        "latitude": 53.4656012837,
+        "loc_code": "0031526N-NW50-0"
+    },
+    {
+        "location_name": "34 Avenue 91 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.466593448,
+        "latitude": 53.4653144282,
+        "loc_code": "00340091-NW00-0"
+    },
+    {
+        "location_name": "34 Avenue 97 Street",
+        "roadway_portion": "MID STREET",
+        "longitude": -113.482746229,
+        "latitude": 53.4676459586,
+        "loc_code": "00340097-NW05-0"
+    },
+    {
+        "location_name": "34 Avenue 99 Street",
+        "longitude": -113.486042034,
+        "latitude": 53.4676956449,
+        "loc_code": "00340099-NW00-0"
+    },
+    {
+        "location_name": "34 Avenue 99 Street",
+        "longitude": -113.489060792,
+        "latitude": 53.4677190262,
+        "loc_code": "00340099-NW05-0"
+    },
+    {
+        "location_name": "34 Avenue 99 Street",
+        "longitude": -113.48606754,
+        "latitude": 53.4683137683,
+        "loc_code": "00340099-NW50-0"
+    },
+    {
+        "location_name": "34 Avenue 111 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.516571193,
+        "latitude": 53.4658246417,
+        "loc_code": "00340111-NW00-0"
+    },
+    {
+        "location_name": "34 Avenue 119 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.538773888,
+        "latitude": 53.4674245624,
+        "loc_code": "00340119-NW00-0"
+    },
+    {
+        "location_name": "34 Avenue GATEWAY BOULEVARD",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.492040174,
+        "latitude": 53.4677381632,
+        "loc_code": "0034526N-NW00-0"
+    },
+    {
+        "location_name": "34 Avenue GATEWAY BOULEVARD",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.492042162,
+        "latitude": 53.4718168802,
+        "loc_code": "0034526N-NW50-0"
+    },
+    {
+        "location_name": "34 Avenue CALGARY TRAIL SBD",
+        "roadway_portion": "MID STREET",
+        "longitude": -113.49566622,
+        "latitude": 53.4677651648,
+        "loc_code": "0034526S-NW00-0"
+    },
+    {
+        "location_name": "34 Avenue CALGARY TRAIL SBD",
+        "roadway_portion": "MID STREET",
+        "longitude": -113.495664393,
+        "latitude": 53.4702422929,
+        "loc_code": "0034526S-NW50-0"
+    },
+    {
+        "location_name": "41 Avenue 50 Street SW",
+        "longitude": -113.418137278,
+        "latitude": 53.409468956,
+        "loc_code": "00410050-SW50-0"
+    },
+    {
+        "location_name": "41 Avenue 66 Street",
+        "longitude": -113.442680501,
+        "latitude": 53.4815118862,
+        "loc_code": "00410066-NW50-0"
+    },
+    {
+        "location_name": "41 Avenue CALGARY TRAIL SBD SW",
+        "roadway_portion": "MID STREET",
+        "longitude": -113.499021039,
+        "latitude": 53.4132439073,
+        "loc_code": "0041526S-SW50-0"
+    },
+    {
+        "location_name": "48 Avenue CALGARY TRAIL SBD",
+        "roadway_portion": "MID STREET",
+        "longitude": -113.494899942,
+        "latitude": 53.4867862942,
+        "loc_code": "0048526S-NW50-0"
+    },
+    {
+        "location_name": "51 Avenue CALGARY TRAIL SBD",
+        "longitude": -113.494914223,
+        "latitude": 53.488152415,
+        "loc_code": "0051526S-NW00-0"
+    },
+    {
+        "location_name": "82 Avenue 75 Street",
+        "longitude": -113.442913492,
+        "latitude": 53.5180443962,
+        "loc_code": "00820075-NW00-0"
+    },
+    {
+        "location_name": "82 Avenue 99 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.486128213,
+        "latitude": 53.5180558937,
+        "loc_code": "00820099-NW00-0"
+    },
+    {
+        "location_name": "82 Avenue 101 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.491291301,
+        "latitude": 53.518063764,
+        "loc_code": "00820101-NW00-0"
+    },
+    {
+        "location_name": "83 Avenue 109E Street",
+        "longitude": -113.512046874,
+        "latitude": 53.5190949955,
+        "loc_code": "0083109E-NW00-0"
+    },
+    {
+        "location_name": "87 Avenue 149 Street",
+        "longitude": -113.577944317,
+        "latitude": 53.5193933641,
+        "loc_code": "00870149-NW00-0"
+    },
+    {
+        "location_name": "87 Avenue 170 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.615315966,
+        "latitude": 53.5195544726,
+        "loc_code": "00870170-NW00-0"
+    },
+    {
+        "location_name": "87 Avenue 170 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.615364252,
+        "latitude": 53.5222138194,
+        "loc_code": "00870170-NW50-0"
+    },
+    {
+        "location_name": "87 Avenue 178 Street",
+        "longitude": -113.630468689,
+        "latitude": 53.52128898,
+        "loc_code": "00870178-NW00-0"
+    },
+    {
+        "location_name": "90 Avenue 85 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.457447733,
+        "latitude": 53.5254161247,
+        "loc_code": "00900085-NW00-0"
+    },
+    {
+        "location_name": "90 Avenue 170 Street",
+        "longitude": -113.619477154,
+        "latitude": 53.5248630546,
+        "loc_code": "00900170-NW05-0"
+    },
+    {
+        "location_name": "90 Avenue 170 Street",
+        "longitude": -113.61526636,
+        "latitude": 53.5282677904,
+        "loc_code": "00900170-NW50-0"
+    },
+    {
+        "location_name": "93 Avenue 182 Street",
+        "longitude": -113.638694824,
+        "latitude": 53.5289584542,
+        "loc_code": "00930182-NW50-0"
+    },
+    {
+        "location_name": "95 Avenue 170 Street",
+        "roadway_portion": "MID STREET",
+        "longitude": -113.615242699,
+        "latitude": 53.5316985352,
+        "loc_code": "00950170-NW00-0"
+    },
+    {
+        "location_name": "95 Avenue 170 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.615244965,
+        "latitude": 53.5336852287,
+        "loc_code": "00950170-NW50-0"
+    },
+    {
+        "location_name": "97 Avenue 109W Street",
+        "longitude": -113.508533681,
+        "latitude": 53.5358815206,
+        "loc_code": "0097109W-NW50-0"
+    },
+    {
+        "location_name": "98 Avenue 50 Street",
+        "longitude": -113.418559093,
+        "latitude": 53.5392682337,
+        "loc_code": "00980050-NW50-0"
+    },
+    {
+        "location_name": "98 Avenue 75 Street",
+        "longitude": -113.443002489,
+        "latitude": 53.5375331442,
+        "loc_code": "00980075-NW00-0"
+    },
+    {
+        "location_name": "99 Avenue 109 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.508454893,
+        "latitude": 53.5380360489,
+        "loc_code": "00990109-NW50-0"
+    },
+    {
+        "location_name": "100 Avenue 107 Street",
+        "longitude": -113.504762156,
+        "latitude": 53.5399126227,
+        "loc_code": "01000107-NW50-0"
+    },
+    {
+        "location_name": "100 Avenue 109 Street",
+        "longitude": -113.508411949,
+        "latitude": 53.5398307446,
+        "loc_code": "01000109-NW50-0"
+    },
+    {
+        "location_name": "100 Avenue 163 Street",
+        "longitude": -113.602696457,
+        "latitude": 53.5392860835,
+        "loc_code": "01000163-NW00-0"
+    },
+    {
+        "location_name": "100 Avenue 175 Street",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.623657684,
+        "latitude": 53.538303672,
+        "loc_code": "01000175-NW05-0"
+    },
+    {
+        "location_name": "100 Avenue 178 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.627480624,
+        "latitude": 53.5379182596,
+        "loc_code": "01000178-NW00-0"
+    },
+    {
+        "location_name": "101 Avenue 50 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.418553649,
+        "latitude": 53.5411439305,
+        "loc_code": "01010050-NW00-0"
+    },
+    {
+        "location_name": "101 Avenue 75 Street",
+        "longitude": -113.443425113,
+        "latitude": 53.5412168098,
+        "loc_code": "01010075-NW00-0"
+    },
+    {
+        "location_name": "101 Avenue 75 Street",
+        "longitude": -113.44291776,
+        "latitude": 53.5457143054,
+        "loc_code": "01010075-NW50-0"
+    },
+    {
+        "location_name": "104 Avenue 101 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.493719647,
+        "latitude": 53.546143748,
+        "loc_code": "01040101-NW00-0"
+    },
+    {
+        "location_name": "104 Avenue 109 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.508424276,
+        "latitude": 53.5462266018,
+        "loc_code": "01040109-NW00-0"
+    },
+    {
+        "location_name": "104 Avenue 116 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.521298595,
+        "latitude": 53.5462223336,
+        "loc_code": "01040116-NW00-0"
+    },
+    {
+        "location_name": "105 Avenue 101 Street",
+        "roadway_portion": "MID STREET",
+        "longitude": -113.493718441,
+        "latitude": 53.548222059,
+        "loc_code": "01050101-NW50-0"
+    },
+    {
+        "location_name": "106 Avenue 101 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.493719085,
+        "latitude": 53.5498070474,
+        "loc_code": "01060101-NW00-0"
+    },
+    {
+        "location_name": "107 Avenue 142 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.565161402,
+        "latitude": 53.5509737697,
+        "loc_code": "01070142-NW00-0"
+    },
+    {
+        "location_name": "111 Avenue 101 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.493733832,
+        "latitude": 53.5588921961,
+        "loc_code": "01110101-NW00-0"
+    },
+    {
+        "location_name": "111 Avenue 120W Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.529345445,
+        "latitude": 53.5588891785,
+        "loc_code": "0111120W-NW00-0"
+    },
+    {
+        "location_name": "118 Avenue 50 Street",
+        "longitude": -113.418394467,
+        "latitude": 53.5703499188,
+        "loc_code": "01180050-NW00-0"
+    },
+    {
+        "location_name": "118 Avenue 97 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.492021904,
+        "latitude": 53.5703868011,
+        "loc_code": "01180097-NW00-0"
+    },
+    {
+        "location_name": "118 Avenue 101 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.494208209,
+        "latitude": 53.5697220122,
+        "loc_code": "01180101-NW00-0"
+    },
+    {
+        "location_name": "118 Avenue GROAT ROAD",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.548990756,
+        "latitude": 53.5700587074,
+        "loc_code": "01180580-NW00-0"
+    },
+    {
+        "location_name": "118 Avenue WAYNE GRETZKY DRIVE NBD",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.452161944,
+        "latitude": 53.5703620829,
+        "loc_code": "0118619N-NW00-0"
+    },
+    {
+        "location_name": "127 Avenue 97 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.491978536,
+        "latitude": 53.5847808135,
+        "loc_code": "01270097-NW00-0"
+    },
+    {
+        "location_name": "132 Avenue 82 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.467226459,
+        "latitude": 53.5922264221,
+        "loc_code": "01320082-NW00-0"
+    },
+    {
+        "location_name": "137 Avenue 50 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.413392426,
+        "latitude": 53.5970710382,
+        "loc_code": "01370050-NW00-0"
+    },
+    {
+        "location_name": "137 Avenue 66 Street",
+        "longitude": -113.442935216,
+        "latitude": 53.5996562421,
+        "loc_code": "01370066-NW00-0"
+    },
+    {
+        "location_name": "137 Avenue 82 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.46740088,
+        "latitude": 53.5996611968,
+        "loc_code": "01370082-NW00-0"
+    },
+    {
+        "location_name": "137 Avenue 93 Street",
+        "longitude": -113.486719938,
+        "latitude": 53.5995032111,
+        "loc_code": "01370093-NW05-0"
+    },
+    {
+        "location_name": "137 Avenue 97 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.491981989,
+        "latitude": 53.5994806843,
+        "loc_code": "01370097-NW00-0"
+    },
+    {
+        "location_name": "137 Avenue 127 Street",
+        "roadway_portion": "MID STREET",
+        "longitude": -113.541174965,
+        "latitude": 53.5994734967,
+        "loc_code": "01370127-NW00-0"
+    },
+    {
+        "location_name": "137 Avenue 127 Street",
+        "roadway_portion": "MID STREET",
+        "longitude": -113.541186038,
+        "latitude": 53.6008315716,
+        "loc_code": "01370127-NW50-0"
+    },
+    {
+        "location_name": "144 Avenue 66 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.444844114,
+        "latitude": 53.6048500334,
+        "loc_code": "01440066-NW05-0"
+    },
+    {
+        "location_name": "153 Avenue 97 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.491845015,
+        "latitude": 53.6140394628,
+        "loc_code": "01530097-NW00-0"
+    },
+    {
+        "location_name": "153 Avenue 127 Street",
+        "longitude": -113.541223157,
+        "latitude": 53.6169606896,
+        "loc_code": "01530127-NW00-0"
+    },
+    {
+        "location_name": "167 Avenue 95 Street",
+        "longitude": -113.487133764,
+        "latitude": 53.6287904592,
+        "loc_code": "01670095-NW00-0"
+    },
+    {
+        "location_name": "167 Avenue 97 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.49186707,
+        "latitude": 53.6288465995,
+        "loc_code": "01670097-NW00-0"
+    },
+    {
+        "location_name": "MILL WOODS ROAD 91 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.466613438,
+        "latitude": 53.474125504,
+        "loc_code": "03230091-NW00-0"
+    },
+    {
+        "location_name": "RIVER VALLEY ROAD 105 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.501074931,
+        "latitude": 53.5305586161,
+        "loc_code": "03500105-NW00-0"
+    },
+    {
+        "location_name": "SASKATCHEWAN DRIVE QUEEN ELIZABETH PRK ROAD",
+        "roadway_portion": "MID STREET",
+        "longitude": -113.498767284,
+        "latitude": 53.524691705,
+        "loc_code": "03600342-NW50-0"
+    },
+    {
+        "location_name": "STONY PLAIN ROAD 142 Street",
+        "longitude": -113.565705711,
+        "latitude": 53.5429244063,
+        "loc_code": "03760142-NW00-0"
+    },
+    {
+        "location_name": "STONY PLAIN ROAD 149 Street",
+        "longitude": -113.57806749,
+        "latitude": 53.5417258958,
+        "loc_code": "03760149-NW00-0"
+    },
+    {
+        "location_name": "STONY PLAIN ROAD 184 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.639816634,
+        "latitude": 53.5412286723,
+        "loc_code": "03760184-NW00-0"
+    },
+    {
+        "location_name": "STONY PLAIN ROAD 170 STREET SOUTHBOUND",
+        "longitude": -113.619047311,
+        "latitude": 53.5413123963,
+        "loc_code": "0376170S-NW05-0"
+    },
+    {
+        "location_name": "WHITEMUD DRIVE 34 Street",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.405994517,
+        "latitude": 53.4876749466,
+        "loc_code": "04210034-NW05-0"
+    },
+    {
+        "location_name": "WHITEMUD DRIVE 50 Street",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.430410233,
+        "latitude": 53.4861852821,
+        "loc_code": "04210050-NW05-0"
+    },
+    {
+        "location_name": "WHITEMUD DRIVE 66 Street",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.450615372,
+        "latitude": 53.4850476018,
+        "loc_code": "04210066-NW05-0"
+    },
+    {
+        "location_name": "WHITEMUD DRIVE 91 Street",
+        "longitude": -113.474276568,
+        "latitude": 53.4816215958,
+        "loc_code": "04210091-NW05-0"
+    },
+    {
+        "location_name": "WHITEMUD DRIVE 122 Street",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.550645898,
+        "latitude": 53.4826060449,
+        "loc_code": "04210122-NW05-0"
+    },
+    {
+        "location_name": "YELLOWHEAD TRAIL 82 Street",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.472453788,
+        "latitude": 53.5813346528,
+        "loc_code": "04760082-NW05-0"
+    },
+    {
+        "location_name": "YELLOWHEAD TRAIL 107 Street",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.506378045,
+        "latitude": 53.581288973,
+        "loc_code": "04760107-NW00-0"
+    },
+    {
+        "location_name": "YELLOWHEAD TRAIL 107 Street",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.515535729,
+        "latitude": 53.5815574582,
+        "loc_code": "04760107-NW05-0"
+    },
+    {
+        "location_name": "YELLOWHEAD TRAIL 121 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.530900643,
+        "latitude": 53.580683616,
+        "loc_code": "04760121-NW05-0"
+    },
+    {
+        "location_name": "YELLOWHEAD TRAIL 127 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.541196223,
+        "latitude": 53.5806804748,
+        "loc_code": "04760127-NW00-0"
+    },
+    {
+        "location_name": "YELLOWHEAD TRAIL 142 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.565850729,
+        "latitude": 53.5812178996,
+        "loc_code": "04760142-NW00-0"
+    },
+    {
+        "location_name": "YELLOWHEAD TRAIL 143 Street",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.5719158,
+        "latitude": 53.5812617729,
+        "loc_code": "04760143-NW05-0"
+    },
+    {
+        "location_name": "YELLOWHEAD TRAIL 149 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.577963532,
+        "latitude": 53.5812939664,
+        "loc_code": "04760149-NW00-0"
+    },
+    {
+        "location_name": "ARGYLL ROAD 75 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.44280964,
+        "latitude": 53.5082715506,
+        "loc_code": "05080075-NW00-0"
+    },
+    {
+        "location_name": "ARGYLL ROAD 83 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.452784783,
+        "latitude": 53.5032538683,
+        "loc_code": "05080083-NW00-0"
+    },
+    {
+        "location_name": "JASPER AVENUE 109 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.508438677,
+        "latitude": 53.5409391781,
+        "loc_code": "05900109-NW00-0"
+    },
+    {
+        "location_name": "JASPER AVENUE 120 Street",
+        "longitude": -113.528649979,
+        "latitude": 53.5409351647,
+        "loc_code": "05900120-NW00-0"
+    },
+    {
+        "location_name": "JASPER AVENUE 122 Street",
+        "longitude": -113.532357812,
+        "latitude": 53.5412011734,
+        "loc_code": "05900122-NW00-0"
+    },
+    {
+        "location_name": "RABBIT HILL ROAD TERWILLEGAR DRIVE NBD",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.5807581,
+        "latitude": 53.4682966963,
+        "loc_code": "0622675N-NW00-0"
+    },
+    {
+        "location_name": "GROAT RD NB/SB SOUTH OF 107 AV",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.546728731,
+        "latitude": 53.5484676441,
+        "loc_code": "09020902-NW75-0"
+    },
+    {
+        "location_name": "GATEWAY BLVD NB SOUTH OF31 AV",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.49207033,
+        "latitude": 53.4609077964,
+        "loc_code": "09030903-NW52-0"
+    },
+    {
+        "location_name": "HIGH LEVEL BRIDGE",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.511009545,
+        "latitude": 53.5301906694,
+        "loc_code": "09150915-NW01-0"
+    },
+    {
+        "location_name": "MAP - ADDED 2007",
+        "longitude": -113.486700323,
+        "latitude": 53.5379015259,
+        "loc_code": "09210921-NW01-0"
+    },
+    {
+        "location_name": "149 ST SB OFFRAMP TO WHITEMUD DR EB",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.579474169,
+        "latitude": 53.5127966991,
+        "loc_code": "09400940-NW53-0"
+    },
+    {
+        "location_name": "WHITEMUD DR WB W/ AND AT 149 ST",
+        "longitude": -113.588827969,
+        "latitude": 53.5119522895,
+        "loc_code": "09400940-NW61-0"
+    },
+    {
+        "location_name": "WHITEMUD DR EB/WB E/149 ST",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.568988109,
+        "latitude": 53.5105906512,
+        "loc_code": "09400940-NW65-0"
+    },
+    {
+        "location_name": "FOX DR EB/WB W/BELGRAVIA RD",
+        "longitude": -113.548608645,
+        "latitude": 53.5045573835,
+        "loc_code": "09410941-NW53-0"
+    },
+    {
+        "location_name": "WHITEMUD DR EB OFFRAMP TO WHITEMUD DR SB",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.57198788,
+        "latitude": 53.4837911917,
+        "loc_code": "09430943-NW54-0"
+    },
+    {
+        "location_name": "WHITEMUD DR SB OFFRAMP TO WHITEMUD DR EB",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.571427725,
+        "latitude": 53.4828300518,
+        "loc_code": "09430943-NW60-0"
+    },
+    {
+        "location_name": "MAP - ADDED 1991",
+        "longitude": -113.566695176,
+        "latitude": 53.5064502003,
+        "loc_code": "09450945-NW01-0"
+    },
+    {
+        "location_name": "WHITEMUD DR WB E/122 ST",
+        "longitude": -113.539141593,
+        "latitude": 53.4831417631,
+        "loc_code": "09460946-NW91-0"
+    },
+    {
+        "location_name": "WHITEMUD DR WB/GATEWAY BLVD",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.492027759,
+        "latitude": 53.4809522133,
+        "loc_code": "09470947-NW04-0"
+    },
+    {
+        "location_name": "WHITEMUD DR EB/GATEWAY BLVD",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.492041058,
+        "latitude": 53.4799191848,
+        "loc_code": "09470947-NW05-0"
+    },
+    {
+        "location_name": "GATEWAY BLVD NB NORTH OF AHD DR WB",
+        "longitude": -113.492224237,
+        "latitude": 53.4412870635,
+        "loc_code": "09510951-NW65-0"
+    },
+    {
+        "location_name": "AHD DR WB EB/WB WEST OF 111 ST",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.520178274,
+        "latitude": 53.4348838452,
+        "loc_code": "09520952-NW50-0"
+    },
+    {
+        "location_name": "AHD DR SB NORTH OF WHITEMUD DR",
+        "longitude": -113.659481751,
+        "latitude": 53.5141506073,
+        "loc_code": "09540954-NW64-0"
+    },
+    {
+        "location_name": "VICTORIA TR NB/SB NORTH OF YELLOWHEAD TR WB",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.382594212,
+        "latitude": 53.5773506681,
+        "loc_code": "09660966-NW64-0"
+    },
+    {
+        "location_name": "YELLOWHEAD TR EB/WB/FORT RD NB,SB",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.452987604,
+        "latitude": 53.5805560307,
+        "loc_code": "09670967-NW09-0"
+    },
+    {
+        "location_name": "98 AV WEST OF 57 ST",
+        "longitude": -113.425229749,
+        "latitude": 53.5383740156,
+        "loc_code": "09810981-NW56-0"
+    },
+    {
+        "location_name": "98A Avenue 178 Street",
+        "longitude": -113.627535384,
+        "latitude": 53.5361850374,
+        "loc_code": "098A0178-NW50-0"
+    },
+    {
+        "location_name": "YELLOWHEAD TR EB/WB EAST OF 107 ST",
+        "longitude": -113.501034427,
+        "latitude": 53.581438714,
+        "loc_code": "09900990-NW53-0"
+    },
+    {
+        "location_name": "97 ST NB/SB NORTH OF 125A AV",
+        "longitude": -113.491978367,
+        "latitude": 53.58284316,
+        "loc_code": "09900990-NW61-0"
+    },
+    {
+        "location_name": "103A Avenue 96 Street",
+        "longitude": -113.485518804,
+        "latitude": 53.5469764308,
+        "loc_code": "103A0096-NW05-0"
+    },
+    {
+        "location_name": "WINDERMERE BOULEVARD SW 170 STREET NORTHBOUND SW",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.612291076,
+        "latitude": 53.4367457362,
+        "loc_code": "3186170N-SW00-0"
+    },
+    {
+        "location_name": "ELLERSLIE ROAD SW 91 Street SW",
+        "longitude": -113.476836706,
+        "latitude": 53.425055035,
+        "loc_code": "35270091-SW05-0"
+    },
+    {
+        "location_name": "ELLERSLIE ROAD SW PARSONS ROAD SW",
+        "longitude": -113.479948363,
+        "latitude": 53.4250547949,
+        "loc_code": "35270455-SW00-0"
+    },
+    {
+        "location_name": "ELLERSLIE ROAD SW PARSONS ROAD SW",
+        "longitude": -113.479949156,
+        "latitude": 53.4272197394,
+        "loc_code": "35270455-SW50-0"
+    },
+    {
+        "location_name": "WHITEMUD DRIVE EBD 66 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.442663467,
+        "latitude": 53.4845588417,
+        "loc_code": "421E0066-NW00-0"
+    },
+    {
+        "location_name": "WHITEMUD DRIVE EBD 91 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.466801457,
+        "latitude": 53.4822907709,
+        "loc_code": "421E0091-NW00-0"
+    },
+    {
+        "location_name": "102 Avenue 125 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.537665563,
+        "latitude": 53.5430258316,
+        "loc_code": "add_0001"
+    },
+    {
+        "location_name": "102 Avenue 149 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.57805702,
+        "latitude": 53.5432892993,
+        "loc_code": "add_0002"
+    },
+    {
+        "location_name": "105A Avenue 101 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.493718356,
+        "latitude": 53.5486794792,
+        "loc_code": "add_0003"
+    },
+    {
+        "location_name": "107 Avenue 124 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.535881235,
+        "latitude": 53.5509610929,
+        "loc_code": "add_0004"
+    },
+    {
+        "location_name": "111 Avenue 124 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.53589543,
+        "latitude": 53.5588944413,
+        "loc_code": "add_0005"
+    },
+    {
+        "location_name": "111 Avenue 149 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.578074592,
+        "latitude": 53.5588975503,
+        "loc_code": "add_0006"
+    },
+    {
+        "location_name": "111 AVENUE GROAT ROAD",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.551403123,
+        "latitude": 53.5589041039,
+        "loc_code": "add_0007"
+    },
+    {
+        "location_name": "112 Avenue 95 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.487137397,
+        "latitude": 53.5610535458,
+        "loc_code": "add_0008"
+    },
+    {
+        "location_name": "118 Avenue 124 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.535915665,
+        "latitude": 53.5703043268,
+        "loc_code": "add_0009"
+    },
+    {
+        "location_name": "118 Avenue 81 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.465531868,
+        "latitude": 53.5703895157,
+        "loc_code": "add_0010"
+    },
+    {
+        "location_name": "118 Avenue 82 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.467307729,
+        "latitude": 53.5703910586,
+        "loc_code": "add_0011"
+    },
+    {
+        "location_name": "129 Avenue 113A Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.404296861,
+        "latitude": 53.5448784663,
+        "loc_code": "add_0012"
+    },
+    {
+        "location_name": "144 Avenue 62 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.435401138,
+        "latitude": 53.568785128,
+        "loc_code": "add_0013"
+    },
+    {
+        "location_name": "144 Avenue 82 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.449792034,
+        "latitude": 53.5668182594,
+        "loc_code": "add_0014"
+    },
+    {
+        "location_name": "23 Avenue 66 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.434687186,
+        "latitude": 53.4535649757,
+        "loc_code": "add_0015"
+    },
+    {
+        "location_name": "23 Avenue 85 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.459959547,
+        "latitude": 53.4519058172,
+        "loc_code": "add_0016"
+    },
+    {
+        "location_name": "23 Avenue RABBIT HILL ROAD",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.565402949,
+        "latitude": 53.453967427,
+        "loc_code": "add_0017"
+    },
+    {
+        "location_name": "23 Avenue PARSONS ROAD",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.479145722,
+        "latitude": 53.4529940347,
+        "loc_code": "add_0018"
+    },
+    {
+        "location_name": "34 Avenue 93 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.475004826,
+        "latitude": 53.4658852363,
+        "loc_code": "add_0019"
+    },
+    {
+        "location_name": "38 Avenue 66 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.439153357,
+        "latitude": 53.4743402483,
+        "loc_code": "add_0020"
+    },
+    {
+        "location_name": "38 Avenue MILLBOURNE ROAD EAST",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.446435085,
+        "latitude": 53.4741851303,
+        "loc_code": "add_0021"
+    },
+    {
+        "location_name": "39 Avenue 99 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.486086185,
+        "latitude": 53.4740991167,
+        "loc_code": "add_0022"
+    },
+    {
+        "location_name": "58 Avenue 86 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.455024335,
+        "latitude": 53.4939274646,
+        "loc_code": "add_0023"
+    },
+    {
+        "location_name": "61 Avenue 111 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.516950531,
+        "latitude": 53.4981466564,
+        "loc_code": "add_0024"
+    },
+    {
+        "location_name": "63 Avenue 91 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.467215262,
+        "latitude": 53.49988787,
+        "loc_code": "add_0025"
+    },
+    {
+        "location_name": "72 Avenue 111 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.516603384,
+        "latitude": 53.5084726576,
+        "loc_code": "add_0026"
+    },
+    {
+        "location_name": "72 Avenue 114 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.524528218,
+        "latitude": 53.5081299509,
+        "loc_code": "add_0027"
+    },
+    {
+        "location_name": "76 Avenue 106 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.504432772,
+        "latitude": 53.5122712783,
+        "loc_code": "add_0028"
+    },
+    {
+        "location_name": "82 Avenue 104 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.49761893,
+        "latitude": 53.5180748118,
+        "loc_code": "add_0029"
+    },
+    {
+        "location_name": "82 Avenue 105 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.500461612,
+        "latitude": 53.5180803334,
+        "loc_code": "add_0030"
+    },
+    {
+        "location_name": "82 Avenue 79 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.4490566,
+        "latitude": 53.5180409315,
+        "loc_code": "add_0031"
+    },
+    {
+        "location_name": "82 Avenue 96 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.476679934,
+        "latitude": 53.5180402482,
+        "loc_code": "add_0032"
+    },
+    {
+        "location_name": "91 Avenue 99 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.486086576,
+        "latitude": 53.5263658926,
+        "loc_code": "add_0033"
+    },
+    {
+        "location_name": "97 Avenue ROSSDALE ROAD",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.49738141,
+        "latitude": 53.5339941063,
+        "loc_code": "add_0034"
+    },
+    {
+        "location_name": "98 Avenue 85 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.456121367,
+        "latitude": 53.5376166846,
+        "loc_code": "add_0035"
+    },
+    {
+        "location_name": "HERMITAGE ROAD 50 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.437473472,
+        "latitude": 53.562625962,
+        "loc_code": "add_0036"
+    },
+    {
+        "location_name": "JASPER Avenue 110 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.510264266,
+        "latitude": 53.5409369907,
+        "loc_code": "add_0037"
+    },
+    {
+        "location_name": "MANNING FREEWAY 17 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.318185233,
+        "latitude": 53.6857240599,
+        "loc_code": "add_0038"
+    },
+    {
+        "location_name": "SASKATCHEWAN DRIVE GATEWAY BOULEVARD",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.495957798,
+        "latitude": 53.5236674586,
+        "loc_code": "add_0039"
+    },
+    {
+        "location_name": "STONY PLAIN ROAD 178 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.62740679,
+        "latitude": 53.5412749793,
+        "loc_code": "add_0040"
+    },
+    {
+        "location_name": "WHITEMUD DRIVE CALGARY TRAIL",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.495598973,
+        "latitude": 53.4796957312,
+        "loc_code": "add_0041"
+    },
+    {
+        "location_name": "WHITEMUD DRIVE EBD 50 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.418341621,
+        "latitude": 53.4871477049,
+        "loc_code": "add_0042"
+    },
+    {
+        "location_name": "WHITEMUD DRIVE WBD 50 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.418340015,
+        "latitude": 53.48733885,
+        "loc_code": "add_0043"
+    },
+    {
+        "location_name": "WHITEMUD DRIVE WBD 34 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.406167201,
+        "latitude": 53.4872359811,
+        "loc_code": "add_0044"
+    },
+    {
+        "location_name": "YELLOWHEAD TRAIL WB 97 Street",
+        "roadway_portion": "INTERSECTION",
+        "longitude": -113.492101273,
+        "latitude": 53.5814815275,
+        "loc_code": "add_0045"
+    },
+    {
+        "location_name": "JASPER AVENUE 97 STREE",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.486845671,
+        "latitude": 53.5416668203,
+        "loc_code": "add_0046"
+    },
+    {
+        "location_name": "82 Avenue 98 Street",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.484459524,
+        "latitude": 53.5181134975,
+        "loc_code": "add_0047"
+    },
+    {
+        "location_name": "82 Avenue 100 Street",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.489999351,
+        "latitude": 53.5181156733,
+        "loc_code": "add_0048"
+    },
+    {
+        "location_name": "YELLOWHEAD TR FORT RD",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.453360781,
+        "latitude": 53.5808849638,
+        "loc_code": "add_0049"
+    },
+    {
+        "location_name": "GROAT RD STONY PLAIN RD",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.542844981,
+        "latitude": 53.5448979983,
+        "loc_code": "add_0050"
+    },
+    {
+        "location_name": "STONY PLAIN ROAD 186 STREET",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.64681407,
+        "latitude": 53.5412369594,
+        "loc_code": "add_0051"
+    },
+    {
+        "location_name": "ANTHONY HENDAY DR TERWILLEGAR DR",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.602135486,
+        "latitude": 53.4436619402,
+        "loc_code": "add_0052"
+    },
+    {
+        "location_name": "QUESNELL BRIDGE",
+        "roadway_portion": "MID AVENUE",
+        "longitude": -113.5748119528,
+        "latitude": 53.509162095,
+        "loc_code": "add_0053"
+    },
+    {
+        "location_name": "97A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.569839557,
+        "latitude": 53.5354678421,
+        "loc_code": "SCHOOLZONE_1000"
+    },
+    {
+        "location_name": "143A STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.569115806,
+        "latitude": 53.5343867144,
+        "loc_code": "SCHOOLZONE_1001"
+    },
+    {
+        "location_name": "96 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.570429586,
+        "latitude": 53.5332912658,
+        "loc_code": "SCHOOLZONE_1002"
+    },
+    {
+        "location_name": "95A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.573196068,
+        "latitude": 53.5323495694,
+        "loc_code": "SCHOOLZONE_1003"
+    },
+    {
+        "location_name": "145 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.572803442,
+        "latitude": 53.5335497725,
+        "loc_code": "SCHOOLZONE_1004"
+    },
+    {
+        "location_name": "146 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.572695766,
+        "latitude": 53.5321194509,
+        "loc_code": "SCHOOLZONE_1005"
+    },
+    {
+        "location_name": "97 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.572326059,
+        "latitude": 53.5346128224,
+        "loc_code": "SCHOOLZONE_1006"
+    },
+    {
+        "location_name": "144 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.570843976,
+        "latitude": 53.5353797575,
+        "loc_code": "SCHOOLZONE_1007"
+    },
+    {
+        "location_name": "64 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.623865095,
+        "latitude": 53.5002282804,
+        "loc_code": "SCHOOLZONE_1008"
+    },
+    {
+        "location_name": "177 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.62728063,
+        "latitude": 53.4999252393,
+        "loc_code": "SCHOOLZONE_1009"
+    },
+    {
+        "location_name": "172 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.620827165,
+        "latitude": 53.4994990359,
+        "loc_code": "SCHOOLZONE_1010"
+    },
+    {
+        "location_name": "152 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.583307252,
+        "latitude": 53.5214261538,
+        "loc_code": "SCHOOLZONE_1011"
+    },
+    {
+        "location_name": "90 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.584186236,
+        "latitude": 53.5231001987,
+        "loc_code": "SCHOOLZONE_1012"
+    },
+    {
+        "location_name": "153 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.585075487,
+        "latitude": 53.5213633572,
+        "loc_code": "SCHOOLZONE_1013"
+    },
+    {
+        "location_name": "110 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.595305402,
+        "latitude": 53.5560329028,
+        "loc_code": "SCHOOLZONE_1014"
+    },
+    {
+        "location_name": "159 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.59442728,
+        "latitude": 53.5551416707,
+        "loc_code": "SCHOOLZONE_1015"
+    },
+    {
+        "location_name": "175 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.623521175,
+        "latitude": 53.5165242241,
+        "loc_code": "SCHOOLZONE_1016"
+    },
+    {
+        "location_name": "82 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.621669019,
+        "latitude": 53.5155781825,
+        "loc_code": "SCHOOLZONE_1017"
+    },
+    {
+        "location_name": "114 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.52725327,
+        "latitude": 53.4734209737,
+        "loc_code": "SCHOOLZONE_1018"
+    },
+    {
+        "location_name": "93 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.633530375,
+        "latitude": 53.5265372807,
+        "loc_code": "SCHOOLZONE_1019"
+    },
+    {
+        "location_name": "182 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.638919855,
+        "latitude": 53.5255188193,
+        "loc_code": "SCHOOLZONE_1020"
+    },
+    {
+        "location_name": "180 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.633620267,
+        "latitude": 53.5063080907,
+        "loc_code": "SCHOOLZONE_1021"
+    },
+    {
+        "location_name": "HEMINGWAY ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.670709939,
+        "latitude": 53.4878524815,
+        "loc_code": "SCHOOLZONE_1022"
+    },
+    {
+        "location_name": "204 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.672921808,
+        "latitude": 53.4871053445,
+        "loc_code": "SCHOOLZONE_1023"
+    },
+    {
+        "location_name": "MCQUEEN ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.56937219,
+        "latitude": 53.5561753534,
+        "loc_code": "SCHOOLZONE_1024"
+    },
+    {
+        "location_name": "85 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.566493201,
+        "latitude": 53.5173599158,
+        "loc_code": "SCHOOLZONE_1025"
+    },
+    {
+        "location_name": "142 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.565693268,
+        "latitude": 53.5163411414,
+        "loc_code": "SCHOOLZONE_1026"
+    },
+    {
+        "location_name": "143 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.567280165,
+        "latitude": 53.5264509829,
+        "loc_code": "SCHOOLZONE_1027"
+    },
+    {
+        "location_name": "92 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.569171601,
+        "latitude": 53.5270774402,
+        "loc_code": "SCHOOLZONE_1028"
+    },
+    {
+        "location_name": "108 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.496480142,
+        "latitude": 53.5530103979,
+        "loc_code": "SCHOOLZONE_1029"
+    },
+    {
+        "location_name": "127 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.541170866,
+        "latitude": 53.554838534,
+        "loc_code": "SCHOOLZONE_1030"
+    },
+    {
+        "location_name": "109 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.542015875,
+        "latitude": 53.5539491218,
+        "loc_code": "SCHOOLZONE_1031"
+    },
+    {
+        "location_name": "109A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.54159356,
+        "latitude": 53.5554904628,
+        "loc_code": "SCHOOLZONE_1032"
+    },
+    {
+        "location_name": "96 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.687748651,
+        "latitude": 53.533701451,
+        "loc_code": "SCHOOLZONE_1033"
+    },
+    {
+        "location_name": "96 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.687764663,
+        "latitude": 53.5336257074,
+        "loc_code": "SCHOOLZONE_1034"
+    },
+    {
+        "location_name": "96 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.686207682,
+        "latitude": 53.5335471641,
+        "loc_code": "SCHOOLZONE_1035"
+    },
+    {
+        "location_name": "104 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.604347131,
+        "latitude": 53.546396662,
+        "loc_code": "SCHOOLZONE_1036"
+    },
+    {
+        "location_name": "158 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.595143446,
+        "latitude": 53.5151246578,
+        "loc_code": "SCHOOLZONE_1037"
+    },
+    {
+        "location_name": "81 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.593795547,
+        "latitude": 53.5156023059,
+        "loc_code": "SCHOOLZONE_1038"
+    },
+    {
+        "location_name": "104 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.581931,
+        "latitude": 53.5463987147,
+        "loc_code": "SCHOOLZONE_1039"
+    },
+    {
+        "location_name": "152 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.583306618,
+        "latitude": 53.5466881985,
+        "loc_code": "SCHOOLZONE_1040"
+    },
+    {
+        "location_name": "110 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.510294515,
+        "latitude": 53.5366722756,
+        "loc_code": "SCHOOLZONE_1041"
+    },
+    {
+        "location_name": "99 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.51120909,
+        "latitude": 53.53725121,
+        "loc_code": "SCHOOLZONE_1042"
+    },
+    {
+        "location_name": "111 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.51211347,
+        "latitude": 53.5369080062,
+        "loc_code": "SCHOOLZONE_1043"
+    },
+    {
+        "location_name": "57 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.636870147,
+        "latitude": 53.491910587,
+        "loc_code": "SCHOOLZONE_1044"
+    },
+    {
+        "location_name": "LEGER WAY NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.576034358,
+        "latitude": 53.4599490301,
+        "loc_code": "SCHOOLZONE_1045"
+    },
+    {
+        "location_name": "165 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.607278642,
+        "latitude": 53.5297850233,
+        "loc_code": "SCHOOLZONE_1046"
+    },
+    {
+        "location_name": "133 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.551278976,
+        "latitude": 53.5497270114,
+        "loc_code": "SCHOOLZONE_1047"
+    },
+    {
+        "location_name": "106 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.550603288,
+        "latitude": 53.5493736542,
+        "loc_code": "SCHOOLZONE_1048"
+    },
+    {
+        "location_name": "154 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.586821396,
+        "latitude": 53.5244396371,
+        "loc_code": "SCHOOLZONE_1049"
+    },
+    {
+        "location_name": "91 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.58781262,
+        "latitude": 53.5249252242,
+        "loc_code": "SCHOOLZONE_1050"
+    },
+    {
+        "location_name": "120 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.528654322,
+        "latitude": 53.5438182051,
+        "loc_code": "SCHOOLZONE_1051"
+    },
+    {
+        "location_name": "HEMINGWAY ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.682103425,
+        "latitude": 53.4915103209,
+        "loc_code": "SCHOOLZONE_1052"
+    },
+    {
+        "location_name": "110 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.510308515,
+        "latitude": 53.5552725435,
+        "loc_code": "SCHOOLZONE_1053"
+    },
+    {
+        "location_name": "35 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.684802571,
+        "latitude": 53.4686007963,
+        "loc_code": "SCHOOLZONE_1054"
+    },
+    {
+        "location_name": "135 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.555033166,
+        "latitude": 53.5730541064,
+        "loc_code": "SCHOOLZONE_1055"
+    },
+    {
+        "location_name": "122 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.556117445,
+        "latitude": 53.5725311598,
+        "loc_code": "SCHOOLZONE_1056"
+    },
+    {
+        "location_name": "138 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.559687628,
+        "latitude": 53.5485666906,
+        "loc_code": "SCHOOLZONE_1057"
+    },
+    {
+        "location_name": "139 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.561377832,
+        "latitude": 53.5485713263,
+        "loc_code": "SCHOOLZONE_1058"
+    },
+    {
+        "location_name": "106 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.560908914,
+        "latitude": 53.5493653518,
+        "loc_code": "SCHOOLZONE_1059"
+    },
+    {
+        "location_name": "105 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.560533726,
+        "latitude": 53.5477729,
+        "loc_code": "SCHOOLZONE_1060"
+    },
+    {
+        "location_name": "RUTHERFORD ROAD SW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.522975221,
+        "latitude": 53.4173792104,
+        "loc_code": "SCHOOLZONE_1061"
+    },
+    {
+        "location_name": "MCQUEEN ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.569624415,
+        "latitude": 53.5523915785,
+        "loc_code": "SCHOOLZONE_1062"
+    },
+    {
+        "location_name": "144 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.569175457,
+        "latitude": 53.5449838142,
+        "loc_code": "SCHOOLZONE_1063"
+    },
+    {
+        "location_name": "135 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.554638306,
+        "latitude": 53.5438430634,
+        "loc_code": "SCHOOLZONE_1064"
+    },
+    {
+        "location_name": "136 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.556320278,
+        "latitude": 53.5438290897,
+        "loc_code": "SCHOOLZONE_1065"
+    },
+    {
+        "location_name": "161 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.599091534,
+        "latitude": 53.5364013092,
+        "loc_code": "SCHOOLZONE_1066"
+    },
+    {
+        "location_name": "162 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.600840879,
+        "latitude": 53.5363957781,
+        "loc_code": "SCHOOLZONE_1067"
+    },
+    {
+        "location_name": "122 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.561703431,
+        "latitude": 53.5733833215,
+        "loc_code": "SCHOOLZONE_1068"
+    },
+    {
+        "location_name": "DOVERCOURT AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.560728569,
+        "latitude": 53.5738821611,
+        "loc_code": "SCHOOLZONE_1069"
+    },
+    {
+        "location_name": "140 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.563050987,
+        "latitude": 53.5742306821,
+        "loc_code": "SCHOOLZONE_1070"
+    },
+    {
+        "location_name": "139 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.561375162,
+        "latitude": 53.5550803335,
+        "loc_code": "SCHOOLZONE_1071"
+    },
+    {
+        "location_name": "109 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.560628974,
+        "latitude": 53.5544117731,
+        "loc_code": "SCHOOLZONE_1072"
+    },
+    {
+        "location_name": "175 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.625519884,
+        "latitude": 53.4939628109,
+        "loc_code": "SCHOOLZONE_1073"
+    },
+    {
+        "location_name": "57 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.624481235,
+        "latitude": 53.4930356333,
+        "loc_code": "SCHOOLZONE_1074"
+    },
+    {
+        "location_name": "76 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.623763104,
+        "latitude": 53.508990194,
+        "loc_code": "SCHOOLZONE_1075"
+    },
+    {
+        "location_name": "106 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.58734781,
+        "latitude": 53.5495051981,
+        "loc_code": "SCHOOLZONE_1076"
+    },
+    {
+        "location_name": "154 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.586835309,
+        "latitude": 53.5489994186,
+        "loc_code": "SCHOOLZONE_1077"
+    },
+    {
+        "location_name": "182 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.636949092,
+        "latitude": 53.51878924,
+        "loc_code": "SCHOOLZONE_1078"
+    },
+    {
+        "location_name": "165 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.607310941,
+        "latitude": 53.5268506559,
+        "loc_code": "SCHOOLZONE_1079"
+    },
+    {
+        "location_name": "91 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.609191831,
+        "latitude": 53.5261271189,
+        "loc_code": "SCHOOLZONE_1080"
+    },
+    {
+        "location_name": "96 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.583095782,
+        "latitude": 53.5330657261,
+        "loc_code": "SCHOOLZONE_1081"
+    },
+    {
+        "location_name": "152 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.583300591,
+        "latitude": 53.5322991471,
+        "loc_code": "SCHOOLZONE_1082"
+    },
+    {
+        "location_name": "153 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.585052828,
+        "latitude": 53.5323037377,
+        "loc_code": "SCHOOLZONE_1083"
+    },
+    {
+        "location_name": "96 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.585244682,
+        "latitude": 53.5330746862,
+        "loc_code": "SCHOOLZONE_1084"
+    },
+    {
+        "location_name": "95 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.584553449,
+        "latitude": 53.5315335783,
+        "loc_code": "SCHOOLZONE_1085"
+    },
+    {
+        "location_name": "184 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.639709013,
+        "latitude": 53.4982712057,
+        "loc_code": "SCHOOLZONE_1086"
+    },
+    {
+        "location_name": "92 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.597050988,
+        "latitude": 53.5266940746,
+        "loc_code": "SCHOOLZONE_1087"
+    },
+    {
+        "location_name": "160 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.594567731,
+        "latitude": 53.5261637558,
+        "loc_code": "SCHOOLZONE_1088"
+    },
+    {
+        "location_name": "72 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.646536726,
+        "latitude": 53.5053061306,
+        "loc_code": "SCHOOLZONE_1089"
+    },
+    {
+        "location_name": "54 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.522351207,
+        "latitude": 53.4906251506,
+        "loc_code": "SCHOOLZONE_1090"
+    },
+    {
+        "location_name": "113A STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.521910544,
+        "latitude": 53.49174273,
+        "loc_code": "SCHOOLZONE_1091"
+    },
+    {
+        "location_name": "97A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.645879893,
+        "latitude": 53.5335928712,
+        "loc_code": "SCHOOLZONE_1092"
+    },
+    {
+        "location_name": "189 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.648022404,
+        "latitude": 53.5330922802,
+        "loc_code": "SCHOOLZONE_1093"
+    },
+    {
+        "location_name": "119 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.526805168,
+        "latitude": 53.588307534,
+        "loc_code": "SCHOOLZONE_1094"
+    },
+    {
+        "location_name": "118 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.525098094,
+        "latitude": 53.5887154414,
+        "loc_code": "SCHOOLZONE_1095"
+    },
+    {
+        "location_name": "130 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.524445694,
+        "latitude": 53.5898920721,
+        "loc_code": "SCHOOLZONE_1096"
+    },
+    {
+        "location_name": "117 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.523401035,
+        "latitude": 53.5908009812,
+        "loc_code": "SCHOOLZONE_1097"
+    },
+    {
+        "location_name": "131 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.525115403,
+        "latitude": 53.5912658747,
+        "loc_code": "SCHOOLZONE_1098"
+    },
+    {
+        "location_name": "119 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.526806045,
+        "latitude": 53.590570121,
+        "loc_code": "SCHOOLZONE_1099"
+    },
+    {
+        "location_name": "144 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.457045334,
+        "latitude": 53.6068239847,
+        "loc_code": "SCHOOLZONE_1100"
+    },
+    {
+        "location_name": "144 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.457009913,
+        "latitude": 53.6069514545,
+        "loc_code": "SCHOOLZONE_1101"
+    },
+    {
+        "location_name": "76 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.458733913,
+        "latitude": 53.6058779978,
+        "loc_code": "SCHOOLZONE_1102"
+    },
+    {
+        "location_name": "119 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.526831637,
+        "latitude": 53.5957349625,
+        "loc_code": "SCHOOLZONE_1103"
+    },
+    {
+        "location_name": "135 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.528243327,
+        "latitude": 53.5965778187,
+        "loc_code": "SCHOOLZONE_1104"
+    },
+    {
+        "location_name": "134 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.528105404,
+        "latitude": 53.5948868087,
+        "loc_code": "SCHOOLZONE_1105"
+    },
+    {
+        "location_name": "118 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.525838719,
+        "latitude": 53.6109083017,
+        "loc_code": "SCHOOLZONE_1106"
+    },
+    {
+        "location_name": "119 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.439493207,
+        "latitude": 53.5719346678,
+        "loc_code": "SCHOOLZONE_1107"
+    },
+    {
+        "location_name": "64 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.439882462,
+        "latitude": 53.5713775212,
+        "loc_code": "SCHOOLZONE_1108"
+    },
+    {
+        "location_name": "87 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.473896528,
+        "latitude": 53.607042665,
+        "loc_code": "SCHOOLZONE_1109"
+    },
+    {
+        "location_name": "144 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.474449373,
+        "latitude": 53.6063045725,
+        "loc_code": "SCHOOLZONE_1110"
+    },
+    {
+        "location_name": "144 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.474407509,
+        "latitude": 53.6061986579,
+        "loc_code": "SCHOOLZONE_1111"
+    },
+    {
+        "location_name": "128 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.542866813,
+        "latitude": 53.5774727281,
+        "loc_code": "SCHOOLZONE_1112"
+    },
+    {
+        "location_name": "123 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.543545335,
+        "latitude": 53.578267362,
+        "loc_code": "SCHOOLZONE_1113"
+    },
+    {
+        "location_name": "122 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.543330875,
+        "latitude": 53.5766761432,
+        "loc_code": "SCHOOLZONE_1114"
+    },
+    {
+        "location_name": "132 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.474416238,
+        "latitude": 53.5921705667,
+        "loc_code": "SCHOOLZONE_1115"
+    },
+    {
+        "location_name": "86 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.472627147,
+        "latitude": 53.5915734364,
+        "loc_code": "SCHOOLZONE_1116"
+    },
+    {
+        "location_name": "131A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.473493709,
+        "latitude": 53.5911979289,
+        "loc_code": "SCHOOLZONE_1117"
+    },
+    {
+        "location_name": "87 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.474404204,
+        "latitude": 53.5909952087,
+        "loc_code": "SCHOOLZONE_1118"
+    },
+    {
+        "location_name": "88 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.476196962,
+        "latitude": 53.5916807016,
+        "loc_code": "SCHOOLZONE_1119"
+    },
+    {
+        "location_name": "131A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.476390065,
+        "latitude": 53.5911796167,
+        "loc_code": "SCHOOLZONE_1120"
+    },
+    {
+        "location_name": "132 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.44966246,
+        "latitude": 53.5922449236,
+        "loc_code": "SCHOOLZONE_1121"
+    },
+    {
+        "location_name": "69 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.447581843,
+        "latitude": 53.590712266,
+        "loc_code": "SCHOOLZONE_1122"
+    },
+    {
+        "location_name": "130A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.449972844,
+        "latitude": 53.5900895389,
+        "loc_code": "SCHOOLZONE_1123"
+    },
+    {
+        "location_name": "72 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.452359273,
+        "latitude": 53.5902098986,
+        "loc_code": "SCHOOLZONE_1124"
+    },
+    {
+        "location_name": "142 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.379135349,
+        "latitude": 53.6056942039,
+        "loc_code": "SCHOOLZONE_1125"
+    },
+    {
+        "location_name": "23 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.377803428,
+        "latitude": 53.6053200126,
+        "loc_code": "SCHOOLZONE_1126"
+    },
+    {
+        "location_name": "162 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.420964777,
+        "latitude": 53.6236336322,
+        "loc_code": "SCHOOLZONE_1127"
+    },
+    {
+        "location_name": "159 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.432057637,
+        "latitude": 53.6196661881,
+        "loc_code": "SCHOOLZONE_1128"
+    },
+    {
+        "location_name": "59A STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.430748087,
+        "latitude": 53.6201478822,
+        "loc_code": "SCHOOLZONE_1129"
+    },
+    {
+        "location_name": "160 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.558809955,
+        "latitude": 53.6213570719,
+        "loc_code": "SCHOOLZONE_1130"
+    },
+    {
+        "location_name": "139 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.561209581,
+        "latitude": 53.6205354429,
+        "loc_code": "SCHOOLZONE_1131"
+    },
+    {
+        "location_name": "87 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.474997539,
+        "latitude": 53.6273673041,
+        "loc_code": "SCHOOLZONE_1132"
+    },
+    {
+        "location_name": "38 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.399603264,
+        "latitude": 53.4759928396,
+        "loc_code": "SCHOOLZONE_1355"
+    },
+    {
+        "location_name": "MILL WOODS ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.461448449,
+        "latitude": 53.4741185859,
+        "loc_code": "SCHOOLZONE_1356"
+    },
+    {
+        "location_name": "MILL WOODS ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.463624402,
+        "latitude": 53.4740568174,
+        "loc_code": "SCHOOLZONE_1357"
+    },
+    {
+        "location_name": "MILL WOODS ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.463627846,
+        "latitude": 53.4741747433,
+        "loc_code": "SCHOOLZONE_1358"
+    },
+    {
+        "location_name": "95 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.461984224,
+        "latitude": 53.531759342,
+        "loc_code": "SCHOOLZONE_1359"
+    },
+    {
+        "location_name": "89 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.463871869,
+        "latitude": 53.5304661421,
+        "loc_code": "SCHOOLZONE_1360"
+    },
+    {
+        "location_name": "93 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.462694495,
+        "latitude": 53.5296001224,
+        "loc_code": "SCHOOLZONE_1361"
+    },
+    {
+        "location_name": "93A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.424794047,
+        "latitude": 53.5304254947,
+        "loc_code": "SCHOOLZONE_1362"
+    },
+    {
+        "location_name": "58 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.4237517,
+        "latitude": 53.5296903723,
+        "loc_code": "SCHOOLZONE_1363"
+    },
+    {
+        "location_name": "MILL WOODS ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.450728923,
+        "latitude": 53.4691319964,
+        "loc_code": "SCHOOLZONE_1364"
+    },
+    {
+        "location_name": "36 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.454757506,
+        "latitude": 53.4686323404,
+        "loc_code": "SCHOOLZONE_1365"
+    },
+    {
+        "location_name": "MILL WOODS ROAD SOUTH NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.449375069,
+        "latitude": 53.4455896197,
+        "loc_code": "SCHOOLZONE_1366"
+    },
+    {
+        "location_name": "54 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.421690889,
+        "latitude": 53.555360508,
+        "loc_code": "SCHOOLZONE_1367"
+    },
+    {
+        "location_name": "107 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.425364418,
+        "latitude": 53.5537172456,
+        "loc_code": "SCHOOLZONE_1368"
+    },
+    {
+        "location_name": "CAPILANO STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.424317989,
+        "latitude": 53.554412396,
+        "loc_code": "SCHOOLZONE_1369"
+    },
+    {
+        "location_name": "57 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.42454656,
+        "latitude": 53.5513111448,
+        "loc_code": "SCHOOLZONE_1370"
+    },
+    {
+        "location_name": "64 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.428907115,
+        "latitude": 53.5202539665,
+        "loc_code": "SCHOOLZONE_1371"
+    },
+    {
+        "location_name": "86 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.430398959,
+        "latitude": 53.5211576082,
+        "loc_code": "SCHOOLZONE_1372"
+    },
+    {
+        "location_name": "68A STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.432243907,
+        "latitude": 53.5204517481,
+        "loc_code": "SCHOOLZONE_1373"
+    },
+    {
+        "location_name": "MILL WOODS ROAD SOUTH NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.428143738,
+        "latitude": 53.4455083082,
+        "loc_code": "SCHOOLZONE_1374"
+    },
+    {
+        "location_name": "105 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.500626442,
+        "latitude": 53.4493542495,
+        "loc_code": "SCHOOLZONE_1375"
+    },
+    {
+        "location_name": "19 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.501903425,
+        "latitude": 53.4482093243,
+        "loc_code": "SCHOOLZONE_1376"
+    },
+    {
+        "location_name": "LAKEWOOD ROAD EAST NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.440866364,
+        "latitude": 53.4608754089,
+        "loc_code": "SCHOOLZONE_1377"
+    },
+    {
+        "location_name": "29 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.442325443,
+        "latitude": 53.4600611135,
+        "loc_code": "SCHOOLZONE_1378"
+    },
+    {
+        "location_name": "41 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.405353366,
+        "latitude": 53.4770248271,
+        "loc_code": "SCHOOLZONE_1379"
+    },
+    {
+        "location_name": "JACKSON ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.409039838,
+        "latitude": 53.4839219213,
+        "loc_code": "SCHOOLZONE_1380"
+    },
+    {
+        "location_name": "79 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.448093938,
+        "latitude": 53.531358277,
+        "loc_code": "SCHOOLZONE_1381"
+    },
+    {
+        "location_name": "94 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.449473438,
+        "latitude": 53.5304724953,
+        "loc_code": "SCHOOLZONE_1382"
+    },
+    {
+        "location_name": "WOODVALE ROAD WEST NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.428878292,
+        "latitude": 53.4673842083,
+        "loc_code": "SCHOOLZONE_1383"
+    },
+    {
+        "location_name": "WOODVALE ROAD EAST NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.427529496,
+        "latitude": 53.4673695907,
+        "loc_code": "SCHOOLZONE_1384"
+    },
+    {
+        "location_name": "46 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.412768672,
+        "latitude": 53.5498458722,
+        "loc_code": "SCHOOLZONE_1385"
+    },
+    {
+        "location_name": "97 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.479485816,
+        "latitude": 53.5042124684,
+        "loc_code": "SCHOOLZONE_1386"
+    },
+    {
+        "location_name": "82 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.454032648,
+        "latitude": 53.5447276951,
+        "loc_code": "SCHOOLZONE_1387"
+    },
+    {
+        "location_name": "81 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.452478547,
+        "latitude": 53.5446139223,
+        "loc_code": "SCHOOLZONE_1388"
+    },
+    {
+        "location_name": "KNOTTWOOD ROAD EAST NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.440438904,
+        "latitude": 53.4489931553,
+        "loc_code": "SCHOOLZONE_1389"
+    },
+    {
+        "location_name": "37 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.399065496,
+        "latitude": 53.4500379816,
+        "loc_code": "SCHOOLZONE_1390"
+    },
+    {
+        "location_name": "38 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.400466008,
+        "latitude": 53.4504918742,
+        "loc_code": "SCHOOLZONE_1391"
+    },
+    {
+        "location_name": "12 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.405536375,
+        "latitude": 53.4402918371,
+        "loc_code": "SCHOOLZONE_1392"
+    },
+    {
+        "location_name": "OTTEWELL ROAD NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.434879596,
+        "latitude": 53.5312226263,
+        "loc_code": "SCHOOLZONE_1393"
+    },
+    {
+        "location_name": "94 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.435711631,
+        "latitude": 53.5305464189,
+        "loc_code": "SCHOOLZONE_1394"
+    },
+    {
+        "location_name": "48 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.416888241,
+        "latitude": 53.460094213,
+        "loc_code": "SCHOOLZONE_1395"
+    },
+    {
+        "location_name": "43A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.385296244,
+        "latitude": 53.4815005185,
+        "loc_code": "SCHOOLZONE_1396"
+    },
+    {
+        "location_name": "30 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.386857677,
+        "latitude": 53.4809730172,
+        "loc_code": "SCHOOLZONE_1397"
+    },
+    {
+        "location_name": "LAKEWOOD ROAD NORTH NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.458473211,
+        "latitude": 53.4633513198,
+        "loc_code": "SCHOOLZONE_1398"
+    },
+    {
+        "location_name": "17 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.460446264,
+        "latitude": 53.4472083445,
+        "loc_code": "SCHOOLZONE_1399"
+    },
+    {
+        "location_name": "KNOTTWOOD ROAD WEST NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.46135638,
+        "latitude": 53.4466944004,
+        "loc_code": "SCHOOLZONE_1400"
+    },
+    {
+        "location_name": "11A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.42767197,
+        "latitude": 53.4404634124,
+        "loc_code": "SCHOOLZONE_1401"
+    },
+    {
+        "location_name": "91 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.467439104,
+        "latitude": 53.5222622202,
+        "loc_code": "SCHOOLZONE_1402"
+    },
+    {
+        "location_name": "86 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.468614271,
+        "latitude": 53.5219403264,
+        "loc_code": "SCHOOLZONE_1403"
+    },
+    {
+        "location_name": "101 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.468412288,
+        "latitude": 53.5437133094,
+        "loc_code": "SCHOOLZONE_1404"
+    },
+    {
+        "location_name": "18A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.413313201,
+        "latitude": 53.4493848708,
+        "loc_code": "SCHOOLZONE_1405"
+    },
+    {
+        "location_name": "48 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.413581716,
+        "latitude": 53.4480871518,
+        "loc_code": "SCHOOLZONE_1406"
+    },
+    {
+        "location_name": "36 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.407175711,
+        "latitude": 53.4673055227,
+        "loc_code": "SCHOOLZONE_1407"
+    },
+    {
+        "location_name": "MILL WOODS ROAD EAST NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.409156423,
+        "latitude": 53.4676576142,
+        "loc_code": "SCHOOLZONE_1408"
+    },
+    {
+        "location_name": "80 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.481280104,
+        "latitude": 53.5160978639,
+        "loc_code": "SCHOOLZONE_1409"
+    },
+    {
+        "location_name": "79 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.481291036,
+        "latitude": 53.5151483834,
+        "loc_code": "SCHOOLZONE_1410"
+    },
+    {
+        "location_name": "97 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.479754223,
+        "latitude": 53.5156210497,
+        "loc_code": "SCHOOLZONE_1411"
+    },
+    {
+        "location_name": "98 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.482815931,
+        "latitude": 53.5156244634,
+        "loc_code": "SCHOOLZONE_1412"
+    },
+    {
+        "location_name": "LAKEWOOD ROAD SOUTH NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.453878744,
+        "latitude": 53.4547537872,
+        "loc_code": "SCHOOLZONE_1413"
+    },
+    {
+        "location_name": "79 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.453215128,
+        "latitude": 53.4558857271,
+        "loc_code": "SCHOOLZONE_1414"
+    },
+    {
+        "location_name": "KNOTTWOOD ROAD SOUTH NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.44887864,
+        "latitude": 53.4423141551,
+        "loc_code": "SCHOOLZONE_1415"
+    },
+    {
+        "location_name": "MILLBOURNE ROAD WEST NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.458282575,
+        "latitude": 53.4773978927,
+        "loc_code": "SCHOOLZONE_1416"
+    },
+    {
+        "location_name": "MILLBOURNE ROAD EAST NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.444251521,
+        "latitude": 53.4714027599,
+        "loc_code": "SCHOOLZONE_1417"
+    },
+    {
+        "location_name": "37 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.397973434,
+        "latitude": 53.5946782776,
+        "loc_code": "SCHOOLZONE_1418"
+    },
+    {
+        "location_name": "134 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.398633372,
+        "latitude": 53.5951985466,
+        "loc_code": "SCHOOLZONE_1419"
+    },
+    {
+        "location_name": "129 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.443948169,
+        "latitude": 53.5876364908,
+        "loc_code": "SCHOOLZONE_1420"
+    },
+    {
+        "location_name": "89 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.477968901,
+        "latitude": 53.5758148798,
+        "loc_code": "SCHOOLZONE_1421"
+    },
+    {
+        "location_name": "122 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.478796223,
+        "latitude": 53.5766714499,
+        "loc_code": "SCHOOLZONE_1422"
+    },
+    {
+        "location_name": "90 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.479623847,
+        "latitude": 53.575717066,
+        "loc_code": "SCHOOLZONE_1423"
+    },
+    {
+        "location_name": "121 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.478230576,
+        "latitude": 53.5751348042,
+        "loc_code": "SCHOOLZONE_1424"
+    },
+    {
+        "location_name": "87 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.47612764,
+        "latitude": 53.6260322879,
+        "loc_code": "SCHOOLZONE_1425"
+    },
+    {
+        "location_name": "99 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.433308855,
+        "latitude": 53.5395083566,
+        "loc_code": "SCHOOLZONE_1426"
+    },
+    {
+        "location_name": "161 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.499782041,
+        "latitude": 53.6224145233,
+        "loc_code": "SCHOOLZONE_1427"
+    },
+    {
+        "location_name": "59 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.423510748,
+        "latitude": 53.5534200349,
+        "loc_code": "SCHOOLZONE_1428"
+    },
+    {
+        "location_name": "107A AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.420984057,
+        "latitude": 53.5547250442,
+        "loc_code": "SCHOOLZONE_1429"
+    },
+    {
+        "location_name": "113 STREET NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.524753006,
+        "latitude": 53.4412713514,
+        "loc_code": "SCHOOLZONE_1430"
+    },
+    {
+        "location_name": "114 AVENUE NW",
+        "roadway_portion": "SCHOOL ZONE",
+        "longitude": -113.542021004,
+        "latitude": 53.5636544363,
+        "loc_code": "SCHOOLZONE_1431"
+    }
+]

@@ -1,0 +1,4267 @@
+[
+    {
+        "total": 9,
+        "warning_priority": 1,
+        "reason_id": 4,
+        "travel_direction": "SOUTH",
+        "loc_code": "0034526S-NW50-0"
+    },
+    {
+        "total": 92,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "0034526S-NW00-0"
+    },
+    {
+        "total": 23,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "0034526S-NW00-0"
+    },
+    {
+        "total": 45,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "NORTH",
+        "loc_code": "0034526N-NW50-0"
+    },
+    {
+        "total": 92,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "0034526N-NW00-0"
+    },
+    {
+        "total": 18,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "0034526N-NW00-0"
+    },
+    {
+        "total": 3,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "00340119-NW00-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "00340111-NW00-0"
+    },
+    {
+        "total": 9,
+        "warning_priority": 1,
+        "reason_id": 4,
+        "travel_direction": "EAST",
+        "loc_code": "00340097-NW05-0"
+    },
+    {
+        "total": 96,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "00340091-NW00-0"
+    },
+    {
+        "total": 23,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "NORTH",
+        "loc_code": "0031526N-NW50-0"
+    },
+    {
+        "total": 11,
+        "warning_priority": 9,
+        "reason_id": 19,
+        "travel_direction": "NORTH",
+        "loc_code": "0031526N-NW50-0"
+    },
+    {
+        "total": 21,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "0023675N-NW00-0"
+    },
+    {
+        "total": 97,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "00230111-NW00-0"
+    },
+    {
+        "total": 22,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "00230111-NW00-0"
+    },
+    {
+        "total": 131,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "00230091-NW00-0"
+    },
+    {
+        "total": 38,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "EAST",
+        "loc_code": "00230091-NW00-0"
+    },
+    {
+        "total": 40,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "00230091-NW00-0"
+    },
+    {
+        "total": 91,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "00230050-NW00-0"
+    },
+    {
+        "total": 14,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "00230050-NW00-0"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1000"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1001"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1002"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1003"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1004"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1005"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1006"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1007"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1008"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1009"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1010"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1011"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1012"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1013"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1014"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1015"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1016"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1017"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1018"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1019"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1020"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1021"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1022"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1023"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1024"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1025"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1026"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1027"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1028"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1029"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1030"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1031"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1032"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1033"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1034"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1035"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1036"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1037"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1038"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1039"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1040"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1041"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1042"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1043"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1044"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1045"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1046"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1047"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1048"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1049"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1050"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1051"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1052"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1053"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1054"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1055"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1056"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1057"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1058"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1059"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1060"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1061"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1062"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1063"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1064"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1065"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1066"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1067"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1068"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1069"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1070"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1071"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1072"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1073"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1074"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1075"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1076"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1077"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1078"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1079"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1080"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1081"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1082"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1083"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1084"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1085"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1086"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1087"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1088"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1089"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1090"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1091"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1092"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1093"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1094"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1095"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1096"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1097"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1098"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1099"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1100"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1101"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1102"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1103"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1104"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1105"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1106"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1107"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1108"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1109"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1110"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1111"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1112"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1113"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1114"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1115"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1116"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1117"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1118"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1119"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1120"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1121"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1122"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1123"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1124"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1125"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1126"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1127"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1128"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1129"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1130"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1131"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1132"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1133"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1134"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1135"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1136"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1137"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1138"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1139"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1140"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1141"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1142"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1143"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1144"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1145"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1146"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1147"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1148"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1149"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1150"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1151"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1152"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1153"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1154"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1155"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1156"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1157"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1158"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1159"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1160"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1161"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1162"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1163"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1164"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1165"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1166"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1167"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1168"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1169"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1170"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1171"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1172"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1173"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1174"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1175"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1176"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1177"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1178"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1179"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1180"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1181"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1182"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1183"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1184"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1185"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1186"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1187"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1188"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1189"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1190"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1191"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1192"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1193"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1194"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1195"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1196"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1197"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1198"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1199"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1200"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1201"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1202"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1203"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1204"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1205"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1206"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1207"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1208"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1209"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1210"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1211"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1212"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1213"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1214"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1215"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1216"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1217"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1218"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1219"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1220"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1221"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1222"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1223"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1224"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1225"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1226"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1227"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1228"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1229"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1230"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1231"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1232"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1233"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1234"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1235"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1236"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1237"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1238"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1239"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1240"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1241"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1242"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1243"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1244"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1245"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1246"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1247"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1248"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1249"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1250"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1251"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1252"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1253"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1254"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1255"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1256"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1257"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1258"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1259"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1260"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1261"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1262"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1263"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1264"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1265"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1266"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1267"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1268"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1269"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1270"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1271"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1272"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1273"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1274"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1275"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1276"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1277"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1278"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1279"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1280"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1281"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1282"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1283"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1284"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1285"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1286"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1287"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1288"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1289"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1290"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1291"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1292"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1293"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1294"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1295"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1296"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1297"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1298"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1299"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1300"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1301"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1302"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1303"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1304"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1305"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1306"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1307"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1308"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1309"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1310"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1311"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1312"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1313"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1314"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1315"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1316"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1317"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1318"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1319"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1320"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1321"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1322"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1323"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1324"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1325"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1326"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1327"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1328"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1329"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1330"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1331"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1332"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1333"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1334"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1335"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1336"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1337"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1338"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1339"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1340"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1341"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1342"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1343"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1344"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1345"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1346"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1347"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1348"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1349"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1350"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1351"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1352"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1353"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1354"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1355"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1356"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1357"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1358"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1359"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1360"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1361"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1362"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1363"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1364"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1365"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1366"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1367"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1368"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1369"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1370"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1371"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1372"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1373"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1374"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1375"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1376"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1377"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1378"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1379"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1380"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1381"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1382"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1383"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1384"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1385"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1386"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1387"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1388"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1389"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1390"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1391"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1392"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1393"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1394"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1395"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1396"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1397"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1398"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1399"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1400"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1401"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1402"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1403"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1404"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1405"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1406"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1407"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1408"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1409"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1410"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1411"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1412"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1413"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1414"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1415"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1416"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1417"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1418"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1419"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1420"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1421"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1422"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1423"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1424"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1425"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1426"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1427"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1428"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1429"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1430"
+    },
+    {
+        "total": 0,
+        "warning_priority": 12,
+        "reason_id": 23,
+        "loc_code": "SCHOOLZONE_1431"
+    },
+    {
+        "total": 25,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "NORTH",
+        "loc_code": "LOW LEVEL BRIDGE, 921"
+    },
+    {
+        "total": 23,
+        "warning_priority": 5,
+        "reason_id": 14,
+        "travel_direction": "NORTH",
+        "loc_code": "LOW LEVEL BRIDGE, 921"
+    },
+    {
+        "total": 10,
+        "warning_priority": 1,
+        "reason_id": 4,
+        "travel_direction": "NORTH",
+        "loc_code": "LOW LEVEL BRIDGE, 921"
+    },
+    {
+        "total": 24,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "SOUTH",
+        "loc_code": "add_0053"
+    },
+    {
+        "total": 11,
+        "warning_priority": 9,
+        "reason_id": 19,
+        "travel_direction": "SOUTH",
+        "loc_code": "add_0053"
+    },
+    {
+        "total": 9,
+        "warning_priority": 1,
+        "reason_id": 2,
+        "travel_direction": "SOUTH",
+        "loc_code": "add_0052"
+    },
+    {
+        "total": 14,
+        "warning_priority": 1,
+        "reason_id": 4,
+        "travel_direction": "WEST",
+        "loc_code": "add_0051"
+    },
+    {
+        "total": 2,
+        "warning_priority": 4,
+        "reason_id": 12,
+        "travel_direction": "NORTH",
+        "loc_code": "add_0050"
+    },
+    {
+        "total": 2,
+        "warning_priority": 4,
+        "reason_id": 12,
+        "travel_direction": "EAST",
+        "loc_code": "add_0049"
+    },
+    {
+        "total": 2,
+        "warning_priority": 2,
+        "reason_id": 8,
+        "travel_direction": "WEST",
+        "loc_code": "add_0048"
+    },
+    {
+        "total": 3,
+        "warning_priority": 1,
+        "reason_id": 6,
+        "travel_direction": "EAST",
+        "loc_code": "add_0047"
+    },
+    {
+        "total": 2,
+        "warning_priority": 2,
+        "reason_id": 8,
+        "travel_direction": "EAST",
+        "loc_code": "add_0046"
+    },
+    {
+        "total": 2,
+        "warning_priority": 4,
+        "reason_id": 11,
+        "travel_direction": "ALL",
+        "loc_code": "add_0045"
+    },
+    {
+        "total": 18,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "add_0044"
+    },
+    {
+        "total": 15,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "add_0043"
+    },
+    {
+        "total": 41,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "EAST",
+        "loc_code": "add_0042"
+    },
+    {
+        "total": 36,
+        "warning_priority": 7,
+        "reason_id": 16,
+        "travel_direction": "ALL",
+        "loc_code": "add_0041"
+    },
+    {
+        "total": 33,
+        "warning_priority": 6,
+        "reason_id": 15,
+        "travel_direction": "ALL",
+        "loc_code": "add_0040"
+    },
+    {
+        "total": 3,
+        "warning_priority": 1,
+        "reason_id": 5,
+        "travel_direction": "ALL",
+        "loc_code": "add_0039"
+    },
+    {
+        "total": 33,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "SOUTH",
+        "loc_code": "add_0038"
+    },
+    {
+        "total": 3,
+        "warning_priority": 1,
+        "reason_id": 5,
+        "travel_direction": "ALL",
+        "loc_code": "add_0037"
+    },
+    {
+        "total": 3,
+        "warning_priority": 1,
+        "reason_id": 5,
+        "travel_direction": "ALL",
+        "loc_code": "add_0036"
+    },
+    {
+        "total": 21,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "add_0035"
+    },
+    {
+        "total": 15,
+        "warning_priority": 7,
+        "reason_id": 16,
+        "travel_direction": "ALL",
+        "loc_code": "add_0034"
+    },
+    {
+        "total": 3,
+        "warning_priority": 2,
+        "reason_id": 7,
+        "travel_direction": "ALL",
+        "loc_code": "add_0033"
+    },
+    {
+        "total": 3,
+        "warning_priority": 4,
+        "reason_id": 11,
+        "travel_direction": "ALL",
+        "loc_code": "add_0032"
+    },
+    {
+        "total": 12,
+        "warning_priority": 8,
+        "reason_id": 17,
+        "travel_direction": "ALL",
+        "loc_code": "add_0031"
+    },
+    {
+        "total": 6,
+        "warning_priority": 1,
+        "reason_id": 5,
+        "travel_direction": "ALL",
+        "loc_code": "add_0030"
+    },
+    {
+        "total": 3,
+        "warning_priority": 4,
+        "reason_id": 11,
+        "travel_direction": "ALL",
+        "loc_code": "add_0030"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "add_0029"
+    },
+    {
+        "total": 11,
+        "warning_priority": 8,
+        "reason_id": 17,
+        "travel_direction": "ALL",
+        "loc_code": "add_0028"
+    },
+    {
+        "total": 21,
+        "warning_priority": 6,
+        "reason_id": 15,
+        "travel_direction": "ALL",
+        "loc_code": "add_0027"
+    },
+    {
+        "total": 10,
+        "warning_priority": 8,
+        "reason_id": 17,
+        "travel_direction": "ALL",
+        "loc_code": "add_0026"
+    },
+    {
+        "total": 38,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "NORTH",
+        "loc_code": "add_0025"
+    },
+    {
+        "total": 22,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "add_0025"
+    },
+    {
+        "total": 3,
+        "warning_priority": 1,
+        "reason_id": 5,
+        "travel_direction": "ALL",
+        "loc_code": "add_0024"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "add_0023"
+    },
+    {
+        "total": 3,
+        "warning_priority": 4,
+        "reason_id": 11,
+        "travel_direction": "ALL",
+        "loc_code": "add_0022"
+    },
+    {
+        "total": 12,
+        "warning_priority": 8,
+        "reason_id": 17,
+        "travel_direction": "ALL",
+        "loc_code": "add_0021"
+    },
+    {
+        "total": 14,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "add_0020"
+    },
+    {
+        "total": 10,
+        "warning_priority": 8,
+        "reason_id": 17,
+        "travel_direction": "ALL",
+        "loc_code": "add_0019"
+    },
+    {
+        "total": 20,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "add_0018"
+    },
+    {
+        "total": 14,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "add_0017"
+    },
+    {
+        "total": 3,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "add_0016"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "add_0015"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "add_0014"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "add_0013"
+    },
+    {
+        "total": 11,
+        "warning_priority": 8,
+        "reason_id": 17,
+        "travel_direction": "ALL",
+        "loc_code": "add_0012"
+    },
+    {
+        "total": 2,
+        "warning_priority": 4,
+        "reason_id": 11,
+        "travel_direction": "ALL",
+        "loc_code": "add_0011"
+    },
+    {
+        "total": 3,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "add_0010"
+    },
+    {
+        "total": 3,
+        "warning_priority": 2,
+        "reason_id": 7,
+        "travel_direction": "ALL",
+        "loc_code": "add_0009"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "add_0008"
+    },
+    {
+        "total": 14,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "add_0007"
+    },
+    {
+        "total": 21,
+        "warning_priority": 6,
+        "reason_id": 15,
+        "travel_direction": "ALL",
+        "loc_code": "add_0006"
+    },
+    {
+        "total": 20,
+        "warning_priority": 6,
+        "reason_id": 15,
+        "travel_direction": "ALL",
+        "loc_code": "add_0005"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "add_0004"
+    },
+    {
+        "total": 3,
+        "warning_priority": 2,
+        "reason_id": 7,
+        "travel_direction": "ALL",
+        "loc_code": "add_0003"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "add_0002"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "add_0001"
+    },
+    {
+        "total": 46,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "EAST",
+        "loc_code": "421E0091-NW00-0"
+    },
+    {
+        "total": 90,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "421E0066-NW00-0"
+    },
+    {
+        "total": 59,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "EAST",
+        "loc_code": "421E0066-NW00-0"
+    },
+    {
+        "total": 29,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "421E0066-NW00-0"
+    },
+    {
+        "total": 41,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "WEST",
+        "loc_code": "3186170N-SW00-0"
+    },
+    {
+        "total": 118,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "09670967-NW09-0"
+    },
+    {
+        "total": 59,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "EAST",
+        "loc_code": "09670967-NW09-0"
+    },
+    {
+        "total": 19,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "09670967-NW09-0"
+    },
+    {
+        "total": 26,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "09670967-NW09-0"
+    },
+    {
+        "total": 18,
+        "warning_priority": 5,
+        "reason_id": 14,
+        "travel_direction": "SOUTH",
+        "loc_code": "09660966-NW64-0"
+    },
+    {
+        "total": 9,
+        "warning_priority": 1,
+        "reason_id": 2,
+        "travel_direction": "SOUTH",
+        "loc_code": "09660966-NW64-0"
+    },
+    {
+        "total": 27,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "WEST",
+        "loc_code": "09520952-NW50-0"
+    },
+    {
+        "total": 17,
+        "warning_priority": 5,
+        "reason_id": 14,
+        "travel_direction": "WEST",
+        "loc_code": "09520952-NW50-0"
+    },
+    {
+        "total": 12,
+        "warning_priority": 1,
+        "reason_id": 4,
+        "travel_direction": "WEST",
+        "loc_code": "09520952-NW50-0"
+    },
+    {
+        "total": 43,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "NORTH",
+        "loc_code": "09470947-NW05-0"
+    },
+    {
+        "total": 109,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "09470947-NW04-0"
+    },
+    {
+        "total": 64,
+        "warning_priority": 7,
+        "reason_id": 16,
+        "travel_direction": "ALL",
+        "loc_code": "09470947-NW04-0"
+    },
+    {
+        "total": 3,
+        "warning_priority": 1,
+        "reason_id": 5,
+        "travel_direction": "ALL",
+        "loc_code": "09470947-NW04-0"
+    },
+    {
+        "total": 24,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "EAST",
+        "loc_code": "09430943-NW60-0"
+    },
+    {
+        "total": 23,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "WEST",
+        "loc_code": "09430943-NW54-0"
+    },
+    {
+        "total": 30,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "EAST",
+        "loc_code": "09400940-NW65-0"
+    },
+    {
+        "total": 12,
+        "warning_priority": 9,
+        "reason_id": 19,
+        "travel_direction": "EAST",
+        "loc_code": "09400940-NW65-0"
+    },
+    {
+        "total": 15,
+        "warning_priority": 10,
+        "reason_id": 20,
+        "travel_direction": "SOUTH",
+        "loc_code": "09400940-NW53-0"
+    },
+    {
+        "total": 91,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "SOUTH",
+        "loc_code": "09150915-NW01-0"
+    },
+    {
+        "total": 45,
+        "warning_priority": 5,
+        "reason_id": 14,
+        "travel_direction": "SOUTH",
+        "loc_code": "09150915-NW01-0"
+    },
+    {
+        "total": 23,
+        "warning_priority": 9,
+        "reason_id": 19,
+        "travel_direction": "SOUTH",
+        "loc_code": "09150915-NW01-0"
+    },
+    {
+        "total": 19,
+        "warning_priority": 10,
+        "reason_id": 20,
+        "travel_direction": "SOUTH",
+        "loc_code": "09150915-NW01-0"
+    },
+    {
+        "total": 33,
+        "warning_priority": 1,
+        "reason_id": 4,
+        "travel_direction": "SOUTH",
+        "loc_code": "09150915-NW01-0"
+    },
+    {
+        "total": 5,
+        "warning_priority": 1,
+        "reason_id": 6,
+        "travel_direction": "SOUTH",
+        "loc_code": "09150915-NW01-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 2,
+        "reason_id": 8,
+        "travel_direction": "NORTH",
+        "loc_code": "09030903-NW52-0"
+    },
+    {
+        "total": 23,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "SOUTH",
+        "loc_code": "09020902-NW75-0"
+    },
+    {
+        "total": 14,
+        "warning_priority": 10,
+        "reason_id": 20,
+        "travel_direction": "SOUTH",
+        "loc_code": "09020902-NW75-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 4,
+        "reason_id": 12,
+        "travel_direction": "SOUTH",
+        "loc_code": "09020902-NW75-0"
+    },
+    {
+        "total": 56,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "WEST",
+        "loc_code": "0622675N-NW00-0"
+    },
+    {
+        "total": 18,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "0622675N-NW00-0"
+    },
+    {
+        "total": 5,
+        "warning_priority": 1,
+        "reason_id": 5,
+        "travel_direction": "ALL",
+        "loc_code": "05900109-NW00-0"
+    },
+    {
+        "total": 3,
+        "warning_priority": 2,
+        "reason_id": 7,
+        "travel_direction": "ALL",
+        "loc_code": "05900109-NW00-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 4,
+        "reason_id": 11,
+        "travel_direction": "ALL",
+        "loc_code": "05900109-NW00-0"
+    },
+    {
+        "total": 35,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "SOUTH",
+        "loc_code": "05080083-NW00-0"
+    },
+    {
+        "total": 15,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "05080083-NW00-0"
+    },
+    {
+        "total": 88,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "05080075-NW00-0"
+    },
+    {
+        "total": 18,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "05080075-NW00-0"
+    },
+    {
+        "total": 169,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "04760149-NW00-0"
+    },
+    {
+        "total": 77,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "NORTH",
+        "loc_code": "04760149-NW00-0"
+    },
+    {
+        "total": 23,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "04760149-NW00-0"
+    },
+    {
+        "total": 29,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "04760149-NW00-0"
+    },
+    {
+        "total": 24,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "WEST",
+        "loc_code": "04760143-NW05-0"
+    },
+    {
+        "total": 17,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "04760142-NW00-0"
+    },
+    {
+        "total": 124,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "04760127-NW00-0"
+    },
+    {
+        "total": 32,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "EAST",
+        "loc_code": "04760127-NW00-0"
+    },
+    {
+        "total": 17,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "04760127-NW00-0"
+    },
+    {
+        "total": 28,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "04760127-NW00-0"
+    },
+    {
+        "total": 4,
+        "warning_priority": 1,
+        "reason_id": 5,
+        "travel_direction": "ALL",
+        "loc_code": "04760127-NW00-0"
+    },
+    {
+        "total": 4,
+        "warning_priority": 1,
+        "reason_id": 5,
+        "travel_direction": "ALL",
+        "loc_code": "04760121-NW05-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 4,
+        "reason_id": 12,
+        "travel_direction": "WEST",
+        "loc_code": "04760107-NW05-0"
+    },
+    {
+        "total": 9,
+        "warning_priority": 1,
+        "reason_id": 4,
+        "travel_direction": "EAST",
+        "loc_code": "04760107-NW00-0"
+    },
+    {
+        "total": 25,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "EAST",
+        "loc_code": "04760082-NW05-0"
+    },
+    {
+        "total": 9,
+        "warning_priority": 1,
+        "reason_id": 2,
+        "travel_direction": "WEST",
+        "loc_code": "04760082-NW05-0"
+    },
+    {
+        "total": 3,
+        "warning_priority": 1,
+        "reason_id": 6,
+        "travel_direction": "EAST",
+        "loc_code": "04760082-NW05-0"
+    },
+    {
+        "total": 76,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "WEST",
+        "loc_code": "04210122-NW05-0"
+    },
+    {
+        "total": 28,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "EAST",
+        "loc_code": "04210122-NW05-0"
+    },
+    {
+        "total": 51,
+        "warning_priority": 5,
+        "reason_id": 14,
+        "travel_direction": "WEST",
+        "loc_code": "04210122-NW05-0"
+    },
+    {
+        "total": 11,
+        "warning_priority": 9,
+        "reason_id": 19,
+        "travel_direction": "WEST",
+        "loc_code": "04210122-NW05-0"
+    },
+    {
+        "total": 13,
+        "warning_priority": 10,
+        "reason_id": 20,
+        "travel_direction": "WEST",
+        "loc_code": "04210122-NW05-0"
+    },
+    {
+        "total": 11,
+        "warning_priority": 1,
+        "reason_id": 2,
+        "travel_direction": "EAST",
+        "loc_code": "04210122-NW05-0"
+    },
+    {
+        "total": 44,
+        "warning_priority": 1,
+        "reason_id": 4,
+        "travel_direction": "WEST",
+        "loc_code": "04210122-NW05-0"
+    },
+    {
+        "total": 35,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "WEST",
+        "loc_code": "04210066-NW05-0"
+    },
+    {
+        "total": 26,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "EAST",
+        "loc_code": "04210066-NW05-0"
+    },
+    {
+        "total": 10,
+        "warning_priority": 9,
+        "reason_id": 19,
+        "travel_direction": "WEST",
+        "loc_code": "04210066-NW05-0"
+    },
+    {
+        "total": 12,
+        "warning_priority": 1,
+        "reason_id": 2,
+        "travel_direction": "WEST",
+        "loc_code": "04210066-NW05-0"
+    },
+    {
+        "total": 13,
+        "warning_priority": 1,
+        "reason_id": 4,
+        "travel_direction": "EAST",
+        "loc_code": "04210066-NW05-0"
+    },
+    {
+        "total": 39,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "EAST",
+        "loc_code": "04210050-NW05-0"
+    },
+    {
+        "total": 27,
+        "warning_priority": 5,
+        "reason_id": 14,
+        "travel_direction": "EAST",
+        "loc_code": "04210050-NW05-0"
+    },
+    {
+        "total": 16,
+        "warning_priority": 1,
+        "reason_id": 2,
+        "travel_direction": "EAST",
+        "loc_code": "04210050-NW05-0"
+    },
+    {
+        "total": 13,
+        "warning_priority": 1,
+        "reason_id": 4,
+        "travel_direction": "EAST",
+        "loc_code": "04210050-NW05-0"
+    },
+    {
+        "total": 32,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "WEST",
+        "loc_code": "04210034-NW05-0"
+    },
+    {
+        "total": 19,
+        "warning_priority": 5,
+        "reason_id": 14,
+        "travel_direction": "WEST",
+        "loc_code": "04210034-NW05-0"
+    },
+    {
+        "total": 20,
+        "warning_priority": 1,
+        "reason_id": 2,
+        "travel_direction": "WEST",
+        "loc_code": "04210034-NW05-0"
+    },
+    {
+        "total": 17,
+        "warning_priority": 7,
+        "reason_id": 16,
+        "travel_direction": "ALL",
+        "loc_code": "0376170S-NW05-0"
+    },
+    {
+        "total": 13,
+        "warning_priority": 9,
+        "reason_id": 19,
+        "travel_direction": "SOUTH",
+        "loc_code": "0376170S-NW05-0"
+    },
+    {
+        "total": 10,
+        "warning_priority": 9,
+        "reason_id": 19,
+        "travel_direction": "WEST",
+        "loc_code": "0376170S-NW05-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 4,
+        "reason_id": 12,
+        "travel_direction": "WEST",
+        "loc_code": "0376170S-NW05-0"
+    },
+    {
+        "total": 41,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "SOUTH",
+        "loc_code": "03760184-NW00-0"
+    },
+    {
+        "total": 28,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "03760184-NW00-0"
+    },
+    {
+        "total": 36,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "NORTH",
+        "loc_code": "03600342-NW50-0"
+    },
+    {
+        "total": 18,
+        "warning_priority": 5,
+        "reason_id": 14,
+        "travel_direction": "NORTH",
+        "loc_code": "03600342-NW50-0"
+    },
+    {
+        "total": 16,
+        "warning_priority": 10,
+        "reason_id": 20,
+        "travel_direction": "NORTH",
+        "loc_code": "03600342-NW50-0"
+    },
+    {
+        "total": 7,
+        "warning_priority": 1,
+        "reason_id": 6,
+        "travel_direction": "NORTH",
+        "loc_code": "03600342-NW50-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 4,
+        "reason_id": 12,
+        "travel_direction": "NORTH",
+        "loc_code": "03600342-NW50-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "03500105-NW00-0"
+    },
+    {
+        "total": 14,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "03230091-NW00-0"
+    },
+    {
+        "total": 21,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "03230091-NW00-0"
+    },
+    {
+        "total": 104,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "01670097-NW00-0"
+    },
+    {
+        "total": 37,
+        "warning_priority": 6,
+        "reason_id": 15,
+        "travel_direction": "ALL",
+        "loc_code": "01670097-NW00-0"
+    },
+    {
+        "total": 25,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "01670097-NW00-0"
+    },
+    {
+        "total": 107,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "01530097-NW00-0"
+    },
+    {
+        "total": 22,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "01530097-NW00-0"
+    },
+    {
+        "total": 5,
+        "warning_priority": 2,
+        "reason_id": 7,
+        "travel_direction": "ALL",
+        "loc_code": "01440066-NW05-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 10,
+        "travel_direction": "SOUTH",
+        "loc_code": "01370127-NW00-0"
+    },
+    {
+        "total": 109,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "01370097-NW00-0"
+    },
+    {
+        "total": 18,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "01370097-NW00-0"
+    },
+    {
+        "total": 23,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "01370097-NW00-0"
+    },
+    {
+        "total": 20,
+        "warning_priority": 6,
+        "reason_id": 15,
+        "travel_direction": "ALL",
+        "loc_code": "01370082-NW00-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "01370082-NW00-0"
+    },
+    {
+        "total": 93,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "01370050-NW00-0"
+    },
+    {
+        "total": 22,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "01370050-NW00-0"
+    },
+    {
+        "total": 3,
+        "warning_priority": 2,
+        "reason_id": 7,
+        "travel_direction": "ALL",
+        "loc_code": "01320082-NW00-0"
+    },
+    {
+        "total": 16,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "01270097-NW00-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "0118619N-NW00-0"
+    },
+    {
+        "total": 114,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "01180580-NW00-0"
+    },
+    {
+        "total": 27,
+        "warning_priority": 7,
+        "reason_id": 16,
+        "travel_direction": "ALL",
+        "loc_code": "01180580-NW00-0"
+    },
+    {
+        "total": 11,
+        "warning_priority": 9,
+        "reason_id": 18,
+        "travel_direction": "SOUTH",
+        "loc_code": "01180580-NW00-0"
+    },
+    {
+        "total": 10,
+        "warning_priority": 9,
+        "reason_id": 18,
+        "travel_direction": "EAST",
+        "loc_code": "01180580-NW00-0"
+    },
+    {
+        "total": 8,
+        "warning_priority": 9,
+        "reason_id": 18,
+        "travel_direction": "WEST",
+        "loc_code": "01180580-NW00-0"
+    },
+    {
+        "total": 21,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "01180580-NW00-0"
+    },
+    {
+        "total": 9,
+        "warning_priority": 9,
+        "reason_id": 18,
+        "travel_direction": "WEST",
+        "loc_code": "01180101-NW00-0"
+    },
+    {
+        "total": 8,
+        "warning_priority": 9,
+        "reason_id": 18,
+        "travel_direction": "EAST",
+        "loc_code": "01180097-NW00-0"
+    },
+    {
+        "total": 24,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "01180097-NW00-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "0111120W-NW00-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "01110101-NW00-0"
+    },
+    {
+        "total": 161,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "01070142-NW00-0"
+    },
+    {
+        "total": 43,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "EAST",
+        "loc_code": "01070142-NW00-0"
+    },
+    {
+        "total": 32,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "WEST",
+        "loc_code": "01070142-NW00-0"
+    },
+    {
+        "total": 8,
+        "warning_priority": 9,
+        "reason_id": 18,
+        "travel_direction": "WEST",
+        "loc_code": "01070142-NW00-0"
+    },
+    {
+        "total": 25,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "01070142-NW00-0"
+    },
+    {
+        "total": 44,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "01070142-NW00-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "01060101-NW00-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 2,
+        "reason_id": 8,
+        "travel_direction": "SOUTH",
+        "loc_code": "01050101-NW50-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "01040116-NW00-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "01040109-NW00-0"
+    },
+    {
+        "total": 5,
+        "warning_priority": 2,
+        "reason_id": 7,
+        "travel_direction": "ALL",
+        "loc_code": "01040101-NW00-0"
+    },
+    {
+        "total": 23,
+        "warning_priority": 6,
+        "reason_id": 15,
+        "travel_direction": "ALL",
+        "loc_code": "01010050-NW00-0"
+    },
+    {
+        "total": 15,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "01010050-NW00-0"
+    },
+    {
+        "total": 3,
+        "warning_priority": 2,
+        "reason_id": 7,
+        "travel_direction": "ALL",
+        "loc_code": "01010050-NW00-0"
+    },
+    {
+        "total": 33,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "EAST",
+        "loc_code": "01000178-NW00-0"
+    },
+    {
+        "total": 10,
+        "warning_priority": 9,
+        "reason_id": 19,
+        "travel_direction": "EAST",
+        "loc_code": "01000178-NW00-0"
+    },
+    {
+        "total": 14,
+        "warning_priority": 9,
+        "reason_id": 19,
+        "travel_direction": "EAST",
+        "loc_code": "01000175-NW05-0"
+    },
+    {
+        "total": 3,
+        "warning_priority": 1,
+        "reason_id": 5,
+        "travel_direction": "ALL",
+        "loc_code": "00990109-NW50-0"
+    },
+    {
+        "total": 40,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "SOUTH",
+        "loc_code": "00950170-NW50-0"
+    },
+    {
+        "total": 40,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "SOUTH",
+        "loc_code": "00950170-NW50-0"
+    },
+    {
+        "total": 33,
+        "warning_priority": 5,
+        "reason_id": 14,
+        "travel_direction": "SOUTH",
+        "loc_code": "00950170-NW50-0"
+    },
+    {
+        "total": 115,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "00900085-NW00-0"
+    },
+    {
+        "total": 11,
+        "warning_priority": 9,
+        "reason_id": 18,
+        "travel_direction": "EAST",
+        "loc_code": "00900085-NW00-0"
+    },
+    {
+        "total": 8,
+        "warning_priority": 9,
+        "reason_id": 18,
+        "travel_direction": "NORTH",
+        "loc_code": "00900085-NW00-0"
+    },
+    {
+        "total": 25,
+        "warning_priority": 1,
+        "reason_id": 1,
+        "travel_direction": "ALL",
+        "loc_code": "00900085-NW00-0"
+    },
+    {
+        "total": 29,
+        "warning_priority": 1,
+        "reason_id": 3,
+        "travel_direction": "ALL",
+        "loc_code": "00900085-NW00-0"
+    },
+    {
+        "total": 4,
+        "warning_priority": 2,
+        "reason_id": 7,
+        "travel_direction": "ALL",
+        "loc_code": "00900085-NW00-0"
+    },
+    {
+        "total": 102,
+        "warning_priority": 11,
+        "reason_id": 21,
+        "travel_direction": "ALL",
+        "loc_code": "00870170-NW00-0"
+    },
+    {
+        "total": 3,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "00820101-NW00-0"
+    },
+    {
+        "total": 3,
+        "warning_priority": 2,
+        "reason_id": 7,
+        "travel_direction": "ALL",
+        "loc_code": "00820099-NW00-0"
+    },
+    {
+        "total": 2,
+        "warning_priority": 3,
+        "reason_id": 9,
+        "travel_direction": "ALL",
+        "loc_code": "00820099-NW00-0"
+    },
+    {
+        "total": 29,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "SOUTH",
+        "loc_code": "0048526S-NW50-0"
+    },
+    {
+        "total": 14,
+        "warning_priority": 9,
+        "reason_id": 19,
+        "travel_direction": "SOUTH",
+        "loc_code": "0048526S-NW50-0"
+    },
+    {
+        "total": 29,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "SOUTH",
+        "loc_code": "0041526S-SW50-0"
+    },
+    {
+        "total": 13,
+        "warning_priority": 9,
+        "reason_id": 19,
+        "travel_direction": "SOUTH",
+        "loc_code": "0041526S-SW50-0"
+    },
+    {
+        "total": 47,
+        "warning_priority": 11,
+        "reason_id": 22,
+        "travel_direction": "SOUTH",
+        "loc_code": "0034526S-NW50-0"
+    },
+    {
+        "total": 42,
+        "warning_priority": 5,
+        "reason_id": 13,
+        "travel_direction": "SOUTH",
+        "loc_code": "0034526S-NW50-0"
+    },
+    {
+        "total": 8,
+        "warning_priority": 9,
+        "reason_id": 18,
+        "travel_direction": "SOUTH",
+        "loc_code": "0034526S-NW50-0"
+    },
+    {
+        "total": 22,
+        "warning_priority": 5,
+        "reason_id": 14,
+        "travel_direction": "SOUTH",
+        "loc_code": "0034526S-NW50-0"
+    },
+    {
+        "total": 10,
+        "warning_priority": 9,
+        "reason_id": 19,
+        "travel_direction": "SOUTH",
+        "loc_code": "0034526S-NW50-0"
+    }
+]

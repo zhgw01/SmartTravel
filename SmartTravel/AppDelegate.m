@@ -10,6 +10,11 @@
 #import "TermUsage.h"
 #import <GoogleMaps/GoogleMaps.h>
 
+#ifdef DEBUG
+#import "JsonManager.h"
+#import "JSONCollisionLocation.h"
+#endif
+
 @interface AppDelegate ()
 
 @end
@@ -19,7 +24,18 @@
 static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+#ifdef DEBUG
+    NSArray* collisionLocations = [[JsonManager sharedInstance] readJSONFromReadonlyJSONFile:kJSON_TBL_COLLISION_LOCATION];
+    for (JSONCollisionLocation* jCollisionLocation in collisionLocations)
+    {
+        NSLog(@"locationName:%@, roadwayPortion:%@, longitude:%g, latitude:%g, locCode:%@",
+              jCollisionLocation.locationName,
+              jCollisionLocation.roadwayPortion,
+              [jCollisionLocation.longitude doubleValue],
+              [jCollisionLocation.latitude doubleValue],
+              jCollisionLocation.locCode);
+    }
+#endif
     
     if (![TermUsage agree]) {
         self.window.rootViewController = [self loadControllerFromStoryboard:@"FirstLaunch"];
