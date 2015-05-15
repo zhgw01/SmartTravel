@@ -22,6 +22,7 @@
 		4239D62C1B0218D700C7D72D /* DBDateAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4239D62B1B0218D700C7D72D /* DBDateAdapter.m */; };
 		425C64911AF8E71100BE9086 /* WarningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425C64901AF8E71100BE9086 /* WarningView.m */; };
 		425C64931AF8E72800BE9086 /* WarningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425C64921AF8E72800BE9086 /* WarningView.xib */; };
+		4261DD861B0610CA00521A17 /* DBLocationReasonAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4261DD851B0610CA00521A17 /* DBLocationReasonAdapter.m */; };
 		4290A0A91AF600AE00CB46E5 /* smartTravelDb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 4290A0A81AF600AE00CB46E5 /* smartTravelDb.sqlite */; };
 		4290A0AD1AF6050100CB46E5 /* HotSpotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4290A0AB1AF6050100CB46E5 /* HotSpotTableViewCell.m */; };
 		4290A0AE1AF6050100CB46E5 /* HotSpotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4290A0AC1AF6050100CB46E5 /* HotSpotTableViewCell.xib */; };
@@ -90,6 +91,8 @@
 		425C648F1AF8E71100BE9086 /* WarningView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WarningView.h; sourceTree = "<group>"; };
 		425C64901AF8E71100BE9086 /* WarningView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WarningView.m; sourceTree = "<group>"; };
 		425C64921AF8E72800BE9086 /* WarningView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WarningView.xib; sourceTree = "<group>"; };
+		4261DD841B0610CA00521A17 /* DBLocationReasonAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBLocationReasonAdapter.h; sourceTree = "<group>"; };
+		4261DD851B0610CA00521A17 /* DBLocationReasonAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBLocationReasonAdapter.m; sourceTree = "<group>"; };
 		4290A0A81AF600AE00CB46E5 /* smartTravelDb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = smartTravelDb.sqlite; sourceTree = "<group>"; };
 		4290A0AA1AF6050100CB46E5 /* HotSpotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotSpotTableViewCell.h; sourceTree = "<group>"; };
 		4290A0AB1AF6050100CB46E5 /* HotSpotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotSpotTableViewCell.m; sourceTree = "<group>"; };
@@ -246,6 +249,8 @@
 				420AC76E1B04AF0100198C0E /* DBLocationAdapter.m */,
 				420AC7701B04C5A300198C0E /* DBReasonAdapter.h */,
 				420AC7711B04C5A300198C0E /* DBReasonAdapter.m */,
+				4261DD841B0610CA00521A17 /* DBLocationReasonAdapter.h */,
+				4261DD851B0610CA00521A17 /* DBLocationReasonAdapter.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -531,6 +536,7 @@
 				9B6A85B71ADFDEFF00667170 /* ViewController.m in Sources */,
 				4239D62C1B0218D700C7D72D /* DBDateAdapter.m in Sources */,
 				4200962B1AFF0FFA00B43630 /* HotSpot.h in Sources */,
+				4261DD861B0610CA00521A17 /* DBLocationReasonAdapter.m in Sources */,
 				9B6A85B41ADFDEFF00667170 /* AppDelegate.m in Sources */,
 				4290A0AD1AF6050100CB46E5 /* HotSpotTableViewCell.m in Sources */,
 				420AC7721B04C5A300198C0E /* DBReasonAdapter.m in Sources */,

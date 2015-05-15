@@ -39,4 +39,21 @@
     
 }
 
++ (NSString*)directionToString:(Direction)direction
+{
+    switch (direction)
+    {
+        case North:
+            return @"North";
+        case East:
+            return @"East";
+        case South:
+            return @"South";
+        case West:
+            return @"West";
+        default:
+            return nil;
+    }
+}
+
 @end
