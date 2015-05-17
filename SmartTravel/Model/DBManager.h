@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <FMDB/FMDB.h>
-#import "DBConstants.h"
 
 @interface DBManager : NSObject
 
@@ -16,6 +15,8 @@
 @property (readonly, strong) FMDatabase* mainDb;
 
 +(DBManager *)sharedInstance;
+
++(NSString*)makeInsertSmtForTable:(NSString*)tableName;
 
 -(NSArray*)selectAllCollisions;
 

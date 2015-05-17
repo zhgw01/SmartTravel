@@ -12,7 +12,7 @@
 @interface DBLocationReasonAdapter : NSObject
 
 - (NSArray*)getLocationReasonsAtLatitude:(double)latitude
-                             longititude:(double)longititude
+                               longitude:(double)longitude
                                   ofDate:(NSDate*)date
                              inDirection:(Direction)direction
                             withinRadius:(double)radius;

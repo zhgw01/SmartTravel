@@ -10,6 +10,6 @@
 
 @interface ModelUtility : NSObject
 
-+(void)initializeMainDBTablesWithJSON;
++(BOOL)insertDataIntoMainDBTablesUsingDataFromJSONFiles;
 
 @end

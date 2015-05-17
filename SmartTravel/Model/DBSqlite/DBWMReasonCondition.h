@@ -12,14 +12,14 @@
 
 @interface DBWMReasonCondition: MTLModel<MTLFMDBSerializing>
 
-@property (nonatomic, copy) NSNumber *reasonId;
-@property (nonatomic, copy) NSString *reason;
-@property (nonatomic, copy) NSString *month;
-@property (nonatomic, assign) BOOL weekday;
-@property (nonatomic, assign) BOOL weekend;
-@property (nonatomic, assign) BOOL schoolDay;
-@property (nonatomic, copy) NSString *startTime;
-@property (nonatomic, copy) NSString *endTime;
-@property (nonatomic, copy) NSString *warningMessage;
+@property (nonatomic, copy) NSNumber *Reason_id;
+@property (nonatomic, copy) NSString *Reason;
+@property (nonatomic, copy) NSString *Month;
+@property (nonatomic, assign) BOOL Weekday;
+@property (nonatomic, assign) BOOL Weekend;
+@property (nonatomic, assign) BOOL School_day;
+@property (nonatomic, copy) NSString *Start_time;
+@property (nonatomic, copy) NSString *End_time;
+@property (nonatomic, copy) NSString *Warning_message;
 
 @end

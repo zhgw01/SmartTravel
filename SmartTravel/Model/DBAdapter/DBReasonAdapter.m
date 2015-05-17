@@ -9,6 +9,7 @@
 #import <FMDB/FMDB.h>
 #import "DBReasonAdapter.h"
 #import "DBDateAdapter.h"
+#import "DBConstants.h"
 #import "DBManager.h"
 
 static NSString * const kReasonIdColumn = @"Reason_id";

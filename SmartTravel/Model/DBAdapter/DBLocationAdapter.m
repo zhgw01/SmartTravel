@@ -9,24 +9,25 @@
 #import <CoreLocation/CoreLocation.h>
 #import <FMDB/FMDB.h>
 #import "DBLocationAdapter.h"
+#import "DBConstants.h"
 #import "DBManager.h"
 
 static NSString * const kLocCodeColumn = @"Loc_code";
 static NSString * const kLatitudeColumn = @"Latitude";
-static NSString * const kLongtitudeColumn = @"Longtitude";
+static NSString * const kLongitudeColumn = @"Longitude";
 
 @implementation DBLocationAdapter
 
 - (NSArray*)getLocCodesInRange:(double)radius
                     atLatitude:(double)latitude
-                    longtitude:(double)longtitude
+                     longitude:(double)longitude
 {
     NSMutableArray* res = [[NSMutableArray alloc] init];
     
     FMDatabase* db = [[DBManager sharedInstance] mainDb];
     if ([db open])
     {
-        NSString* smt = [self constructSmt:latitude longtitude:longtitude radius:radius];
+        NSString* smt = [self constructSmt:latitude longitude:longitude radius:radius];
         FMResultSet* resultSet = [db executeQuery:smt];
         NSError* error = nil;
         while([resultSet nextWithError:&error])
@@ -41,12 +42,12 @@ static NSString * const kLongtitudeColumn = @"Longtitude";
 }
 
 - (NSString*)constructSmt:(double)latitude
-               longtitude:(double)longtitude
+               longitude:(double)longtitude
                    radius:(double)radius
 {
     double latInset = 0;
     double lonInset = 0;
-    [self getDegreeInsetsAtLatitude:latitude longtitude:longtitude radius:radius latInset:&latInset lonInset:&lonInset];
+    [self getDegreeInsetsAtLatitude:latitude longitude:longtitude radius:radius latInset:&latInset lonInset:&lonInset];
     
     return [NSString stringWithFormat:
             @"select %@ from %@ where (%@ > %g and %@ < %g) and (%@ > %g and %@ < %g)",
@@ -56,14 +57,14 @@ static NSString * const kLongtitudeColumn = @"Longtitude";
             latitude - latInset,
             kLatitudeColumn,
             latitude + latInset,
-            kLongtitudeColumn,
+            kLongitudeColumn,
             longtitude - lonInset,
-            kLongtitudeColumn,
+            kLongitudeColumn,
             longtitude + lonInset];
 }
 
 - (void)getDegreeInsetsAtLatitude:(double)latitude
-                       longtitude:(double)longtitude
+                        longitude:(double)longitude
                            radius:(double)radius
                          latInset:(double*)latInset
                          lonInset:(double*)lonInset
@@ -73,10 +74,10 @@ static NSString * const kLongtitudeColumn = @"Longtitude";
         return;
     }
     
-    CLLocation* left = [[CLLocation alloc] initWithLatitude:latitude longitude:(longtitude - 0.01)];
-    CLLocation* right = [[CLLocation alloc] initWithLatitude:latitude longitude:(longtitude + 0.01)];
-    CLLocation* up = [[CLLocation alloc] initWithLatitude:(latitude - 0.01) longitude:longtitude ];
-    CLLocation* down = [[CLLocation alloc] initWithLatitude:(latitude + 0.01) longitude:longtitude ];
+    CLLocation* left = [[CLLocation alloc] initWithLatitude:latitude longitude:(longitude - 0.01)];
+    CLLocation* right = [[CLLocation alloc] initWithLatitude:latitude longitude:(longitude + 0.01)];
+    CLLocation* up = [[CLLocation alloc] initWithLatitude:(latitude - 0.01) longitude:longitude ];
+    CLLocation* down = [[CLLocation alloc] initWithLatitude:(latitude + 0.01) longitude:longitude ];
     
     double distanceOfOnePercentDegreeAtLon = [left distanceFromLocation:right] * 0.5;
     double distanceOfOnePercentDegreeAtLat = [up distanceFromLocation:down] * 0.5;
