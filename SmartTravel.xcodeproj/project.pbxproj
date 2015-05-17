@@ -17,13 +17,14 @@
 		420096291AFEF37B00B43630 /* TopMotorcyclist.m in Sources */ = {isa = PBXBuildFile; fileRef = 420096281AFEF37B00B43630 /* TopMotorcyclist.m */; };
 		4200962B1AFF0FFA00B43630 /* HotSpot.h in Sources */ = {isa = PBXBuildFile; fileRef = 4200962A1AFF0FFA00B43630 /* HotSpot.h */; };
 		4200962D1AFF102900B43630 /* HotSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4200962C1AFF102900B43630 /* HotSpot.m */; };
+		4203DDB91B0879350002D67F /* DateUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4203DDB61B0879350002D67F /* DateUtility.m */; };
+		4203DDBA1B0879350002D67F /* ModelUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4203DDB81B0879350002D67F /* ModelUtility.m */; };
 		4225F8331B081A4100C5A73F /* DBDateAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F82C1B081A4100C5A73F /* DBDateAdapter.m */; };
 		4225F8341B081A4100C5A73F /* DBLocationAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F82E1B081A4100C5A73F /* DBLocationAdapter.m */; };
 		4225F8351B081A4100C5A73F /* DBLocationReasonAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F8301B081A4100C5A73F /* DBLocationReasonAdapter.m */; };
 		4225F8361B081A4100C5A73F /* DBReasonAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F8321B081A4100C5A73F /* DBReasonAdapter.m */; };
 		4225F8431B0829C200C5A73F /* DBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F83E1B0829C200C5A73F /* DBConstants.m */; };
 		4225F8441B0829C200C5A73F /* JSONConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F8401B0829C200C5A73F /* JSONConstants.m */; };
-		4225F8451B0829C200C5A73F /* ModelUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F8421B0829C200C5A73F /* ModelUtility.m */; };
 		4225F8481B082A3800C5A73F /* JSONManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F8471B082A3800C5A73F /* JSONManager.m */; };
 		4229775E1B080ECD00A11E90 /* TBL_COLLISION_LOCATION.json in Resources */ = {isa = PBXBuildFile; fileRef = 4229775A1B080ECD00A11E90 /* TBL_COLLISION_LOCATION.json */; };
 		4229775F1B080ECD00A11E90 /* TBL_LOCATION_REASON.json in Resources */ = {isa = PBXBuildFile; fileRef = 4229775B1B080ECD00A11E90 /* TBL_LOCATION_REASON.json */; };
@@ -98,6 +99,10 @@
 		420096281AFEF37B00B43630 /* TopMotorcyclist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopMotorcyclist.m; path = Model/TopLocation/TopMotorcyclist.m; sourceTree = "<group>"; };
 		4200962A1AFF0FFA00B43630 /* HotSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotSpot.h; sourceTree = "<group>"; };
 		4200962C1AFF102900B43630 /* HotSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotSpot.m; sourceTree = "<group>"; };
+		4203DDB51B0879350002D67F /* DateUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateUtility.h; path = Model/Utility/DateUtility.h; sourceTree = "<group>"; };
+		4203DDB61B0879350002D67F /* DateUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateUtility.m; path = Model/Utility/DateUtility.m; sourceTree = "<group>"; };
+		4203DDB71B0879350002D67F /* ModelUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelUtility.h; path = Model/Utility/ModelUtility.h; sourceTree = "<group>"; };
+		4203DDB81B0879350002D67F /* ModelUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelUtility.m; path = Model/Utility/ModelUtility.m; sourceTree = "<group>"; };
 		4225F82B1B081A4100C5A73F /* DBDateAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBDateAdapter.h; path = Model/DBAdapter/DBDateAdapter.h; sourceTree = "<group>"; };
 		4225F82C1B081A4100C5A73F /* DBDateAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBDateAdapter.m; path = Model/DBAdapter/DBDateAdapter.m; sourceTree = "<group>"; };
 		4225F82D1B081A4100C5A73F /* DBLocationAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBLocationAdapter.h; path = Model/DBAdapter/DBLocationAdapter.h; sourceTree = "<group>"; };
@@ -110,8 +115,6 @@
 		4225F83E1B0829C200C5A73F /* DBConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBConstants.m; path = Model/DBConstants.m; sourceTree = "<group>"; };
 		4225F83F1B0829C200C5A73F /* JSONConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONConstants.h; path = Model/JSONConstants.h; sourceTree = "<group>"; };
 		4225F8401B0829C200C5A73F /* JSONConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONConstants.m; path = Model/JSONConstants.m; sourceTree = "<group>"; };
-		4225F8411B0829C200C5A73F /* ModelUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelUtility.h; path = Model/ModelUtility.h; sourceTree = "<group>"; };
-		4225F8421B0829C200C5A73F /* ModelUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelUtility.m; path = Model/ModelUtility.m; sourceTree = "<group>"; };
 		4225F8461B082A3800C5A73F /* JSONManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONManager.h; path = Model/JSONManager.h; sourceTree = "<group>"; };
 		4225F8471B082A3800C5A73F /* JSONManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONManager.m; path = Model/JSONManager.m; sourceTree = "<group>"; };
 		4229775A1B080ECD00A11E90 /* TBL_COLLISION_LOCATION.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TBL_COLLISION_LOCATION.json; path = Resource/TBL_COLLISION_LOCATION.json; sourceTree = "<group>"; };
@@ -228,6 +231,17 @@
 			name = TopLocation;
 			sourceTree = "<group>";
 		};
+		4203DDB41B0878860002D67F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				4203DDB51B0879350002D67F /* DateUtility.h */,
+				4203DDB61B0879350002D67F /* DateUtility.m */,
+				4203DDB71B0879350002D67F /* ModelUtility.h */,
+				4203DDB81B0879350002D67F /* ModelUtility.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		4225F82A1B08198900C5A73F /* DBAdapter */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,13 +339,12 @@
 				4225F83E1B0829C200C5A73F /* DBConstants.m */,
 				4225F83F1B0829C200C5A73F /* JSONConstants.h */,
 				4225F8401B0829C200C5A73F /* JSONConstants.m */,
-				4225F8411B0829C200C5A73F /* ModelUtility.h */,
-				4225F8421B0829C200C5A73F /* ModelUtility.m */,
 				9B6C7DA61AF500C500DF6FA9 /* DBManager.h */,
 				9B6C7DA71AF500C500DF6FA9 /* DBManager.m */,
 				4225F82A1B08198900C5A73F /* DBAdapter */,
 				4229776E1B080F0500A11E90 /* DBSqlite */,
 				4261DD921B06329600521A17 /* JSON */,
+				4203DDB41B0878860002D67F /* Utility */,
 				4200961D1AFEF17600B43630 /* TopLocation */,
 				9B7E594F1AE37FD10008D25C /* TermUsage.h */,
 				9B7E59501AE37FD10008D25C /* TermUsage.m */,
@@ -638,11 +651,11 @@
 				4225F8341B081A4100C5A73F /* DBLocationAdapter.m in Sources */,
 				9B6A85B71ADFDEFF00667170 /* ViewController.m in Sources */,
 				4225F8361B081A4100C5A73F /* DBReasonAdapter.m in Sources */,
-				4225F8451B0829C200C5A73F /* ModelUtility.m in Sources */,
 				4200962B1AFF0FFA00B43630 /* HotSpot.h in Sources */,
 				4225F8431B0829C200C5A73F /* DBConstants.m in Sources */,
 				9B6A85B41ADFDEFF00667170 /* AppDelegate.m in Sources */,
 				4290A0AD1AF6050100CB46E5 /* HotSpotTableViewCell.m in Sources */,
+				4203DDB91B0879350002D67F /* DateUtility.m in Sources */,
 				4200962D1AFF102900B43630 /* HotSpot.m in Sources */,
 				4225F8331B081A4100C5A73F /* DBDateAdapter.m in Sources */,
 				4225F8481B082A3800C5A73F /* JSONManager.m in Sources */,
@@ -667,6 +680,7 @@
 				420096231AFEF25600B43630 /* TopPedestrian.m in Sources */,
 				420096261AFEF31C00B43630 /* TopCyclist.m in Sources */,
 				9B7E59551AE3882A0008D25C /* GuideViewController.m in Sources */,
+				4203DDBA1B0879350002D67F /* ModelUtility.m in Sources */,
 				425C64911AF8E71100BE9086 /* WarningView.m in Sources */,
 				4229776B1B080EF000A11E90 /* JSONLocationReason.m in Sources */,
 				9BDBCA461AF8EEE600F23275 /* MarkerManager.m in Sources */,
