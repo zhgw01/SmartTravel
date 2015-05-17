@@ -18,6 +18,8 @@
 #import "DBReasonAdapter.h"
 #import "DateUtility.h"
 
+static CGFloat kHeightProportion = 0.3;
+
 @interface HomeViewController ()<SWRevealViewControllerDelegate, CLLocationManagerDelegate, HotSpotListViewControllerMapDelegate>
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hotspotListButton;
@@ -60,9 +62,9 @@
     [self.view addSubview:self.warningView ];
     
     self.warningView.frame = CGRectMake(self.view.frame.origin.x,
-                                        self.view.frame.origin.y + self.navigationController.navigationBar.frame.size.height,
+                                        self.view.frame.origin.y + self.view.frame.size.height * (1- kHeightProportion),
                                         self.view.frame.size.width,
-                                        self.view.frame.size.height * 0.3);
+                                        self.view.frame.size.height * kHeightProportion);
     
     self.warningView.hidden = YES;
 }

@@ -27,7 +27,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qMd-pw-02X" userLabel="GripBKView">
-                    <rect key="frame" x="0.0" y="590" width="600" height="10"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="10"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMd-ze-nQf" userLabel="GripView">
                             <rect key="frame" x="270" y="2" width="60" height="5"/>
@@ -127,7 +127,7 @@
                 <constraint firstItem="8QE-ow-HoG" firstAttribute="baseline" secondItem="Q5O-j1-PhW" secondAttribute="baseline" id="q4l-Kl-uWQ"/>
                 <constraint firstItem="Q5O-j1-PhW" firstAttribute="top" secondItem="mrY-qB-AeV" secondAttribute="bottom" constant="10" id="q8w-Cs-74O"/>
                 <constraint firstItem="TJK-1q-M08" firstAttribute="trailing" secondItem="N1U-bC-8Wh" secondAttribute="trailing" id="qOQ-AK-PvD"/>
-                <constraint firstItem="qMd-pw-02X" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="xs9-1M-D3Z" userLabel="Vertical Space - GripBKView- View"/>
+                <constraint firstItem="qMd-pw-02X" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xs9-1M-D3Z" userLabel="Vertical Space - GripBKView- View"/>
                 <constraint firstItem="qMd-pw-02X" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="yQl-LR-XSn" userLabel="Horizontal Space - GripBKView - View"/>
             </constraints>
             <connections>
