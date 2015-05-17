@@ -8,6 +8,7 @@
 
 #import <FMDB/FMDB.h>
 #import "DBDateAdapter.h"
+#import "DBConstants.h"
 #import "DBManager.h"
 
 static NSString * const kWeekdayColumn = @"Weekday";

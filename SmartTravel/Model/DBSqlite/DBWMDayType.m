@@ -13,12 +13,7 @@
 
 + (NSDictionary *)FMDBColumnsByPropertyKey
 {
-    return @{
-             @"date" : @"Date",
-             @"weekday": @"Weekday",
-             @"weekend": @"Weekend",
-             @"schoolDay": @"School_day"
-             };
+    return @{};
 }
 
 + (NSArray*)FMDBPrimaryKeys

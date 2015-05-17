@@ -13,13 +13,7 @@
 
 + (NSDictionary *)FMDBColumnsByPropertyKey
 {
-    return @{
-             @"locCode": @"Loc_code",
-             @"travelDirection": @"Travel_direction",
-             @"reasonId": @"Reason_id",
-             @"total": @"Total",
-             @"warningPriority": @"Warning_priority"
-             };
+    return @{};
 }
 
 + (NSArray*)FMDBPrimaryKeys

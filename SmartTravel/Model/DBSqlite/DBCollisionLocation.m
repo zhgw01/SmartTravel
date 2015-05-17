@@ -13,13 +13,7 @@
 
 + (NSDictionary *)FMDBColumnsByPropertyKey
 {
-    return @{
-             @"locCode": @"Loc_code",
-             @"locationName" : @"Location_name",
-             @"roadwayPortion" : @"Roadway_portion",
-             @"latitude": @"Latitude",
-             @"longitude": @"Longtitude"
-             };
+    return @{};
 }
 
 + (NSArray*)FMDBPrimaryKeys

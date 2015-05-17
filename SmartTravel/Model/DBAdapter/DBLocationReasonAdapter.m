@@ -8,6 +8,7 @@
 
 #import <FMDB/FMDB.h>
 #import "DBLocationReasonAdapter.h"
+#import "DBConstants.h"
 #import "DBManager.h"
 #import "DBReasonAdapter.h"
 #import "DBLocationAdapter.h"
@@ -21,14 +22,14 @@ static NSString * const kWarningPriorityColumn = @"Warning_priority";
 @implementation DBLocationReasonAdapter
 
 - (NSArray*)getLocationReasonsAtLatitude:(double)latitude
-                             longititude:(double)longititude
+                               longitude:(double)longitude
                                   ofDate:(NSDate*)date
                              inDirection:(Direction)direction
                             withinRadius:(double)radius
 {
     // Get loc codes
     DBLocationAdapter* dbLocationAdapter = [[DBLocationAdapter alloc] init];
-    NSArray* locCodes = [dbLocationAdapter getLocCodesInRange:radius atLatitude:latitude longtitude:longititude];
+    NSArray* locCodes = [dbLocationAdapter getLocCodesInRange:radius atLatitude:latitude longitude:longitude];
     NSString* locCodesStr = [DBLocationReasonAdapter arrayToSQLInConditions:locCodes];
 
     // Get reason ids

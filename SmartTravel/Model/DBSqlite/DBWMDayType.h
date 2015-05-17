@@ -12,9 +12,9 @@
 
 @interface DBWMDayType: MTLModel<MTLFMDBSerializing>
 
-@property (nonatomic, copy) NSString* date;
-@property (nonatomic, assign) BOOL weekday;
-@property (nonatomic, assign) BOOL weekend;
-@property (nonatomic, assign) BOOL schoolDay;
+@property (nonatomic, copy) NSString* Date;
+@property (nonatomic, assign) BOOL Weekday;
+@property (nonatomic, assign) BOOL Weekend;
+@property (nonatomic, assign) BOOL School_day;
 
 @end

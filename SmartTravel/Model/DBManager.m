@@ -7,6 +7,7 @@
 //
 
 #import "DBManager.h"
+#import "DBConstants.h"
 #import "TopIntersection.h"
 #import "TopMidblock.h"
 #import "TopPedestrian.h"
@@ -40,6 +41,32 @@ static NSString * const kTopMotorcyclistQuerySmt = @"select * from Top_Motorcycl
     });
     return sharedSingleton;
 }
+
++(NSString*)makeInsertSmtForTable:(NSString*)tableName
+{
+    if ([tableName isEqualToString:MAIN_DB_TBL_COLLISION_LOCATION])
+    {
+        return [NSString stringWithFormat:@"INSERT INTO %@ (Loc_code, Location_name, Roadway_portion, Latitude, Longitude) values(:Loc_code, :Location_name, :Roadway_portion, :Latitude, :Longitude)", MAIN_DB_TBL_COLLISION_LOCATION];
+    }
+    else if ([tableName isEqualToString:MAIN_DB_TBL_LOCATION_REASON])
+    {
+        return [NSString stringWithFormat:@"INSERT INTO %@ (Loc_code, Travel_direction, Reason_id, Total, Warning_priority) values(:Loc_code, :Travel_direction, :Reason_id, :Total, :Warning_priority)", MAIN_DB_TBL_LOCATION_REASON];
+    }
+    else if ([tableName isEqualToString:MAIN_DB_TBL_WM_DAYTYPE])
+    {
+        return [NSString stringWithFormat:@"INSERT INTO %@ (Date, Weekday, Weekend, School_day) values(:Date, :Weekday, :Weekend, :School_day)", MAIN_DB_TBL_WM_DAYTYPE];
+    }
+    else if ([tableName isEqualToString:MAIN_DB_TBL_WM_REASON_CONDITION])
+    {
+        return [NSString stringWithFormat:@"INSERT INTO %@ (Reason_id, Reason, Month, Weekday, Weekend, School_day, Start_time, End_time, Warning_message) values(:Reason_id, :Reason, :Month, :Weekday, :Weekend, :School_day, :Start_time, :End_time, :Warning_message)", MAIN_DB_TBL_WM_REASON_CONDITION];
+    }
+    else
+    {
+        NSAssert(NO, @"Not implemented");
+    }
+    return nil;
+}
+
 
 - (instancetype)init
 {

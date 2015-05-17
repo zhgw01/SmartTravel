@@ -12,6 +12,6 @@
 
 - (NSArray*)getLocCodesInRange:(double)radius
                     atLatitude:(double)latitude
-                    longtitude:(double)longtitude;
+                     longitude:(double)longitude;
 
 @end

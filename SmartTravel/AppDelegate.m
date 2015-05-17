@@ -40,7 +40,7 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
     
 #ifdef DEBUG
     //Initialize database with JSON data
-    [ModelUtility initializeMainDBTablesWithJSON];
+    [ModelUtility insertDataIntoMainDBTablesUsingDataFromJSONFiles];
 #endif
     
     //Initialize GMap

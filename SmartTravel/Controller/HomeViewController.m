@@ -207,7 +207,7 @@
     
     // Get warning data list
     NSArray* warnings = [self.locationReasonAdapter getLocationReasonsAtLatitude:self.recentLocation.coordinate.latitude
-                                                                     longititude:self.recentLocation.coordinate.longitude
+                                                                       longitude:self.recentLocation.coordinate.longitude
                                                                           ofDate:[NSDate date]
                                                                      inDirection:self.direction
                                                                     withinRadius:100];
