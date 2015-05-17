@@ -17,6 +17,14 @@
 		420096291AFEF37B00B43630 /* TopMotorcyclist.m in Sources */ = {isa = PBXBuildFile; fileRef = 420096281AFEF37B00B43630 /* TopMotorcyclist.m */; };
 		4200962B1AFF0FFA00B43630 /* HotSpot.h in Sources */ = {isa = PBXBuildFile; fileRef = 4200962A1AFF0FFA00B43630 /* HotSpot.h */; };
 		4200962D1AFF102900B43630 /* HotSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4200962C1AFF102900B43630 /* HotSpot.m */; };
+		4225F8331B081A4100C5A73F /* DBDateAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F82C1B081A4100C5A73F /* DBDateAdapter.m */; };
+		4225F8341B081A4100C5A73F /* DBLocationAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F82E1B081A4100C5A73F /* DBLocationAdapter.m */; };
+		4225F8351B081A4100C5A73F /* DBLocationReasonAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F8301B081A4100C5A73F /* DBLocationReasonAdapter.m */; };
+		4225F8361B081A4100C5A73F /* DBReasonAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F8321B081A4100C5A73F /* DBReasonAdapter.m */; };
+		4225F8431B0829C200C5A73F /* DBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F83E1B0829C200C5A73F /* DBConstants.m */; };
+		4225F8441B0829C200C5A73F /* JSONConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F8401B0829C200C5A73F /* JSONConstants.m */; };
+		4225F8451B0829C200C5A73F /* ModelUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F8421B0829C200C5A73F /* ModelUtility.m */; };
+		4225F8481B082A3800C5A73F /* JSONManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F8471B082A3800C5A73F /* JSONManager.m */; };
 		4229775E1B080ECD00A11E90 /* TBL_COLLISION_LOCATION.json in Resources */ = {isa = PBXBuildFile; fileRef = 4229775A1B080ECD00A11E90 /* TBL_COLLISION_LOCATION.json */; };
 		4229775F1B080ECD00A11E90 /* TBL_LOCATION_REASON.json in Resources */ = {isa = PBXBuildFile; fileRef = 4229775B1B080ECD00A11E90 /* TBL_LOCATION_REASON.json */; };
 		422977601B080ECD00A11E90 /* TBL_WM_DAYTYPE.json in Resources */ = {isa = PBXBuildFile; fileRef = 4229775C1B080ECD00A11E90 /* TBL_WM_DAYTYPE.json */; };
@@ -25,16 +33,10 @@
 		4229776B1B080EF000A11E90 /* JSONLocationReason.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977651B080EF000A11E90 /* JSONLocationReason.m */; };
 		4229776C1B080EF000A11E90 /* JSONWMDayType.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977671B080EF000A11E90 /* JSONWMDayType.m */; };
 		4229776D1B080EF000A11E90 /* JSONWMReasonCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977691B080EF000A11E90 /* JSONWMReasonCondition.m */; };
-		422977771B080F1600A11E90 /* DBDateAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977701B080F1600A11E90 /* DBDateAdapter.m */; };
-		422977781B080F1600A11E90 /* DBLocationAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977721B080F1600A11E90 /* DBLocationAdapter.m */; };
-		422977791B080F1600A11E90 /* DBLocationReasonAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977741B080F1600A11E90 /* DBLocationReasonAdapter.m */; };
-		4229777A1B080F1600A11E90 /* DBReasonAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977761B080F1600A11E90 /* DBReasonAdapter.m */; };
-		4229777D1B080F2F00A11E90 /* JsonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4229777C1B080F2F00A11E90 /* JsonManager.m */; };
 		422977821B0810DB00A11E90 /* DBCollisionLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4229777E1B0810DB00A11E90 /* DBCollisionLocation.m */; };
 		422977831B0810DB00A11E90 /* DBLocationReason.m in Sources */ = {isa = PBXBuildFile; fileRef = 4229777F1B0810DB00A11E90 /* DBLocationReason.m */; };
 		422977841B0810DB00A11E90 /* DBWMDayType.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977801B0810DB00A11E90 /* DBWMDayType.m */; };
 		422977851B0810DB00A11E90 /* DBWMReasonCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977811B0810DB00A11E90 /* DBWMReasonCondition.m */; };
-		4229778C1B08122E00A11E90 /* DBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4229778B1B08122E00A11E90 /* DBConstants.m */; };
 		425C64911AF8E71100BE9086 /* WarningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425C64901AF8E71100BE9086 /* WarningView.m */; };
 		425C64931AF8E72800BE9086 /* WarningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425C64921AF8E72800BE9086 /* WarningView.xib */; };
 		4290A0A91AF600AE00CB46E5 /* smartTravelDb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 4290A0A81AF600AE00CB46E5 /* smartTravelDb.sqlite */; };
@@ -96,6 +98,22 @@
 		420096281AFEF37B00B43630 /* TopMotorcyclist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopMotorcyclist.m; path = Model/TopLocation/TopMotorcyclist.m; sourceTree = "<group>"; };
 		4200962A1AFF0FFA00B43630 /* HotSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotSpot.h; sourceTree = "<group>"; };
 		4200962C1AFF102900B43630 /* HotSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotSpot.m; sourceTree = "<group>"; };
+		4225F82B1B081A4100C5A73F /* DBDateAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBDateAdapter.h; path = Model/DBAdapter/DBDateAdapter.h; sourceTree = "<group>"; };
+		4225F82C1B081A4100C5A73F /* DBDateAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBDateAdapter.m; path = Model/DBAdapter/DBDateAdapter.m; sourceTree = "<group>"; };
+		4225F82D1B081A4100C5A73F /* DBLocationAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBLocationAdapter.h; path = Model/DBAdapter/DBLocationAdapter.h; sourceTree = "<group>"; };
+		4225F82E1B081A4100C5A73F /* DBLocationAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBLocationAdapter.m; path = Model/DBAdapter/DBLocationAdapter.m; sourceTree = "<group>"; };
+		4225F82F1B081A4100C5A73F /* DBLocationReasonAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBLocationReasonAdapter.h; path = Model/DBAdapter/DBLocationReasonAdapter.h; sourceTree = "<group>"; };
+		4225F8301B081A4100C5A73F /* DBLocationReasonAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBLocationReasonAdapter.m; path = Model/DBAdapter/DBLocationReasonAdapter.m; sourceTree = "<group>"; };
+		4225F8311B081A4100C5A73F /* DBReasonAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBReasonAdapter.h; path = Model/DBAdapter/DBReasonAdapter.h; sourceTree = "<group>"; };
+		4225F8321B081A4100C5A73F /* DBReasonAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBReasonAdapter.m; path = Model/DBAdapter/DBReasonAdapter.m; sourceTree = "<group>"; };
+		4225F83D1B0829C200C5A73F /* DBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBConstants.h; path = Model/DBConstants.h; sourceTree = "<group>"; };
+		4225F83E1B0829C200C5A73F /* DBConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBConstants.m; path = Model/DBConstants.m; sourceTree = "<group>"; };
+		4225F83F1B0829C200C5A73F /* JSONConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONConstants.h; path = Model/JSONConstants.h; sourceTree = "<group>"; };
+		4225F8401B0829C200C5A73F /* JSONConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONConstants.m; path = Model/JSONConstants.m; sourceTree = "<group>"; };
+		4225F8411B0829C200C5A73F /* ModelUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelUtility.h; path = Model/ModelUtility.h; sourceTree = "<group>"; };
+		4225F8421B0829C200C5A73F /* ModelUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelUtility.m; path = Model/ModelUtility.m; sourceTree = "<group>"; };
+		4225F8461B082A3800C5A73F /* JSONManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONManager.h; path = Model/JSONManager.h; sourceTree = "<group>"; };
+		4225F8471B082A3800C5A73F /* JSONManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONManager.m; path = Model/JSONManager.m; sourceTree = "<group>"; };
 		4229775A1B080ECD00A11E90 /* TBL_COLLISION_LOCATION.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TBL_COLLISION_LOCATION.json; path = Resource/TBL_COLLISION_LOCATION.json; sourceTree = "<group>"; };
 		4229775B1B080ECD00A11E90 /* TBL_LOCATION_REASON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TBL_LOCATION_REASON.json; path = Resource/TBL_LOCATION_REASON.json; sourceTree = "<group>"; };
 		4229775C1B080ECD00A11E90 /* TBL_WM_DAYTYPE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TBL_WM_DAYTYPE.json; path = Resource/TBL_WM_DAYTYPE.json; sourceTree = "<group>"; };
@@ -108,16 +126,6 @@
 		422977671B080EF000A11E90 /* JSONWMDayType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONWMDayType.m; path = Model/JSON/JSONWMDayType.m; sourceTree = "<group>"; };
 		422977681B080EF000A11E90 /* JSONWMReasonCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONWMReasonCondition.h; path = Model/JSON/JSONWMReasonCondition.h; sourceTree = "<group>"; };
 		422977691B080EF000A11E90 /* JSONWMReasonCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONWMReasonCondition.m; path = Model/JSON/JSONWMReasonCondition.m; sourceTree = "<group>"; };
-		4229776F1B080F1600A11E90 /* DBDateAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBDateAdapter.h; path = Model/DBSqlite/DBDateAdapter.h; sourceTree = "<group>"; };
-		422977701B080F1600A11E90 /* DBDateAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBDateAdapter.m; path = Model/DBSqlite/DBDateAdapter.m; sourceTree = "<group>"; };
-		422977711B080F1600A11E90 /* DBLocationAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBLocationAdapter.h; path = Model/DBSqlite/DBLocationAdapter.h; sourceTree = "<group>"; };
-		422977721B080F1600A11E90 /* DBLocationAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBLocationAdapter.m; path = Model/DBSqlite/DBLocationAdapter.m; sourceTree = "<group>"; };
-		422977731B080F1600A11E90 /* DBLocationReasonAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBLocationReasonAdapter.h; path = Model/DBSqlite/DBLocationReasonAdapter.h; sourceTree = "<group>"; };
-		422977741B080F1600A11E90 /* DBLocationReasonAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBLocationReasonAdapter.m; path = Model/DBSqlite/DBLocationReasonAdapter.m; sourceTree = "<group>"; };
-		422977751B080F1600A11E90 /* DBReasonAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBReasonAdapter.h; path = Model/DBSqlite/DBReasonAdapter.h; sourceTree = "<group>"; };
-		422977761B080F1600A11E90 /* DBReasonAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBReasonAdapter.m; path = Model/DBSqlite/DBReasonAdapter.m; sourceTree = "<group>"; };
-		4229777B1B080F2F00A11E90 /* JsonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JsonManager.h; path = Model/JsonManager.h; sourceTree = "<group>"; };
-		4229777C1B080F2F00A11E90 /* JsonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JsonManager.m; path = Model/JsonManager.m; sourceTree = "<group>"; };
 		4229777E1B0810DB00A11E90 /* DBCollisionLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBCollisionLocation.m; path = Model/DBSqlite/DBCollisionLocation.m; sourceTree = "<group>"; };
 		4229777F1B0810DB00A11E90 /* DBLocationReason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBLocationReason.m; path = Model/DBSqlite/DBLocationReason.m; sourceTree = "<group>"; };
 		422977801B0810DB00A11E90 /* DBWMDayType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBWMDayType.m; path = Model/DBSqlite/DBWMDayType.m; sourceTree = "<group>"; };
@@ -126,8 +134,6 @@
 		422977871B08113100A11E90 /* DBLocationReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBLocationReason.h; path = Model/DBSqlite/DBLocationReason.h; sourceTree = "<group>"; };
 		422977881B08113100A11E90 /* DBWMDayType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBWMDayType.h; path = Model/DBSqlite/DBWMDayType.h; sourceTree = "<group>"; };
 		422977891B08113100A11E90 /* DBWMReasonCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBWMReasonCondition.h; path = Model/DBSqlite/DBWMReasonCondition.h; sourceTree = "<group>"; };
-		4229778A1B08120400A11E90 /* DBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBConstants.h; sourceTree = "<group>"; };
-		4229778B1B08122E00A11E90 /* DBConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBConstants.m; sourceTree = "<group>"; };
 		425C648F1AF8E71100BE9086 /* WarningView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WarningView.h; sourceTree = "<group>"; };
 		425C64901AF8E71100BE9086 /* WarningView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WarningView.m; sourceTree = "<group>"; };
 		425C64921AF8E72800BE9086 /* WarningView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WarningView.xib; sourceTree = "<group>"; };
@@ -222,25 +228,32 @@
 			name = TopLocation;
 			sourceTree = "<group>";
 		};
+		4225F82A1B08198900C5A73F /* DBAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				4225F82B1B081A4100C5A73F /* DBDateAdapter.h */,
+				4225F82C1B081A4100C5A73F /* DBDateAdapter.m */,
+				4225F82D1B081A4100C5A73F /* DBLocationAdapter.h */,
+				4225F82E1B081A4100C5A73F /* DBLocationAdapter.m */,
+				4225F82F1B081A4100C5A73F /* DBLocationReasonAdapter.h */,
+				4225F8301B081A4100C5A73F /* DBLocationReasonAdapter.m */,
+				4225F8311B081A4100C5A73F /* DBReasonAdapter.h */,
+				4225F8321B081A4100C5A73F /* DBReasonAdapter.m */,
+			);
+			name = DBAdapter;
+			sourceTree = "<group>";
+		};
 		4229776E1B080F0500A11E90 /* DBSqlite */ = {
 			isa = PBXGroup;
 			children = (
-				422977891B08113100A11E90 /* DBWMReasonCondition.h */,
-				422977811B0810DB00A11E90 /* DBWMReasonCondition.m */,
 				422977861B08113100A11E90 /* DBCollisionLocation.h */,
 				4229777E1B0810DB00A11E90 /* DBCollisionLocation.m */,
+				422977891B08113100A11E90 /* DBWMReasonCondition.h */,
+				422977811B0810DB00A11E90 /* DBWMReasonCondition.m */,
 				422977871B08113100A11E90 /* DBLocationReason.h */,
 				4229777F1B0810DB00A11E90 /* DBLocationReason.m */,
 				422977881B08113100A11E90 /* DBWMDayType.h */,
 				422977801B0810DB00A11E90 /* DBWMDayType.m */,
-				4229776F1B080F1600A11E90 /* DBDateAdapter.h */,
-				422977701B080F1600A11E90 /* DBDateAdapter.m */,
-				422977711B080F1600A11E90 /* DBLocationAdapter.h */,
-				422977721B080F1600A11E90 /* DBLocationAdapter.m */,
-				422977731B080F1600A11E90 /* DBLocationReasonAdapter.h */,
-				422977741B080F1600A11E90 /* DBLocationReasonAdapter.m */,
-				422977751B080F1600A11E90 /* DBReasonAdapter.h */,
-				422977761B080F1600A11E90 /* DBReasonAdapter.m */,
 			);
 			name = DBSqlite;
 			sourceTree = "<group>";
@@ -306,12 +319,17 @@
 		9B295C0C1ADFF0C500758837 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4229777B1B080F2F00A11E90 /* JsonManager.h */,
-				4229777C1B080F2F00A11E90 /* JsonManager.m */,
-				4229778A1B08120400A11E90 /* DBConstants.h */,
-				4229778B1B08122E00A11E90 /* DBConstants.m */,
+				4225F8461B082A3800C5A73F /* JSONManager.h */,
+				4225F8471B082A3800C5A73F /* JSONManager.m */,
+				4225F83D1B0829C200C5A73F /* DBConstants.h */,
+				4225F83E1B0829C200C5A73F /* DBConstants.m */,
+				4225F83F1B0829C200C5A73F /* JSONConstants.h */,
+				4225F8401B0829C200C5A73F /* JSONConstants.m */,
+				4225F8411B0829C200C5A73F /* ModelUtility.h */,
+				4225F8421B0829C200C5A73F /* ModelUtility.m */,
 				9B6C7DA61AF500C500DF6FA9 /* DBManager.h */,
 				9B6C7DA71AF500C500DF6FA9 /* DBManager.m */,
+				4225F82A1B08198900C5A73F /* DBAdapter */,
 				4229776E1B080F0500A11E90 /* DBSqlite */,
 				4261DD921B06329600521A17 /* JSON */,
 				4200961D1AFEF17600B43630 /* TopLocation */,
@@ -614,20 +632,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4225F8351B081A4100C5A73F /* DBLocationReasonAdapter.m in Sources */,
 				9B47AB4F1AF4FB4F006AA102 /* Collision.m in Sources */,
 				422977831B0810DB00A11E90 /* DBLocationReason.m in Sources */,
+				4225F8341B081A4100C5A73F /* DBLocationAdapter.m in Sources */,
 				9B6A85B71ADFDEFF00667170 /* ViewController.m in Sources */,
+				4225F8361B081A4100C5A73F /* DBReasonAdapter.m in Sources */,
+				4225F8451B0829C200C5A73F /* ModelUtility.m in Sources */,
 				4200962B1AFF0FFA00B43630 /* HotSpot.h in Sources */,
+				4225F8431B0829C200C5A73F /* DBConstants.m in Sources */,
 				9B6A85B41ADFDEFF00667170 /* AppDelegate.m in Sources */,
 				4290A0AD1AF6050100CB46E5 /* HotSpotTableViewCell.m in Sources */,
 				4200962D1AFF102900B43630 /* HotSpot.m in Sources */,
-				4229778C1B08122E00A11E90 /* DBConstants.m in Sources */,
+				4225F8331B081A4100C5A73F /* DBDateAdapter.m in Sources */,
+				4225F8481B082A3800C5A73F /* JSONManager.m in Sources */,
 				420096201AFEF19200B43630 /* TopMidblock.m in Sources */,
 				422977851B0810DB00A11E90 /* DBWMReasonCondition.m in Sources */,
+				4225F8441B0829C200C5A73F /* JSONConstants.m in Sources */,
 				420096291AFEF37B00B43630 /* TopMotorcyclist.m in Sources */,
 				4229776C1B080EF000A11E90 /* JSONWMDayType.m in Sources */,
 				422977841B0810DB00A11E90 /* DBWMDayType.m in Sources */,
-				4229777D1B080F2F00A11E90 /* JsonManager.m in Sources */,
 				9B6C7DA81AF500C500DF6FA9 /* DBManager.m in Sources */,
 				9B812DD91AEB3E9D008F17B6 /* HotSpotListViewController.m in Sources */,
 				9B812DDC1AEB3EB7008F17B6 /* SettingsViewController.m in Sources */,
@@ -645,11 +669,7 @@
 				9B7E59551AE3882A0008D25C /* GuideViewController.m in Sources */,
 				425C64911AF8E71100BE9086 /* WarningView.m in Sources */,
 				4229776B1B080EF000A11E90 /* JSONLocationReason.m in Sources */,
-				422977781B080F1600A11E90 /* DBLocationAdapter.m in Sources */,
-				4229777A1B080F1600A11E90 /* DBReasonAdapter.m in Sources */,
 				9BDBCA461AF8EEE600F23275 /* MarkerManager.m in Sources */,
-				422977791B080F1600A11E90 /* DBLocationReasonAdapter.m in Sources */,
-				422977771B080F1600A11E90 /* DBDateAdapter.m in Sources */,
 				4229776D1B080EF000A11E90 /* JSONWMReasonCondition.m in Sources */,
 				422977821B0810DB00A11E90 /* DBCollisionLocation.m in Sources */,
 			);

@@ -1,5 +1,5 @@
 //
-//  JsonManager.h
+//  JSONManager.h
 //  SmartTravel
 //
 //  Created by Pengyu Chen on 5/15/15.
@@ -8,15 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const kJSON_TBL_COLLISION_LOCATION;
-extern NSString * const kJSON_TBL_LOCATION_REASON;
-extern NSString * const kJSON_TBL_WM_DAYTYPE;
-extern NSString * const kJSON_TBL_WM_REASON_CONDITION;
-
 // NOTE: Currently it's a utility class to assit read test data in json format
-@interface JsonManager : NSObject
+@interface JSONManager : NSObject
 
-+ (JsonManager *)sharedInstance;
++ (JSONManager *)sharedInstance;
 
 - (NSArray*)readJSONFromReadonlyJSONFile:(NSString*)fileName;
 

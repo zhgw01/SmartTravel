@@ -1,5 +1,5 @@
 //
-//  JsonManager.m
+//  JSONManager.m
 //  SmartTravel
 //
 //  Created by Pengyu Chen on 5/15/15.
@@ -7,22 +7,18 @@
 //
 
 #import <Mantle/MTLJSONAdapter.h>
-#import "JsonManager.h"
+#import "JSONConstants.h"
+#import "JSONManager.h"
 #import "JSONCollisionLocation.h"
 #import "JSONLocationReason.h"
 #import "JSONWMDayType.h"
 #import "JSONWMReasonCondition.h"
 
-NSString * const kJSON_TBL_COLLISION_LOCATION = @"TBL_COLLISION_LOCATION";
-NSString * const kJSON_TBL_LOCATION_REASON = @"TBL_LOCATION_REASON";
-NSString * const kJSON_TBL_WM_DAYTYPE = @"TBL_WM_DAYTYPE";
-NSString * const kJSON_TBL_WM_REASON_CONDITION = @"TBL_WM_REASON_CONDITION";
+@implementation JSONManager
 
-@implementation JsonManager
-
-+ (JsonManager *)sharedInstance
++ (JSONManager *)sharedInstance
 {
-    static JsonManager *sharedSingleton = nil;
+    static JSONManager *sharedSingleton = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^(void) {
         sharedSingleton = [[self alloc] init];
@@ -37,34 +33,35 @@ NSString * const kJSON_TBL_WM_REASON_CONDITION = @"TBL_WM_REASON_CONDITION";
 
 + (Class)getClassOfJsonModelInFile:(NSString*)fileName
 {
-    if ([fileName isEqualToString:kJSON_TBL_COLLISION_LOCATION])
+    if ([fileName isEqualToString:JSON_COLLECTION_FILE_NAME_COLLISION_LOCATION])
     {
         return [JSONCollisionLocation class];
     }
-    else if ([fileName isEqualToString:kJSON_TBL_LOCATION_REASON])
+    else if ([fileName isEqualToString:JSON_COLLECTION_FILE_NAME_FILE_LOCATION_REASON])
     {
         return [JSONLocationReason class];
     }
-    else if ([fileName isEqualToString:kJSON_TBL_WM_DAYTYPE])
+    else if ([fileName isEqualToString:JSON_COLLECITON_FILE_NAME_FILE_WM_DAYTYPE])
     {
         return [JSONWMDayType class];        
     }
-    else if ([fileName isEqualToString:kJSON_TBL_WM_REASON_CONDITION])
+    else if ([fileName isEqualToString:JSON_COLLECTION_FILE_NAME_FILE_WM_REASON_CONDITION])
     {
         return [JSONWMReasonCondition class];
     }
+    NSAssert(NO, @"Invalid JSON file name");
     return nil;
 }
 
 - (NSArray*)readJSONFromReadonlyJSONFile:(NSString*)fileName
 {
-    NSString* filePath = [JsonManager getReadOnlyJsonFilePath:fileName];
+    NSString* filePath = [JSONManager getReadOnlyJsonFilePath:fileName];
     if (![[NSFileManager defaultManager] fileExistsAtPath:filePath])
     {
         return nil;
     }
     
-    Class modelClass = [JsonManager getClassOfJsonModelInFile:fileName];
+    Class modelClass = [JSONManager getClassOfJsonModelInFile:fileName];
     if (!modelClass)
     {
         return nil;

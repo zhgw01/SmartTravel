@@ -14,9 +14,10 @@
 + (NSDictionary *)FMDBColumnsByPropertyKey
 {
     return @{
+             @"date" : @"Date",
              @"weekday": @"Weekday",
-             @"schoolDay": @"School_day",
-             @"date" : @"Date"
+             @"weekend": @"Weekend",
+             @"schoolDay": @"School_day"
              };
 }
 
