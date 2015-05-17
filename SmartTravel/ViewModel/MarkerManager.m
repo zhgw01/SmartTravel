@@ -7,14 +7,12 @@
 //
 
 #import "MarkerManager.h"
-#import "Collision.h"
-#import "VRU.h"
-#include "DBManager.h"
+#import "DBManager.h"
+#import "HotSpot.h"
 
 @interface MarkerManager()
 
-@property (nonatomic, strong) NSSet* collisionMarkers;
-@property (nonatomic, strong) NSSet* vruMarkers;
+@property (nonatomic, strong) NSSet* hotSpotMarkers;
 
 @end
 
@@ -23,59 +21,36 @@
 
 - (void)clearMarkers
 {
-    for (GMSMarker* marker in self.collisionMarkers) {
-        marker.map = nil;
-    }
-    
-    for (GMSMarker* marker in self.vruMarkers) {
+    for (GMSMarker* marker in self.hotSpotMarkers) {
         marker.map = nil;
     }
 }
 
--(void)getCollisionMarkers
+- (void)getHotSpotMarkers
 {
-    NSArray* collisions = [[DBManager sharedInstance] selectAllCollisions];
+    NSArray* hotSpots = [[DBManager sharedInstance] selectHotSpots:HotSpotTypeCnt];
     NSMutableSet* set = [[NSMutableSet alloc] init];
-    for (Collision* collision in collisions) {
+    for (HotSpot* hotSpot in hotSpots)
+    {
         GMSMarker* marker = [[GMSMarker alloc] init];
-        marker.position = CLLocationCoordinate2DMake(collision.latitude.doubleValue, collision.longtitude.doubleValue);
+        marker.position = CLLocationCoordinate2DMake(hotSpot.latitude.doubleValue, hotSpot.longtitude.doubleValue);
         marker.icon = [UIImage imageNamed:@"area_collision"];
         [set addObject:marker];
     }
-    self.collisionMarkers = [set copy];
+    self.hotSpotMarkers = [set copy];
 }
 
--(void)getVRUMarkers
-{
-    NSArray* vrus = [[DBManager sharedInstance] selectAllVRUs];
-    NSMutableSet* set = [[NSMutableSet alloc] init];
-    for (VRU* vru in vrus) {
-        GMSMarker* marker = [[GMSMarker alloc] init];
-        marker.position = CLLocationCoordinate2DMake(vru.latitude.doubleValue, vru.longtitude.doubleValue);
-        marker.icon = [UIImage imageNamed:@"area_vru"];
-        [set addObject:marker];
-    }
-    self.vruMarkers = [set copy];
-}
 
 - (void)drawMarkers: (GMSMapView *)mapView
 {
     [self clearMarkers];
-    [self getCollisionMarkers];
-    [self getVRUMarkers];
+    [self getHotSpotMarkers];
     
-    for (GMSMarker* marker in self.collisionMarkers) {
+    for (GMSMarker* marker in self.hotSpotMarkers) {
         if (marker.map == nil) {
             marker.map = mapView;
         }
     }
-    
-    for (GMSMarker* marker in self.vruMarkers) {
-        if (marker.map == nil) {
-            marker.map = mapView;
-        }
-    }
- 
 }
 
 @end

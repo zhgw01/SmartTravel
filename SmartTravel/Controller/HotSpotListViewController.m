@@ -8,27 +8,33 @@
 
 #import "HotSpotListViewController.h"
 #import "DBManager.h"
-#import "Collision.h"
-#import "VRU.h"
 #import "HotSpotTableViewCell.h"
 #import "HotSpot.h"
 
 @interface HotSpotListViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *collisionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *vruLabel;
+@property (weak, nonatomic) IBOutlet UILabel *intersectionCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *midStreetCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *midAvenueCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *schoolZoneCountLabel;
+
+//@property (weak, nonatomic) IBOutlet UILabel *vruLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (nonatomic, strong) NSArray* collisions;
-@property (nonatomic, strong) NSArray* vrus;
+@property (nonatomic, strong) NSArray* intersections;
+@property (nonatomic, strong) NSArray* midStreets;
+@property (nonatomic, strong) NSArray* midAvenues;
+@property (nonatomic, strong) NSArray* schoolZones;
 
 @property (nonatomic, assign) HotSpotType type;
 
 @property (nonatomic, strong) UIColor* selectionViewColor;
 @property (nonatomic, strong) UIColor* unSelectionViewColor;
 
-@property (weak, nonatomic) IBOutlet UIView *collsionHotSpotIndicatorView;
-@property (weak, nonatomic) IBOutlet UIView *vruHotSpotIndicatorView;
+@property (weak, nonatomic) IBOutlet UIView *intersectionIndicatorView;
+@property (weak, nonatomic) IBOutlet UIView *midStreetIndicatorView;
+@property (weak, nonatomic) IBOutlet UIView *midAvenueIndicatorView;
+@property (weak, nonatomic) IBOutlet UIView *schoolZoneIndicatorView;
 
 @end
 
@@ -38,34 +44,33 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Set default hotspot type
+    self.type = HotSpotTypeIntersection;
+
     // Set colors
     self.tableView.separatorColor = [UIColor lightGrayColor];
     self.selectionViewColor= [UIColor colorWithRed:0.3 green:0.64 blue:0.76 alpha:1];
     self.unSelectionViewColor= [UIColor colorWithRed:0.69 green:0.69 blue:0.69 alpha:1];
     
-    // Query all collsions and VRUs from database
-    NSComparator hotSpotCmptr = ^NSComparisonResult(id obj1, id obj2)
-    {
-        HotSpot* hotSpot1 = (HotSpot*)obj1;
-        HotSpot* hotSpot2 = (HotSpot*)obj2;
-        return [hotSpot1.count compare:hotSpot2.count];
-    };
-    self.collisions = [[[DBManager sharedInstance] selectAllCollisions] sortedArrayUsingComparator:hotSpotCmptr];
-    self.vrus = [[[DBManager sharedInstance] selectAllVRUs] sortedArrayUsingComparator:hotSpotCmptr];
-    
-    // and update count labels
-    self.collisionLabel.text = [NSString stringWithFormat:@"%lu", self.collisions.count];
-    self.vruLabel.text = [NSString stringWithFormat:@"%lu", self.vrus.count];
-    
-    // Default tab is collision
-    self.type = HotSpotTypeCollision;
-    self.collsionHotSpotIndicatorView.backgroundColor = self.selectionViewColor;
-    self.vruHotSpotIndicatorView.backgroundColor = self.unSelectionViewColor;    
+    [self setupModel];
+    self.intersectionCountLabel.text = [NSString stringWithFormat:@"%lu", self.intersections.count];
+    self.midStreetCountLabel.text = [NSString stringWithFormat:@"%lu", self.midStreets.count];
+    self.midAvenueCountLabel.text = [NSString stringWithFormat:@"%lu", self.midAvenues.count];
+    self.schoolZoneCountLabel.text = [NSString stringWithFormat:@"%lu", self.schoolZones.count];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setupModel
+{
+    DBManager* dbManager = [DBManager sharedInstance];
+    self.intersections = [dbManager selectHotSpots:HotSpotTypeIntersection];
+    self.midStreets = [dbManager selectHotSpots:HotSpotTypeMidStreet];
+    self.midAvenues = [dbManager selectHotSpots:HotSpotTypeMidAvenue];
+    self.schoolZones = [dbManager selectHotSpots:HotSpotTypeSchoolZone];
 }
 
 /*
@@ -78,46 +83,79 @@
 }
 */
 
-- (IBAction)collisionButtonPressed:(id)sender
+- (void)tabSelected:(HotSpotType)hotSpotType
 {
-    if (self.type != HotSpotTypeCollision)
+    self.intersectionIndicatorView.backgroundColor = self.unSelectionViewColor;
+    self.midStreetIndicatorView.backgroundColor = self.unSelectionViewColor;
+    self.midAvenueIndicatorView.backgroundColor = self.unSelectionViewColor;
+    self.schoolZoneIndicatorView.backgroundColor = self.unSelectionViewColor;
+    
+    if (hotSpotType == HotSpotTypeIntersection)
     {
-        self.type = HotSpotTypeCollision;
-        [self.tableView reloadData];
-        
-        self.collsionHotSpotIndicatorView.backgroundColor = self.selectionViewColor;
-        self.vruHotSpotIndicatorView.backgroundColor = self.unSelectionViewColor;
+        self.intersectionIndicatorView.backgroundColor = self.selectionViewColor;
+    }
+    else if (hotSpotType == HotSpotTypeMidStreet)
+    {
+        self.midStreetIndicatorView.backgroundColor = self.selectionViewColor;
+    }
+    else if (hotSpotType == HotSpotTypeMidAvenue)
+    {
+        self.midAvenueIndicatorView.backgroundColor = self.selectionViewColor;
+    }
+    else if (hotSpotType == HotSpotTypeSchoolZone)
+    {
+        self.schoolZoneIndicatorView.backgroundColor = self.selectionViewColor;
     }
 }
 
-- (IBAction)vruButtonPressed:(id)sender
+- (HotSpot*)getHotSpotOfType:(HotSpotType)hotSpotType
+                       atRow:(NSInteger)row
 {
-    if (self.type != HotSpotTypeVRU)
+    HotSpot* hotSpot = nil;
+    if (self.type == HotSpotTypeIntersection)
     {
-        self.type = HotSpotTypeVRU;
-        [self.tableView reloadData];
-        
-        self.collsionHotSpotIndicatorView.backgroundColor = self.unSelectionViewColor;
-        self.vruHotSpotIndicatorView.backgroundColor = self.selectionViewColor;
+        hotSpot = [self.intersections objectAtIndex:row];
     }
+    else if (self.type == HotSpotTypeMidStreet)
+    {
+        hotSpot = [self.midStreets objectAtIndex:row];
+    }
+    else if (self.type == HotSpotTypeMidAvenue)
+    {
+        hotSpot = [self.midAvenues objectAtIndex:row];
+    }
+    else if (self.type == HotSpotTypeSchoolZone)
+    {
+        hotSpot = [self.schoolZones objectAtIndex:row];
+    }
+    else
+    {
+        NSAssert(NO, @"Unsupported hot spot type");
+    }
+    return hotSpot;
 }
 
 #pragma mark - <UITableViewDataSource> methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.type == HotSpotTypeCollision)
+    if (self.type == HotSpotTypeIntersection)
     {
-        return [self.collisions count];
+        return [self.intersections count];
     }
-    else if (self.type == HotSpotTypeVRU)
+    else if (self.type == HotSpotTypeMidStreet)
     {
-        return [self.vrus count];
+        return [self.midStreets count];
     }
-    else
+    else if (self.type == HotSpotTypeMidAvenue)
     {
-        return 0;
+        return [self.midAvenues count];
     }
+    else if (self.type == HotSpotTypeSchoolZone)
+    {
+        return [self.schoolZones count];
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -131,20 +169,9 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:kCellNibName owner:self options:nil] lastObject];
     }
     
-    if (self.type == HotSpotTypeCollision)
-    {
-        HotSpot* hotSpot = [self.collisions objectAtIndex:indexPath.row];
-        [cell configureType:hotSpot.tag location:hotSpot.location count:hotSpot.count];
-    }
-    else if (self.type == HotSpotTypeVRU)
-    {
-        HotSpot* hotSpot = [self.vrus objectAtIndex:indexPath.row];
-        [cell configureType:hotSpot.tag location:hotSpot.location count:hotSpot.count];
-    }
-    else
-    {
-        NSAssert(NO, @"Unsupported hot spot type");
-    }
+    HotSpot* hotSpot = [self getHotSpotOfType:self.type atRow:indexPath.row];
+    
+    [cell configureCellWithLocation:hotSpot.location andCount:hotSpot.count];
     
     return cell;
 }
@@ -157,23 +184,53 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HotSpot* hotSpot = nil;
-    if (self.type == HotSpotTypeCollision)
-    {
-        hotSpot = [self.collisions objectAtIndex:indexPath.row];
-    }
-    else if (self.type == HotSpotTypeVRU)
-    {
-        hotSpot = [self.vrus objectAtIndex:indexPath.row];
-    }
-    else
-    {
-        NSAssert(NO, @"Unsupported hot spot type");
-    }
+    HotSpot* hotSpot = [self getHotSpotOfType:self.type atRow:indexPath.row];
 
     if ([self.mapDelegate respondsToSelector:@selector(hotSpotTableViewCellDidSelect:)])
     {
         [self.mapDelegate hotSpotTableViewCellDidSelect:hotSpot];
+    }
+}
+
+#pragma mark - Button actions
+
+- (IBAction)intersectionSelected:(id)sender
+{
+    if (self.type != HotSpotTypeIntersection)
+    {
+        self.type = HotSpotTypeIntersection;
+        [self tabSelected:self.type];
+        [self.tableView reloadData];
+    }
+}
+
+- (IBAction)midStreetSelected:(id)sender
+{
+    if (self.type != HotSpotTypeMidStreet)
+    {
+        self.type = HotSpotTypeMidStreet;
+        [self tabSelected:self.type];
+        [self.tableView reloadData];
+    }
+}
+
+- (IBAction)midAvenueSelected:(id)sender
+{
+    if (self.type != HotSpotTypeMidAvenue)
+    {
+        self.type = HotSpotTypeMidAvenue;
+        [self tabSelected:self.type];
+        [self.tableView reloadData];
+    }
+}
+
+- (IBAction)schoolZoneSelected:(id)sender
+{
+    if (self.type != HotSpotTypeSchoolZone)
+    {
+        self.type = HotSpotTypeSchoolZone;
+        [self tabSelected:self.type];
+        [self.tableView reloadData];
     }
 }
 @end

@@ -10,8 +10,7 @@
 
 @interface HotSpotTableViewCell : UITableViewCell
 
-- (void)configureType:(NSString*)type
-             location:(NSString*)location
-                count:(NSNumber*)count;
+- (void)configureCellWithLocation:(NSString*)location
+                         andCount:(NSNumber*)count;
 
 @end

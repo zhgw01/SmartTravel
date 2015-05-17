@@ -12,14 +12,12 @@
 
 @property (weak, nonatomic) IBOutlet UIView *gripView;
 @property (weak, nonatomic) IBOutlet UIView *gripBackgroundView;
+
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
-@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rankLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *unitLabel;
-
-@property (assign, nonatomic) WarningType type;
 
 @end
 
@@ -29,7 +27,9 @@
 {
     self.gripView.layer.cornerRadius = 4.0f;
     self.gripView.layer.masksToBounds = YES;
-    self.type = WarningTypeCnt;
+    
+    self.distanceLabel.textColor = [UIColor redColor];
+    self.unitLabel.textColor = [UIColor redColor];
 }
 
 /*
@@ -56,56 +56,13 @@
     }
 }
 
-- (NSString*)getTypeString:(WarningType)type
-{
-    switch (type) {
-        case CollisionWarningType:
-            return @"Car/Bus";
-            break;
-        case VRUWarningType:
-            return @"Bicyle/Pedestrian";
-        case WarningTypeCnt:
-            return nil;
-        default:
-            break;
-    }
-}
-
-- (UIColor*)getTypeColor:(WarningType)type
-{
-    switch (type) {
-        case CollisionWarningType:
-            return [UIColor redColor];
-            break;
-        case VRUWarningType:
-            return [UIColor orangeColor];
-        case WarningTypeCnt:
-            return nil;
-        default:
-            break;
-    }
-}
-
-- (void)updateType:(WarningType)type
-          location:(NSString*)location
-              rank:(NSNumber*)rank
-             count:(NSNumber*)count
-          distance:(NSNumber*)distance
+- (void)updateLocation:(NSString*)location
+                  rank:(NSNumber*)rank
+                 count:(NSNumber*)count
+              distance:(NSNumber*)distance
 {
     BOOL needsDisplay = NO;
-    
-    if (type != self.type)
-    {
-        self.type = type;
-        UIColor* typeColor = [self getTypeColor:type];
-        self.typeLabel.textColor = typeColor;
-        self.typeLabel.text = [self getTypeString:type];
-        
-        self.distanceLabel.textColor = typeColor;
-        self.unitLabel.textColor = typeColor;
-        needsDisplay = YES;
-    }
-    
+
     if (![location isEqualToString:self.locationLabel.text])
     {
         self.locationLabel.text = location;

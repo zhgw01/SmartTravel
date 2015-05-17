@@ -10,7 +10,6 @@
 
 @interface HotSpotTableViewCell()
 
-@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
 
@@ -53,18 +52,10 @@
     return [UIColor colorWithRed:red green:green blue:0.f alpha:1.f];
 }
 
-- (void)configureType:(NSString*)type
-             location:(NSString*)location
-                count:(NSNumber*)count
+- (void)configureCellWithLocation:(NSString*)location
+                         andCount:(NSNumber*)count
 {
     BOOL needsLayout = NO;
-    
-    // Update type label
-    if (![self.typeLabel.text isEqualToString:type])
-    {
-        self.typeLabel.text = type;
-        needsLayout = YES;
-    }
     
     // Update location label
     if (![self.locationLabel.text isEqualToString:location])

@@ -14,8 +14,6 @@
 #import "HotSpotListViewController.h"
 #import "WarningView.h"
 #import "MarkerManager.h"
-#import "Collision.h"
-#import "VRU.h"
 #import "DBLocationReasonAdapter.h"
 #import "DBReasonAdapter.h"
 #import "DateUtility.h"
@@ -256,14 +254,10 @@
         [self.recentLocation distanceFromLocation:targetLoc] :
         [self.defaultLocation distanceFromLocation:targetLoc];
         
-        NSAssert(hotSpot.type != HotSpotTypeCnt, @"Unsupported hot spot info");
-        WarningType warningType = (hotSpot.type == HotSpotTypeCollision) ? CollisionWarningType : VRUWarningType;
-        
-        [self.warningView updateType:warningType
-                            location:hotSpot.location
-                                rank:hotSpot.rank
-                               count:hotSpot.count
-                            distance:[NSNumber numberWithDouble:distance]];
+        [self.warningView updateLocation:hotSpot.location
+                                    rank:hotSpot.rank
+                                   count:hotSpot.count
+                                distance:[NSNumber numberWithDouble:distance]];
     }
 }
 

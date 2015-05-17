@@ -8,26 +8,7 @@
 
 #import "DBManager.h"
 #import "DBConstants.h"
-#import "TopIntersection.h"
-#import "TopMidblock.h"
-#import "TopPedestrian.h"
-#import "TopCyclist.h"
-#import "TopMotorcyclist.h"
 #import "HotSpot.h"
-
-// For query collisions
-static NSString * const kTopIntersectionQuerySmt = @"select * from Top_Intersection";
-static NSString * const kTopMidblockQuerySmt = @"select * from Top_Midblock";
-// For query VRUs
-static NSString * const kTopPedestrianQuerySmt = @"select * from Top_Pedestrian";
-static NSString * const kTopCyclistQuerySmt = @"select * from Top_Cyclist";
-static NSString * const kTopMotorcyclistQuerySmt = @"select * from Top_Motorcyclist";
-
-@interface DBManager()
-
-@property (readwrite, strong) FMDatabase* topLocationDb;
-
-@end
 
 @implementation DBManager
 
@@ -72,136 +53,45 @@ static NSString * const kTopMotorcyclistQuerySmt = @"select * from Top_Motorcycl
     return [[userDocumentDir stringByAppendingPathComponent:DB_NAME_MAIN] stringByAppendingPathExtension:DB_EXT];
 }
 
-- (instancetype)init
+-(NSArray*)selectHotSpots:(HotSpotType)hotSpotType
 {
-    if (self = [super init])
+    NSString* mainDBPath = [DBManager getPathOfMainDB];
+    FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
+    if (![db open])
     {
-        NSString* userDocumentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-
-        // Initialize top location db
-        NSString* topLocationDbPath = [[userDocumentDir stringByAppendingPathComponent:DB_NAME_TOPLOCATION] stringByAppendingPathExtension:DB_EXT];
-        self.topLocationDb = [FMDatabase databaseWithPath:topLocationDbPath];
-    }
-    return self;
-}
-
--(NSArray*)selectAllCollisions
-{
-    NSAssert(self.topLocationDb, @"TopLocationDb should exist");
-    NSMutableArray* collisions = [[NSMutableArray alloc] init];
-    
-    BOOL res = [self.topLocationDb open];
-    NSAssert(res, @"Open TopLoactionDb failed");
-    
-    // Select all top intersections
-    NSArray* allTopIntersections = [self queryDB:self.topLocationDb withSmt:kTopIntersectionQuerySmt forModelOfClass:[TopIntersection class]];
-    for (TopIntersection* intersection in allTopIntersections)
-    {
-        HotSpot* hotSpot = [[HotSpot alloc] initWithType:HotSpotTypeCollision
-                                                     tag:@"Intersection"
-                                            locationCode:intersection.locationCode
-                                                location:intersection.location
-                                                   count:intersection.count
-                                                    rank:intersection.rank
-                                                latitude:intersection.latitude
-                                              longtitude:intersection.longtitude];
-        [collisions addObject:hotSpot];
+        NSAssert(NO, @"Open db failed");
+        return nil;
     }
     
-    // Select all top midblocks
-    NSArray* allTopMidblocks = [self queryDB:self.topLocationDb withSmt:kTopMidblockQuerySmt forModelOfClass:[TopMidblock class]];
-    for (TopMidblock* midblock in allTopMidblocks)
+    NSError* error = nil;
+    NSMutableArray* res = [[NSMutableArray alloc] init];
+    NSString* smt = nil;
+    
+    if (hotSpotType == HotSpotTypeCnt)
     {
-        HotSpot* hotSpot = [[HotSpot alloc] initWithType:HotSpotTypeCollision
-                                                     tag:@"Midblock"
-                                            locationCode:midblock.locationCode
-                                                location:midblock.location
-                                                   count:midblock.count
-                                                    rank:midblock.rank
-                                                latitude:midblock.latitude
-                                              longtitude:midblock.longtitude];
-        [collisions addObject:hotSpot];
+        smt = @"select l.Location_name, l.Longitude, l.Latitude, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code order by r.Total asc";
+    }
+    else
+    {
+        smt = [NSString stringWithFormat:@"select l.Location_name, l.Longitude, l.Latitude, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and l.Roadway_portion = '%@' order by r.Total asc", [HotSpot toString:hotSpotType]];
     }
     
-    res = [self.topLocationDb close];
-    NSAssert(res, @"Close TopLocationDb failed");
-    
-    return [collisions copy];
-}
-
--(NSArray*)selectAllVRUs
-{
-    NSAssert(self.topLocationDb, @"TopLocationDb should exist");
-    NSMutableArray* vrus = [[NSMutableArray alloc] init];
-    
-    BOOL res = [self.topLocationDb open];
-    NSAssert(res, @"Open TopLoactionDb failed");
-    
-    // Select all top pedestrian
-    NSArray* allTopPedestrians = [self queryDB:self.topLocationDb withSmt:kTopPedestrianQuerySmt forModelOfClass:[TopPedestrian class]];
-    for (TopPedestrian* pedestrian in allTopPedestrians)
+    FMResultSet* resultSet = [db executeQuery:smt];
+    while ([resultSet nextWithError:&error])
     {
-        HotSpot* hotSpot = [[HotSpot alloc] initWithType:HotSpotTypeVRU
-                                                     tag:@"Pedestrian"
-                                            locationCode:pedestrian.locationCode
-                                                location:pedestrian.location
-                                                   count:pedestrian.count
-                                                    rank:pedestrian.rank
-                                                latitude:pedestrian.latitude
-                                              longtitude:pedestrian.longtitude];
-        [vrus addObject:hotSpot];
+        HotSpot* hotSpot = [[HotSpot alloc] initWithLocation:[resultSet stringForColumn:@"Location_name"]
+                                                       count:[resultSet intForColumn:@"Total"]
+                                                        rank:[resultSet intForColumn:@"Warning_priority"]
+                                                    latitude:[resultSet doubleForColumn:@"Latitude"]
+                                                  longtitude:[resultSet doubleForColumn:@"Longitude"]];
+        [res addObject:hotSpot];
     }
+    [resultSet close];
     
-    // Select all top cyclisit
-    NSArray* allTopCyclists = [self queryDB:self.topLocationDb withSmt:kTopCyclistQuerySmt forModelOfClass:[TopCyclist class]];
-    for (TopCyclist* cyclist in allTopCyclists)
-    {
-        HotSpot* hotSpot = [[HotSpot alloc] initWithType:HotSpotTypeVRU
-                                                     tag:@"Cyclist"
-                                            locationCode:cyclist.locationCode
-                                                location:cyclist.location
-                                                   count:cyclist.count
-                                                    rank:cyclist.rank
-                                                latitude:cyclist.latitude
-                                              longtitude:cyclist.longtitude];
-        [vrus addObject:hotSpot];
-    }
+    BOOL dbCloseRes = [db close];
+    NSAssert(dbCloseRes, @"Close db failed");
     
-    // Select all top motorcyclist
-    NSArray* allTopMotoryclists = [self queryDB:self.topLocationDb withSmt:kTopMotorcyclistQuerySmt forModelOfClass:[TopMotorcyclist class]];
-    for (TopMotorcyclist* motorcyclist in allTopMotoryclists)
-    {
-        HotSpot* hotSpot = [[HotSpot alloc] initWithType:HotSpotTypeVRU
-                                                     tag:@"Motorcyclist"
-                                            locationCode:motorcyclist.locationCode
-                                                location:motorcyclist.location
-                                                   count:motorcyclist.count
-                                                    rank:motorcyclist.rank
-                                                latitude:motorcyclist.latitude
-                                              longtitude:motorcyclist.longtitude];
-        [vrus addObject:hotSpot];
-    }
-    
-    res = [self.topLocationDb close];
-    NSAssert(res, @"Close TopLocationDb failed");
-    
-    return [vrus copy];
-}
-
--(NSArray*)queryDB:(FMDatabase*)db
-           withSmt:(NSString*)smt
-   forModelOfClass:(Class)class
-{
-    NSMutableArray* array = [[NSMutableArray alloc] init];
-    
-    NSError *error = nil;
-    FMResultSet *resultSet = [db executeQuery:smt];
-    while ([resultSet next])
-    {
-        MTLModel* item = [MTLFMDBAdapter modelOfClass:class fromFMResultSet:resultSet error:&error];
-        [array addObject:item];
-    }
-    return [array copy];
+    return res;
 }
 
 @end

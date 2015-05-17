@@ -10,27 +10,42 @@
 
 @implementation HotSpot
 
-- (instancetype)initWithType:(HotSpotType)type
-                         tag:(NSString*)tag
-                locationCode:(NSString*)locationCode
-                    location:(NSString*)location
-                       count:(NSNumber*)count
-                        rank:(NSNumber*)rank
-                    latitude:(NSNumber*)latitude
-                  longtitude:(NSNumber*)longtitude
+- (instancetype)initWithLocation:(NSString*)location
+                           count:(int)count
+                            rank:(int)rank
+                        latitude:(double)latitude
+                      longtitude:(double)longtitude
 {
     if (self = [super init])
     {
-        self.type = type;
-        self.tag = tag;
-        self.locationCode = locationCode;
         self.location = location;
-        self.count = count;
-        self.rank = rank;
-        self.latitude = latitude;
-        self.longtitude = longtitude;
+        self.count = [NSNumber numberWithInt:count];
+        self.rank = [NSNumber numberWithInt:rank];
+        self.latitude = [NSNumber numberWithDouble:latitude];
+        self.longtitude = [NSNumber numberWithDouble:longtitude];
     }
     return self;
+}
+
++ (NSString*)toString:(HotSpotType)type
+{
+    if (type == HotSpotTypeIntersection)
+    {
+        return @"INTERSECTION";
+    }
+    else if (type == HotSpotTypeMidStreet)
+    {
+        return @"MID STREET";
+    }
+    else if (type == HotSpotTypeMidAvenue)
+    {
+        return @"MID AVENUE";
+    }
+    else if (type == HotSpotTypeSchoolZone)
+    {
+        return @"SCHOOL ZONE";
+    }
+    return @"";
 }
 
 @end
