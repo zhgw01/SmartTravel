@@ -44,9 +44,7 @@
 		4290A0AD1AF6050100CB46E5 /* HotSpotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4290A0AB1AF6050100CB46E5 /* HotSpotTableViewCell.m */; };
 		4290A0AE1AF6050100CB46E5 /* HotSpotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4290A0AC1AF6050100CB46E5 /* HotSpotTableViewCell.xib */; };
 		6613E4635B5E884F0B519EDB /* libPods-SmartTravel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */; };
-		9B1900FC1AF523B200CF18B6 /* VRU.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1900FB1AF523B200CF18B6 /* VRU.m */; };
 		9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B295C081ADFF0B200758837 /* FirstLaunch.storyboard */; };
-		9B47AB4F1AF4FB4F006AA102 /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B47AB4E1AF4FB4F006AA102 /* Collision.m */; };
 		9B5EE8641AF3EEE600524F4A /* default.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9B5EE8631AF3EEE600524F4A /* default.gpx */; };
 		9B5EE8691AF3F6B400524F4A /* CircleMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EE8681AF3F6B400524F4A /* CircleMarker.m */; };
 		9B6A85B11ADFDEFF00667170 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A85B01ADFDEFF00667170 /* main.m */; };
@@ -56,7 +54,6 @@
 		9B6A85BC1ADFDF0000667170 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B6A85BB1ADFDF0000667170 /* Images.xcassets */; };
 		9B6A85BF1ADFDF0000667170 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B6A85BD1ADFDF0000667170 /* LaunchScreen.xib */; };
 		9B6C7DA31AF4FFA300DF6FA9 /* testDb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9B6C7DA21AF4FFA300DF6FA9 /* testDb.sqlite */; };
-		9B6C7DA51AF4FFCD00DF6FA9 /* CollisionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C7DA41AF4FFCD00DF6FA9 /* CollisionTests.m */; };
 		9B6C7DA81AF500C500DF6FA9 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6C7DA71AF500C500DF6FA9 /* DBManager.m */; };
 		9B7E59511AE37FD10008D25C /* TermUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E59501AE37FD10008D25C /* TermUsage.m */; };
 		9B7E59551AE3882A0008D25C /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E59531AE3882A0008D25C /* GuideViewController.m */; };
@@ -147,11 +144,7 @@
 		5EEEC9CCD391050A8D1BA199 /* libPods-SmartTravelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartTravelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6928DA7D73FEF35E1EBF313F /* Pods-SmartTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravel/Pods-SmartTravel.release.xcconfig"; sourceTree = "<group>"; };
 		8D390935FB46D35A2294BF7D /* Pods-SmartTravelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravelTests/Pods-SmartTravelTests.release.xcconfig"; sourceTree = "<group>"; };
-		9B1900FA1AF523B200CF18B6 /* VRU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VRU.h; path = Model/VRU.h; sourceTree = "<group>"; };
-		9B1900FB1AF523B200CF18B6 /* VRU.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VRU.m; path = Model/VRU.m; sourceTree = "<group>"; };
 		9B295C091ADFF0B200758837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FirstLaunch.storyboard; sourceTree = "<group>"; };
-		9B47AB4D1AF4FB4F006AA102 /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collision.h; path = Model/Collision.h; sourceTree = "<group>"; };
-		9B47AB4E1AF4FB4F006AA102 /* Collision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Collision.m; path = Model/Collision.m; sourceTree = "<group>"; };
 		9B5EE8631AF3EEE600524F4A /* default.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default.gpx; sourceTree = "<group>"; };
 		9B5EE8671AF3F6B400524F4A /* CircleMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircleMarker.h; path = View/CircleMarker.h; sourceTree = "<group>"; };
 		9B5EE8681AF3F6B400524F4A /* CircleMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircleMarker.m; path = View/CircleMarker.m; sourceTree = "<group>"; };
@@ -168,7 +161,6 @@
 		9B6A85C41ADFDF0000667170 /* SmartTravelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartTravelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B6A85C91ADFDF0000667170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B6C7DA21AF4FFA300DF6FA9 /* testDb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = testDb.sqlite; sourceTree = "<group>"; };
-		9B6C7DA41AF4FFCD00DF6FA9 /* CollisionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionTests.m; sourceTree = "<group>"; };
 		9B6C7DA61AF500C500DF6FA9 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBManager.h; path = Model/DBManager.h; sourceTree = "<group>"; };
 		9B6C7DA71AF500C500DF6FA9 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBManager.m; path = Model/DBManager.m; sourceTree = "<group>"; };
 		9B7E594F1AE37FD10008D25C /* TermUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TermUsage.h; path = Model/TermUsage.h; sourceTree = "<group>"; };
@@ -356,10 +348,6 @@
 				4200961D1AFEF17600B43630 /* TopLocation */,
 				9B7E594F1AE37FD10008D25C /* TermUsage.h */,
 				9B7E59501AE37FD10008D25C /* TermUsage.m */,
-				9B47AB4D1AF4FB4F006AA102 /* Collision.h */,
-				9B47AB4E1AF4FB4F006AA102 /* Collision.m */,
-				9B1900FA1AF523B200CF18B6 /* VRU.h */,
-				9B1900FB1AF523B200CF18B6 /* VRU.m */,
 				9BF128181AFE537D008E72DA /* Direction.h */,
 				9BF128191AFE537D008E72DA /* Direction.m */,
 				4200962A1AFF0FFA00B43630 /* HotSpot.h */,
@@ -438,7 +426,6 @@
 			isa = PBXGroup;
 			children = (
 				9B6A85C81ADFDF0000667170 /* Supporting Files */,
-				9B6C7DA41AF4FFCD00DF6FA9 /* CollisionTests.m */,
 			);
 			path = SmartTravelTests;
 			sourceTree = "<group>";
@@ -654,7 +641,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4225F8351B081A4100C5A73F /* DBLocationReasonAdapter.m in Sources */,
-				9B47AB4F1AF4FB4F006AA102 /* Collision.m in Sources */,
 				422977831B0810DB00A11E90 /* DBLocationReason.m in Sources */,
 				4225F8341B081A4100C5A73F /* DBLocationAdapter.m in Sources */,
 				9B6A85B71ADFDEFF00667170 /* ViewController.m in Sources */,
@@ -677,7 +663,6 @@
 				9B812DD91AEB3E9D008F17B6 /* HotSpotListViewController.m in Sources */,
 				9B812DDC1AEB3EB7008F17B6 /* SettingsViewController.m in Sources */,
 				9B6A85B11ADFDEFF00667170 /* main.m in Sources */,
-				9B1900FC1AF523B200CF18B6 /* VRU.m in Sources */,
 				9BCEBC791ADFF317003C9F05 /* TermOfUsageViewController.m in Sources */,
 				9BF1281A1AFE537D008E72DA /* Direction.m in Sources */,
 				9B7E59511AE37FD10008D25C /* TermUsage.m in Sources */,
@@ -701,7 +686,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B6C7DA51AF4FFCD00DF6FA9 /* CollisionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

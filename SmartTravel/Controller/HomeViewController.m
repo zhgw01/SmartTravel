@@ -14,8 +14,6 @@
 #import "HotSpotListViewController.h"
 #import "WarningView.h"
 #import "MarkerManager.h"
-#import "Collision.h"
-#import "VRU.h"
 #import "DBLocationReasonAdapter.h"
 #import "DBReasonAdapter.h"
 #import "DateUtility.h"

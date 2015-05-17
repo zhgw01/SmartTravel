@@ -8,8 +8,6 @@
 
 #import "HotSpotListViewController.h"
 #import "DBManager.h"
-#import "Collision.h"
-#import "VRU.h"
 #import "HotSpotTableViewCell.h"
 #import "HotSpot.h"
 
