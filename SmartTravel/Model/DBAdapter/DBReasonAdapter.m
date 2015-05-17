@@ -30,7 +30,11 @@ static NSString * const kEndTimeColumn = @"End_time";
     FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
     if ([db open])
     {
+#ifdef DEBUG
+        NSString* smt = @"select * from TBL_WM_REASON_CONDITION";
+#else
         NSString* smt = [self constructSmt:date];
+#endif
         FMResultSet* resultSet = [db executeQuery:smt];
         NSError* error = nil;
         while([resultSet nextWithError:&error])
@@ -40,10 +44,14 @@ static NSString * const kEndTimeColumn = @"End_time";
             NSString* startTimeStr = [resultSet stringForColumn:kStartTimeColumn];
             NSString* endTimeStr = [resultSet stringForColumn:kEndTimeColumn];
             
+#ifdef DEBUG
+            [res addObject:reasonId];
+#else
             if ([DateUtility isDateMatched:date month:monthStr startTime:startTimeStr endTime:endTimeStr])
             {
                 [res addObject:reasonId];
             }
+#endif
         }
         [resultSet close];
         

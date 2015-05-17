@@ -86,7 +86,7 @@ static NSString * const kWarningPriorityColumn = @"Warning_priority";
                              reasonIds:(NSString*)reasonIds
 {
     NSString* smt =  [NSString  stringWithFormat:
-                      @"select %@, %@, %@, %@, %@ from %@ where %@ = %@ and %@ in (%@) and %@ in (%@)",
+                      @"select %@, %@, %@, %@, %@ from %@ where (%@ = '%@' or %@ = 'ALL') and %@ in (%@) and %@ in (%@)",
                       kLocCodeColumn,
                       kTravelDirectionColumn,
                       kReasonIdColumn,
@@ -95,6 +95,7 @@ static NSString * const kWarningPriorityColumn = @"Warning_priority";
                       MAIN_DB_TBL_LOCATION_REASON,
                       kTravelDirectionColumn,
                       [LocationDirection directionToString:direction],
+                      kTravelDirectionColumn,
                       kLocCodeColumn,
                       locCodes,
                       kReasonIdColumn,

@@ -44,13 +44,15 @@
     switch (direction)
     {
         case North:
-            return @"North";
+            return @"NORTH";
         case East:
-            return @"East";
+            return @"EAST";
         case South:
-            return @"South";
+            return @"SOUTH";
         case West:
-            return @"West";
+            return @"WEST";
+        case ALL:
+            return @"ALL";
         default:
             return nil;
     }
