@@ -13,6 +13,8 @@
 @interface DBCollisionLocation: MTLModel<MTLFMDBSerializing>
 
 @property (nonatomic, copy) NSString *locCode;
+@property (nonatomic, copy) NSString *locationName;
+@property (nonatomic, copy) NSString *roadwayPortion;
 @property (nonatomic, copy) NSNumber *latitude;
 @property (nonatomic, copy) NSNumber *longtitude;
 

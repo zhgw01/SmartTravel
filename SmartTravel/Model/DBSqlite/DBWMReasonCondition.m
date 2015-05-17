@@ -20,7 +20,8 @@
              @"weekend": @"Weekend",
              @"schoolDay": @"School_day",
              @"startTime": @"Start_time",
-             @"endTime": @"End_time"
+             @"endTime": @"End_time",
+             @"warningMessage": @"Warning_message"
              };
 }
 

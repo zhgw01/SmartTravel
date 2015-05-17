@@ -11,22 +11,20 @@
 
 @implementation DBCollisionLocation
 
-static NSString * const kLocCodeColumn = @"Loc_code";
-static NSString * const kLatitudeColumn = @"Latitude";
-static NSString * const kLongtitudeColumn = @"Longtitude";
-
 + (NSDictionary *)FMDBColumnsByPropertyKey
 {
     return @{
-             @"locCode": @"LOC_CODE",
+             @"locCode": @"Loc_code",
+             @"locationName" : @"Location_name",
+             @"roadwayPortion" : @"Roadway_portion",
              @"latitude": @"Latitude",
-             @"longtitude": @"Longtitude"
+             @"longitude": @"Longtitude"
              };
 }
 
 + (NSArray*)FMDBPrimaryKeys
 {
-    return @[@"LOC_CODE"];
+    return @[@"Loc_code"];
 }
 
 + (NSString *)FMDBTableName
