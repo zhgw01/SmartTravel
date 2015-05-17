@@ -14,8 +14,6 @@
 #import "TopMotorcyclist.h"
 #import "HotSpot.h"
 
-// Top locations are stored locally in smartTravelTopLocation.sqlite
-static NSString * const kTopLocationDbName = @"smartTravelTopLocation";
 // For query collisions
 static NSString * const kTopIntersectionQuerySmt = @"select * from Top_Intersection";
 static NSString * const kTopMidblockQuerySmt = @"select * from Top_Midblock";
@@ -23,9 +21,6 @@ static NSString * const kTopMidblockQuerySmt = @"select * from Top_Midblock";
 static NSString * const kTopPedestrianQuerySmt = @"select * from Top_Pedestrian";
 static NSString * const kTopCyclistQuerySmt = @"select * from Top_Cyclist";
 static NSString * const kTopMotorcyclistQuerySmt = @"select * from Top_Motorcyclist";
-
-static NSString * const kTemplateDbName = @"smartTravelTemplate";
-static NSString * const kMainDbName = @"smartTravel";
 
 @interface DBManager()
 
@@ -51,50 +46,16 @@ static NSString * const kMainDbName = @"smartTravel";
     if (self = [super init])
     {
         NSString* userDocumentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-        static NSString* dbExt = @"sqlite";
 
-        // Copy TopLocation to user document and initialize
-        if ([self copyResourceFromAppBundle:kTopLocationDbName toUserDocumentWithNewName:kTopLocationDbName withExt:dbExt])
-        {
-            NSString* topLocationDbPath = [[userDocumentDir stringByAppendingPathComponent:kTopLocationDbName] stringByAppendingPathExtension:dbExt];
-            self.topLocationDb = [FMDatabase databaseWithPath:topLocationDbPath];
-        }
-        
-        // Copy Main to user document and initialize
-        if ([self copyResourceFromAppBundle:kTemplateDbName toUserDocumentWithNewName:kMainDbName withExt:dbExt])
-        {
-            NSString* mainDbPath = [[userDocumentDir stringByAppendingPathComponent:kMainDbName] stringByAppendingPathExtension:dbExt];
-            self.mainDb = [FMDatabase databaseWithPath:mainDbPath];
-        }
+        // Initialize top location db
+        NSString* topLocationDbPath = [[userDocumentDir stringByAppendingPathComponent:DB_NAME_TOPLOCATION] stringByAppendingPathExtension:DB_EXT];
+        self.topLocationDb = [FMDatabase databaseWithPath:topLocationDbPath];
+
+        // Initialize main db
+        NSString* mainDbPath = [[userDocumentDir stringByAppendingPathComponent:DB_NAME_MAIN] stringByAppendingPathExtension:DB_EXT];
+        self.mainDb = [FMDatabase databaseWithPath:mainDbPath];
     }
     return self;
-}
-
-// Return YES if copy succeeded or the target file exists
-- (BOOL)copyResourceFromAppBundle:(NSString*)oldFileName
-        toUserDocumentWithNewName:(NSString*)newFileName
-                          withExt:(NSString*)ext
-{
-    NSString* userDocumentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-    NSString* targetPath = [[userDocumentDir stringByAppendingPathComponent:newFileName] stringByAppendingPathExtension:ext];
-
-    NSString* sourcePath = [[NSBundle mainBundle] pathForResource:oldFileName ofType:ext];
-    
-    if([[NSFileManager defaultManager] fileExistsAtPath:sourcePath])
-    {
-        if (![[NSFileManager defaultManager] fileExistsAtPath:targetPath])
-        {
-            NSError* error = nil;
-            [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:targetPath error:&error];
-            return !error;
-        }
-        else
-        {
-            return YES;
-        }
-    }
-    
-    return NO;
 }
 
 -(NSArray*)selectAllCollisions

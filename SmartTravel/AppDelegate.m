@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "TermUsage.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "DBConstants.h"
+#import "ModelUtility.h"
 
 #ifdef DEBUG
 #import "JsonManager.h"
@@ -27,66 +29,61 @@
 static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-#ifdef DEBUG
-//    NSArray* collisionLocations = [[JsonManager sharedInstance] readJSONFromReadonlyJSONFile:kJSON_TBL_COLLISION_LOCATION];
-//    for (JSONCollisionLocation* jCollisionLocation in collisionLocations)
-//    {
-//        NSLog(@"locationName:%@, roadwayPortion:%@, longitude:%g, latitude:%g, locCode:%@",
-//              jCollisionLocation.locationName,
-//              jCollisionLocation.roadwayPortion,
-//              [jCollisionLocation.longitude doubleValue],
-//              [jCollisionLocation.latitude doubleValue],
-//              jCollisionLocation.locCode);
-//    }
-    
-//    NSArray* locationReasons = [[JsonManager sharedInstance] readJSONFromReadonlyJSONFile:kJSON_TBL_LOCATION_REASON];
-//    for (JSONLocationReason* jLocationReason in locationReasons)
-//    {
-//        NSLog(@"total:%d, warning_priority:%d, reason_id:%d, travel_direction:%@, loc_code:%@",
-//              [jLocationReason.total intValue],
-//              [jLocationReason.warningPriority intValue],
-//              [jLocationReason.reasonId intValue],
-//              jLocationReason.travelDirection,
-//              jLocationReason.locCode);
-//    }
-    
-    
-//    NSArray* wmDayTypes = [[JsonManager sharedInstance] readJSONFromReadonlyJSONFile:kJSON_TBL_WM_DAYTYPE];
-//    for (JSONWMDayType* jWMDaType in wmDayTypes)
-//    {
-//        NSLog(@"weekday:%@, weenend:%@, date:%@, school_day:%@",
-//              jWMDaType.weekday,
-//              jWMDaType.weenend,
-//              jWMDaType.date,
-//              jWMDaType.schoolDay);
-//    }
-
-    NSArray* wmReasonConditions = [[JsonManager sharedInstance] readJSONFromReadonlyJSONFile:kJSON_TBL_WM_REASON_CONDITION];
-    for (JSONWMReasonCondition* jWMReasonCondition in wmReasonConditions)
-    {
-        NSLog(@"warnig_message:%@, weekday:%@, reason:%@, weenend:%@, end_time:%@, reason_id:%d, month:%@, start_time:%@, school_day:%@",
-              jWMReasonCondition.warnigMessage,
-              jWMReasonCondition.weekday ? @"TRUE" : @"FALSE",
-              jWMReasonCondition.reason,
-              jWMReasonCondition.weenend ? @"TRUE" : @"FALSE",
-              jWMReasonCondition.endTime,
-              [jWMReasonCondition.reasonId intValue],
-              jWMReasonCondition.month,
-              jWMReasonCondition.startTime,
-              jWMReasonCondition.schoolDay ? @"TRUE" : @"FALSE");
-    }
-
-#endif
     
     if (![TermUsage agree]) {
         self.window.rootViewController = [self loadControllerFromStoryboard:@"FirstLaunch"];
         [self.window makeKeyAndVisible];
     }
     
+    //Prepare database
+    [self perpareSqliteDB];
+    
+#ifdef DEBUG
+    //Initialize database with JSON data
+    [ModelUtility initializeMainDBTablesWithJSON];
+#endif
+    
     //Initialize GMap
     [GMSServices provideAPIKey:GMAP_API_KEY];
     
     return YES;
+}
+
+- (void)perpareSqliteDB
+{
+    // Copy TopLocation DB to user document
+    [self copyResourceFromAppBundle:DB_NAME_TOPLOCATION
+          toUserDocumentWithNewName:DB_NAME_TOPLOCATION
+                            withExt:DB_EXT];
+    
+    // Copy Main DB Template to user document
+    [self copyResourceFromAppBundle:DB_NAME_MAIN_TEMPLATE
+          toUserDocumentWithNewName:DB_NAME_MAIN
+                            withExt:DB_EXT];
+}
+
+// Return YES if copy succeeded or the target file exists
+- (BOOL)copyResourceFromAppBundle:(NSString*)oldFileName
+        toUserDocumentWithNewName:(NSString*)newFileName
+                          withExt:(NSString*)ext
+{
+    NSString* userDocumentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString* targetPath = [[userDocumentDir stringByAppendingPathComponent:newFileName] stringByAppendingPathExtension:ext];
+    
+    NSString* sourcePath = [[NSBundle mainBundle] pathForResource:oldFileName ofType:ext];
+    
+    if([[NSFileManager defaultManager] fileExistsAtPath:sourcePath])
+    {
+        if ([[NSFileManager defaultManager] fileExistsAtPath:targetPath])
+        {
+            return YES;
+        }
+        NSError* error = nil;
+        [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:targetPath error:&error];
+        return !error;
+    }
+    
+    return NO;
 }
 
 - (UIViewController*)loadControllerFromStoryboard:(NSString *)storyboardName
