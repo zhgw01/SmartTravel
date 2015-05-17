@@ -12,7 +12,8 @@ typedef NS_ENUM(NSUInteger, Direction) {
     North,
     East,
     South,
-    West
+    West,
+    ALL
 };
 
 @interface LocationDirection : NSObject

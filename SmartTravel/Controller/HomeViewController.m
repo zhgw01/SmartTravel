@@ -194,25 +194,31 @@
         self.locationMarker.position = self.recentLocation.coordinate;
     }
     
-    NSLog(@"Heading: %f", self.recentLocation.course);
+    GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:self.recentLocation.coordinate];
+    [self.mapView animateWithCameraUpdate:newTarget];
     
-    if (self.zoomToCurrent) {
-        GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:self.recentLocation.coordinate];
-        [self.mapView animateWithCameraUpdate:newTarget];
-        
-        self.zoomToCurrent = NO;
-    }
+    LocationDirection* locationDirection = [[LocationDirection alloc] initWithCLLocationDirection:self.direction];
+#ifdef DEBUG
+    Direction direction = ALL;
+    double radius = 1000;
+#else
+    Direction direction = locationDirection.direction;
+    double radius = 100;
+#endif
     
     // Get warning data list
     NSArray* reasonIds = [[[DBReasonAdapter alloc] init] getReasonIDsOfDate:[NSDate date]];
-    NSArray* warnings = [[[DBLocationReasonAdapter alloc] init] getLocationReasonsAtLatitude:self.recentLocation.coordinate.latitude
-                                                                                   longitude:self.recentLocation.coordinate.longitude
-                                                                                 ofReasonIds:reasonIds
-                                                                                 inDirection:self.direction
-                                                                                withinRadius:100];
-    for (NSDictionary* waringData in warnings)
+    if (reasonIds.count > 0)
     {
-        NSLog(@"You're in range of %@", (NSString*)[waringData objectForKey:@"Loc_code"]);
+        NSArray* warnings = [[[DBLocationReasonAdapter alloc] init] getLocationReasonsAtLatitude:self.recentLocation.coordinate.latitude
+                                                                                       longitude:self.recentLocation.coordinate.longitude
+                                                                                     ofReasonIds:reasonIds
+                                                                                     inDirection:direction
+                                                                                    withinRadius:radius];
+        for (NSDictionary* waringData in warnings)
+        {
+            NSLog(@"You're in range of %@", (NSString*)[waringData objectForKey:@"Loc_code"]);
+        }
     }
 }
 
