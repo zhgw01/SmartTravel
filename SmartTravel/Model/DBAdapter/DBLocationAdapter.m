@@ -24,7 +24,7 @@ static NSString * const kLongitudeColumn = @"Longitude";
 {
     NSMutableArray* res = [[NSMutableArray alloc] init];
     
-    FMDatabase* db = [[DBManager sharedInstance] mainDb];
+    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
     if ([db open])
     {
         NSString* smt = [self constructSmt:latitude longitude:longitude radius:radius];
@@ -35,7 +35,8 @@ static NSString * const kLongitudeColumn = @"Longitude";
             [res addObject:[resultSet stringForColumn:kLocCodeColumn]];
         }
         
-        [db close];
+        BOOL dbCloseRes = [db close];
+        NSAssert(dbCloseRes, @"Close db failed");
     }
     
     return [res copy];

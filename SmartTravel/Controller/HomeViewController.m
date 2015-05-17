@@ -207,15 +207,15 @@
     
     // Get warning data list
     // TODO:
-//    NSArray* warnings = [self.locationReasonAdapter getLocationReasonsAtLatitude:self.recentLocation.coordinate.latitude
-//                                                                       longitude:self.recentLocation.coordinate.longitude
-//                                                                          ofDate:[NSDate date]
-//                                                                     inDirection:self.direction
-//                                                                    withinRadius:100];
-//    for (NSDictionary* waringData in warnings)
-//    {
-//        NSLog(@"You're in range of %@", (NSString*)[waringData objectForKey:@"Loc_code"]);
-//    }
+    NSArray* warnings = [self.locationReasonAdapter getLocationReasonsAtLatitude:self.recentLocation.coordinate.latitude
+                                                                       longitude:self.recentLocation.coordinate.longitude
+                                                                          ofDate:[NSDate date]
+                                                                     inDirection:self.direction
+                                                                    withinRadius:100];
+    for (NSDictionary* waringData in warnings)
+    {
+        NSLog(@"You're in range of %@", (NSString*)[waringData objectForKey:@"Loc_code"]);
+    }
 }
 
 /*
