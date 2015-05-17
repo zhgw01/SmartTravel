@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <FMDB/FMDB.h>
+#import "HotSpot.h"
 
 @interface DBManager : NSObject
 
@@ -17,8 +18,6 @@
 
 +(NSString*)getPathOfMainDB;
 
--(NSArray*)selectAllCollisions;
-
--(NSArray*)selectAllVRUs;
+-(NSArray*)selectHotSpots:(HotSpotType)hotSpotType;
 
 @end

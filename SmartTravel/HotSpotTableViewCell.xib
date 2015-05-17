@@ -15,20 +15,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUV-KK-iha" userLabel="TypeLabel">
-                        <rect key="frame" x="8" y="10" width="28.5" height="13.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="447-5n-PAM" userLabel="LocationLabel">
-                        <rect key="frame" x="8" y="25" width="258.5" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <rect key="frame" x="8" y="24.5" width="259" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed3-TA-p5O" userLabel="CountLabel">
-                        <rect key="frame" x="286.5" y="25.5" width="30" height="20"/>
+                        <rect key="frame" x="287" y="24" width="30" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="ZJf-iE-7HK"/>
                             <constraint firstAttribute="width" constant="30" id="bV7-UD-JQM"/>
@@ -39,19 +33,25 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="447-5n-PAM" firstAttribute="leading" secondItem="RUV-KK-iha" secondAttribute="leading" id="04K-gN-UbF"/>
                     <constraint firstItem="Ed3-TA-p5O" firstAttribute="leading" secondItem="447-5n-PAM" secondAttribute="trailing" constant="20" id="0uO-Lh-i7b"/>
-                    <constraint firstItem="RUV-KK-iha" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="7Kd-C7-rgx"/>
+                    <constraint firstItem="Ed3-TA-p5O" firstAttribute="top" secondItem="447-5n-PAM" secondAttribute="top" id="EgX-TS-s2f"/>
                     <constraint firstItem="Ed3-TA-p5O" firstAttribute="top" secondItem="447-5n-PAM" secondAttribute="top" id="Eov-Ad-Rji"/>
-                    <constraint firstItem="447-5n-PAM" firstAttribute="top" secondItem="RUV-KK-iha" secondAttribute="bottom" constant="2" id="Mkb-P3-yTU"/>
-                    <constraint firstItem="RUV-KK-iha" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="fL7-78-YDC"/>
+                    <constraint firstAttribute="centerX" secondItem="Ed3-TA-p5O" secondAttribute="centerX" constant="-142" id="cPZ-Ue-3Wf"/>
+                    <constraint firstItem="447-5n-PAM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="kEB-kg-qmP"/>
+                    <constraint firstAttribute="centerY" secondItem="447-5n-PAM" secondAttribute="centerY" constant="-4.25" id="sVd-xb-LtD"/>
                     <constraint firstItem="Ed3-TA-p5O" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="5" id="swg-zg-6V5"/>
+                    <constraint firstItem="447-5n-PAM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="17" id="zPb-sh-pUk"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="zPb-sh-pUk"/>
+                        <exclude reference="Eov-Ad-Rji"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="countLabel" destination="Ed3-TA-p5O" id="4E8-Du-3kh"/>
                 <outlet property="locationLabel" destination="447-5n-PAM" id="JIi-vC-A6n"/>
-                <outlet property="typeLabel" destination="RUV-KK-iha" id="KYg-s0-z6Q"/>
             </connections>
             <point key="canvasLocation" x="218" y="252"/>
         </tableViewCell>

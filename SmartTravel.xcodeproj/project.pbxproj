@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1E2E79F51E63E734D1BFE0B5 /* libPods-SmartTravelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEEC9CCD391050A8D1BA199 /* libPods-SmartTravelTests.a */; };
 		420096141AFEEE2600B43630 /* smartTravelTemplate.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 420096121AFEEE2600B43630 /* smartTravelTemplate.sqlite */; };
-		420096151AFEEE2600B43630 /* smartTravelTopLocation.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 420096131AFEEE2600B43630 /* smartTravelTopLocation.sqlite */; };
 		4200961C1AFEF05800B43630 /* TopIntersection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4200961B1AFEF05800B43630 /* TopIntersection.m */; };
 		420096201AFEF19200B43630 /* TopMidblock.m in Sources */ = {isa = PBXBuildFile; fileRef = 4200961F1AFEF19200B43630 /* TopMidblock.m */; };
 		420096231AFEF25600B43630 /* TopPedestrian.m in Sources */ = {isa = PBXBuildFile; fileRef = 420096221AFEF25600B43630 /* TopPedestrian.m */; };
@@ -87,7 +86,6 @@
 		1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartTravel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B0D027AB13F8856B8F4BA29 /* Pods-SmartTravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravel/Pods-SmartTravel.debug.xcconfig"; sourceTree = "<group>"; };
 		420096121AFEEE2600B43630 /* smartTravelTemplate.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = smartTravelTemplate.sqlite; sourceTree = "<group>"; };
-		420096131AFEEE2600B43630 /* smartTravelTopLocation.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = smartTravelTopLocation.sqlite; sourceTree = "<group>"; };
 		4200961A1AFEF05800B43630 /* TopIntersection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopIntersection.h; path = Model/TopLocation/TopIntersection.h; sourceTree = "<group>"; };
 		4200961B1AFEF05800B43630 /* TopIntersection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopIntersection.m; path = Model/TopLocation/TopIntersection.m; sourceTree = "<group>"; };
 		4200961E1AFEF19200B43630 /* TopMidblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopMidblock.h; path = Model/TopLocation/TopMidblock.h; sourceTree = "<group>"; };
@@ -427,7 +425,6 @@
 				4229775C1B080ECD00A11E90 /* TBL_WM_DAYTYPE.json */,
 				4229775D1B080ECD00A11E90 /* TBL_WM_REASON_CONDITION.json */,
 				420096121AFEEE2600B43630 /* smartTravelTemplate.sqlite */,
-				420096131AFEEE2600B43630 /* smartTravelTopLocation.sqlite */,
 				4290A0A81AF600AE00CB46E5 /* smartTravelDb.sqlite */,
 				9B5EE8631AF3EEE600524F4A /* default.gpx */,
 				9B6A85AF1ADFDEFF00667170 /* Info.plist */,
@@ -569,7 +566,6 @@
 				4229775F1B080ECD00A11E90 /* TBL_LOCATION_REASON.json in Resources */,
 				4290A0A91AF600AE00CB46E5 /* smartTravelDb.sqlite in Resources */,
 				425754B71B088BA20046433F /* 20150517013203-58195-data.gpx in Resources */,
-				420096151AFEEE2600B43630 /* smartTravelTopLocation.sqlite in Resources */,
 				422977611B080ECD00A11E90 /* TBL_WM_REASON_CONDITION.json in Resources */,
 				9B6A85BA1ADFDF0000667170 /* Main.storyboard in Resources */,
 				9B6A85BF1ADFDF0000667170 /* LaunchScreen.xib in Resources */,
