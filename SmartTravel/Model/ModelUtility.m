@@ -97,8 +97,8 @@
 
 +(BOOL)insertDataIntoMainDBTablesUsingDataFromJSONFiles
 {
-    DBManager* dbManager = [DBManager sharedInstance];
-    if (![dbManager.mainDb open])
+    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
+    if (![db open])
     {
         return NO;
     }
@@ -110,7 +110,7 @@
     for (JSONCollisionLocation* jCollisionLocation in collisionLocations)
     {
         DBCollisionLocation* dbCollisionLocation = [ModelUtility generateDBCollisionLocationFromJSON:jCollisionLocation];
-        [dbManager.mainDb executeUpdate:smt withParameterDictionary:[dbCollisionLocation dictionaryValue]];
+        [db executeUpdate:smt withParameterDictionary:[dbCollisionLocation dictionaryValue]];
     }
     
     smt = [DBManager makeInsertSmtForTable:MAIN_DB_TBL_LOCATION_REASON];
@@ -119,7 +119,7 @@
     for (JSONLocationReason* jLocationReason in locationReasons)
     {
         DBLocationReason* dbLocationReason = [ModelUtility generateDBLocationReasonFromJSON:jLocationReason withID:locationReasonID];
-        if ([dbManager.mainDb executeUpdate:smt withParameterDictionary:[dbLocationReason dictionaryValue]])
+        if ([db executeUpdate:smt withParameterDictionary:[dbLocationReason dictionaryValue]])
         {
             ++locationReasonID;
         }
@@ -130,7 +130,7 @@
     for (JSONWMDayType* jWMDaType in wmDayTypes)
     {
         DBWMDayType* dbWMDayType = [ModelUtility generateDBWMDayTypeFromJSON:jWMDaType];
-        [dbManager.mainDb executeUpdate:smt withParameterDictionary:[dbWMDayType dictionaryValue]];
+        [db executeUpdate:smt withParameterDictionary:[dbWMDayType dictionaryValue]];
     }
 
     smt = [DBManager makeInsertSmtForTable:MAIN_DB_TBL_WM_REASON_CONDITION];
@@ -138,14 +138,12 @@
     for (JSONWMReasonCondition* jWMReasonCondition in wmReasonConditions)
     {
         DBWMReasonCondition* dbWMReasonCondition = [ModelUtility generateDBWMReasonConditionFromJSON:jWMReasonCondition];
-        [dbManager.mainDb executeUpdate:smt withParameterDictionary:[dbWMReasonCondition dictionaryValue]];
+        [db executeUpdate:smt withParameterDictionary:[dbWMReasonCondition dictionaryValue]];
     }
     
-    if (![dbManager.mainDb close])
-    {
-        return NO;
-    }
-    
+    BOOL dbCloseRes = [db close];
+    NSAssert(dbCloseRes, @"Close db failed");
+
     return YES;
 }
 

@@ -11,12 +11,11 @@
 
 @interface DBManager : NSObject
 
-@property (readonly, strong) FMDatabase* topLocationDb;
-@property (readonly, strong) FMDatabase* mainDb;
-
 +(DBManager *)sharedInstance;
 
 +(NSString*)makeInsertSmtForTable:(NSString*)tableName;
+
++(NSString*)getPathOfMainDB;
 
 -(NSArray*)selectAllCollisions;
 

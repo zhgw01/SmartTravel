@@ -26,7 +26,6 @@ static NSString * const kTopMotorcyclistQuerySmt = @"select * from Top_Motorcycl
 @interface DBManager()
 
 @property (readwrite, strong) FMDatabase* topLocationDb;
-@property (readwrite, strong) FMDatabase* mainDb;
 
 @end
 
@@ -67,6 +66,11 @@ static NSString * const kTopMotorcyclistQuerySmt = @"select * from Top_Motorcycl
     return nil;
 }
 
++(NSString*)getPathOfMainDB
+{
+    NSString* userDocumentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    return [[userDocumentDir stringByAppendingPathComponent:DB_NAME_MAIN] stringByAppendingPathExtension:DB_EXT];
+}
 
 - (instancetype)init
 {
@@ -77,10 +81,6 @@ static NSString * const kTopMotorcyclistQuerySmt = @"select * from Top_Motorcycl
         // Initialize top location db
         NSString* topLocationDbPath = [[userDocumentDir stringByAppendingPathComponent:DB_NAME_TOPLOCATION] stringByAppendingPathExtension:DB_EXT];
         self.topLocationDb = [FMDatabase databaseWithPath:topLocationDbPath];
-
-        // Initialize main db
-        NSString* mainDbPath = [[userDocumentDir stringByAppendingPathComponent:DB_NAME_MAIN] stringByAppendingPathExtension:DB_EXT];
-        self.mainDb = [FMDatabase databaseWithPath:mainDbPath];
     }
     return self;
 }

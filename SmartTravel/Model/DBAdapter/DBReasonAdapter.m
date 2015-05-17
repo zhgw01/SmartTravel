@@ -26,7 +26,7 @@ static NSString * const kEndTimeColumn = @"End_time";
 {
     NSMutableArray* res = [[NSMutableArray alloc] init];
     
-    FMDatabase* db = [[DBManager sharedInstance] mainDb];
+    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
     if ([db open])
     {
         NSString* smt = [self constructSmt:date];
@@ -44,8 +44,10 @@ static NSString * const kEndTimeColumn = @"End_time";
                 [res addObject:reasonId];
             }
         }
+        [resultSet close];
         
-        [db close];
+        BOOL dbCloseRes = [db close];
+        NSAssert(dbCloseRes, @"Close db failed");
     }
     
     return [res copy];
@@ -56,16 +58,16 @@ static NSString * const kEndTimeColumn = @"End_time";
     DBDateAdapter* dbDateAdapter = [[DBDateAdapter alloc] initWith:date];
     
     return [NSString stringWithFormat:
-            @"select %@, %@, %@, %@ from %@ where (%@ = %@) and (%@ = %@)",
+            @"select %@, %@, %@, %@ from %@ where (%@ = %d) and (%@ = %d)",
             kReasonIdColumn,
             kMonthColumn,
             kStartTimeColumn,
             kEndTimeColumn,
             MAIN_DB_TBL_WM_REASON_CONDITION,
             kWeekdayColumn,
-            dbDateAdapter.isWeekDay ? @"true" : @"false",
+            dbDateAdapter.isWeekDay ? 1 : 0,
             kSchoolDayColumn,
-            dbDateAdapter.isSchoolDay ? @"true" : @"false"];
+            dbDateAdapter.isSchoolDay ? 1 : 0];
 }
 
 - (NSInteger)convertMinutesFromHour:(NSInteger)hour andMinute:(NSInteger)minute

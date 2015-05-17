@@ -29,7 +29,7 @@ static NSString * const kSchooldayColumn = @"School_day";
     {
         BOOL foundInDb = NO;
         
-        FMDatabase* db = [[DBManager sharedInstance] mainDb];
+        FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
         if (date && [db open])
         {
             NSString* smt = [self constructSmt:date];
@@ -44,8 +44,10 @@ static NSString * const kSchooldayColumn = @"School_day";
                     foundInDb = YES;
                 }
             }
+            [resultSet close];
             
-            [db close];
+            BOOL dbCloseRes = [db close];
+            NSAssert(dbCloseRes, @"Close db failed");
         }
 
         // iOS routine to judge if the date is week day

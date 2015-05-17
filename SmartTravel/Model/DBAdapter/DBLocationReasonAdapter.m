@@ -42,7 +42,7 @@ static NSString * const kWarningPriorityColumn = @"Warning_priority";
     
     NSMutableArray* res = [[NSMutableArray alloc] init];
     
-    FMDatabase* db = [[DBManager sharedInstance] mainDb];
+    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
     if ([db open])
     {
         FMResultSet* resultSet = [db executeQuery:smt];
