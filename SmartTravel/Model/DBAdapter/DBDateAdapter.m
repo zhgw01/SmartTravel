@@ -10,6 +10,7 @@
 #import "DBDateAdapter.h"
 #import "DBConstants.h"
 #import "DBManager.h"
+#import "DateUtility.h"
 
 static NSString * const kWeekdayColumn = @"Weekday";
 static NSString * const kSchooldayColumn = @"School_day";
@@ -53,7 +54,7 @@ static NSString * const kSchooldayColumn = @"School_day";
         // iOS routine to judge if the date is week day
         if (!foundInDb)
         {
-            self.isWeekDay = [self isDateWeekday:date];
+            self.isWeekDay = [DateUtility isDateWeekday:date];
             // NOTE: If the date is not found in db, assume it's NOT school day by default.
             self.isSchoolDay = NO;
         }
@@ -62,29 +63,9 @@ static NSString * const kSchooldayColumn = @"School_day";
 }
 
 - (NSString*)constructSmt:(NSDate*)date
-{
-    NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd"];
-    
-    NSString* dateStr = [dateFormat stringFromDate:date];
+{    
+    NSString* dateStr = [DateUtility getDateString:date];
     return [NSString stringWithFormat:@"select %@, %@ from %@ where Date='%@'", kWeekdayColumn, kSchooldayColumn,  MAIN_DB_TBL_WM_DAYTYPE, dateStr];
-}
-
-- (BOOL)isDateWeekday:(NSDate*)date
-{
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    NSRange weekdayRange = [calendar maximumRangeOfUnit:NSWeekdayCalendarUnit];
-    NSDateComponents* components = [calendar components:NSWeekdayCalendarUnit fromDate:date];
-    NSUInteger weekdayOfDate = [components weekday];
-    
-    if (weekdayOfDate == weekdayRange.location || weekdayOfDate == weekdayRange.length)
-    {
-        return NO;
-    }
-    else
-    {
-        return YES;
-    }
 }
 
 @end

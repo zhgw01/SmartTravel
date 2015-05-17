@@ -17,6 +17,8 @@
 #import "Collision.h"
 #import "VRU.h"
 #import "DBLocationReasonAdapter.h"
+#import "DBReasonAdapter.h"
+#import "DateUtility.h"
 
 @interface HomeViewController ()<SWRevealViewControllerDelegate, CLLocationManagerDelegate, HotSpotListViewControllerMapDelegate>
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
@@ -32,8 +34,6 @@
 @property (copy, nonatomic)   CLLocation *recentLocation;
 @property (strong, nonatomic) CLLocation* defaultLocation;
 @property (assign, nonatomic) CLLocationDirection direction;
-
-@property (strong, nonatomic) DBLocationReasonAdapter* locationReasonAdapter;
 
 @end
 
@@ -67,8 +67,6 @@
                                         self.view.frame.size.height * 0.3);
     
     self.warningView.hidden = YES;
-    
-    self.locationReasonAdapter = [[DBLocationReasonAdapter alloc] init];
 }
 
 - (void) setupMap
@@ -206,12 +204,12 @@
     }
     
     // Get warning data list
-    // TODO:
-    NSArray* warnings = [self.locationReasonAdapter getLocationReasonsAtLatitude:self.recentLocation.coordinate.latitude
-                                                                       longitude:self.recentLocation.coordinate.longitude
-                                                                          ofDate:[NSDate date]
-                                                                     inDirection:self.direction
-                                                                    withinRadius:100];
+    NSArray* reasonIds = [[[DBReasonAdapter alloc] init] getReasonIDsOfDate:[NSDate date]];
+    NSArray* warnings = [[[DBLocationReasonAdapter alloc] init] getLocationReasonsAtLatitude:self.recentLocation.coordinate.latitude
+                                                                                   longitude:self.recentLocation.coordinate.longitude
+                                                                                 ofReasonIds:reasonIds
+                                                                                 inDirection:self.direction
+                                                                                withinRadius:100];
     for (NSDictionary* waringData in warnings)
     {
         NSLog(@"You're in range of %@", (NSString*)[waringData objectForKey:@"Loc_code"]);

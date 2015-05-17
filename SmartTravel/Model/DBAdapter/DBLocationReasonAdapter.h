@@ -13,7 +13,7 @@
 
 - (NSArray*)getLocationReasonsAtLatitude:(double)latitude
                                longitude:(double)longitude
-                                  ofDate:(NSDate*)date
+                             ofReasonIds:(NSArray*)reasonIds
                              inDirection:(Direction)direction
                             withinRadius:(double)radius;
 @end

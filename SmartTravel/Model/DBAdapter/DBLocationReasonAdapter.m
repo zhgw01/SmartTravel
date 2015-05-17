@@ -23,7 +23,7 @@ static NSString * const kWarningPriorityColumn = @"Warning_priority";
 
 - (NSArray*)getLocationReasonsAtLatitude:(double)latitude
                                longitude:(double)longitude
-                                  ofDate:(NSDate*)date
+                             ofReasonIds:(NSArray*)reasonIds
                              inDirection:(Direction)direction
                             withinRadius:(double)radius
 {
@@ -31,10 +31,7 @@ static NSString * const kWarningPriorityColumn = @"Warning_priority";
     DBLocationAdapter* dbLocationAdapter = [[DBLocationAdapter alloc] init];
     NSArray* locCodes = [dbLocationAdapter getLocCodesInRange:radius atLatitude:latitude longitude:longitude];
     NSString* locCodesStr = [DBLocationReasonAdapter arrayToSQLInConditions:locCodes];
-
-    // Get reason ids
-    DBReasonAdapter* dbReasonAdapter = [[DBReasonAdapter alloc] init];
-    NSArray* reasonIds = [dbReasonAdapter getReasonIDsOfDate:date];
+    
     NSString* reasonIdsStr = [DBLocationReasonAdapter arrayToSQLInConditions:reasonIds];
     
     // Get location_reasons
@@ -65,10 +62,12 @@ static NSString * const kWarningPriorityColumn = @"Warning_priority";
             [res addObject:locationReason];
         }
         
-        [db close];
+        BOOL dbCloseRes = [db close];
+        NSAssert(dbCloseRes, @"Close db failed");
     }
     
-    return [res copy];    
+    return [res copy];
+
 }
 
 + (NSString*)arrayToSQLInConditions:(NSArray*)array
