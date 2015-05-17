@@ -18,7 +18,7 @@
 
 + (NSArray*)FMDBPrimaryKeys
 {
-    return @[@"Loc_code", @"Reason_id"];
+    return @[@"Id"];
 }
 
 + (NSString *)FMDBTableName

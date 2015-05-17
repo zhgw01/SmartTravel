@@ -29,22 +29,29 @@
 static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     if (![TermUsage agree]) {
         self.window.rootViewController = [self loadControllerFromStoryboard:@"FirstLaunch"];
         [self.window makeKeyAndVisible];
     }
     
-    //Prepare database
-    [self perpareSqliteDB];
-    
-#ifdef DEBUG
-    //Initialize database with JSON data
-    [ModelUtility insertDataIntoMainDBTablesUsingDataFromJSONFiles];
-#endif
-    
     //Initialize GMap
     [GMSServices provideAPIKey:GMAP_API_KEY];
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"everLaunched"])
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+        
+        //Prepare database
+        [self perpareSqliteDB];
+        
+        //Initialize database with JSON data
+        [ModelUtility insertDataIntoMainDBTablesUsingDataFromJSONFiles];
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
+    }
     
     return YES;
 }

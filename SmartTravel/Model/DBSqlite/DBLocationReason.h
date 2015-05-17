@@ -12,6 +12,7 @@
 
 @interface DBLocationReason: MTLModel<MTLFMDBSerializing>
 
+@property (nonatomic, copy) NSNumber* Id;
 @property (nonatomic, copy) NSString* Loc_code;
 @property (nonatomic, copy) NSString* Travel_direction;
 @property (nonatomic, copy) NSNumber* Reason_id;

@@ -50,7 +50,7 @@ static NSString * const kTopMotorcyclistQuerySmt = @"select * from Top_Motorcycl
     }
     else if ([tableName isEqualToString:MAIN_DB_TBL_LOCATION_REASON])
     {
-        return [NSString stringWithFormat:@"INSERT INTO %@ (Loc_code, Travel_direction, Reason_id, Total, Warning_priority) values(:Loc_code, :Travel_direction, :Reason_id, :Total, :Warning_priority)", MAIN_DB_TBL_LOCATION_REASON];
+        return [NSString stringWithFormat:@"INSERT INTO %@ (Id, Loc_code, Travel_direction, Reason_id, Total, Warning_priority) values(:Id, :Loc_code, :Travel_direction, :Reason_id, :Total, :Warning_priority)", MAIN_DB_TBL_LOCATION_REASON];
     }
     else if ([tableName isEqualToString:MAIN_DB_TBL_WM_DAYTYPE])
     {

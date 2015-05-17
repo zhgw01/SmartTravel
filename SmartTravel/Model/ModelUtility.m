@@ -65,11 +65,13 @@
 }
 
 +(DBLocationReason*)generateDBLocationReasonFromJSON:(JSONLocationReason*)jLocationReason
+                                              withID:(NSInteger)rowId
 {
     if (!jLocationReason) return nil;
 
     DBLocationReason* dbLocationReason = [[DBLocationReason alloc] init];
     
+    dbLocationReason.Id = [NSNumber numberWithInteger:rowId];
     dbLocationReason.Loc_code = jLocationReason.locCode;
     dbLocationReason.Travel_direction = jLocationReason.travelDirection;
     dbLocationReason.Reason_id = jLocationReason.reasonId;
@@ -113,10 +115,14 @@
     
     smt = [DBManager makeInsertSmtForTable:MAIN_DB_TBL_LOCATION_REASON];
     NSArray* locationReasons = [jsonManager readJSONFromReadonlyJSONFile:JSON_COLLECTION_FILE_NAME_FILE_LOCATION_REASON];
+    NSInteger locationReasonID = 0;
     for (JSONLocationReason* jLocationReason in locationReasons)
     {
-        DBLocationReason* dbLocationReason = [ModelUtility generateDBLocationReasonFromJSON:jLocationReason];
-        [dbManager.mainDb executeUpdate:smt withParameterDictionary:[dbLocationReason dictionaryValue]];
+        DBLocationReason* dbLocationReason = [ModelUtility generateDBLocationReasonFromJSON:jLocationReason withID:locationReasonID];
+        if ([dbManager.mainDb executeUpdate:smt withParameterDictionary:[dbLocationReason dictionaryValue]])
+        {
+            ++locationReasonID;
+        }
     }
     
     smt = [DBManager makeInsertSmtForTable:MAIN_DB_TBL_WM_DAYTYPE];
