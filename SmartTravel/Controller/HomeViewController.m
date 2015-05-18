@@ -48,8 +48,6 @@ static CGFloat kHeightProportion = 0.3;
     [self setupMap];
     [self setupWarning];
     
-    self.markerManager = [[MarkerManager alloc] init];
-    
     // Set default location to Edmonton
     self.defaultLocation = [[CLLocation alloc] initWithLatitude:53.5501400  longitude:-113.4687100];
     self.recentLocation = [self.defaultLocation copy];
@@ -57,6 +55,11 @@ static CGFloat kHeightProportion = 0.3;
     self.mapView.camera = [GMSCameraPosition cameraWithLatitude:self.defaultLocation.coordinate.latitude
                                                       longitude:self.defaultLocation.coordinate.longitude
                                                            zoom:12.0];
+
+    // Draw all hotspots except shool zones on map.
+    self.markerManager = [[MarkerManager alloc] init];
+    [self.markerManager drawMarkers:self.mapView];
+    
     self.zoomToCurrent = NO;
 }
 

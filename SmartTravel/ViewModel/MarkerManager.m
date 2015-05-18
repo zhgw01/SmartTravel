@@ -28,7 +28,7 @@
 
 - (void)getHotSpotMarkers
 {
-    NSArray* hotSpots = [[DBManager sharedInstance] selectHotSpots:HotSpotTypeCnt];
+    NSArray* hotSpots = [[DBManager sharedInstance] selectHotSpots:HotSpotTypeAllExceptSchoolZone];
     NSMutableSet* set = [[NSMutableSet alloc] init];
     for (HotSpot* hotSpot in hotSpots)
     {
