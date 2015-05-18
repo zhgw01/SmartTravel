@@ -50,7 +50,7 @@
 {
     CGPoint translatePoint = [recognizer translationInView:self.gripBackgroundView];
     // Do not hide this view if the pan distance is too small
-    if (translatePoint.y > 5)
+    if (translatePoint.y < -5)
     {
         self.hidden = YES;
     }

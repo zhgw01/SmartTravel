@@ -16,13 +16,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="447-5n-PAM" userLabel="LocationLabel">
-                        <rect key="frame" x="8" y="24.5" width="259" height="17"/>
+                        <rect key="frame" x="8" y="21" width="259" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed3-TA-p5O" userLabel="CountLabel">
-                        <rect key="frame" x="287" y="24" width="30" height="20"/>
+                        <rect key="frame" x="287" y="20" width="30" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="ZJf-iE-7HK"/>
                             <constraint firstAttribute="width" constant="30" id="bV7-UD-JQM"/>
@@ -34,20 +34,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="Ed3-TA-p5O" firstAttribute="leading" secondItem="447-5n-PAM" secondAttribute="trailing" constant="20" id="0uO-Lh-i7b"/>
-                    <constraint firstItem="Ed3-TA-p5O" firstAttribute="top" secondItem="447-5n-PAM" secondAttribute="top" id="EgX-TS-s2f"/>
-                    <constraint firstItem="Ed3-TA-p5O" firstAttribute="top" secondItem="447-5n-PAM" secondAttribute="top" id="Eov-Ad-Rji"/>
-                    <constraint firstAttribute="centerX" secondItem="Ed3-TA-p5O" secondAttribute="centerX" constant="-142" id="cPZ-Ue-3Wf"/>
+                    <constraint firstItem="Ed3-TA-p5O" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="12" id="EIh-Rh-cUy"/>
                     <constraint firstItem="447-5n-PAM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="kEB-kg-qmP"/>
-                    <constraint firstAttribute="centerY" secondItem="447-5n-PAM" secondAttribute="centerY" constant="-4.25" id="sVd-xb-LtD"/>
+                    <constraint firstAttribute="centerY" secondItem="447-5n-PAM" secondAttribute="centerY" id="sVd-xb-LtD"/>
                     <constraint firstItem="Ed3-TA-p5O" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="5" id="swg-zg-6V5"/>
-                    <constraint firstItem="447-5n-PAM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="17" id="zPb-sh-pUk"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="zPb-sh-pUk"/>
-                        <exclude reference="Eov-Ad-Rji"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="countLabel" destination="Ed3-TA-p5O" id="4E8-Du-3kh"/>

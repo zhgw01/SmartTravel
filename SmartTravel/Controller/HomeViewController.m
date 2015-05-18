@@ -12,13 +12,16 @@
 #import <SWRevealViewController/SWRevealViewController.h>
 #import <Geo-Utilities/CLLocation+Navigation.h>
 #import "HotSpotListViewController.h"
-#import "WarningView.h"
 #import "MarkerManager.h"
 #import "DBLocationReasonAdapter.h"
 #import "DBReasonAdapter.h"
 #import "DateUtility.h"
 
-static CGFloat kHeightProportion = 0.3;
+#import "WarningView.h"
+#import "HotSpotDetailView.h"
+
+static CGFloat kWarningViewHeightProportion = 0.3;
+static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
 
 @interface HomeViewController ()<SWRevealViewControllerDelegate, CLLocationManagerDelegate, HotSpotListViewControllerMapDelegate>
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
@@ -27,13 +30,18 @@ static CGFloat kHeightProportion = 0.3;
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) CircleMarker* locationMarker;
-@property (assign, nonatomic) BOOL zoomToCurrent;
 @property (strong, nonatomic) MarkerManager* markerManager;
 
-@property (strong, nonatomic) WarningView *warningView;
 @property (copy, nonatomic)   CLLocation *recentLocation;
 @property (strong, nonatomic) CLLocation* defaultLocation;
 @property (assign, nonatomic) CLLocationDirection direction;
+
+@property (assign, nonatomic) BOOL zoomToCurrent;
+
+#ifdef DEBUG
+@property (strong, nonatomic) WarningView *warningView;
+@property (strong, nonatomic) HotSpotDetailView* hotSpotDetailView;
+#endif
 
 @end
 
@@ -45,15 +53,24 @@ static CGFloat kHeightProportion = 0.3;
     [self setupNavigationBar];
     [self setupSideBarMenu];
     [self setupMap];
+#ifdef DEBUG
     [self setupWarning];
-    [self zoomToEdmonton];
+    [self setupHotSpotDetail];
+#endif
     
-    self.zoomToCurrent = NO;
-    self.markerManager = [[MarkerManager alloc] init];
-    
-    self.recentLocation = nil;
     // Set default location to Edmonton
     self.defaultLocation = [[CLLocation alloc] initWithLatitude:53.5501400  longitude:-113.4687100];
+    self.recentLocation = [self.defaultLocation copy];
+    
+    self.mapView.camera = [GMSCameraPosition cameraWithLatitude:self.defaultLocation.coordinate.latitude
+                                                      longitude:self.defaultLocation.coordinate.longitude
+                                                           zoom:12.0];
+
+    // Draw all hotspots except shool zones on map.
+    self.markerManager = [[MarkerManager alloc] init];
+    [self.markerManager drawMarkers:self.mapView];
+    
+    self.zoomToCurrent = NO;
 }
 
 - (void)setupWarning
@@ -62,11 +79,24 @@ static CGFloat kHeightProportion = 0.3;
     [self.view addSubview:self.warningView ];
     
     self.warningView.frame = CGRectMake(self.view.frame.origin.x,
-                                        self.view.frame.origin.y + self.view.frame.size.height * (1- kHeightProportion),
+                                        self.view.frame.origin.y,
                                         self.view.frame.size.width,
-                                        self.view.frame.size.height * kHeightProportion);
+                                        self.view.frame.size.height * kWarningViewHeightProportion);
     
     self.warningView.hidden = YES;
+}
+
+- (void)setupHotSpotDetail
+{
+    self.hotSpotDetailView = [[[NSBundle mainBundle] loadNibNamed:@"HotSpotDetailView" owner:self options:nil] firstObject];
+    [self.view addSubview:self.hotSpotDetailView];
+    
+    self.hotSpotDetailView.frame = CGRectMake(self.view.frame.origin.x,
+                                              self.view.frame.origin.y + self.view.frame.size.height * (1- kHotSpotDetailViewHeightProportion),
+                                              self.view.frame.size.width,
+                                              self.view.frame.size.height * kHotSpotDetailViewHeightProportion);
+    
+    self.hotSpotDetailView.hidden = YES;
 }
 
 - (void) setupMap
@@ -75,15 +105,6 @@ static CGFloat kHeightProportion = 0.3;
     self.locationManager.delegate = self;
     
     [self requestLocationAuthorization];
-}
-
-- (void) zoomToEdmonton
-{
-    // Zoom to Edmonton
-    GMSCameraPosition* edmontonPosition = [GMSCameraPosition cameraWithLatitude:self.defaultLocation.coordinate.latitude
-                                                                      longitude:self.defaultLocation.coordinate.longitude
-                                                                           zoom:12.0];
-    self.mapView.camera = edmontonPosition;
 }
 
 - (void) setupNavigationBar
@@ -120,26 +141,28 @@ static CGFloat kHeightProportion = 0.3;
     GMSCameraUpdate *zoomIn = [GMSCameraUpdate zoomIn];
     [self.mapView animateWithCameraUpdate:zoomIn];
     
-    // Comment out following codes to test warning view
+#ifdef DEBUG
     self.warningView.hidden = !self.warningView.hidden;
+#endif
 }
 
 - (IBAction)zoomOut:(id)sender
 {
     GMSCameraUpdate *zoomOut = [GMSCameraUpdate zoomOut];
     [self.mapView animateWithCameraUpdate:zoomOut];
+#ifdef DEBUG
+    self.hotSpotDetailView.hidden = !self.hotSpotDetailView.hidden;
+#endif
 }
 
-- (IBAction)locateMe:(id)sender {
-
-    if (!self.mapView.myLocationEnabled) {
-        [self requestLocationAuthorization];
-    }
-    
+- (IBAction)locateMe:(id)sender
+{
     self.zoomToCurrent = YES;
+    [self.locationManager startUpdatingLocation];
 }
 
-- (void) requestLocationAuthorization {
+- (void) requestLocationAuthorization
+{
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [self.locationManager requestWhenInUseAuthorization];
     }
@@ -172,10 +195,8 @@ static CGFloat kHeightProportion = 0.3;
 
 - (void) locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
-    if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
-        //self.mapView.myLocationEnabled = YES;
-        [self.locationManager startUpdatingLocation];
-        [self.markerManager drawMarkers:self.mapView];
+    if (status == kCLAuthorizationStatusAuthorizedWhenInUse ||
+        status == kCLAuthorizationStatusAuthorizedAlways) {
     }
 }
 
@@ -184,13 +205,24 @@ static CGFloat kHeightProportion = 0.3;
     CLLocation* lastLocation = self.recentLocation;
     self.recentLocation = locations.lastObject;
     self.direction = [lastLocation kv_bearingOnRhumbLineToCoordinate:self.recentLocation.coordinate];
-    
-    if (self.locationMarker == nil) {
+    if (self.zoomToCurrent)
+    {
+        GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:self.recentLocation.coordinate];
+        [self.mapView animateWithCameraUpdate:newTarget];
+        [self.locationManager stopUpdatingLocation];
+        self.zoomToCurrent = NO;
+    }
+
+    // TODO: Add navigation mode
+    if (self.locationMarker == nil)
+    {
         self.locationMarker = [CircleMarker markerWithPosition:self.recentLocation.coordinate];
         //self.locationMarker.icon = [UIImage imageNamed:@"icon_currentlocation"];
         [self.locationMarker loadImages];
         self.locationMarker.map = self.mapView;
-    } else {
+    }
+    else
+    {
         self.locationMarker.position = self.recentLocation.coordinate;
     }
     

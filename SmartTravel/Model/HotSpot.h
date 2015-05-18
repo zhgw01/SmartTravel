@@ -13,6 +13,7 @@ typedef enum : NSUInteger {
     HotSpotTypeMidStreet,
     HotSpotTypeMidAvenue,
     HotSpotTypeSchoolZone,
+    HotSpotTypeAllExceptSchoolZone,
     HotSpotTypeCnt
 } HotSpotType;
 

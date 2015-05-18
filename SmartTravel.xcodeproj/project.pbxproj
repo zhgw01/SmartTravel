@@ -14,8 +14,6 @@
 		420096231AFEF25600B43630 /* TopPedestrian.m in Sources */ = {isa = PBXBuildFile; fileRef = 420096221AFEF25600B43630 /* TopPedestrian.m */; };
 		420096261AFEF31C00B43630 /* TopCyclist.m in Sources */ = {isa = PBXBuildFile; fileRef = 420096251AFEF31C00B43630 /* TopCyclist.m */; };
 		420096291AFEF37B00B43630 /* TopMotorcyclist.m in Sources */ = {isa = PBXBuildFile; fileRef = 420096281AFEF37B00B43630 /* TopMotorcyclist.m */; };
-		4200962B1AFF0FFA00B43630 /* HotSpot.h in Sources */ = {isa = PBXBuildFile; fileRef = 4200962A1AFF0FFA00B43630 /* HotSpot.h */; };
-		4200962D1AFF102900B43630 /* HotSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4200962C1AFF102900B43630 /* HotSpot.m */; };
 		4203DDB91B0879350002D67F /* DateUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4203DDB61B0879350002D67F /* DateUtility.m */; };
 		4203DDBA1B0879350002D67F /* ModelUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4203DDB81B0879350002D67F /* ModelUtility.m */; };
 		4225F8331B081A4100C5A73F /* DBDateAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F82C1B081A4100C5A73F /* DBDateAdapter.m */; };
@@ -38,11 +36,18 @@
 		422977841B0810DB00A11E90 /* DBWMDayType.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977801B0810DB00A11E90 /* DBWMDayType.m */; };
 		422977851B0810DB00A11E90 /* DBWMReasonCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977811B0810DB00A11E90 /* DBWMReasonCondition.m */; };
 		425754B71B088BA20046433F /* 20150517013203-58195-data.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 425754B61B088BA20046433F /* 20150517013203-58195-data.gpx */; };
-		425C64911AF8E71100BE9086 /* WarningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425C64901AF8E71100BE9086 /* WarningView.m */; };
-		425C64931AF8E72800BE9086 /* WarningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425C64921AF8E72800BE9086 /* WarningView.xib */; };
 		4290A0A91AF600AE00CB46E5 /* smartTravelDb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 4290A0A81AF600AE00CB46E5 /* smartTravelDb.sqlite */; };
 		4290A0AD1AF6050100CB46E5 /* HotSpotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4290A0AB1AF6050100CB46E5 /* HotSpotTableViewCell.m */; };
 		4290A0AE1AF6050100CB46E5 /* HotSpotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4290A0AC1AF6050100CB46E5 /* HotSpotTableViewCell.xib */; };
+		42C6A8A61B0A0CEC00EE1518 /* HotSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C6A8A51B0A0CEC00EE1518 /* HotSpot.m */; };
+		42C6A8B21B0A0FAC00EE1518 /* HotSpotDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C6A8AD1B0A0FAC00EE1518 /* HotSpotDetailView.m */; };
+		42C6A8B31B0A0FAC00EE1518 /* HotSpotDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42C6A8AE1B0A0FAC00EE1518 /* HotSpotDetailView.xib */; };
+		42C6A8B41B0A0FAC00EE1518 /* WarningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C6A8B01B0A0FAC00EE1518 /* WarningView.m */; };
+		42C6A8B51B0A0FAC00EE1518 /* WarningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42C6A8B11B0A0FAC00EE1518 /* WarningView.xib */; };
+		42C6A8C61B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C6A8C11B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.m */; };
+		42C6A8C71B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42C6A8C21B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.xib */; };
+		42C6A8C81B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C6A8C41B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m */; };
+		42C6A8C91B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42C6A8C51B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib */; };
 		6613E4635B5E884F0B519EDB /* libPods-SmartTravel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */; };
 		9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B295C081ADFF0B200758837 /* FirstLaunch.storyboard */; };
 		9B5EE8641AF3EEE600524F4A /* default.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9B5EE8631AF3EEE600524F4A /* default.gpx */; };
@@ -93,8 +98,6 @@
 		420096251AFEF31C00B43630 /* TopCyclist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopCyclist.m; path = Model/TopLocation/TopCyclist.m; sourceTree = "<group>"; };
 		420096271AFEF37B00B43630 /* TopMotorcyclist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopMotorcyclist.h; path = Model/TopLocation/TopMotorcyclist.h; sourceTree = "<group>"; };
 		420096281AFEF37B00B43630 /* TopMotorcyclist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopMotorcyclist.m; path = Model/TopLocation/TopMotorcyclist.m; sourceTree = "<group>"; };
-		4200962A1AFF0FFA00B43630 /* HotSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotSpot.h; sourceTree = "<group>"; };
-		4200962C1AFF102900B43630 /* HotSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotSpot.m; sourceTree = "<group>"; };
 		4203DDB51B0879350002D67F /* DateUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateUtility.h; path = Model/Utility/DateUtility.h; sourceTree = "<group>"; };
 		4203DDB61B0879350002D67F /* DateUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateUtility.m; path = Model/Utility/DateUtility.m; sourceTree = "<group>"; };
 		4203DDB71B0879350002D67F /* ModelUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelUtility.h; path = Model/Utility/ModelUtility.h; sourceTree = "<group>"; };
@@ -134,13 +137,24 @@
 		422977881B08113100A11E90 /* DBWMDayType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBWMDayType.h; path = Model/DBSqlite/DBWMDayType.h; sourceTree = "<group>"; };
 		422977891B08113100A11E90 /* DBWMReasonCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBWMReasonCondition.h; path = Model/DBSqlite/DBWMReasonCondition.h; sourceTree = "<group>"; };
 		425754B61B088BA20046433F /* 20150517013203-58195-data.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "20150517013203-58195-data.gpx"; path = "Test/GPX/20150517013203-58195-data.gpx"; sourceTree = "<group>"; };
-		425C648F1AF8E71100BE9086 /* WarningView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WarningView.h; sourceTree = "<group>"; };
-		425C64901AF8E71100BE9086 /* WarningView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WarningView.m; sourceTree = "<group>"; };
-		425C64921AF8E72800BE9086 /* WarningView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WarningView.xib; sourceTree = "<group>"; };
 		4290A0A81AF600AE00CB46E5 /* smartTravelDb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = smartTravelDb.sqlite; sourceTree = "<group>"; };
 		4290A0AA1AF6050100CB46E5 /* HotSpotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotSpotTableViewCell.h; sourceTree = "<group>"; };
 		4290A0AB1AF6050100CB46E5 /* HotSpotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotSpotTableViewCell.m; sourceTree = "<group>"; };
 		4290A0AC1AF6050100CB46E5 /* HotSpotTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotSpotTableViewCell.xib; sourceTree = "<group>"; };
+		42C6A8A41B0A0CEC00EE1518 /* HotSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HotSpot.h; path = Model/HotSpot.h; sourceTree = "<group>"; };
+		42C6A8A51B0A0CEC00EE1518 /* HotSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HotSpot.m; path = Model/HotSpot.m; sourceTree = "<group>"; };
+		42C6A8AC1B0A0FAC00EE1518 /* HotSpotDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HotSpotDetailView.h; path = View/HotSpotDetailView.h; sourceTree = "<group>"; };
+		42C6A8AD1B0A0FAC00EE1518 /* HotSpotDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HotSpotDetailView.m; path = View/HotSpotDetailView.m; sourceTree = "<group>"; };
+		42C6A8AE1B0A0FAC00EE1518 /* HotSpotDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HotSpotDetailView.xib; path = View/HotSpotDetailView.xib; sourceTree = "<group>"; };
+		42C6A8AF1B0A0FAC00EE1518 /* WarningView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WarningView.h; path = View/WarningView.h; sourceTree = "<group>"; };
+		42C6A8B01B0A0FAC00EE1518 /* WarningView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WarningView.m; path = View/WarningView.m; sourceTree = "<group>"; };
+		42C6A8B11B0A0FAC00EE1518 /* WarningView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WarningView.xib; path = View/WarningView.xib; sourceTree = "<group>"; };
+		42C6A8C01B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HotSpotDetailViewBodyCell.h; path = View/HotSpotDetailViewBodyCell.h; sourceTree = "<group>"; };
+		42C6A8C11B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HotSpotDetailViewBodyCell.m; path = View/HotSpotDetailViewBodyCell.m; sourceTree = "<group>"; };
+		42C6A8C21B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HotSpotDetailViewBodyCell.xib; path = View/HotSpotDetailViewBodyCell.xib; sourceTree = "<group>"; };
+		42C6A8C31B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HotSpotDetailViewHeaderCell.h; path = View/HotSpotDetailViewHeaderCell.h; sourceTree = "<group>"; };
+		42C6A8C41B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HotSpotDetailViewHeaderCell.m; path = View/HotSpotDetailViewHeaderCell.m; sourceTree = "<group>"; };
+		42C6A8C51B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HotSpotDetailViewHeaderCell.xib; path = View/HotSpotDetailViewHeaderCell.xib; sourceTree = "<group>"; };
 		5EEEC9CCD391050A8D1BA199 /* libPods-SmartTravelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartTravelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6928DA7D73FEF35E1EBF313F /* Pods-SmartTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravel/Pods-SmartTravel.release.xcconfig"; sourceTree = "<group>"; };
 		8D390935FB46D35A2294BF7D /* Pods-SmartTravelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravelTests/Pods-SmartTravelTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -301,11 +315,23 @@
 		9B295C071ADFF03200758837 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4290A0AA1AF6050100CB46E5 /* HotSpotTableViewCell.h */,
+				4290A0AB1AF6050100CB46E5 /* HotSpotTableViewCell.m */,
+				4290A0AC1AF6050100CB46E5 /* HotSpotTableViewCell.xib */,
+				42C6A8C01B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.h */,
+				42C6A8C11B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.m */,
+				42C6A8C21B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.xib */,
+				42C6A8C31B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.h */,
+				42C6A8C41B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m */,
+				42C6A8C51B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib */,
+				42C6A8AC1B0A0FAC00EE1518 /* HotSpotDetailView.h */,
+				42C6A8AD1B0A0FAC00EE1518 /* HotSpotDetailView.m */,
+				42C6A8AE1B0A0FAC00EE1518 /* HotSpotDetailView.xib */,
+				42C6A8AF1B0A0FAC00EE1518 /* WarningView.h */,
+				42C6A8B01B0A0FAC00EE1518 /* WarningView.m */,
+				42C6A8B11B0A0FAC00EE1518 /* WarningView.xib */,
 				9B5EE8671AF3F6B400524F4A /* CircleMarker.h */,
 				9B5EE8681AF3F6B400524F4A /* CircleMarker.m */,
-				425C648F1AF8E71100BE9086 /* WarningView.h */,
-				425C64901AF8E71100BE9086 /* WarningView.m */,
-				425C64921AF8E72800BE9086 /* WarningView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -323,9 +349,6 @@
 				9B7E595F1AE3966F0008D25C /* HomeViewController.m */,
 				9B812DDA1AEB3EB7008F17B6 /* SettingsViewController.h */,
 				9B812DDB1AEB3EB7008F17B6 /* SettingsViewController.m */,
-				4290A0AA1AF6050100CB46E5 /* HotSpotTableViewCell.h */,
-				4290A0AB1AF6050100CB46E5 /* HotSpotTableViewCell.m */,
-				4290A0AC1AF6050100CB46E5 /* HotSpotTableViewCell.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -333,6 +356,8 @@
 		9B295C0C1ADFF0C500758837 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				42C6A8A41B0A0CEC00EE1518 /* HotSpot.h */,
+				42C6A8A51B0A0CEC00EE1518 /* HotSpot.m */,
 				4225F8461B082A3800C5A73F /* JSONManager.h */,
 				4225F8471B082A3800C5A73F /* JSONManager.m */,
 				4225F83D1B0829C200C5A73F /* DBConstants.h */,
@@ -350,8 +375,6 @@
 				9B7E59501AE37FD10008D25C /* TermUsage.m */,
 				9BF128181AFE537D008E72DA /* Direction.h */,
 				9BF128191AFE537D008E72DA /* Direction.m */,
-				4200962A1AFF0FFA00B43630 /* HotSpot.h */,
-				4200962C1AFF102900B43630 /* HotSpot.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -545,15 +568,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				4229775E1B080ECD00A11E90 /* TBL_COLLISION_LOCATION.json in Resources */,
-				425C64931AF8E72800BE9086 /* WarningView.xib in Resources */,
+				42C6A8B51B0A0FAC00EE1518 /* WarningView.xib in Resources */,
 				420096141AFEEE2600B43630 /* smartTravelTemplate.sqlite in Resources */,
 				9BC3392F1AE296250046AAB5 /* termofusage.html in Resources */,
+				42C6A8C91B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib in Resources */,
 				4290A0AE1AF6050100CB46E5 /* HotSpotTableViewCell.xib in Resources */,
 				9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */,
+				42C6A8B31B0A0FAC00EE1518 /* HotSpotDetailView.xib in Resources */,
 				4229775F1B080ECD00A11E90 /* TBL_LOCATION_REASON.json in Resources */,
 				4290A0A91AF600AE00CB46E5 /* smartTravelDb.sqlite in Resources */,
 				425754B71B088BA20046433F /* 20150517013203-58195-data.gpx in Resources */,
 				422977611B080ECD00A11E90 /* TBL_WM_REASON_CONDITION.json in Resources */,
+				42C6A8C71B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.xib in Resources */,
 				9B6A85BA1ADFDF0000667170 /* Main.storyboard in Resources */,
 				9B6A85BF1ADFDF0000667170 /* LaunchScreen.xib in Resources */,
 				9B6A85BC1ADFDF0000667170 /* Images.xcassets in Resources */,
@@ -642,23 +668,25 @@
 			files = (
 				4225F8351B081A4100C5A73F /* DBLocationReasonAdapter.m in Sources */,
 				422977831B0810DB00A11E90 /* DBLocationReason.m in Sources */,
+				42C6A8B41B0A0FAC00EE1518 /* WarningView.m in Sources */,
 				4225F8341B081A4100C5A73F /* DBLocationAdapter.m in Sources */,
 				9B6A85B71ADFDEFF00667170 /* ViewController.m in Sources */,
 				4225F8361B081A4100C5A73F /* DBReasonAdapter.m in Sources */,
-				4200962B1AFF0FFA00B43630 /* HotSpot.h in Sources */,
+				42C6A8A61B0A0CEC00EE1518 /* HotSpot.m in Sources */,
 				4225F8431B0829C200C5A73F /* DBConstants.m in Sources */,
 				9B6A85B41ADFDEFF00667170 /* AppDelegate.m in Sources */,
 				4290A0AD1AF6050100CB46E5 /* HotSpotTableViewCell.m in Sources */,
 				4203DDB91B0879350002D67F /* DateUtility.m in Sources */,
-				4200962D1AFF102900B43630 /* HotSpot.m in Sources */,
 				4225F8331B081A4100C5A73F /* DBDateAdapter.m in Sources */,
 				4225F8481B082A3800C5A73F /* JSONManager.m in Sources */,
 				420096201AFEF19200B43630 /* TopMidblock.m in Sources */,
 				422977851B0810DB00A11E90 /* DBWMReasonCondition.m in Sources */,
+				42C6A8C81B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m in Sources */,
 				4225F8441B0829C200C5A73F /* JSONConstants.m in Sources */,
 				420096291AFEF37B00B43630 /* TopMotorcyclist.m in Sources */,
 				4229776C1B080EF000A11E90 /* JSONWMDayType.m in Sources */,
 				422977841B0810DB00A11E90 /* DBWMDayType.m in Sources */,
+				42C6A8C61B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.m in Sources */,
 				9B6C7DA81AF500C500DF6FA9 /* DBManager.m in Sources */,
 				9B812DD91AEB3E9D008F17B6 /* HotSpotListViewController.m in Sources */,
 				9B812DDC1AEB3EB7008F17B6 /* SettingsViewController.m in Sources */,
@@ -670,11 +698,11 @@
 				9B7E59601AE3966F0008D25C /* HomeViewController.m in Sources */,
 				4200961C1AFEF05800B43630 /* TopIntersection.m in Sources */,
 				4229776A1B080EF000A11E90 /* JSONCollisionLocation.m in Sources */,
+				42C6A8B21B0A0FAC00EE1518 /* HotSpotDetailView.m in Sources */,
 				420096231AFEF25600B43630 /* TopPedestrian.m in Sources */,
 				420096261AFEF31C00B43630 /* TopCyclist.m in Sources */,
 				9B7E59551AE3882A0008D25C /* GuideViewController.m in Sources */,
 				4203DDBA1B0879350002D67F /* ModelUtility.m in Sources */,
-				425C64911AF8E71100BE9086 /* WarningView.m in Sources */,
 				4229776B1B080EF000A11E90 /* JSONLocationReason.m in Sources */,
 				9BDBCA461AF8EEE600F23275 /* MarkerManager.m in Sources */,
 				4229776D1B080EF000A11E90 /* JSONWMReasonCondition.m in Sources */,
