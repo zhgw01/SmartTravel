@@ -27,13 +27,14 @@ static CGFloat kHeightProportion = 0.3;
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) CircleMarker* locationMarker;
-@property (assign, nonatomic) BOOL zoomToCurrent;
 @property (strong, nonatomic) MarkerManager* markerManager;
 
 @property (strong, nonatomic) WarningView *warningView;
 @property (copy, nonatomic)   CLLocation *recentLocation;
 @property (strong, nonatomic) CLLocation* defaultLocation;
 @property (assign, nonatomic) CLLocationDirection direction;
+
+@property (assign, nonatomic) BOOL zoomToCurrent;
 
 @end
 
@@ -46,14 +47,17 @@ static CGFloat kHeightProportion = 0.3;
     [self setupSideBarMenu];
     [self setupMap];
     [self setupWarning];
-    [self zoomToEdmonton];
     
-    self.zoomToCurrent = NO;
     self.markerManager = [[MarkerManager alloc] init];
     
-    self.recentLocation = nil;
     // Set default location to Edmonton
     self.defaultLocation = [[CLLocation alloc] initWithLatitude:53.5501400  longitude:-113.4687100];
+    self.recentLocation = [self.defaultLocation copy];
+    
+    self.mapView.camera = [GMSCameraPosition cameraWithLatitude:self.defaultLocation.coordinate.latitude
+                                                      longitude:self.defaultLocation.coordinate.longitude
+                                                           zoom:12.0];
+    self.zoomToCurrent = NO;
 }
 
 - (void)setupWarning
@@ -75,15 +79,6 @@ static CGFloat kHeightProportion = 0.3;
     self.locationManager.delegate = self;
     
     [self requestLocationAuthorization];
-}
-
-- (void) zoomToEdmonton
-{
-    // Zoom to Edmonton
-    GMSCameraPosition* edmontonPosition = [GMSCameraPosition cameraWithLatitude:self.defaultLocation.coordinate.latitude
-                                                                      longitude:self.defaultLocation.coordinate.longitude
-                                                                           zoom:12.0];
-    self.mapView.camera = edmontonPosition;
 }
 
 - (void) setupNavigationBar
@@ -130,16 +125,14 @@ static CGFloat kHeightProportion = 0.3;
     [self.mapView animateWithCameraUpdate:zoomOut];
 }
 
-- (IBAction)locateMe:(id)sender {
-
-    if (!self.mapView.myLocationEnabled) {
-        [self requestLocationAuthorization];
-    }
-    
+- (IBAction)locateMe:(id)sender
+{
     self.zoomToCurrent = YES;
+    [self.locationManager startUpdatingLocation];
 }
 
-- (void) requestLocationAuthorization {
+- (void) requestLocationAuthorization
+{
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [self.locationManager requestWhenInUseAuthorization];
     }
@@ -172,10 +165,8 @@ static CGFloat kHeightProportion = 0.3;
 
 - (void) locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
-    if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
-        //self.mapView.myLocationEnabled = YES;
-        [self.locationManager startUpdatingLocation];
-        [self.markerManager drawMarkers:self.mapView];
+    if (status == kCLAuthorizationStatusAuthorizedWhenInUse ||
+        status == kCLAuthorizationStatusAuthorizedAlways) {
     }
 }
 
@@ -184,13 +175,24 @@ static CGFloat kHeightProportion = 0.3;
     CLLocation* lastLocation = self.recentLocation;
     self.recentLocation = locations.lastObject;
     self.direction = [lastLocation kv_bearingOnRhumbLineToCoordinate:self.recentLocation.coordinate];
-    
-    if (self.locationMarker == nil) {
+    if (self.zoomToCurrent)
+    {
+        GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:self.recentLocation.coordinate];
+        [self.mapView animateWithCameraUpdate:newTarget];
+        [self.locationManager stopUpdatingLocation];
+        self.zoomToCurrent = NO;
+    }
+
+    // TODO: Add navigation mode
+    if (self.locationMarker == nil)
+    {
         self.locationMarker = [CircleMarker markerWithPosition:self.recentLocation.coordinate];
         //self.locationMarker.icon = [UIImage imageNamed:@"icon_currentlocation"];
         [self.locationMarker loadImages];
         self.locationMarker.map = self.mapView;
-    } else {
+    }
+    else
+    {
         self.locationMarker.position = self.recentLocation.coordinate;
     }
     
