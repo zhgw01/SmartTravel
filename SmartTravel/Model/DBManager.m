@@ -69,21 +69,22 @@
     
     if (hotSpotType == HotSpotTypeCnt)
     {
-        smt = @"select l.Location_name, l.Longitude, l.Latitude, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code order by r.Total asc";
+        smt = @"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code order by r.Total asc";
     }
     else if (hotSpotType == HotSpotTypeAllExceptSchoolZone)
     {
-        smt = [NSString stringWithFormat:@"select l.Location_name, l.Longitude, l.Latitude, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and (l.Roadway_portion = '%@' or l.Roadway_portion = '%@' or l.Roadway_portion = '%@') order by r.Total asc", @"INTERSECTION", @"MID STREET", @"MID AVENUE"];
+        smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and (l.Roadway_portion = '%@' or l.Roadway_portion = '%@' or l.Roadway_portion = '%@') order by r.Total asc", @"INTERSECTION", @"MID STREET", @"MID AVENUE"];
     }
     else
     {
-        smt = [NSString stringWithFormat:@"select l.Location_name, l.Longitude, l.Latitude, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and l.Roadway_portion = '%@' order by r.Total asc", [HotSpot toString:hotSpotType]];
+        smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and l.Roadway_portion = '%@' order by r.Total asc", [HotSpot toString:hotSpotType]];
     }
     
     FMResultSet* resultSet = [db executeQuery:smt];
     while ([resultSet nextWithError:&error])
     {
-        HotSpot* hotSpot = [[HotSpot alloc] initWithLocation:[resultSet stringForColumn:@"Location_name"]
+        HotSpot* hotSpot = [[HotSpot alloc] initWithLocCode:[resultSet stringForColumn:@"Loc_code"]
+                                                   location:[resultSet stringForColumn:@"Location_name"]
                                                        count:[resultSet intForColumn:@"Total"]
                                                         rank:[resultSet intForColumn:@"Warning_priority"]
                                                     latitude:[resultSet doubleForColumn:@"Latitude"]
@@ -91,6 +92,40 @@
         [res addObject:hotSpot];
     }
     [resultSet close];
+    
+    BOOL dbCloseRes = [db close];
+    NSAssert(dbCloseRes, @"Close db failed");
+    
+    return res;
+}
+
+-(NSArray*)getHotSpotDetailsByLocationCode:(NSString*)locCode
+{
+    NSString* mainDBPath = [DBManager getPathOfMainDB];
+    FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
+    if (![db open])
+    {
+        NSAssert(NO, @"Open db failed");
+    }
+    NSMutableArray* res = [[NSMutableArray alloc] init];
+    
+    NSError* error = nil;
+    NSString* smt =[NSString stringWithFormat:@"select l.Travel_direction, l.Total, r.Reason from TBL_LOCATION_REASON as l, TBL_WM_REASON_CONDITION as r where l.Loc_code = '%@' and l.Reason_id = r.Reason_id", locCode];
+    
+    FMResultSet* resultSet = [db executeQuery:smt];
+    while ([resultSet nextWithError:&error])
+    {
+        NSString* travelDirection = [resultSet stringForColumn:@"Travel_direction"];
+        NSString* reason = [resultSet stringForColumn:@"Reason"];
+        int total = [resultSet intForColumn:@"Total"];
+        
+        NSDictionary* data = [NSDictionary dictionaryWithObjectsAndKeys:
+                              travelDirection, @"Travel_direction",
+                              reason, @"Reason",
+                              [NSNumber numberWithInt:total], @"Total",
+                              nil];
+        [res addObject:data];
+    }
     
     BOOL dbCloseRes = [db close];
     NSAssert(dbCloseRes, @"Close db failed");

@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIView *gripBackgroundView;
 @property (weak, nonatomic) IBOutlet UITableView *detailsTableView;
 
+@property (strong, nonatomic) NSArray* details;
+
 @end
 
 @implementation HotSpotDetailView
@@ -29,12 +31,21 @@
 }
 */
 
+- (void)reload:(NSArray*)details
+{
+    self.details = details;
+    [self setNeedsDisplay];
+    [self.detailsTableView reloadData];
+}
+
 - (void)awakeFromNib
 {
     self.gripView.layer.cornerRadius = 4.0f;
     self.gripView.layer.masksToBounds = YES;
     self.detailsTableView.delegate = self;
     self.detailsTableView.dataSource = self;
+    
+    self.details = [[NSArray alloc] init];
 }
 
 - (void)didMoveToSuperview
@@ -67,7 +78,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [self.details count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -96,6 +107,27 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:kBodyCellNibName owner:self options:nil] lastObject];
         }
         
+        NSDictionary* detail = [self.details objectAtIndex:indexPath.row - 1];
+        [cell configureDirection:[detail objectForKey:@"Travel_direction"]
+                          reason:[detail objectForKey:@"Reason"]
+                           total:[detail objectForKey:@"Total"]];
+        
+//        static NSString* cellIdentifier = @"HotSpotDetailViewCommonCell";
+//        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+//        if (cell == nil)
+//        {
+//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellIdentifier];
+//        }
+//        
+//        cell.textLabel.text = [detail objectForKey:@"Travel_direction"];
+//        cell.textLabel.textAlignment = NSTextAlignmentLeft;
+//        cell.textLabel.textColor = [UIColor grayColor];
+//        
+//        cell.detailTextLabel.text = [detail objectForKey:@"Reason"];
+//        cell.detailTextLabel.numberOfLines = 0;
+//        cell.detailTextLabel.lineBreakMode = NSLineBreakByCharWrapping;
+//        cell.detailTextLabel.textColor = [UIColor grayColor];
+        
         return cell;
     }
     
@@ -106,12 +138,12 @@
 #pragma mark - <UITableViewDelegate> methods
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 30.f;
+    return 44.f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 35.f;
+    return 44.f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

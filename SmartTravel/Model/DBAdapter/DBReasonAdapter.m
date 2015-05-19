@@ -40,9 +40,9 @@ static NSString * const kEndTimeColumn = @"End_time";
         while([resultSet nextWithError:&error])
         {
             NSString* reasonId = [resultSet stringForColumn:kReasonIdColumn];
-            NSString* monthStr = [resultSet stringForColumn:kMonthColumn];
-            NSString* startTimeStr = [resultSet stringForColumn:kStartTimeColumn];
-            NSString* endTimeStr = [resultSet stringForColumn:kEndTimeColumn];
+//            NSString* monthStr = [resultSet stringForColumn:kMonthColumn];
+//            NSString* startTimeStr = [resultSet stringForColumn:kStartTimeColumn];
+//            NSString* endTimeStr = [resultSet stringForColumn:kEndTimeColumn];
             
 #ifdef DEBUG
             [res addObject:reasonId];

@@ -13,6 +13,7 @@
 #import <Geo-Utilities/CLLocation+Navigation.h>
 #import "HotSpotListViewController.h"
 #import "MarkerManager.h"
+#import "DBManager.h"
 #import "DBLocationReasonAdapter.h"
 #import "DBReasonAdapter.h"
 #import "DateUtility.h"
@@ -247,9 +248,21 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
                                                                                      ofReasonIds:reasonIds
                                                                                      inDirection:direction
                                                                                     withinRadius:radius];
+        DBManager* dbManager = [DBManager sharedInstance];
         for (NSDictionary* waringData in warnings)
         {
-            NSLog(@"You're in range of %@", (NSString*)[waringData objectForKey:@"Loc_code"]);
+            NSString* locCode = [waringData objectForKey:@"Loc_code"];
+            NSArray* details = [dbManager getHotSpotDetailsByLocationCode:locCode];
+            
+            for(NSDictionary* detail in details)
+            {
+                NSString* travelDirection = [detail valueForKey:@"Travel_direction"];
+                NSString* reason = [details valueForKey:@"Reason"];
+                NSNumber* total = [details valueForKey:@"Total"];
+                NSLog(@"Travel direction is %@", travelDirection);
+                NSLog(@"Reason is %@", reason);
+                NSLog(@"Total is %d", [total intValue]);
+            }
         }
     }
 }
@@ -279,20 +292,20 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
                                                                longitude:longtitude
                                                                     zoom:16.0];
     self.mapView.camera = targetPos;
-    CLLocation* targetLoc = [[CLLocation alloc] initWithLatitude:latitude longitude:longtitude];
+//    CLLocation* targetLoc = [[CLLocation alloc] initWithLatitude:latitude longitude:longtitude];
+//        double distance = (self.recentLocation) ?
+//        [self.recentLocation distanceFromLocation:targetLoc] :
+//        [self.defaultLocation distanceFromLocation:targetLoc];
+//        
+//        [self.warningView updateLocation:hotSpot.location
+//                                    rank:hotSpot.rank
+//                                   count:hotSpot.count
+//                                distance:[NSNumber numberWithDouble:distance]];
     
-    // Update warning view
-    if (!self.warningView.hidden)
-    {
-        double distance = (self.recentLocation) ?
-        [self.recentLocation distanceFromLocation:targetLoc] :
-        [self.defaultLocation distanceFromLocation:targetLoc];
-        
-        [self.warningView updateLocation:hotSpot.location
-                                    rank:hotSpot.rank
-                                   count:hotSpot.count
-                                distance:[NSNumber numberWithDouble:distance]];
-    }
+    self.hotSpotDetailView.hidden = NO;
+
+    NSArray* hotSpotDetails = [[DBManager sharedInstance] getHotSpotDetailsByLocationCode:hotSpot.locCode];
+    [self.hotSpotDetailView reload:hotSpotDetails];
 }
 
 @end

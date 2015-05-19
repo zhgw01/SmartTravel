@@ -10,4 +10,6 @@
 
 @interface HotSpotDetailView : UIView
 
+- (void)reload:(NSArray*)details;
+
 @end
