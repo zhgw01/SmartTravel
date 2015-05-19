@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,7 +14,48 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Direction" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71q-AO-say" userLabel="DirectionLabel">
+                        <rect key="frame" x="13" y="14" width="50" height="14.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="AHe-nn-IFZ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reason" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUe-SK-tBI" userLabel="Reason">
+                        <rect key="frame" x="68" y="1" width="220" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="220" id="HyH-S0-Yzb"/>
+                            <constraint firstAttribute="height" constant="40" id="fah-lk-9j6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqF-Q9-xJZ" userLabel="TotalLabel">
+                        <rect key="frame" x="293" y="14" width="14" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="centerY" secondItem="HqF-Q9-xJZ" secondAttribute="centerY" id="5cy-A3-nrb"/>
+                    <constraint firstItem="cUe-SK-tBI" firstAttribute="trailing" secondItem="HqF-Q9-xJZ" secondAttribute="leading" constant="-5" id="edM-I8-v3x"/>
+                    <constraint firstAttribute="centerY" secondItem="cUe-SK-tBI" secondAttribute="centerY" id="fBT-jI-opT"/>
+                    <constraint firstItem="HqF-Q9-xJZ" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-5" id="hOT-pJ-HhG"/>
+                    <constraint firstItem="cUe-SK-tBI" firstAttribute="leading" secondItem="71q-AO-say" secondAttribute="trailing" constant="5" id="nrQ-ri-FeP"/>
+                    <constraint firstItem="71q-AO-say" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="p09-uf-Qwt"/>
+                    <constraint firstAttribute="centerY" secondItem="71q-AO-say" secondAttribute="centerY" id="tev-jZ-9h2"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="directionLabel" destination="71q-AO-say" id="ihX-Ih-cru"/>
+                <outlet property="reasonLabel" destination="cUe-SK-tBI" id="11p-Jd-ZhG"/>
+                <outlet property="totalLabel" destination="HqF-Q9-xJZ" id="n73-nu-8gJ"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

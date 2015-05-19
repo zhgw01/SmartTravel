@@ -10,14 +10,16 @@
 
 @implementation HotSpot
 
-- (instancetype)initWithLocation:(NSString*)location
-                           count:(int)count
-                            rank:(int)rank
-                        latitude:(double)latitude
-                      longtitude:(double)longtitude
+- (instancetype)initWithLocCode:(NSString*)locCode
+                       location:(NSString*)location
+                          count:(int)count
+                           rank:(int)rank
+                       latitude:(double)latitude
+                     longtitude:(double)longtitude
 {
     if (self = [super init])
     {
+        self.locCode = locCode;
         self.location = location;
         self.count = [NSNumber numberWithInt:count];
         self.rank = [NSNumber numberWithInt:rank];

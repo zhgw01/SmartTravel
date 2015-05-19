@@ -10,4 +10,8 @@
 
 @interface HotSpotDetailViewBodyCell : UITableViewCell
 
+- (void)configureDirection:(NSString*)direction
+                    reason:(NSString*)reason
+                     total:(NSNumber*)total;
+
 @end

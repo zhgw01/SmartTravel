@@ -20,4 +20,6 @@
 
 -(NSArray*)selectHotSpots:(HotSpotType)hotSpotType;
 
+-(NSArray*)getHotSpotDetailsByLocationCode:(NSString*)locCode;
+
 @end
