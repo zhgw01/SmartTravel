@@ -110,7 +110,7 @@
     NSMutableArray* res = [[NSMutableArray alloc] init];
     
     NSError* error = nil;
-    NSString* smt =[NSString stringWithFormat:@"select l.Travel_direction, l.Total, r.Reason from TBL_LOCATION_REASON as l, TBL_WM_REASON_CONDITION as r where l.Loc_code = '%@' and l.Reason_id = r.Reason_id", locCode];
+    NSString* smt =[NSString stringWithFormat:@"select l.Travel_direction, l.Total, r.Reason from TBL_LOCATION_REASON as l, TBL_WM_REASON_CONDITION as r where l.Loc_code = '%@' and l.Reason_id = r.Reason_id order by l.Total desc", locCode];
     
     FMResultSet* resultSet = [db executeQuery:smt];
     while ([resultSet nextWithError:&error])

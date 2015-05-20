@@ -28,6 +28,10 @@
     self.gripView.layer.cornerRadius = 4.0f;
     self.gripView.layer.masksToBounds = YES;
     
+    self.locationLabel.textAlignment = NSTextAlignmentCenter;
+    self.locationLabel.numberOfLines = 0;
+    self.locationLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    
     self.distanceLabel.textColor = [UIColor redColor];
     self.unitLabel.textColor = [UIColor redColor];
 }
@@ -86,12 +90,12 @@
         needsDisplay = YES;
     }
     
-    NSString* distanceStr = [numberFormat stringFromNumber:distance];
-    if (![distanceStr isEqualToString:self.distanceLabel.text])
-    {
-        self.distanceLabel.text = distanceStr;
-        needsDisplay = YES;
-    }
+//    NSString* distanceStr = [numberFormat stringFromNumber:distance];
+//    if (![distanceStr isEqualToString:self.distanceLabel.text])
+//    {
+//        self.distanceLabel.text = distanceStr;
+//        needsDisplay = YES;
+//    }
     
     if (needsDisplay)
     {
