@@ -262,33 +262,32 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
     // Check if satisfy warning pop up conditions
     LocationDirection* locationDirection = [[LocationDirection alloc] initWithCLLocationDirection:self.direction];
     Direction direction = locationDirection.direction;
-    static double radius = 300;
+    NSLog(@"Heading %@", [LocationDirection directionToString:direction]);
     
     // Get warning data list
     NSArray* reasonIds = [[[DBReasonAdapter alloc] init] getReasonIDsOfDate:[NSDate date]];
     if (reasonIds.count > 0)
     {
-        NSArray* warnings = [[[DBLocationReasonAdapter alloc] init] getLocationReasonsAtLatitude:self.recentLocation.coordinate.latitude
-                                                                                       longitude:self.recentLocation.coordinate.longitude
-                                                                                     ofReasonIds:reasonIds
-                                                                                     inDirection:direction
-                                                                                    withinRadius:radius];
+        NSDictionary* topPriority = [[[DBLocationReasonAdapter alloc] init] getLocationReasonAtLatitude:self.recentLocation.coordinate.latitude
+                                                                                              longitude:self.recentLocation.coordinate.longitude
+                                                                                            ofReasonIds:reasonIds
+                                                                                            inDirection:direction
+                                                                                           withinRadius:300];
         
-        static NSString* lastLocCode = nil;
+        static NSString* lastLocCodeReasonId = nil;
         // Pop up warning view if there're warnings.
-        if (warnings.count > 0)
+        if (topPriority)
         {
-        
             DBLocationAdapter* locationAdapter = [[DBLocationAdapter alloc] init];
-            for (NSDictionary* waringData in warnings)
+            NSString* locCode = [topPriority objectForKey:@"Loc_code"];
+            int reasonId = [(NSNumber*)[topPriority objectForKey:@"Reason_id"] intValue];
+            NSString* locCodeReasonId = [NSString stringWithFormat:@"%@_%d", locCode, reasonId];
+            
+            // Dont' duplicate the same warning
+            if (![locCodeReasonId isEqualToString:lastLocCodeReasonId])
             {
-                NSString* locCode = [waringData objectForKey:@"Loc_code"];
-                if ([locCode isEqualToString:lastLocCode])
-                {
-                    continue;
-                }
-                lastLocCode = [locCode copy];
-                
+                lastLocCodeReasonId = [locCodeReasonId copy];
+            
                 NSString* locationName = [[NSString alloc] init];
                 int total = 0;
                 int warningPriority = 0;
