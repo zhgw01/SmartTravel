@@ -42,6 +42,35 @@ static NSString * const kLongitudeColumn = @"Longitude";
     return [res copy];
 }
 
+- (BOOL)getLocationName:(NSString**)locationName
+                  total:(int*)total
+        warningPriority:(int*)warningPriority
+              ofLocCode:(NSString*)locCode
+{
+    BOOL res = NO;
+    
+    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
+    if ([db open])
+    {
+        NSString* smt = [NSString stringWithFormat:@"select l.Location_name, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and l.Loc_code ='%@'", locCode];
+        FMResultSet* resultSet = [db executeQuery:smt];
+        NSError* error = nil;
+        if([resultSet nextWithError:&error])
+        {
+            *locationName = [resultSet stringForColumn:@"Location_name"];
+            *total = [resultSet intForColumn:@"Total"];
+            *warningPriority = [resultSet intForColumn:@"Warning_priority"];
+            
+            res = YES;
+        }
+        
+        BOOL dbCloseRes = [db close];
+        NSAssert(dbCloseRes, @"Close db failed");
+    }
+    
+    return res;
+}
+
 - (NSString*)constructSmt:(double)latitude
                longitude:(double)longtitude
                    radius:(double)radius

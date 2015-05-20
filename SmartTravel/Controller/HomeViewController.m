@@ -16,6 +16,7 @@
 #import "DBManager.h"
 #import "DBLocationReasonAdapter.h"
 #import "DBReasonAdapter.h"
+#import "DBLocationAdapter.h"
 #import "DateUtility.h"
 
 #import "WarningView.h"
@@ -44,6 +45,8 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
 @property (strong, nonatomic) CLLocation* defaultLocation;
 @property (assign, nonatomic) CLLocationDirection direction;
 
+@property (assign, nonatomic) BOOL locationDidEverUpdate;
+
 // Indicating that user is in navigating mode or not.
 //
 // On:
@@ -57,10 +60,8 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
 
 @property (assign, nonatomic) BOOL isNavigating;
 
-#ifdef DEBUG
 @property (strong, nonatomic) WarningView *warningView;
 @property (strong, nonatomic) HotSpotDetailView* hotSpotDetailView;
-#endif
 
 @end
 
@@ -72,12 +73,10 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
     [self setupNavigationBar];
     [self setupSideBarMenu];
     [self setupMap];
-#ifdef DEBUG
     [self setupWarning];
     [self setupHotSpotDetail];
-#endif
     
-    self.isNavigating = NO;
+    [self setNavigationMode:NO];
 }
 
 - (void)setupWarning
@@ -112,6 +111,7 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
     self.locationManager.delegate = self;
     
     [self requestLocationAuthorization];
+    self.locationDidEverUpdate = NO;
     
     // Set default location to Edmonton
     self.defaultLocation = [[CLLocation alloc] initWithLatitude:53.5501400  longitude:-113.4687100];
@@ -158,39 +158,53 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
     }
 }
 
+- (void)setNavigationMode:(BOOL)on
+{
+    if (on)
+    {
+        self.isNavigating = YES;
+        [self.locationManager startUpdatingLocation];
+        [self.locationManager startUpdatingHeading];
+        
+        if (self.locationDidEverUpdate)
+        {
+            self.warningView.hidden = NO;
+        }
+    }
+    else
+    {
+        self.isNavigating = NO;
+        [self.locationManager stopUpdatingHeading];
+        [self.locationManager stopUpdatingLocation];
+        
+        self.warningView.hidden = YES;
+    }
+}
+
 #pragma mark - Button Action
 
-- (IBAction)zoomIn:(id)sender {
+- (IBAction)zoomIn:(id)sender
+{
     GMSCameraUpdate *zoomIn = [GMSCameraUpdate zoomIn];
     [self.mapView animateWithCameraUpdate:zoomIn];
-    
-#ifdef DEBUG
-    self.warningView.hidden = !self.warningView.hidden;
-#endif
 }
 
 - (IBAction)zoomOut:(id)sender
 {
     GMSCameraUpdate *zoomOut = [GMSCameraUpdate zoomOut];
     [self.mapView animateWithCameraUpdate:zoomOut];
-#ifdef DEBUG
-    self.hotSpotDetailView.hidden = !self.hotSpotDetailView.hidden;
-#endif
 }
 
 - (IBAction)locateMe:(id)sender
 {
-    self.mapView.myLocationEnabled = YES;
-    GMSCameraUpdate* cameraUpdate = nil;
     if (self.mapView.myLocation)
     {
-        cameraUpdate = [GMSCameraUpdate setTarget:self.mapView.myLocation.coordinate];
+        [self.mapView animateToLocation:self.mapView.myLocation.coordinate];
     }
     else
     {
-        cameraUpdate = [GMSCameraUpdate setTarget:self.defaultLocation.coordinate];
+        [self.mapView animateToLocation:self.defaultLocation.coordinate];
     }
-    [self.mapView animateWithCameraUpdate:cameraUpdate];
 }
 
 - (void) requestLocationAuthorization
@@ -229,40 +243,26 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
 - (void) locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
     if (status == kCLAuthorizationStatusAuthorizedWhenInUse ||
-        status == kCLAuthorizationStatusAuthorizedAlways) {
+        status == kCLAuthorizationStatusAuthorizedAlways)
+    {
+        self.mapView.myLocationEnabled = YES;
+        
+        [self setNavigationMode:YES];
     }
 }
 
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
+    self.locationDidEverUpdate = YES;
+    
     CLLocation* lastLocation = self.recentLocation;
     self.recentLocation = locations.lastObject;
     self.direction = [lastLocation kv_bearingOnRhumbLineToCoordinate:self.recentLocation.coordinate];
-
-    // TODO: Add navigation mode
-    if (self.locationMarker == nil)
-    {
-        self.locationMarker = [CircleMarker markerWithPosition:self.recentLocation.coordinate];
-        //self.locationMarker.icon = [UIImage imageNamed:@"icon_currentlocation"];
-        [self.locationMarker loadImages];
-        self.locationMarker.map = self.mapView;
-    }
-    else
-    {
-        self.locationMarker.position = self.recentLocation.coordinate;
-    }
     
-    GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:self.recentLocation.coordinate];
-    [self.mapView animateWithCameraUpdate:newTarget];
-    
-#ifdef DEBUG
-    Direction direction = ALL;
-    double radius = 1000;
-#else
+    // Check if satisfy warning pop up conditions
     LocationDirection* locationDirection = [[LocationDirection alloc] initWithCLLocationDirection:self.direction];
     Direction direction = locationDirection.direction;
-    double radius = 100;
-#endif
+    static double radius = 300;
     
     // Get warning data list
     NSArray* reasonIds = [[[DBReasonAdapter alloc] init] getReasonIDsOfDate:[NSDate date]];
@@ -273,22 +273,64 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
                                                                                      ofReasonIds:reasonIds
                                                                                      inDirection:direction
                                                                                     withinRadius:radius];
-        DBManager* dbManager = [DBManager sharedInstance];
-        for (NSDictionary* waringData in warnings)
+        
+        static NSString* lastLocCode = nil;
+        // Pop up warning view if there're warnings.
+        if (warnings.count > 0)
         {
-            NSString* locCode = [waringData objectForKey:@"Loc_code"];
-            NSArray* details = [dbManager getHotSpotDetailsByLocationCode:locCode];
-            
-            for(NSDictionary* detail in details)
+        
+            DBLocationAdapter* locationAdapter = [[DBLocationAdapter alloc] init];
+            for (NSDictionary* waringData in warnings)
             {
-                NSString* travelDirection = [detail valueForKey:@"Travel_direction"];
-                NSString* reason = [details valueForKey:@"Reason"];
-                NSNumber* total = [details valueForKey:@"Total"];
-                NSLog(@"Travel direction is %@", travelDirection);
-                NSLog(@"Reason is %@", reason);
-                NSLog(@"Total is %d", [total intValue]);
+                NSString* locCode = [waringData objectForKey:@"Loc_code"];
+                if ([locCode isEqualToString:lastLocCode])
+                {
+                    continue;
+                }
+                lastLocCode = [locCode copy];
+                
+                NSString* locationName = [[NSString alloc] init];
+                int total = 0;
+                int warningPriority = 0;
+                if ([locationAdapter getLocationName:&locationName
+                                               total:&total
+                                     warningPriority:&warningPriority
+                                          ofLocCode:locCode])
+                {
+                
+                    self.warningView.hidden = NO;
+
+                    [self.warningView updateLocation:locationName
+                                                rank:[NSNumber numberWithInt:warningPriority]
+                                               count:[NSNumber numberWithInt:total]
+                                            distance:nil];
+                }
             }
         }
+        else
+        {
+            [self.warningView updateLocation:nil rank:nil count:nil distance:nil];
+            self.warningView.hidden = YES;
+        }
+    }
+    
+    // Only update camera of map if in navigation mode.
+    if (self.isNavigating)
+    {
+        if (self.locationMarker == nil)
+        {
+            self.locationMarker = [CircleMarker markerWithPosition:self.recentLocation.coordinate];
+            //self.locationMarker.icon = [UIImage imageNamed:@"icon_currentlocation"];
+            [self.locationMarker loadImages];
+            self.locationMarker.map = self.mapView;
+        }
+        else
+        {
+            self.locationMarker.position = self.recentLocation.coordinate;
+        }
+        
+        GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:self.recentLocation.coordinate];
+        [self.mapView animateWithCameraUpdate:newTarget];
     }
 }
 
@@ -305,6 +347,8 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
 
 - (void)hotSpotTableViewCellDidSelect:(HotSpot*)hotSpot
 {
+    [self setNavigationMode:NO];
+    
     NSAssert(hotSpot, @"The cell user selected has no hot spot info");
     
     // Hide HotSpotListView
@@ -317,20 +361,23 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
                                                                longitude:longtitude
                                                                     zoom:16.0];
     self.mapView.camera = targetPos;
-//    CLLocation* targetLoc = [[CLLocation alloc] initWithLatitude:latitude longitude:longtitude];
-//        double distance = (self.recentLocation) ?
-//        [self.recentLocation distanceFromLocation:targetLoc] :
-//        [self.defaultLocation distanceFromLocation:targetLoc];
-//        
-//        [self.warningView updateLocation:hotSpot.location
-//                                    rank:hotSpot.rank
-//                                   count:hotSpot.count
-//                                distance:[NSNumber numberWithDouble:distance]];
+
     
+    // Show hot spot details
     self.hotSpotDetailView.hidden = NO;
 
     NSArray* hotSpotDetails = [[DBManager sharedInstance] getHotSpotDetailsByLocationCode:hotSpot.locCode];
     [self.hotSpotDetailView reload:hotSpotDetails];
+}
+
+#pragma mark - GMSMapViewDelegate methods
+
+- (void)mapView:(GMSMapView *)mapView willMove:(BOOL)gesture
+{
+    if (gesture)
+    {
+        [self setNavigationMode:NO];
+    }
 }
 
 @end

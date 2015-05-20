@@ -12,13 +12,11 @@
 #import "DBConstants.h"
 #import "ModelUtility.h"
 
-#ifdef DEBUG
 #import "JsonManager.h"
 #import "JSONCollisionLocation.h"
 #import "JSONLocationReason.h"
 #import "JSONWMDayType.h"
 #import "JSONWMReasonCondition.h"
-#endif
 
 @interface AppDelegate ()
 
