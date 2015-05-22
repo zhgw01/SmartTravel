@@ -21,11 +21,11 @@ static NSString * const kWarningPriorityColumn = @"Warning_priority";
 
 @implementation DBLocationReasonAdapter
 
-- (NSArray*)getLocationReasonsAtLatitude:(double)latitude
-                               longitude:(double)longitude
-                             ofReasonIds:(NSArray*)reasonIds
-                             inDirection:(Direction)direction
-                            withinRadius:(double)radius
+- (NSDictionary*)getLocationReasonAtLatitude:(double)latitude
+                                   longitude:(double)longitude
+                                 ofReasonIds:(NSArray*)reasonIds
+                                 inDirection:(Direction)direction
+                                withinRadius:(double)radius
 {
     // Get loc codes
     DBLocationAdapter* dbLocationAdapter = [[DBLocationAdapter alloc] init];
@@ -37,29 +37,28 @@ static NSString * const kWarningPriorityColumn = @"Warning_priority";
     // Get location_reasons
     NSString* smt = [self constructSmtWithDirection:direction locCodes:locCodesStr reasonIds:reasonIdsStr];
     
-    NSMutableArray* res = [[NSMutableArray alloc] init];
+    NSDictionary* res = nil;
     
     FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
     if ([db open])
     {
         FMResultSet* resultSet = [db executeQuery:smt];
         NSError* error = nil;
-        while([resultSet nextWithError:&error])
+        if([resultSet nextWithError:&error])
         {
             NSString* locCodeValue = [resultSet stringForColumn:kLocCodeColumn];
             NSString* directionValue = [resultSet stringForColumn:kTravelDirectionColumn];
-            NSString* reasonIdValue = [resultSet stringForColumn:kReasonIdColumn];
+            int reasonIdValue = [resultSet intForColumn:kReasonIdColumn];
             int totalValue = [resultSet intForColumn:kTotalColumn];
             int waringPriorityValue = [resultSet intForColumn:kWarningPriorityColumn];
             
-            NSDictionary* locationReason = [NSDictionary dictionaryWithObjectsAndKeys:
-                                            locCodeValue, kLocCodeColumn,
-                                            directionValue, kTravelDirectionColumn,
-                                            reasonIdValue, kReasonIdColumn,
-                                            [NSNumber numberWithInt:totalValue], kTotalColumn,
-                                            [NSNumber numberWithInt:waringPriorityValue], kWarningPriorityColumn,
-                                            nil];
-            [res addObject:locationReason];
+            res = [NSDictionary dictionaryWithObjectsAndKeys:
+                   locCodeValue, kLocCodeColumn,
+                   directionValue, kTravelDirectionColumn,
+                   [NSNumber numberWithInt:reasonIdValue], kReasonIdColumn,
+                   [NSNumber numberWithInt:totalValue], kTotalColumn,
+                   [NSNumber numberWithInt:waringPriorityValue], kWarningPriorityColumn,
+                   nil];
         }
         
         BOOL dbCloseRes = [db close];
@@ -86,7 +85,7 @@ static NSString * const kWarningPriorityColumn = @"Warning_priority";
                              reasonIds:(NSString*)reasonIds
 {
     NSString* smt =  [NSString  stringWithFormat:
-                      @"select %@, %@, %@, %@, %@ from %@ where (%@ = '%@' or %@ = 'ALL') and %@ in (%@) and %@ in (%@)",
+                      @"select %@, %@, %@, %@, %@ from %@ where (%@ = '%@' or %@ = 'ALL') and %@ in (%@) and %@ in (%@) order by Warning_priority desc limit 1",
                       kLocCodeColumn,
                       kTravelDirectionColumn,
                       kReasonIdColumn,

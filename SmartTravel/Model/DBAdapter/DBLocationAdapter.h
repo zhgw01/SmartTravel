@@ -14,4 +14,9 @@
                     atLatitude:(double)latitude
                      longitude:(double)longitude;
 
+- (BOOL)getLocationName:(NSString**)locationName
+                  total:(int*)total
+        warningPriority:(int*)warningPriority
+              ofLocCode:(NSString*)locCode;
+
 @end
