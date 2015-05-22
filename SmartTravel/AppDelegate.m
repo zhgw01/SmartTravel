@@ -18,6 +18,8 @@
 #import "JSONWMDayType.h"
 #import "JSONWMReasonCondition.h"
 
+#import "DBVersionAdapter.h"
+
 @interface AppDelegate ()
 
 @end
@@ -50,6 +52,8 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
     {
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
     }
+    
+    NSLog(@"Current data schema verson is %@", [[DBVersionAdapter alloc] getLatestVersion]);
     
     return YES;
 }
