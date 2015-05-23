@@ -11,6 +11,12 @@
 
 @interface MarkerManager : NSObject
 
+/**
+ *  Enable the breathing effect of the marker for the given location code
+ *
+ *  @param locCode location code of NSString*
+ */
+- (void)breathingMarker:(NSString*)locCode;
 
 - (void)drawMarkers:(GMSMapView *)mapView;
 

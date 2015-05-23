@@ -24,6 +24,7 @@
 
 static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
+static CGFloat kHotSpotZoonRadius = 300.0;
 
 @interface HomeViewController ()
 <
@@ -266,6 +267,49 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
     }
 }
 
+- (void)didApproachHotSpot:(NSDictionary *)hotSpot
+{
+    static NSString* lastLocCodeReasonId = nil;
+    
+    NSString* locCode = [hotSpot objectForKey:@"Loc_code"];
+    int reasonId = [(NSNumber*)[hotSpot objectForKey:@"Reason_id"] intValue];
+    NSString* locCodeReasonId = [NSString stringWithFormat:@"%@_%d", locCode, reasonId];
+    
+    // Dont' duplicate the same warning
+    if (![locCodeReasonId isEqualToString:lastLocCodeReasonId])
+    {
+        lastLocCodeReasonId = [locCodeReasonId copy];
+        
+        NSString* locationName = [[NSString alloc] init];
+        int reasonId = 0;
+        int total = 0;
+        int warningPriority = 0;
+        if ([self.locationAdapter getLocationName:&locationName
+                                         reasonId:&reasonId
+                                            total:&total
+                                  warningPriority:&warningPriority
+                                        ofLocCode:locCode])
+        {
+            
+            self.warningView.hidden = NO;
+            
+            [self.warningView updateLocation:locationName
+                                        rank:[NSNumber numberWithInt:warningPriority]
+                                       count:[NSNumber numberWithInt:total]
+                                    distance:nil];
+            
+            // Speak out the warning message
+            NSString* warningMessage = [[[DBReasonAdapter alloc] init] getWarningMessage:reasonId];
+            AVSpeechUtterance* utterance = [[AVSpeechUtterance alloc] initWithString:warningMessage];
+            utterance.rate *= 0.5;
+            [self.avSpeechSynthesizer speakUtterance:utterance];
+            
+            // Breath the marker
+            [self.markerManager breathingMarker:locCode];
+        }
+    }
+}
+
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     self.locationDidEverUpdate = YES;
@@ -283,53 +327,23 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
     NSArray* reasonIds = [[[DBReasonAdapter alloc] init] getReasonIDsOfDate:[NSDate date]];
     if (reasonIds.count > 0)
     {
-        NSDictionary* topPriority = [self.locationAdapter getLocationReasonAtLatitude:self.recentLocation.coordinate.latitude
-                                                                            longitude:self.recentLocation.coordinate.longitude
-                                                                          ofReasonIds:reasonIds
-                                                                          inDirection:direction
-                                                                         withinRadius:300];
+        NSDictionary* hotSpot = [self.locationAdapter getLocationReasonAtLatitude:self.recentLocation.coordinate.latitude
+                                                                        longitude:self.recentLocation.coordinate.longitude
+                                                                      ofReasonIds:reasonIds
+                                                                      inDirection:direction
+                                                                     withinRadius:kHotSpotZoonRadius];
         
-        static NSString* lastLocCodeReasonId = nil;
         // Pop up warning view if there're warnings.
-        if (topPriority)
+        if (hotSpot)
         {
-            NSString* locCode = [topPriority objectForKey:@"Loc_code"];
-            int reasonId = [(NSNumber*)[topPriority objectForKey:@"Reason_id"] intValue];
-            NSString* locCodeReasonId = [NSString stringWithFormat:@"%@_%d", locCode, reasonId];
-            
-            // Dont' duplicate the same warning
-            if (![locCodeReasonId isEqualToString:lastLocCodeReasonId])
-            {
-                lastLocCodeReasonId = [locCodeReasonId copy];
-            
-                NSString* locationName = [[NSString alloc] init];
-                int reasonId = 0;
-                int total = 0;
-                int warningPriority = 0;
-                if ([self.locationAdapter getLocationName:&locationName
-                                                 reasonId:&reasonId
-                                                    total:&total
-                                          warningPriority:&warningPriority
-                                                ofLocCode:locCode])
-                {
-                
-                    self.warningView.hidden = NO;
-
-                    [self.warningView updateLocation:locationName
-                                                rank:[NSNumber numberWithInt:warningPriority]
-                                               count:[NSNumber numberWithInt:total]
-                                            distance:nil];
-                    
-                    // Speak out the warning message
-                    NSString* warningMessage = [[[DBReasonAdapter alloc] init] getWarningMessage:reasonId];
-                    [self uttering:warningMessage];
-                }
-            }
+            [self didApproachHotSpot:hotSpot];
         }
         else
         {
             [self.warningView updateLocation:nil rank:nil count:nil distance:nil];
             self.warningView.hidden = YES;
+            
+            [self.markerManager breathingMarker:nil];
         }
     }
     
@@ -350,16 +364,6 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
         
         GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:self.recentLocation.coordinate];
         [self.mapView animateWithCameraUpdate:newTarget];
-    }
-}
-
-- (void)uttering:(NSString*)warningMessage
-{
-    if (warningMessage)
-    {
-        AVSpeechUtterance* utterance = [[AVSpeechUtterance alloc] initWithString:warningMessage];
-        utterance.rate *= 0.5;
-        [self.avSpeechSynthesizer speakUtterance:utterance];
     }
 }
 
