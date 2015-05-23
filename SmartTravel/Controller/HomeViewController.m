@@ -5,12 +5,13 @@
 //  Created by Gongwei on 15/4/19.
 //  Copyright (c) 2015年 Gongwei. All rights reserved.
 //
-
-#import "HomeViewController.h"
-#import "CircleMarker.h"
+#import <AVFoundation/AVFoundation.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import <SWRevealViewController/SWRevealViewController.h>
 #import <Geo-Utilities/CLLocation+Navigation.h>
+
+#import "HomeViewController.h"
+#import "CircleMarker.h"
 #import "HotSpotListViewController.h"
 #import "MarkerManager.h"
 #import "DBManager.h"
@@ -63,6 +64,10 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
 @property (strong, nonatomic) WarningView *warningView;
 @property (strong, nonatomic) HotSpotDetailView* hotSpotDetailView;
 
+// Speech
+@property (strong, nonatomic) AVSpeechSynthesizer* avSpeechSynthesizer;
+@property (strong, nonatomic) AVSpeechSynthesisVoice* avSpeechSynthesisVoice;
+
 @end
 
 @implementation HomeViewController
@@ -77,6 +82,7 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
     [self setupHotSpotDetail];
     
     [self setNavigationMode:NO];
+    [self setupAV];
 }
 
 - (void)setupWarning
@@ -179,6 +185,12 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
         
         self.warningView.hidden = YES;
     }
+}
+
+- (void)setupAV
+{
+    self.avSpeechSynthesizer = [[AVSpeechSynthesizer alloc] init];
+    self.avSpeechSynthesisVoice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
 }
 
 #pragma mark - Button Action
@@ -289,9 +301,11 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
                 lastLocCodeReasonId = [locCodeReasonId copy];
             
                 NSString* locationName = [[NSString alloc] init];
+                int reasonId = 0;
                 int total = 0;
                 int warningPriority = 0;
                 if ([locationAdapter getLocationName:&locationName
+                                            reasonId:&reasonId
                                                total:&total
                                      warningPriority:&warningPriority
                                           ofLocCode:locCode])
@@ -303,6 +317,10 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
                                                 rank:[NSNumber numberWithInt:warningPriority]
                                                count:[NSNumber numberWithInt:total]
                                             distance:nil];
+                    
+                    // Speak out the warning message
+                    NSString* warningMessage = [[[DBReasonAdapter alloc] init] getWarningMessage:reasonId];
+                    [self uttering:warningMessage];
                 }
             }
         }
@@ -330,6 +348,16 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
         
         GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:self.recentLocation.coordinate];
         [self.mapView animateWithCameraUpdate:newTarget];
+    }
+}
+
+- (void)uttering:(NSString*)warningMessage
+{
+    if (warningMessage)
+    {
+        AVSpeechUtterance* utterance = [[AVSpeechUtterance alloc] initWithString:warningMessage];
+        utterance.rate *= 0.5;
+        [self.avSpeechSynthesizer speakUtterance:utterance];
     }
 }
 

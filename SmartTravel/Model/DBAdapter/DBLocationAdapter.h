@@ -15,6 +15,7 @@
                      longitude:(double)longitude;
 
 - (BOOL)getLocationName:(NSString**)locationName
+               reasonId:(int*)reasonId
                   total:(int*)total
         warningPriority:(int*)warningPriority
               ofLocCode:(NSString*)locCode;

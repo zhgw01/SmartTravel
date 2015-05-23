@@ -43,6 +43,7 @@ static NSString * const kLongitudeColumn = @"Longitude";
 }
 
 - (BOOL)getLocationName:(NSString**)locationName
+               reasonId:(int*)reasonId
                   total:(int*)total
         warningPriority:(int*)warningPriority
               ofLocCode:(NSString*)locCode
@@ -52,12 +53,13 @@ static NSString * const kLongitudeColumn = @"Longitude";
     FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
     if ([db open])
     {
-        NSString* smt = [NSString stringWithFormat:@"select l.Location_name, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and l.Loc_code ='%@'", locCode];
+        NSString* smt = [NSString stringWithFormat:@"select l.Location_name, r.Reason_id, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and l.Loc_code ='%@'", locCode];
         FMResultSet* resultSet = [db executeQuery:smt];
         NSError* error = nil;
         if([resultSet nextWithError:&error])
         {
             *locationName = [resultSet stringForColumn:@"Location_name"];
+            *reasonId = [resultSet intForColumn:@"Reason_id"];
             *total = [resultSet intForColumn:@"Total"];
             *warningPriority = [resultSet intForColumn:@"Warning_priority"];
             

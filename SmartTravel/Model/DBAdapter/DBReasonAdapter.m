@@ -14,6 +14,7 @@
 #import "DateUtility.h"
 
 static NSString * const kReasonIdColumn = @"Reason_id";
+static NSString * const kWarningMessageColumn = @"Warning_message";
 static NSString * const kMonthColumn = @"Month";
 static NSString * const kWeekdayColumn = @"Weekday";
 //static NSString * const kWeekendColumn = @"Weekend";
@@ -59,6 +60,28 @@ static NSString * const kEndTimeColumn = @"End_time";
     }
     
     return [res copy];
+}
+
+- (NSString*)getWarningMessage:(int)reasonId
+{
+    NSString* res = nil;
+    
+    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
+    if ([db open])
+    {
+        NSString* smt = [NSString stringWithFormat:@"select %@ from %@ where Reason_id=%d", kWarningMessageColumn, MAIN_DB_TBL_WM_REASON_CONDITION, reasonId];
+        FMResultSet* resultSet = [db executeQuery:smt];
+        NSError* error = nil;
+        if ([resultSet nextWithError:&error] && !error)
+        {
+            res = [resultSet stringForColumn:kWarningMessageColumn];
+        }
+        [resultSet close];
+    }
+    BOOL dbCloseRes = [db close];
+    NSAssert(dbCloseRes, @"Close db failed");
+    
+    return res;
 }
 
 - (NSString*)constructSmt:(NSDate*)date
