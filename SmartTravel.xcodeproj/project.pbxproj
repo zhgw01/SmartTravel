@@ -17,7 +17,6 @@
 		4203DDB91B0879350002D67F /* DateUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4203DDB61B0879350002D67F /* DateUtility.m */; };
 		4203DDBA1B0879350002D67F /* ModelUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4203DDB81B0879350002D67F /* ModelUtility.m */; };
 		4225F8341B081A4100C5A73F /* DBLocationAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F82E1B081A4100C5A73F /* DBLocationAdapter.m */; };
-		4225F8351B081A4100C5A73F /* DBLocationReasonAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F8301B081A4100C5A73F /* DBLocationReasonAdapter.m */; };
 		4225F8361B081A4100C5A73F /* DBReasonAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F8321B081A4100C5A73F /* DBReasonAdapter.m */; };
 		4225F8431B0829C200C5A73F /* DBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F83E1B0829C200C5A73F /* DBConstants.m */; };
 		4225F8441B0829C200C5A73F /* JSONConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F8401B0829C200C5A73F /* JSONConstants.m */; };
@@ -106,8 +105,6 @@
 		4203DDB81B0879350002D67F /* ModelUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelUtility.m; path = Model/Utility/ModelUtility.m; sourceTree = "<group>"; };
 		4225F82D1B081A4100C5A73F /* DBLocationAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBLocationAdapter.h; path = Model/DBAdapter/DBLocationAdapter.h; sourceTree = "<group>"; };
 		4225F82E1B081A4100C5A73F /* DBLocationAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBLocationAdapter.m; path = Model/DBAdapter/DBLocationAdapter.m; sourceTree = "<group>"; };
-		4225F82F1B081A4100C5A73F /* DBLocationReasonAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBLocationReasonAdapter.h; path = Model/DBAdapter/DBLocationReasonAdapter.h; sourceTree = "<group>"; };
-		4225F8301B081A4100C5A73F /* DBLocationReasonAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBLocationReasonAdapter.m; path = Model/DBAdapter/DBLocationReasonAdapter.m; sourceTree = "<group>"; };
 		4225F8311B081A4100C5A73F /* DBReasonAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBReasonAdapter.h; path = Model/DBAdapter/DBReasonAdapter.h; sourceTree = "<group>"; };
 		4225F8321B081A4100C5A73F /* DBReasonAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBReasonAdapter.m; path = Model/DBAdapter/DBReasonAdapter.m; sourceTree = "<group>"; };
 		4225F83D1B0829C200C5A73F /* DBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBConstants.h; path = Model/DBConstants.h; sourceTree = "<group>"; };
@@ -263,8 +260,6 @@
 				84F38DDB1B0FE86C00A0EB42 /* DBVersionAdapter.m */,
 				4225F82D1B081A4100C5A73F /* DBLocationAdapter.h */,
 				4225F82E1B081A4100C5A73F /* DBLocationAdapter.m */,
-				4225F82F1B081A4100C5A73F /* DBLocationReasonAdapter.h */,
-				4225F8301B081A4100C5A73F /* DBLocationReasonAdapter.m */,
 				4225F8311B081A4100C5A73F /* DBReasonAdapter.h */,
 				4225F8321B081A4100C5A73F /* DBReasonAdapter.m */,
 			);
@@ -675,7 +670,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4225F8351B081A4100C5A73F /* DBLocationReasonAdapter.m in Sources */,
 				422977831B0810DB00A11E90 /* DBLocationReason.m in Sources */,
 				42C6A8B41B0A0FAC00EE1518 /* WarningView.m in Sources */,
 				4225F8341B081A4100C5A73F /* DBLocationAdapter.m in Sources */,
