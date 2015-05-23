@@ -8,7 +8,7 @@
 
 #import <FMDB/FMDB.h>
 #import "DBReasonAdapter.h"
-#import "DBDateAdapter.h"
+#import "DBDayTypeAdapter.h"
 #import "DBConstants.h"
 #import "DBManager.h"
 #import "DateUtility.h"
@@ -32,7 +32,7 @@ static NSString * const kEndTimeColumn = @"End_time";
     if ([db open])
     {
 #ifdef DEBUG
-        NSString* smt = @"select * from TBL_WM_REASON_CONDITION";
+        NSString* smt = [NSString stringWithFormat:@"select * from %@", MAIN_DB_TBL_WM_REASON_CONDITION];
 #else
         NSString* smt = [self constructSmt:date];
 #endif
@@ -69,7 +69,7 @@ static NSString * const kEndTimeColumn = @"End_time";
     FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
     if ([db open])
     {
-        NSString* smt = [NSString stringWithFormat:@"select %@ from %@ where Reason_id=%d", kWarningMessageColumn, MAIN_DB_TBL_WM_REASON_CONDITION, reasonId];
+        NSString* smt = [NSString stringWithFormat:@"select %@ from %@ where %@=%d", kWarningMessageColumn, MAIN_DB_TBL_WM_REASON_CONDITION, kReasonIdColumn, reasonId];
         FMResultSet* resultSet = [db executeQuery:smt];
         NSError* error = nil;
         if ([resultSet nextWithError:&error] && !error)
@@ -86,7 +86,7 @@ static NSString * const kEndTimeColumn = @"End_time";
 
 - (NSString*)constructSmt:(NSDate*)date
 {
-    DBDateAdapter* dbDateAdapter = [[DBDateAdapter alloc] initWith:date];
+    DBDayTypeAdapter* dbDateAdapter = [[DBDayTypeAdapter alloc] initWith:date];
     
     return [NSString stringWithFormat:
             @"select %@, %@, %@, %@ from %@ where (%@ = %d) and (%@ = %d)",

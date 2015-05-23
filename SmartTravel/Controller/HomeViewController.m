@@ -15,7 +15,6 @@
 #import "HotSpotListViewController.h"
 #import "MarkerManager.h"
 #import "DBManager.h"
-#import "DBLocationReasonAdapter.h"
 #import "DBReasonAdapter.h"
 #import "DBLocationAdapter.h"
 #import "DateUtility.h"
@@ -47,6 +46,8 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
 @property (assign, nonatomic) CLLocationDirection direction;
 
 @property (assign, nonatomic) BOOL locationDidEverUpdate;
+
+@property (strong, nonatomic) DBLocationAdapter* locationAdapter;
 
 // Indicating that user is in navigating mode or not.
 //
@@ -83,6 +84,8 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
     
     [self setNavigationMode:NO];
     [self setupAV];
+    
+    self.locationAdapter = [[DBLocationAdapter alloc] init];
 }
 
 - (void)setupWarning
@@ -280,17 +283,16 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
     NSArray* reasonIds = [[[DBReasonAdapter alloc] init] getReasonIDsOfDate:[NSDate date]];
     if (reasonIds.count > 0)
     {
-        NSDictionary* topPriority = [[[DBLocationReasonAdapter alloc] init] getLocationReasonAtLatitude:self.recentLocation.coordinate.latitude
-                                                                                              longitude:self.recentLocation.coordinate.longitude
-                                                                                            ofReasonIds:reasonIds
-                                                                                            inDirection:direction
-                                                                                           withinRadius:300];
+        NSDictionary* topPriority = [self.locationAdapter getLocationReasonAtLatitude:self.recentLocation.coordinate.latitude
+                                                                            longitude:self.recentLocation.coordinate.longitude
+                                                                          ofReasonIds:reasonIds
+                                                                          inDirection:direction
+                                                                         withinRadius:300];
         
         static NSString* lastLocCodeReasonId = nil;
         // Pop up warning view if there're warnings.
         if (topPriority)
         {
-            DBLocationAdapter* locationAdapter = [[DBLocationAdapter alloc] init];
             NSString* locCode = [topPriority objectForKey:@"Loc_code"];
             int reasonId = [(NSNumber*)[topPriority objectForKey:@"Reason_id"] intValue];
             NSString* locCodeReasonId = [NSString stringWithFormat:@"%@_%d", locCode, reasonId];
@@ -304,11 +306,11 @@ static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
                 int reasonId = 0;
                 int total = 0;
                 int warningPriority = 0;
-                if ([locationAdapter getLocationName:&locationName
-                                            reasonId:&reasonId
-                                               total:&total
-                                     warningPriority:&warningPriority
-                                          ofLocCode:locCode])
+                if ([self.locationAdapter getLocationName:&locationName
+                                                 reasonId:&reasonId
+                                                    total:&total
+                                          warningPriority:&warningPriority
+                                                ofLocCode:locCode])
                 {
                 
                     self.warningView.hidden = NO;

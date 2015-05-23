@@ -7,8 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Direction.h"
 
+/**
+ *  Adapter to facilicate query and join query location related tables including
+ *  TBL_COLLOSION_LOCATION,
+ *  TBL_LOCATION_REASON
+ */
 @interface DBLocationAdapter : NSObject
+
+// Get top 1 location_reason which satisfy all the requirements
+- (NSDictionary*)getLocationReasonAtLatitude:(double)latitude
+                                   longitude:(double)longitude
+                                 ofReasonIds:(NSArray*)reasonIds
+                                 inDirection:(Direction)direction
+                                withinRadius:(double)radius;
 
 - (NSArray*)getLocCodesInRange:(double)radius
                     atLatitude:(double)latitude
