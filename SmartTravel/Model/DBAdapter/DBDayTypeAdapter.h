@@ -1,5 +1,5 @@
 //
-//  DBDateAdapter.h
+//  DBDayTypeAdapter.h
 //  SmartTravel
 //
 //  Created by Pengyu Chen on 5/12/15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DBDateAdapter : NSObject
+@interface DBDayTypeAdapter : NSObject
 
 - (instancetype)initWith:(NSDate*)date;
 

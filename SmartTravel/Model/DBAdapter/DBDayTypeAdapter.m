@@ -7,22 +7,23 @@
 //
 
 #import <FMDB/FMDB.h>
-#import "DBDateAdapter.h"
+#import "DBDayTypeAdapter.h"
 #import "DBConstants.h"
 #import "DBManager.h"
 #import "DateUtility.h"
 
 static NSString * const kWeekdayColumn = @"Weekday";
 static NSString * const kSchooldayColumn = @"School_day";
+static NSString * const kDateColumn = @"Date";
 
-@interface DBDateAdapter()
+@interface DBDayTypeAdapter()
 
 @property (assign, readwrite) BOOL isWeekDay;
 @property (assign, readwrite) BOOL isSchoolDay;
 
 @end
 
-@implementation DBDateAdapter
+@implementation DBDayTypeAdapter
 
 - (instancetype)initWith:(NSDate*)date
 {
@@ -65,7 +66,7 @@ static NSString * const kSchooldayColumn = @"School_day";
 - (NSString*)constructSmt:(NSDate*)date
 {    
     NSString* dateStr = [DateUtility getDateString:date];
-    return [NSString stringWithFormat:@"select %@, %@ from %@ where Date='%@'", kWeekdayColumn, kSchooldayColumn,  MAIN_DB_TBL_WM_DAYTYPE, dateStr];
+    return [NSString stringWithFormat:@"select %@, %@ from %@ where %@='%@'", kWeekdayColumn, kSchooldayColumn,  MAIN_DB_TBL_WM_DAYTYPE, kDateColumn, dateStr];
 }
 
 @end

@@ -8,12 +8,13 @@
 
 #import <FMDB/FMDB.h>
 #import "DBReasonAdapter.h"
-#import "DBDateAdapter.h"
+#import "DBDayTypeAdapter.h"
 #import "DBConstants.h"
 #import "DBManager.h"
 #import "DateUtility.h"
 
 static NSString * const kReasonIdColumn = @"Reason_id";
+static NSString * const kWarningMessageColumn = @"Warning_message";
 static NSString * const kMonthColumn = @"Month";
 static NSString * const kWeekdayColumn = @"Weekday";
 //static NSString * const kWeekendColumn = @"Weekend";
@@ -31,7 +32,7 @@ static NSString * const kEndTimeColumn = @"End_time";
     if ([db open])
     {
 #ifdef DEBUG
-        NSString* smt = @"select * from TBL_WM_REASON_CONDITION";
+        NSString* smt = [NSString stringWithFormat:@"select * from %@", MAIN_DB_TBL_WM_REASON_CONDITION];
 #else
         NSString* smt = [self constructSmt:date];
 #endif
@@ -61,9 +62,31 @@ static NSString * const kEndTimeColumn = @"End_time";
     return [res copy];
 }
 
+- (NSString*)getWarningMessage:(int)reasonId
+{
+    NSString* res = nil;
+    
+    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
+    if ([db open])
+    {
+        NSString* smt = [NSString stringWithFormat:@"select %@ from %@ where %@=%d", kWarningMessageColumn, MAIN_DB_TBL_WM_REASON_CONDITION, kReasonIdColumn, reasonId];
+        FMResultSet* resultSet = [db executeQuery:smt];
+        NSError* error = nil;
+        if ([resultSet nextWithError:&error] && !error)
+        {
+            res = [resultSet stringForColumn:kWarningMessageColumn];
+        }
+        [resultSet close];
+    }
+    BOOL dbCloseRes = [db close];
+    NSAssert(dbCloseRes, @"Close db failed");
+    
+    return res;
+}
+
 - (NSString*)constructSmt:(NSDate*)date
 {
-    DBDateAdapter* dbDateAdapter = [[DBDateAdapter alloc] initWith:date];
+    DBDayTypeAdapter* dbDateAdapter = [[DBDayTypeAdapter alloc] initWith:date];
     
     return [NSString stringWithFormat:
             @"select %@, %@, %@, %@ from %@ where (%@ = %d) and (%@ = %d)",
