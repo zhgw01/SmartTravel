@@ -13,14 +13,17 @@
 #import "HomeViewController.h"
 #import "CircleMarker.h"
 #import "HotSpotListViewController.h"
-#import "MarkerManager.h"
-#import "DBManager.h"
+#import "WarningView.h"
+#import "HotSpotDetailView.h"
+
 #import "DBReasonAdapter.h"
 #import "DBLocationAdapter.h"
 #import "DateUtility.h"
 
-#import "WarningView.h"
-#import "HotSpotDetailView.h"
+#import "MarkerManager.h"
+#import "DBManager.h"
+#import "AppSettingManager.h"
+#import "AppLocationManager.h"
 
 static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
@@ -38,7 +41,6 @@ static CGFloat kHotSpotZoonRadius = 300.0;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hotspotListButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 
-@property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) CircleMarker* locationMarker;
 @property (strong, nonatomic) MarkerManager* markerManager;
 
@@ -77,16 +79,20 @@ static CGFloat kHotSpotZoonRadius = 300.0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Initialize views
     [self setupNavigationBar];
     [self setupSideBarMenu];
     [self setupMap];
     [self setupWarning];
     [self setupHotSpotDetail];
-    
-    [self setNavigationMode:NO];
     [self setupAV];
     
+    // Initialize DB adapter and set delegate
     self.locationAdapter = [[DBLocationAdapter alloc] init];
+    [[AppLocationManager sharedInstance] setDelegate:self];
+    
+    // Set default mode
+    [self setNavigationMode:YES];
 }
 
 - (void)setupWarning
@@ -115,12 +121,8 @@ static CGFloat kHotSpotZoonRadius = 300.0;
     self.hotSpotDetailView.hidden = YES;
 }
 
-- (void) setupMap
+- (void)setupMap
 {
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    
-    [self requestLocationAuthorization];
     self.locationDidEverUpdate = NO;
     
     // Set default location to Edmonton
@@ -138,6 +140,9 @@ static CGFloat kHotSpotZoonRadius = 300.0;
     
     // Set up GPSMapViewDelegate
     self.mapView.delegate = self;
+    
+    // Enable locate me
+    self.mapView.myLocationEnabled = YES;
 }
 
 - (void) setupNavigationBar
@@ -170,11 +175,12 @@ static CGFloat kHotSpotZoonRadius = 300.0;
 
 - (void)setNavigationMode:(BOOL)on
 {
+    AppLocationManager* locationManager = [AppLocationManager sharedInstance];
     if (on)
     {
         self.isNavigating = YES;
-        [self.locationManager startUpdatingLocation];
-        [self.locationManager startUpdatingHeading];
+        [locationManager startUpdatingLocation];
+        [locationManager startUpdatingHeading];
         
         if (self.locationDidEverUpdate)
         {
@@ -184,8 +190,8 @@ static CGFloat kHotSpotZoonRadius = 300.0;
     else
     {
         self.isNavigating = NO;
-        [self.locationManager stopUpdatingHeading];
-        [self.locationManager stopUpdatingLocation];
+        [locationManager stopUpdatingHeading];
+        [locationManager stopUpdatingLocation];
         
         self.warningView.hidden = YES;
     }
@@ -223,14 +229,6 @@ static CGFloat kHotSpotZoonRadius = 300.0;
     }
 }
 
-- (void) requestLocationAuthorization
-{
-    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
-    {
-        [self.locationManager requestWhenInUseAuthorization];
-    }
-}
-
 #pragma mark - SWRevealViewController Delegate
 - (void)revealController:(SWRevealViewController *)revealController willMoveToPosition:(FrontViewPosition)position
 {
@@ -258,12 +256,9 @@ static CGFloat kHotSpotZoonRadius = 300.0;
 
 - (void) locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
-    if (status == kCLAuthorizationStatusAuthorizedWhenInUse ||
-        status == kCLAuthorizationStatusAuthorizedAlways)
+    if (status == kCLAuthorizationStatusAuthorizedWhenInUse)
     {
-        self.mapView.myLocationEnabled = YES;
-        
-        [self setNavigationMode:YES];
+
     }
 }
 
@@ -299,13 +294,16 @@ static CGFloat kHotSpotZoonRadius = 300.0;
                                     distance:nil];
             
             // Speak out the warning message
-            NSString* warningMessage = [[[DBReasonAdapter alloc] init] getWarningMessage:reasonId];
-            AVSpeechUtterance* utterance = [[AVSpeechUtterance alloc] initWithString:warningMessage];
-            utterance.rate *= 0.5;
-            [self.avSpeechSynthesizer speakUtterance:utterance];
-            
-            // Breath the marker
-            [self.markerManager breathingMarker:locCode];
+            if ([[AppSettingManager sharedInstance] getIsWarningVoice])
+            {
+                NSString* warningMessage = [[[DBReasonAdapter alloc] init] getWarningMessage:reasonId];
+                AVSpeechUtterance* utterance = [[AVSpeechUtterance alloc] initWithString:warningMessage];
+                utterance.rate *= 0.5;
+                [self.avSpeechSynthesizer speakUtterance:utterance];
+                
+                // Breath the marker
+                [self.markerManager breathingMarker:locCode];
+            }
         }
     }
 }

@@ -51,6 +51,8 @@
 		84F38DEE1B10130800A0EB42 /* smartTravelDb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 84F38DEC1B10130800A0EB42 /* smartTravelDb.sqlite */; };
 		84F38DEF1B10130800A0EB42 /* smartTravelTemplate.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 84F38DED1B10130800A0EB42 /* smartTravelTemplate.sqlite */; };
 		84F38DF21B102B3300A0EB42 /* AnimatedGMSMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DF11B102B3300A0EB42 /* AnimatedGMSMarker.m */; };
+		84F38DF51B107E5200A0EB42 /* AppSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DF41B107E5200A0EB42 /* AppSettingManager.m */; };
+		84F38DF81B108D0900A0EB42 /* AppLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DF71B108D0900A0EB42 /* AppLocationManager.m */; };
 		9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B295C081ADFF0B200758837 /* FirstLaunch.storyboard */; };
 		9B5EE8641AF3EEE600524F4A /* default.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9B5EE8631AF3EEE600524F4A /* default.gpx */; };
 		9B5EE8691AF3F6B400524F4A /* CircleMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EE8681AF3F6B400524F4A /* CircleMarker.m */; };
@@ -162,6 +164,10 @@
 		84F38DED1B10130800A0EB42 /* smartTravelTemplate.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = smartTravelTemplate.sqlite; path = Resource/SQLite/smartTravelTemplate.sqlite; sourceTree = "<group>"; };
 		84F38DF01B102B3300A0EB42 /* AnimatedGMSMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimatedGMSMarker.h; path = View/AnimatedGMSMarker.h; sourceTree = "<group>"; };
 		84F38DF11B102B3300A0EB42 /* AnimatedGMSMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnimatedGMSMarker.m; path = View/AnimatedGMSMarker.m; sourceTree = "<group>"; };
+		84F38DF31B107E5200A0EB42 /* AppSettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSettingManager.h; sourceTree = "<group>"; };
+		84F38DF41B107E5200A0EB42 /* AppSettingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSettingManager.m; sourceTree = "<group>"; };
+		84F38DF61B108D0900A0EB42 /* AppLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppLocationManager.h; sourceTree = "<group>"; };
+		84F38DF71B108D0900A0EB42 /* AppLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppLocationManager.m; sourceTree = "<group>"; };
 		8D390935FB46D35A2294BF7D /* Pods-SmartTravelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravelTests/Pods-SmartTravelTests.release.xcconfig"; sourceTree = "<group>"; };
 		9B295C091ADFF0B200758837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FirstLaunch.storyboard; sourceTree = "<group>"; };
 		9B5EE8631AF3EEE600524F4A /* default.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default.gpx; sourceTree = "<group>"; };
@@ -447,6 +453,10 @@
 				9B295C0B1ADFF0BA00758837 /* Controller */,
 				9B6A85B21ADFDEFF00667170 /* AppDelegate.h */,
 				9B6A85B31ADFDEFF00667170 /* AppDelegate.m */,
+				84F38DF31B107E5200A0EB42 /* AppSettingManager.h */,
+				84F38DF41B107E5200A0EB42 /* AppSettingManager.m */,
+				84F38DF61B108D0900A0EB42 /* AppLocationManager.h */,
+				84F38DF71B108D0900A0EB42 /* AppLocationManager.m */,
 				9B6A85B51ADFDEFF00667170 /* ViewController.h */,
 				9B6A85B61ADFDEFF00667170 /* ViewController.m */,
 				9B6A85BB1ADFDF0000667170 /* Images.xcassets */,
@@ -703,6 +713,7 @@
 				4203DDB91B0879350002D67F /* DateUtility.m in Sources */,
 				4225F8481B082A3800C5A73F /* JSONManager.m in Sources */,
 				420096201AFEF19200B43630 /* TopMidblock.m in Sources */,
+				84F38DF81B108D0900A0EB42 /* AppLocationManager.m in Sources */,
 				422977851B0810DB00A11E90 /* DBWMReasonCondition.m in Sources */,
 				42C6A8C81B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m in Sources */,
 				4225F8441B0829C200C5A73F /* JSONConstants.m in Sources */,
@@ -718,6 +729,7 @@
 				9BF1281A1AFE537D008E72DA /* Direction.m in Sources */,
 				9B7E59511AE37FD10008D25C /* TermUsage.m in Sources */,
 				9B5EE8691AF3F6B400524F4A /* CircleMarker.m in Sources */,
+				84F38DF51B107E5200A0EB42 /* AppSettingManager.m in Sources */,
 				9B7E59601AE3966F0008D25C /* HomeViewController.m in Sources */,
 				84F38DF21B102B3300A0EB42 /* AnimatedGMSMarker.m in Sources */,
 				4200961C1AFEF05800B43630 /* TopIntersection.m in Sources */,
