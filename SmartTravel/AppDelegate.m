@@ -5,10 +5,11 @@
 //  Created by Gongwei on 15/4/16.
 //  Copyright (c) 2015年 Gongwei. All rights reserved.
 //
-
+#import <GoogleMaps/GoogleMaps.h>
+#import "AppSettingManager.h"
+#import "AppLocationManager.h"
 #import "AppDelegate.h"
 #import "TermUsage.h"
-#import <GoogleMaps/GoogleMaps.h>
 #import "DBConstants.h"
 #import "ModelUtility.h"
 
@@ -37,23 +38,23 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
     //Initialize GMap
     [GMSServices provideAPIKey:GMAP_API_KEY];
     
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"everLaunched"])
+    AppSettingManager* appSettings = [AppSettingManager sharedInstance];
+    NSInteger runCount = [appSettings getRunCount];
+    if (runCount == 0)
     {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
-        
         //Prepare database
         [self perpareSqliteDB];
         
         //Initialize database with JSON data
         [ModelUtility insertDataIntoMainDBTablesUsingDataFromJSONFiles];
+        
+        [appSettings setIsWarningVoice:YES];
     }
-    else
-    {
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
-    }
+    [appSettings setRunCount:(runCount + 1)];
     
     NSLog(@"Current data schema verson is %@", [[DBVersionAdapter alloc] getLatestVersion]);
+    
+    [[AppLocationManager sharedInstance] requestWhenInUserAuthorization];
     
     return YES;
 }
