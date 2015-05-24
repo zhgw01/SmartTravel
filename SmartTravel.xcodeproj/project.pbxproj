@@ -41,6 +41,7 @@
 		42C6A8C81B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C6A8C41B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m */; };
 		42C6A8C91B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42C6A8C51B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib */; };
 		6613E4635B5E884F0B519EDB /* libPods-SmartTravel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */; };
+		8475E8651B1218FB000E0AD5 /* smartTravel.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8475E8641B1218FB000E0AD5 /* smartTravel.sqlite */; };
 		84F38DDC1B0FE86C00A0EB42 /* DBVersionAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DDB1B0FE86C00A0EB42 /* DBVersionAdapter.m */; };
 		84F38DDE1B0FF36500A0EB42 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F38DDD1B0FF36500A0EB42 /* AVFoundation.framework */; };
 		84F38DE11B1000E100A0EB42 /* DBDayTypeAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DE01B1000E100A0EB42 /* DBDayTypeAdapter.m */; };
@@ -48,8 +49,6 @@
 		84F38DE71B10120A00A0EB42 /* TBL_LOCATION_REASON.json in Resources */ = {isa = PBXBuildFile; fileRef = 84F38DE31B10120A00A0EB42 /* TBL_LOCATION_REASON.json */; };
 		84F38DE81B10120A00A0EB42 /* TBL_WM_DAYTYPE.json in Resources */ = {isa = PBXBuildFile; fileRef = 84F38DE41B10120A00A0EB42 /* TBL_WM_DAYTYPE.json */; };
 		84F38DE91B10120A00A0EB42 /* TBL_WM_REASON_CONDITION.json in Resources */ = {isa = PBXBuildFile; fileRef = 84F38DE51B10120A00A0EB42 /* TBL_WM_REASON_CONDITION.json */; };
-		84F38DEE1B10130800A0EB42 /* smartTravelDb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 84F38DEC1B10130800A0EB42 /* smartTravelDb.sqlite */; };
-		84F38DEF1B10130800A0EB42 /* smartTravelTemplate.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 84F38DED1B10130800A0EB42 /* smartTravelTemplate.sqlite */; };
 		84F38DF21B102B3300A0EB42 /* AnimatedGMSMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DF11B102B3300A0EB42 /* AnimatedGMSMarker.m */; };
 		84F38DF51B107E5200A0EB42 /* AppSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DF41B107E5200A0EB42 /* AppSettingManager.m */; };
 		84F38DF81B108D0900A0EB42 /* AppLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DF71B108D0900A0EB42 /* AppLocationManager.m */; };
@@ -151,6 +150,7 @@
 		42C6A8C51B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HotSpotDetailViewHeaderCell.xib; path = View/HotSpotDetailViewHeaderCell.xib; sourceTree = "<group>"; };
 		5EEEC9CCD391050A8D1BA199 /* libPods-SmartTravelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartTravelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6928DA7D73FEF35E1EBF313F /* Pods-SmartTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravel/Pods-SmartTravel.release.xcconfig"; sourceTree = "<group>"; };
+		8475E8641B1218FB000E0AD5 /* smartTravel.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = smartTravel.sqlite; path = Resource/SQLite/smartTravel.sqlite; sourceTree = "<group>"; };
 		84F38DDA1B0FE86C00A0EB42 /* DBVersionAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBVersionAdapter.h; path = Model/DBAdapter/DBVersionAdapter.h; sourceTree = "<group>"; };
 		84F38DDB1B0FE86C00A0EB42 /* DBVersionAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBVersionAdapter.m; path = Model/DBAdapter/DBVersionAdapter.m; sourceTree = "<group>"; };
 		84F38DDD1B0FF36500A0EB42 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -160,8 +160,6 @@
 		84F38DE31B10120A00A0EB42 /* TBL_LOCATION_REASON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TBL_LOCATION_REASON.json; path = Resource/JSON/TBL_LOCATION_REASON.json; sourceTree = "<group>"; };
 		84F38DE41B10120A00A0EB42 /* TBL_WM_DAYTYPE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TBL_WM_DAYTYPE.json; path = Resource/JSON/TBL_WM_DAYTYPE.json; sourceTree = "<group>"; };
 		84F38DE51B10120A00A0EB42 /* TBL_WM_REASON_CONDITION.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TBL_WM_REASON_CONDITION.json; path = Resource/JSON/TBL_WM_REASON_CONDITION.json; sourceTree = "<group>"; };
-		84F38DEC1B10130800A0EB42 /* smartTravelDb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = smartTravelDb.sqlite; path = Resource/SQLite/smartTravelDb.sqlite; sourceTree = "<group>"; };
-		84F38DED1B10130800A0EB42 /* smartTravelTemplate.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = smartTravelTemplate.sqlite; path = Resource/SQLite/smartTravelTemplate.sqlite; sourceTree = "<group>"; };
 		84F38DF01B102B3300A0EB42 /* AnimatedGMSMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimatedGMSMarker.h; path = View/AnimatedGMSMarker.h; sourceTree = "<group>"; };
 		84F38DF11B102B3300A0EB42 /* AnimatedGMSMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnimatedGMSMarker.m; path = View/AnimatedGMSMarker.m; sourceTree = "<group>"; };
 		84F38DF31B107E5200A0EB42 /* AppSettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSettingManager.h; sourceTree = "<group>"; };
@@ -339,8 +337,7 @@
 		84F38DEB1B10122800A0EB42 /* SQLite */ = {
 			isa = PBXGroup;
 			children = (
-				84F38DEC1B10130800A0EB42 /* smartTravelDb.sqlite */,
-				84F38DED1B10130800A0EB42 /* smartTravelTemplate.sqlite */,
+				8475E8641B1218FB000E0AD5 /* smartTravel.sqlite */,
 			);
 			name = SQLite;
 			sourceTree = "<group>";
@@ -611,11 +608,10 @@
 				9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */,
 				42C6A8B31B0A0FAC00EE1518 /* HotSpotDetailView.xib in Resources */,
 				425754B71B088BA20046433F /* 20150517013203-58195-data.gpx in Resources */,
-				84F38DEF1B10130800A0EB42 /* smartTravelTemplate.sqlite in Resources */,
 				42C6A8C71B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.xib in Resources */,
+				8475E8651B1218FB000E0AD5 /* smartTravel.sqlite in Resources */,
 				84F38DE91B10120A00A0EB42 /* TBL_WM_REASON_CONDITION.json in Resources */,
 				9B6A85BA1ADFDF0000667170 /* Main.storyboard in Resources */,
-				84F38DEE1B10130800A0EB42 /* smartTravelDb.sqlite in Resources */,
 				9B6A85BF1ADFDF0000667170 /* LaunchScreen.xib in Resources */,
 				84F38DE61B10120A00A0EB42 /* TBL_COLLISION_LOCATION.json in Resources */,
 				9B6A85BC1ADFDF0000667170 /* Images.xcassets in Resources */,
