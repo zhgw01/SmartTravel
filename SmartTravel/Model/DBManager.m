@@ -69,27 +69,51 @@
     
     if (hotSpotType == HotSpotTypeCnt)
     {
-        smt = @"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code order by l.Location_name asc";
+        smt = @"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code";
     }
     else if (hotSpotType == HotSpotTypeAllExceptSchoolZone)
     {
-        smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and (l.Roadway_portion = '%@' or l.Roadway_portion = '%@' or l.Roadway_portion = '%@') order by l.Location_name asc", @"INTERSECTION", @"MID STREET", @"MID AVENUE"];
+        smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and (l.Roadway_portion = '%@' or l.Roadway_portion = '%@' or l.Roadway_portion = '%@')", @"INTERSECTION", @"MID STREET", @"MID AVENUE"];
     }
     else
     {
-        smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and l.Roadway_portion = '%@' order by l.Location_name asc", [HotSpot toString:hotSpotType]];
+        smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and l.Roadway_portion = '%@'", [HotSpot toString:hotSpotType]];
     }
     
+    NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
     FMResultSet* resultSet = [db executeQuery:smt];
     while ([resultSet nextWithError:&error])
     {
-        HotSpot* hotSpot = [[HotSpot alloc] initWithLocCode:[resultSet stringForColumn:@"Loc_code"]
-                                                   location:[resultSet stringForColumn:@"Location_name"]
-                                                       count:[resultSet intForColumn:@"Total"]
-                                                        rank:[resultSet intForColumn:@"Warning_priority"]
-                                                    latitude:[resultSet doubleForColumn:@"Latitude"]
-                                                  longtitude:[resultSet doubleForColumn:@"Longitude"]];
-        [res addObject:hotSpot];
+        NSString* locationName = [resultSet stringForColumn:@"Location_name"];
+        NSNumber* total = [NSNumber numberWithInt:[resultSet intForColumn:@"Total"]];
+        NSNumber* latitude = [NSNumber numberWithDouble:[resultSet doubleForColumn:@"Latitude"]];
+        NSNumber* longitude = [NSNumber numberWithDouble:[resultSet doubleForColumn:@"Longitude"]];
+
+        NSString* key = [resultSet stringForColumn:@"Loc_code"];
+        if (hotSpotType == HotSpotTypeMidStreet)
+        {
+            NSLog(@"*** %@", key);
+        }
+        
+        if ([[dic allKeys] containsObject:key])
+        {
+            NSMutableDictionary* obj = [NSMutableDictionary dictionaryWithDictionary:[dic objectForKey:key]];
+            NSNumber* totalSum = [obj objectForKey:@"Total"];
+            NSNumber* newTotalNum = [NSNumber numberWithInt:[totalSum intValue] + [total intValue]];
+            
+            [obj setObject:newTotalNum forKey:@"Total"];
+            [dic setObject:obj forKey:key];
+        }
+        else
+        {
+            NSDictionary* obj = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 locationName, @"Location_name",
+                                 total, @"Total",
+                                 latitude, @"Latitude",
+                                 longitude, @"Longitude",
+                                 nil];
+            [dic setObject:obj forKey:key];
+        }
     }
     [resultSet close];
     
@@ -98,7 +122,36 @@
         NSAssert(NO, @"Close db failed");
     }
     
-    return res;
+    // Create hotspot
+    for (NSString* locCode in [dic allKeys])
+    {
+        NSDictionary* hotSpotData = [dic objectForKey:locCode];
+        NSString* locationName = [hotSpotData valueForKey:@"Location_name"];
+        int count = [((NSNumber*)[hotSpotData objectForKey:@"Total"]) intValue];
+        double latitude = [((NSNumber*)[hotSpotData objectForKey:@"Latitude"]) doubleValue];
+        double longitude = [((NSNumber*)[hotSpotData objectForKey:@"Longitude"]) doubleValue];
+        
+        HotSpot* hotSpot = [[HotSpot alloc] initWithLocCode:locCode
+                                                   location:locationName
+                                                      count:count rank:0
+                                                   latitude:latitude
+                                                 longtitude:longitude];
+        [res addObject:hotSpot];
+    }
+    
+    return [self sortHotSpotsOrderByLocationNameAsc:res];
+}
+
+-(NSArray*)sortHotSpotsOrderByLocationNameAsc:(NSArray*)hotSpots
+{
+    NSComparator cmptr = ^(id obj1, id obj2)
+    {
+        HotSpot* hotSpot1 = (HotSpot*)obj1;
+        HotSpot* hotSpot2 = (HotSpot*)obj2;
+        return [hotSpot1.location compare:hotSpot2.location options:NSLiteralSearch];
+    };
+    
+    return [hotSpots sortedArrayUsingComparator:cmptr];
 }
 
 -(NSArray*)getHotSpotDetailsByLocationCode:(NSString*)locCode
