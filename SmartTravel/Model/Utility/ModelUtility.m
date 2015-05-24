@@ -88,9 +88,9 @@
     DBWMDayType* dbWMDayType = [[DBWMDayType alloc] init];
     
     dbWMDayType.Date = jWMDayType.date;
-    dbWMDayType.Weekday = jWMDayType.weekday;
-    dbWMDayType.Weekend = jWMDayType.weenend;
-    dbWMDayType.School_day = jWMDayType.schoolDay;
+    dbWMDayType.Weekday = [[jWMDayType.weekday uppercaseString] isEqualToString:@"TRUE"] ? YES : NO;
+    dbWMDayType.Weekend = [[jWMDayType.weenend uppercaseString] isEqualToString:@"TRUE"] ? YES : NO;
+    dbWMDayType.School_day = [[jWMDayType.schoolDay uppercaseString] isEqualToString:@"TRUE"] ? YES : NO;
     
     return dbWMDayType;
 }
@@ -141,8 +141,10 @@
         [db executeUpdate:smt withParameterDictionary:[dbWMReasonCondition dictionaryValue]];
     }
     
-    BOOL dbCloseRes = [db close];
-    NSAssert(dbCloseRes, @"Close db failed");
+    if (![db close])
+    {
+        NSAssert(NO, @"Close db failed");
+    }
 
     return YES;
 }

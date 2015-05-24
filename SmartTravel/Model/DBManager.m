@@ -69,15 +69,15 @@
     
     if (hotSpotType == HotSpotTypeCnt)
     {
-        smt = @"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code order by r.Total asc";
+        smt = @"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code order by l.Location_name asc";
     }
     else if (hotSpotType == HotSpotTypeAllExceptSchoolZone)
     {
-        smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and (l.Roadway_portion = '%@' or l.Roadway_portion = '%@' or l.Roadway_portion = '%@') order by r.Total asc", @"INTERSECTION", @"MID STREET", @"MID AVENUE"];
+        smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and (l.Roadway_portion = '%@' or l.Roadway_portion = '%@' or l.Roadway_portion = '%@') order by l.Location_name asc", @"INTERSECTION", @"MID STREET", @"MID AVENUE"];
     }
     else
     {
-        smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and l.Roadway_portion = '%@' order by r.Total asc", [HotSpot toString:hotSpotType]];
+        smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total, r.Warning_priority from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and l.Roadway_portion = '%@' order by l.Location_name asc", [HotSpot toString:hotSpotType]];
     }
     
     FMResultSet* resultSet = [db executeQuery:smt];
@@ -93,8 +93,10 @@
     }
     [resultSet close];
     
-    BOOL dbCloseRes = [db close];
-    NSAssert(dbCloseRes, @"Close db failed");
+    if (![db close])
+    {
+        NSAssert(NO, @"Close db failed");
+    }
     
     return res;
 }
@@ -127,8 +129,10 @@
         [res addObject:data];
     }
     
-    BOOL dbCloseRes = [db close];
-    NSAssert(dbCloseRes, @"Close db failed");
+    if (![db close])
+    {
+        NSAssert(NO, @"Close db failed");
+    }
     
     return res;
 }

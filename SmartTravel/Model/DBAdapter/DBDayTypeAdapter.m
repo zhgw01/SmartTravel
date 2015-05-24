@@ -48,8 +48,10 @@ static NSString * const kDateColumn = @"Date";
             }
             [resultSet close];
             
-            BOOL dbCloseRes = [db close];
-            NSAssert(dbCloseRes, @"Close db failed");
+            if (![db close])
+            {
+                NSAssert(NO, @"Close db failed");
+            }
         }
 
         // iOS routine to judge if the date is week day

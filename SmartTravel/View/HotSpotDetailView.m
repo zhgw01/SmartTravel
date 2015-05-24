@@ -68,11 +68,11 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 768, 60)];
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
     label.text = @"Location";
     label.textColor = [UIColor colorWithRed:82.0/255 green:181.0/255 blue:219.0/255 alpha:1];
+    label.backgroundColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
-    label.numberOfLines = 0;
     return label;
 }
 
@@ -111,22 +111,6 @@
         [cell configureDirection:[detail objectForKey:@"Travel_direction"]
                           reason:[detail objectForKey:@"Reason"]
                            total:[detail objectForKey:@"Total"]];
-        
-//        static NSString* cellIdentifier = @"HotSpotDetailViewCommonCell";
-//        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//        if (cell == nil)
-//        {
-//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellIdentifier];
-//        }
-//        
-//        cell.textLabel.text = [detail objectForKey:@"Travel_direction"];
-//        cell.textLabel.textAlignment = NSTextAlignmentLeft;
-//        cell.textLabel.textColor = [UIColor grayColor];
-//        
-//        cell.detailTextLabel.text = [detail objectForKey:@"Reason"];
-//        cell.detailTextLabel.numberOfLines = 0;
-//        cell.detailTextLabel.lineBreakMode = NSLineBreakByCharWrapping;
-//        cell.detailTextLabel.textColor = [UIColor grayColor];
         
         return cell;
     }

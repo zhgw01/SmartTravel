@@ -34,8 +34,10 @@ static NSString * const kVersionColumn = @"Version";
         }
         [resultSet close];
         
-        BOOL dbCloseRes = [db close];
-        NSAssert(dbCloseRes, @"Close db failed");
+        if (![db close])
+        {
+            NSAssert(NO, @"Close db failed");
+        }
     }
     return latestVersion;
 }
