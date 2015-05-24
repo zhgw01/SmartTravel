@@ -305,7 +305,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="e8B-aC-8n1">
                                 <rect key="frame" x="85" y="47" width="215" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="tEd-je-gPE" id="QZf-Zd-Pxy"/>
                                     <outlet property="delegate" destination="tEd-je-gPE" id="Udi-uB-Zyd"/>

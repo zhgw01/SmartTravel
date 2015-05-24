@@ -53,10 +53,10 @@
     self.unSelectionViewColor= [UIColor colorWithRed:0.69 green:0.69 blue:0.69 alpha:1];
     
     [self setupModel];
-    self.intersectionCountLabel.text = [NSString stringWithFormat:@"%lu", self.intersections.count];
-    self.midStreetCountLabel.text = [NSString stringWithFormat:@"%lu", self.midStreets.count];
-    self.midAvenueCountLabel.text = [NSString stringWithFormat:@"%lu", self.midAvenues.count];
-    self.schoolZoneCountLabel.text = [NSString stringWithFormat:@"%lu", self.schoolZones.count];
+    self.intersectionCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.intersections.count];
+    self.midStreetCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.midStreets.count];
+    self.midAvenueCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.midAvenues.count];
+    self.schoolZoneCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.schoolZones.count];
 }
 
 - (void)didReceiveMemoryWarning {

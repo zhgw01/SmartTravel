@@ -55,8 +55,10 @@ static NSString * const kEndTimeColumn = @"End_time";
         }
         [resultSet close];
         
-        BOOL dbCloseRes = [db close];
-        NSAssert(dbCloseRes, @"Close db failed");
+        if (![db close])
+        {
+            NSAssert(NO, @"Close db failed");
+        }
     }
     
     return [res copy];
@@ -77,9 +79,12 @@ static NSString * const kEndTimeColumn = @"End_time";
             res = [resultSet stringForColumn:kWarningMessageColumn];
         }
         [resultSet close];
+        
+        if (![db close])
+        {
+            NSAssert(NO, @"Close db failed");
+        }
     }
-    BOOL dbCloseRes = [db close];
-    NSAssert(dbCloseRes, @"Close db failed");
     
     return res;
 }

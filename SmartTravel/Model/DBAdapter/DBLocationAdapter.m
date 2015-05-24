@@ -62,9 +62,12 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
         {
             [res addObject:[resultSet stringForColumn:kLocCodeColumn]];
         }
+        [resultSet close];
         
-        BOOL dbCloseRes = [db close];
-        NSAssert(dbCloseRes, @"Close db failed");
+        if (![db close])
+        {
+            NSAssert(NO, @"Close db failed");
+        }
     }
     
     return [res copy];
@@ -93,9 +96,12 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
             
             res = YES;
         }
+        [resultSet close];
         
-        BOOL dbCloseRes = [db close];
-        NSAssert(dbCloseRes, @"Close db failed");
+        if (![db close])
+        {
+            NSAssert(NO, @"Close db failed");
+        }
     }
     
     return res;
@@ -186,9 +192,12 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
                    [NSNumber numberWithInt:waringPriorityValue], kWarningPriorityColumn,
                    nil];
         }
+        [resultSet close];
         
-        BOOL dbCloseRes = [db close];
-        NSAssert(dbCloseRes, @"Close db failed");
+        if (![db close])
+        {
+            NSAssert(NO, @"Close db failed");
+        }
     }
     
     return [res copy];
