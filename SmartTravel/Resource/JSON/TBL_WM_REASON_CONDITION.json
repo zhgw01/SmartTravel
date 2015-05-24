@@ -253,7 +253,7 @@
         "school_day": "TRUE"
     },
     {
-        "warnig_message": "This is test. You should here WARNING only once!",
+        "warnig_message": "This is test. You should here WARNING every 10 seconds!",
         "weekday": "FALSE",
         "reason": "TEST 1(School Days between 00:01 and 23:59)",
         "weenend": "TRUE",

@@ -31,19 +31,19 @@ static NSString * const kEndTimeColumn = @"End_time";
     FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
     if ([db open])
     {
-#ifdef DEBUG
-        NSString* smt = [NSString stringWithFormat:@"select * from %@", MAIN_DB_TBL_WM_REASON_CONDITION];
-#else
+//#ifdef DEBUG
+//        NSString* smt = [NSString stringWithFormat:@"select * from %@", MAIN_DB_TBL_WM_REASON_CONDITION];
+//#else
         NSString* smt = [self constructSmt:date];
-#endif
+//#endif
         FMResultSet* resultSet = [db executeQuery:smt];
         NSError* error = nil;
         while([resultSet nextWithError:&error])
         {
             NSString* reasonId = [resultSet stringForColumn:kReasonIdColumn];
-#ifdef DEBUG
-            [res addObject:reasonId];
-#else
+//#ifdef DEBUG
+//            [res addObject:reasonId];
+//#else
             NSString* monthStr = [resultSet stringForColumn:kMonthColumn];
             NSString* startTimeStr = [resultSet stringForColumn:kStartTimeColumn];
             NSString* endTimeStr = [resultSet stringForColumn:kEndTimeColumn];
@@ -51,7 +51,7 @@ static NSString * const kEndTimeColumn = @"End_time";
             {
                 [res addObject:reasonId];
             }
-#endif
+//#endif
         }
         [resultSet close];
         
@@ -88,17 +88,27 @@ static NSString * const kEndTimeColumn = @"End_time";
 {
     DBDayTypeAdapter* dbDateAdapter = [[DBDayTypeAdapter alloc] initWith:date];
     
+//    return [NSString stringWithFormat:
+//            @"select %@, %@, %@, %@ from %@ where (%@ = %d) and (%@ = %d)",
+//            kReasonIdColumn,
+//            kMonthColumn,
+//            kStartTimeColumn,
+//            kEndTimeColumn,
+//            MAIN_DB_TBL_WM_REASON_CONDITION,
+//            kWeekdayColumn,
+//            dbDateAdapter.isWeekDay ? 1 : 0,
+//            kSchoolDayColumn,
+//            dbDateAdapter.isSchoolDay ? 1 : 0];
+    
     return [NSString stringWithFormat:
-            @"select %@, %@, %@, %@ from %@ where (%@ = %d) and (%@ = %d)",
+            @"select %@, %@, %@, %@ from %@ where (%@ = %d)",
             kReasonIdColumn,
             kMonthColumn,
             kStartTimeColumn,
             kEndTimeColumn,
             MAIN_DB_TBL_WM_REASON_CONDITION,
             kWeekdayColumn,
-            dbDateAdapter.isWeekDay ? 1 : 0,
-            kSchoolDayColumn,
-            dbDateAdapter.isSchoolDay ? 1 : 0];
+            dbDateAdapter.isWeekDay ? 1 : 0];
 }
 
 @end
