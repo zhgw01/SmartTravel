@@ -251,5 +251,16 @@
         "month": "101111001111",
         "start_time": "08:00",
         "school_day": "TRUE"
+    },
+    {
+        "warnig_message": "This is test. You should here WARNING only once!",
+        "weekday": "FALSE",
+        "reason": "TEST 1(School Days between 00:01 and 23:59)",
+        "weenend": "TRUE",
+        "end_time": "23:59",
+        "reason_id": 1001,
+        "month": "111111111111",
+        "start_time": "00:01",
+        "school_day": "TRUE"
     }
 ]

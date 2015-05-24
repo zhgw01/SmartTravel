@@ -4256,5 +4256,12 @@
         "longitude": -113.542021004,
         "latitude": 53.5636544363,
         "loc_code": "SCHOOLZONE_1431"
+    },
+    {
+        "location_name": "TEST_LOCATION_NAME_1",
+        "roadway_portion": "MID STREET",
+        "longitude": 121.513425,
+        "latitude": 31.146932,
+        "loc_code": "TEST_LOC_CODE_1"
     }
 ]
