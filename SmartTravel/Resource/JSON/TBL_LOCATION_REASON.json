@@ -4263,5 +4263,12 @@
         "reason_id": 19,
         "travel_direction": "SOUTH",
         "loc_code": "0034526S-NW50-0"
+    },
+    {
+        "total": 999,
+        "warning_priority": 999,
+        "reason_id": 1001,
+        "travel_direction": "ALL",
+        "loc_code": "TEST_LOC_CODE_1"
     }
 ]
