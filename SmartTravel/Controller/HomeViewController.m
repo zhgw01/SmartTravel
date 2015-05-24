@@ -413,7 +413,7 @@ static CGFloat kHotSpotZoonRadius = 300.0;
     self.hotSpotDetailView.hidden = NO;
 
     NSArray* hotSpotDetails = [[DBManager sharedInstance] getHotSpotDetailsByLocationCode:hotSpot.locCode];
-    [self.hotSpotDetailView reload:hotSpotDetails];
+    [self.hotSpotDetailView reload:@[hotSpot.location, hotSpotDetails]];
 }
 
 #pragma mark - GMSMapViewDelegate methods
