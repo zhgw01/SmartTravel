@@ -11,6 +11,8 @@
 @interface AnimatedGMSMarker : GMSMarker
 
 @property (strong, nonatomic) NSString* animationBaseName;
+@property (copy, nonatomic) NSString* locCode;
+@property (copy, nonatomic) NSString* locationName;
 
 -(void)setAnimation:(NSString*)name
           forFrames:(NSArray*)frames;

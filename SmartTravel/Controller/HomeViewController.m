@@ -15,6 +15,7 @@
 #import "HotSpotListViewController.h"
 #import "WarningView.h"
 #import "HotSpotDetailView.h"
+#import "AnimatedGMSMarker.h"
 
 #import "DBReasonAdapter.h"
 #import "DBLocationAdapter.h"
@@ -424,6 +425,31 @@ static CGFloat kHotSpotZoonRadius = 300.0;
     {
         [self setNavigationMode:NO];
     }
+}
+
+-(BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
+{
+    [self setNavigationMode:NO];
+    
+    // Zoom to hot spot location
+    double latitude = marker.position.latitude;
+    double longtitude = marker.position.longitude;
+    GMSCameraPosition* targetPos = [GMSCameraPosition cameraWithLatitude:latitude
+                                                               longitude:longtitude
+                                                                    zoom:16.0];
+    self.mapView.camera = targetPos;
+    
+    // Show hot spot details
+    self.hotSpotDetailView.hidden = NO;
+    
+    AnimatedGMSMarker* animatedGMSMarker = (AnimatedGMSMarker*)marker;
+    if (animatedGMSMarker)
+    {
+        NSArray* hotSpotDetails = [[DBManager sharedInstance] getHotSpotDetailsByLocationCode:animatedGMSMarker.locCode];
+        [self.hotSpotDetailView reload:@[animatedGMSMarker.locationName, hotSpotDetails]];
+    }
+    
+    return YES;
 }
 
 @end
