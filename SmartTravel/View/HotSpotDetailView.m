@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIView *gripView;
 @property (weak, nonatomic) IBOutlet UIView *gripBackgroundView;
 @property (weak, nonatomic) IBOutlet UITableView *detailsTableView;
+@property (copy, nonatomic) NSString* locationName;
 
 @property (strong, nonatomic) NSArray* details;
 
@@ -33,7 +34,8 @@
 
 - (void)reload:(NSArray*)details
 {
-    self.details = details;
+    self.locationName = [details objectAtIndex:0];
+    self.details = [details objectAtIndex:1];
     [self setNeedsDisplay];
     [self.detailsTableView reloadData];
 }
@@ -44,6 +46,7 @@
     self.gripView.layer.masksToBounds = YES;
     self.detailsTableView.delegate = self;
     self.detailsTableView.dataSource = self;
+    self.locationName = @"Location";
     
     self.details = [[NSArray alloc] init];
 }
@@ -69,10 +72,12 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
-    label.text = @"Location";
+    label.text = self.locationName;
     label.textColor = [UIColor colorWithRed:82.0/255 green:181.0/255 blue:219.0/255 alpha:1];
     label.backgroundColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
+    label.numberOfLines = 0;
+    label.lineBreakMode = NSLineBreakByWordWrapping;
     return label;
 }
 
@@ -128,11 +133,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 44.f;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
 }
 
 @end

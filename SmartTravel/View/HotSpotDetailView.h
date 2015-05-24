@@ -10,6 +10,11 @@
 
 @interface HotSpotDetailView : UIView
 
-- (void)reload:(NSArray*)details;
+/**
+ *  After user click the cell, should send message to HotSpotDetailView by this method to update view.
+ *
+ *  @param detailsOfLocationName 1st element is location name, 2nd element is details.
+ */
+- (void)reload:(NSArray*)detailsOfLocationName;
 
 @end
