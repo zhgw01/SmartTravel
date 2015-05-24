@@ -63,6 +63,9 @@ static NSString * const kBreathingIconBaseName = @"breathing";
         marker.position = CLLocationCoordinate2DMake(hotSpot.latitude.doubleValue,
                                                      hotSpot.longtitude.doubleValue);
         marker.icon = [UIImage imageNamed:kStaticMarkerIconName];
+        marker.locCode = hotSpot.locCode;
+        marker.locationName = hotSpot.location;
+        
         [dic setObject:marker forKey:hotSpot.locCode];
     }
     self.hotSpotMarkersDic = [dic copy];
