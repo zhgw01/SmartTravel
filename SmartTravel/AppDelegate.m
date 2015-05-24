@@ -11,14 +11,6 @@
 #import "AppDelegate.h"
 #import "TermUsage.h"
 #import "DBConstants.h"
-#import "ModelUtility.h"
-
-#import "JsonManager.h"
-#import "JSONCollisionLocation.h"
-#import "JSONLocationReason.h"
-#import "JSONWMDayType.h"
-#import "JSONWMReasonCondition.h"
-
 #import "DBVersionAdapter.h"
 
 @interface AppDelegate ()
@@ -42,17 +34,17 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
     NSInteger runCount = [appSettings getRunCount];
     if (runCount == 0)
     {
-        //Copy database from main bundle with data ready
-        [self copyResourceFromAppBundle:DB_NAME_MAIN
-              toUserDocumentWithNewName:DB_NAME_MAIN
-                                withExt:DB_EXT
-                         forceOverwrite:YES];
-        
-        //Initialize database with JSON data
-        //[ModelUtility insertDataIntoMainDBTablesUsingDataFromJSONFiles];
-        
         [appSettings setIsWarningVoice:YES];
     }
+    
+    //Copy database from main bundle with data ready.
+    //Only force overwrite for 1st time;
+    //later check only and copy in case it was removed by unknown exceptions.
+    [self copyResourceFromAppBundle:DB_NAME_MAIN
+          toUserDocumentWithNewName:DB_NAME_MAIN
+                            withExt:DB_EXT
+                     forceOverwrite:(runCount == 0)];
+    
     [appSettings setRunCount:(runCount + 1)];
     
     NSLog(@"Current data schema verson is %@", [[DBVersionAdapter alloc] getLatestVersion]);

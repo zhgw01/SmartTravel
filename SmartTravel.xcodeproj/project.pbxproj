@@ -8,22 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1E2E79F51E63E734D1BFE0B5 /* libPods-SmartTravelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEEC9CCD391050A8D1BA199 /* libPods-SmartTravelTests.a */; };
-		4200961C1AFEF05800B43630 /* TopIntersection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4200961B1AFEF05800B43630 /* TopIntersection.m */; };
-		420096201AFEF19200B43630 /* TopMidblock.m in Sources */ = {isa = PBXBuildFile; fileRef = 4200961F1AFEF19200B43630 /* TopMidblock.m */; };
-		420096231AFEF25600B43630 /* TopPedestrian.m in Sources */ = {isa = PBXBuildFile; fileRef = 420096221AFEF25600B43630 /* TopPedestrian.m */; };
-		420096261AFEF31C00B43630 /* TopCyclist.m in Sources */ = {isa = PBXBuildFile; fileRef = 420096251AFEF31C00B43630 /* TopCyclist.m */; };
-		420096291AFEF37B00B43630 /* TopMotorcyclist.m in Sources */ = {isa = PBXBuildFile; fileRef = 420096281AFEF37B00B43630 /* TopMotorcyclist.m */; };
 		4203DDB91B0879350002D67F /* DateUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4203DDB61B0879350002D67F /* DateUtility.m */; };
-		4203DDBA1B0879350002D67F /* ModelUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4203DDB81B0879350002D67F /* ModelUtility.m */; };
 		4225F8341B081A4100C5A73F /* DBLocationAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F82E1B081A4100C5A73F /* DBLocationAdapter.m */; };
 		4225F8361B081A4100C5A73F /* DBReasonAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F8321B081A4100C5A73F /* DBReasonAdapter.m */; };
 		4225F8431B0829C200C5A73F /* DBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F83E1B0829C200C5A73F /* DBConstants.m */; };
-		4225F8441B0829C200C5A73F /* JSONConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F8401B0829C200C5A73F /* JSONConstants.m */; };
-		4225F8481B082A3800C5A73F /* JSONManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4225F8471B082A3800C5A73F /* JSONManager.m */; };
-		4229776A1B080EF000A11E90 /* JSONCollisionLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977631B080EF000A11E90 /* JSONCollisionLocation.m */; };
-		4229776B1B080EF000A11E90 /* JSONLocationReason.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977651B080EF000A11E90 /* JSONLocationReason.m */; };
-		4229776C1B080EF000A11E90 /* JSONWMDayType.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977671B080EF000A11E90 /* JSONWMDayType.m */; };
-		4229776D1B080EF000A11E90 /* JSONWMReasonCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977691B080EF000A11E90 /* JSONWMReasonCondition.m */; };
 		422977821B0810DB00A11E90 /* DBCollisionLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4229777E1B0810DB00A11E90 /* DBCollisionLocation.m */; };
 		422977831B0810DB00A11E90 /* DBLocationReason.m in Sources */ = {isa = PBXBuildFile; fileRef = 4229777F1B0810DB00A11E90 /* DBLocationReason.m */; };
 		422977841B0810DB00A11E90 /* DBWMDayType.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977801B0810DB00A11E90 /* DBWMDayType.m */; };
@@ -45,10 +33,6 @@
 		84F38DDC1B0FE86C00A0EB42 /* DBVersionAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DDB1B0FE86C00A0EB42 /* DBVersionAdapter.m */; };
 		84F38DDE1B0FF36500A0EB42 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F38DDD1B0FF36500A0EB42 /* AVFoundation.framework */; };
 		84F38DE11B1000E100A0EB42 /* DBDayTypeAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DE01B1000E100A0EB42 /* DBDayTypeAdapter.m */; };
-		84F38DE61B10120A00A0EB42 /* TBL_COLLISION_LOCATION.json in Resources */ = {isa = PBXBuildFile; fileRef = 84F38DE21B10120A00A0EB42 /* TBL_COLLISION_LOCATION.json */; };
-		84F38DE71B10120A00A0EB42 /* TBL_LOCATION_REASON.json in Resources */ = {isa = PBXBuildFile; fileRef = 84F38DE31B10120A00A0EB42 /* TBL_LOCATION_REASON.json */; };
-		84F38DE81B10120A00A0EB42 /* TBL_WM_DAYTYPE.json in Resources */ = {isa = PBXBuildFile; fileRef = 84F38DE41B10120A00A0EB42 /* TBL_WM_DAYTYPE.json */; };
-		84F38DE91B10120A00A0EB42 /* TBL_WM_REASON_CONDITION.json in Resources */ = {isa = PBXBuildFile; fileRef = 84F38DE51B10120A00A0EB42 /* TBL_WM_REASON_CONDITION.json */; };
 		84F38DF21B102B3300A0EB42 /* AnimatedGMSMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DF11B102B3300A0EB42 /* AnimatedGMSMarker.m */; };
 		84F38DF51B107E5200A0EB42 /* AppSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DF41B107E5200A0EB42 /* AppSettingManager.m */; };
 		84F38DF81B108D0900A0EB42 /* AppLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DF71B108D0900A0EB42 /* AppLocationManager.m */; };
@@ -90,38 +74,14 @@
 		171AC3DFEC430AD99FCFEE1E /* Pods-SmartTravelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravelTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravelTests/Pods-SmartTravelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartTravel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B0D027AB13F8856B8F4BA29 /* Pods-SmartTravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravel/Pods-SmartTravel.debug.xcconfig"; sourceTree = "<group>"; };
-		4200961A1AFEF05800B43630 /* TopIntersection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopIntersection.h; path = Model/TopLocation/TopIntersection.h; sourceTree = "<group>"; };
-		4200961B1AFEF05800B43630 /* TopIntersection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopIntersection.m; path = Model/TopLocation/TopIntersection.m; sourceTree = "<group>"; };
-		4200961E1AFEF19200B43630 /* TopMidblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopMidblock.h; path = Model/TopLocation/TopMidblock.h; sourceTree = "<group>"; };
-		4200961F1AFEF19200B43630 /* TopMidblock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopMidblock.m; path = Model/TopLocation/TopMidblock.m; sourceTree = "<group>"; };
-		420096211AFEF25600B43630 /* TopPedestrian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopPedestrian.h; path = Model/TopLocation/TopPedestrian.h; sourceTree = "<group>"; };
-		420096221AFEF25600B43630 /* TopPedestrian.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopPedestrian.m; path = Model/TopLocation/TopPedestrian.m; sourceTree = "<group>"; };
-		420096241AFEF31C00B43630 /* TopCyclist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopCyclist.h; path = Model/TopLocation/TopCyclist.h; sourceTree = "<group>"; };
-		420096251AFEF31C00B43630 /* TopCyclist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopCyclist.m; path = Model/TopLocation/TopCyclist.m; sourceTree = "<group>"; };
-		420096271AFEF37B00B43630 /* TopMotorcyclist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopMotorcyclist.h; path = Model/TopLocation/TopMotorcyclist.h; sourceTree = "<group>"; };
-		420096281AFEF37B00B43630 /* TopMotorcyclist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopMotorcyclist.m; path = Model/TopLocation/TopMotorcyclist.m; sourceTree = "<group>"; };
 		4203DDB51B0879350002D67F /* DateUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateUtility.h; path = Model/Utility/DateUtility.h; sourceTree = "<group>"; };
 		4203DDB61B0879350002D67F /* DateUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateUtility.m; path = Model/Utility/DateUtility.m; sourceTree = "<group>"; };
-		4203DDB71B0879350002D67F /* ModelUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelUtility.h; path = Model/Utility/ModelUtility.h; sourceTree = "<group>"; };
-		4203DDB81B0879350002D67F /* ModelUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelUtility.m; path = Model/Utility/ModelUtility.m; sourceTree = "<group>"; };
 		4225F82D1B081A4100C5A73F /* DBLocationAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBLocationAdapter.h; path = Model/DBAdapter/DBLocationAdapter.h; sourceTree = "<group>"; };
 		4225F82E1B081A4100C5A73F /* DBLocationAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBLocationAdapter.m; path = Model/DBAdapter/DBLocationAdapter.m; sourceTree = "<group>"; };
 		4225F8311B081A4100C5A73F /* DBReasonAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBReasonAdapter.h; path = Model/DBAdapter/DBReasonAdapter.h; sourceTree = "<group>"; };
 		4225F8321B081A4100C5A73F /* DBReasonAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBReasonAdapter.m; path = Model/DBAdapter/DBReasonAdapter.m; sourceTree = "<group>"; };
 		4225F83D1B0829C200C5A73F /* DBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBConstants.h; path = Model/DBConstants.h; sourceTree = "<group>"; };
 		4225F83E1B0829C200C5A73F /* DBConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBConstants.m; path = Model/DBConstants.m; sourceTree = "<group>"; };
-		4225F83F1B0829C200C5A73F /* JSONConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONConstants.h; path = Model/JSONConstants.h; sourceTree = "<group>"; };
-		4225F8401B0829C200C5A73F /* JSONConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONConstants.m; path = Model/JSONConstants.m; sourceTree = "<group>"; };
-		4225F8461B082A3800C5A73F /* JSONManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONManager.h; path = Model/JSONManager.h; sourceTree = "<group>"; };
-		4225F8471B082A3800C5A73F /* JSONManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONManager.m; path = Model/JSONManager.m; sourceTree = "<group>"; };
-		422977621B080EF000A11E90 /* JSONCollisionLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONCollisionLocation.h; path = Model/JSON/JSONCollisionLocation.h; sourceTree = "<group>"; };
-		422977631B080EF000A11E90 /* JSONCollisionLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONCollisionLocation.m; path = Model/JSON/JSONCollisionLocation.m; sourceTree = "<group>"; };
-		422977641B080EF000A11E90 /* JSONLocationReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONLocationReason.h; path = Model/JSON/JSONLocationReason.h; sourceTree = "<group>"; };
-		422977651B080EF000A11E90 /* JSONLocationReason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONLocationReason.m; path = Model/JSON/JSONLocationReason.m; sourceTree = "<group>"; };
-		422977661B080EF000A11E90 /* JSONWMDayType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONWMDayType.h; path = Model/JSON/JSONWMDayType.h; sourceTree = "<group>"; };
-		422977671B080EF000A11E90 /* JSONWMDayType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONWMDayType.m; path = Model/JSON/JSONWMDayType.m; sourceTree = "<group>"; };
-		422977681B080EF000A11E90 /* JSONWMReasonCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONWMReasonCondition.h; path = Model/JSON/JSONWMReasonCondition.h; sourceTree = "<group>"; };
-		422977691B080EF000A11E90 /* JSONWMReasonCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONWMReasonCondition.m; path = Model/JSON/JSONWMReasonCondition.m; sourceTree = "<group>"; };
 		4229777E1B0810DB00A11E90 /* DBCollisionLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBCollisionLocation.m; path = Model/DBSqlite/DBCollisionLocation.m; sourceTree = "<group>"; };
 		4229777F1B0810DB00A11E90 /* DBLocationReason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBLocationReason.m; path = Model/DBSqlite/DBLocationReason.m; sourceTree = "<group>"; };
 		422977801B0810DB00A11E90 /* DBWMDayType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBWMDayType.m; path = Model/DBSqlite/DBWMDayType.m; sourceTree = "<group>"; };
@@ -156,10 +116,6 @@
 		84F38DDD1B0FF36500A0EB42 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		84F38DDF1B1000E100A0EB42 /* DBDayTypeAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBDayTypeAdapter.h; path = Model/DBAdapter/DBDayTypeAdapter.h; sourceTree = "<group>"; };
 		84F38DE01B1000E100A0EB42 /* DBDayTypeAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBDayTypeAdapter.m; path = Model/DBAdapter/DBDayTypeAdapter.m; sourceTree = "<group>"; };
-		84F38DE21B10120A00A0EB42 /* TBL_COLLISION_LOCATION.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TBL_COLLISION_LOCATION.json; path = Resource/JSON/TBL_COLLISION_LOCATION.json; sourceTree = "<group>"; };
-		84F38DE31B10120A00A0EB42 /* TBL_LOCATION_REASON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TBL_LOCATION_REASON.json; path = Resource/JSON/TBL_LOCATION_REASON.json; sourceTree = "<group>"; };
-		84F38DE41B10120A00A0EB42 /* TBL_WM_DAYTYPE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TBL_WM_DAYTYPE.json; path = Resource/JSON/TBL_WM_DAYTYPE.json; sourceTree = "<group>"; };
-		84F38DE51B10120A00A0EB42 /* TBL_WM_REASON_CONDITION.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TBL_WM_REASON_CONDITION.json; path = Resource/JSON/TBL_WM_REASON_CONDITION.json; sourceTree = "<group>"; };
 		84F38DF01B102B3300A0EB42 /* AnimatedGMSMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimatedGMSMarker.h; path = View/AnimatedGMSMarker.h; sourceTree = "<group>"; };
 		84F38DF11B102B3300A0EB42 /* AnimatedGMSMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnimatedGMSMarker.m; path = View/AnimatedGMSMarker.m; sourceTree = "<group>"; };
 		84F38DF31B107E5200A0EB42 /* AppSettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSettingManager.h; sourceTree = "<group>"; };
@@ -230,30 +186,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4200961D1AFEF17600B43630 /* TopLocation */ = {
-			isa = PBXGroup;
-			children = (
-				420096271AFEF37B00B43630 /* TopMotorcyclist.h */,
-				420096281AFEF37B00B43630 /* TopMotorcyclist.m */,
-				420096241AFEF31C00B43630 /* TopCyclist.h */,
-				420096251AFEF31C00B43630 /* TopCyclist.m */,
-				420096211AFEF25600B43630 /* TopPedestrian.h */,
-				420096221AFEF25600B43630 /* TopPedestrian.m */,
-				4200961E1AFEF19200B43630 /* TopMidblock.h */,
-				4200961F1AFEF19200B43630 /* TopMidblock.m */,
-				4200961A1AFEF05800B43630 /* TopIntersection.h */,
-				4200961B1AFEF05800B43630 /* TopIntersection.m */,
-			);
-			name = TopLocation;
-			sourceTree = "<group>";
-		};
 		4203DDB41B0878860002D67F /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				4203DDB51B0879350002D67F /* DateUtility.h */,
 				4203DDB61B0879350002D67F /* DateUtility.m */,
-				4203DDB71B0879350002D67F /* ModelUtility.h */,
-				4203DDB81B0879350002D67F /* ModelUtility.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -296,21 +233,6 @@
 			name = GPX;
 			sourceTree = "<group>";
 		};
-		4261DD921B06329600521A17 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				422977621B080EF000A11E90 /* JSONCollisionLocation.h */,
-				422977631B080EF000A11E90 /* JSONCollisionLocation.m */,
-				422977641B080EF000A11E90 /* JSONLocationReason.h */,
-				422977651B080EF000A11E90 /* JSONLocationReason.m */,
-				422977661B080EF000A11E90 /* JSONWMDayType.h */,
-				422977671B080EF000A11E90 /* JSONWMDayType.m */,
-				422977681B080EF000A11E90 /* JSONWMReasonCondition.h */,
-				422977691B080EF000A11E90 /* JSONWMReasonCondition.m */,
-			);
-			name = JSON;
-			sourceTree = "<group>";
-		};
 		5144BF6598479F6C7B046745 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,17 +243,6 @@
 				5EEEC9CCD391050A8D1BA199 /* libPods-SmartTravelTests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		84F38DEA1B10121000A0EB42 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				84F38DE21B10120A00A0EB42 /* TBL_COLLISION_LOCATION.json */,
-				84F38DE31B10120A00A0EB42 /* TBL_LOCATION_REASON.json */,
-				84F38DE41B10120A00A0EB42 /* TBL_WM_DAYTYPE.json */,
-				84F38DE51B10120A00A0EB42 /* TBL_WM_REASON_CONDITION.json */,
-			);
-			name = JSON;
 			sourceTree = "<group>";
 		};
 		84F38DEB1B10122800A0EB42 /* SQLite */ = {
@@ -390,19 +301,13 @@
 			children = (
 				42C6A8A41B0A0CEC00EE1518 /* HotSpot.h */,
 				42C6A8A51B0A0CEC00EE1518 /* HotSpot.m */,
-				4225F8461B082A3800C5A73F /* JSONManager.h */,
-				4225F8471B082A3800C5A73F /* JSONManager.m */,
 				4225F83D1B0829C200C5A73F /* DBConstants.h */,
 				4225F83E1B0829C200C5A73F /* DBConstants.m */,
-				4225F83F1B0829C200C5A73F /* JSONConstants.h */,
-				4225F8401B0829C200C5A73F /* JSONConstants.m */,
 				9B6C7DA61AF500C500DF6FA9 /* DBManager.h */,
 				9B6C7DA71AF500C500DF6FA9 /* DBManager.m */,
 				4225F82A1B08198900C5A73F /* DBAdapter */,
 				4229776E1B080F0500A11E90 /* DBSqlite */,
-				4261DD921B06329600521A17 /* JSON */,
 				4203DDB41B0878860002D67F /* Utility */,
-				4200961D1AFEF17600B43630 /* TopLocation */,
 				9B7E594F1AE37FD10008D25C /* TermUsage.h */,
 				9B7E59501AE37FD10008D25C /* TermUsage.m */,
 				9BF128181AFE537D008E72DA /* Direction.h */,
@@ -467,7 +372,6 @@
 			isa = PBXGroup;
 			children = (
 				84F38DEB1B10122800A0EB42 /* SQLite */,
-				84F38DEA1B10121000A0EB42 /* JSON */,
 				425754B81B088BA60046433F /* GPX */,
 				9B5EE8631AF3EEE600524F4A /* default.gpx */,
 				9B6A85AF1ADFDEFF00667170 /* Info.plist */,
@@ -600,8 +504,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				42C6A8B51B0A0FAC00EE1518 /* WarningView.xib in Resources */,
-				84F38DE71B10120A00A0EB42 /* TBL_LOCATION_REASON.json in Resources */,
-				84F38DE81B10120A00A0EB42 /* TBL_WM_DAYTYPE.json in Resources */,
 				9BC3392F1AE296250046AAB5 /* termofusage.html in Resources */,
 				42C6A8C91B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib in Resources */,
 				4290A0AE1AF6050100CB46E5 /* HotSpotTableViewCell.xib in Resources */,
@@ -610,10 +512,8 @@
 				425754B71B088BA20046433F /* 20150517013203-58195-data.gpx in Resources */,
 				42C6A8C71B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.xib in Resources */,
 				8475E8651B1218FB000E0AD5 /* smartTravel.sqlite in Resources */,
-				84F38DE91B10120A00A0EB42 /* TBL_WM_REASON_CONDITION.json in Resources */,
 				9B6A85BA1ADFDF0000667170 /* Main.storyboard in Resources */,
 				9B6A85BF1ADFDF0000667170 /* LaunchScreen.xib in Resources */,
-				84F38DE61B10120A00A0EB42 /* TBL_COLLISION_LOCATION.json in Resources */,
 				9B6A85BC1ADFDF0000667170 /* Images.xcassets in Resources */,
 				9B5EE8641AF3EEE600524F4A /* default.gpx in Resources */,
 			);
@@ -707,14 +607,9 @@
 				9B6A85B41ADFDEFF00667170 /* AppDelegate.m in Sources */,
 				4290A0AD1AF6050100CB46E5 /* HotSpotTableViewCell.m in Sources */,
 				4203DDB91B0879350002D67F /* DateUtility.m in Sources */,
-				4225F8481B082A3800C5A73F /* JSONManager.m in Sources */,
-				420096201AFEF19200B43630 /* TopMidblock.m in Sources */,
 				84F38DF81B108D0900A0EB42 /* AppLocationManager.m in Sources */,
 				422977851B0810DB00A11E90 /* DBWMReasonCondition.m in Sources */,
 				42C6A8C81B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m in Sources */,
-				4225F8441B0829C200C5A73F /* JSONConstants.m in Sources */,
-				420096291AFEF37B00B43630 /* TopMotorcyclist.m in Sources */,
-				4229776C1B080EF000A11E90 /* JSONWMDayType.m in Sources */,
 				422977841B0810DB00A11E90 /* DBWMDayType.m in Sources */,
 				42C6A8C61B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.m in Sources */,
 				9B6C7DA81AF500C500DF6FA9 /* DBManager.m in Sources */,
@@ -728,16 +623,9 @@
 				84F38DF51B107E5200A0EB42 /* AppSettingManager.m in Sources */,
 				9B7E59601AE3966F0008D25C /* HomeViewController.m in Sources */,
 				84F38DF21B102B3300A0EB42 /* AnimatedGMSMarker.m in Sources */,
-				4200961C1AFEF05800B43630 /* TopIntersection.m in Sources */,
-				4229776A1B080EF000A11E90 /* JSONCollisionLocation.m in Sources */,
 				42C6A8B21B0A0FAC00EE1518 /* HotSpotDetailView.m in Sources */,
-				420096231AFEF25600B43630 /* TopPedestrian.m in Sources */,
-				420096261AFEF31C00B43630 /* TopCyclist.m in Sources */,
 				9B7E59551AE3882A0008D25C /* GuideViewController.m in Sources */,
-				4203DDBA1B0879350002D67F /* ModelUtility.m in Sources */,
-				4229776B1B080EF000A11E90 /* JSONLocationReason.m in Sources */,
 				9BDBCA461AF8EEE600F23275 /* MarkerManager.m in Sources */,
-				4229776D1B080EF000A11E90 /* JSONWMReasonCondition.m in Sources */,
 				84F38DDC1B0FE86C00A0EB42 /* DBVersionAdapter.m in Sources */,
 				84F38DE11B1000E100A0EB42 /* DBDayTypeAdapter.m in Sources */,
 				422977821B0810DB00A11E90 /* DBCollisionLocation.m in Sources */,
