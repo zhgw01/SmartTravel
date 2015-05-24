@@ -11,14 +11,6 @@
 #import "AppDelegate.h"
 #import "TermUsage.h"
 #import "DBConstants.h"
-#import "ModelUtility.h"
-
-#import "JsonManager.h"
-#import "JSONCollisionLocation.h"
-#import "JSONLocationReason.h"
-#import "JSONWMDayType.h"
-#import "JSONWMReasonCondition.h"
-
 #import "DBVersionAdapter.h"
 
 @interface AppDelegate ()
@@ -42,14 +34,17 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
     NSInteger runCount = [appSettings getRunCount];
     if (runCount == 0)
     {
-        //Prepare database
-        [self perpareSqliteDB];
-        
-        //Initialize database with JSON data
-        [ModelUtility insertDataIntoMainDBTablesUsingDataFromJSONFiles];
-        
         [appSettings setIsWarningVoice:YES];
     }
+    
+    //Copy database from main bundle with data ready.
+    //Only force overwrite for 1st time;
+    //later check only and copy in case it was removed by unknown exceptions.
+    [self copyResourceFromAppBundle:DB_NAME_MAIN
+          toUserDocumentWithNewName:DB_NAME_MAIN
+                            withExt:DB_EXT
+                     forceOverwrite:(runCount == 0)];
+    
     [appSettings setRunCount:(runCount + 1)];
     
     NSLog(@"Current data schema verson is %@", [[DBVersionAdapter alloc] getLatestVersion]);
@@ -59,41 +54,44 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
     return YES;
 }
 
-- (void)perpareSqliteDB
-{
-    // Copy TopLocation DB to user document
-    [self copyResourceFromAppBundle:DB_NAME_TOPLOCATION
-          toUserDocumentWithNewName:DB_NAME_TOPLOCATION
-                            withExt:DB_EXT];
-    
-    // Copy Main DB Template to user document
-    [self copyResourceFromAppBundle:DB_NAME_MAIN_TEMPLATE
-          toUserDocumentWithNewName:DB_NAME_MAIN
-                            withExt:DB_EXT];
-}
-
-// Return YES if copy succeeded or the target file exists
+// Return YES if copy succeeded
 - (BOOL)copyResourceFromAppBundle:(NSString*)oldFileName
         toUserDocumentWithNewName:(NSString*)newFileName
                           withExt:(NSString*)ext
+                   forceOverwrite:(BOOL)forceOverwrite
 {
+    NSString* sourcePath = [[NSBundle mainBundle] pathForResource:oldFileName ofType:ext];
+    
+    // Return NO if source not exist
+    if(![[NSFileManager defaultManager] fileExistsAtPath:sourcePath])
+    {
+        return NO;
+    }
+    
     NSString* userDocumentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     NSString* targetPath = [[userDocumentDir stringByAppendingPathComponent:newFileName] stringByAppendingPathExtension:ext];
     
-    NSString* sourcePath = [[NSBundle mainBundle] pathForResource:oldFileName ofType:ext];
-    
-    if([[NSFileManager defaultManager] fileExistsAtPath:sourcePath])
+    if ([[NSFileManager defaultManager] fileExistsAtPath:targetPath])
     {
-        if ([[NSFileManager defaultManager] fileExistsAtPath:targetPath])
+        if (!forceOverwrite)
         {
             return YES;
         }
-        NSError* error = nil;
-        [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:targetPath error:&error];
-        return !error;
+        // Remove target if it exists and forceOverwrite is YES
+        if (forceOverwrite)
+        {
+            NSError* error = nil;
+            [[NSFileManager defaultManager] removeItemAtPath:targetPath error:&error];
+            if (error)
+            {
+                return NO;
+            }
+        }
     }
     
-    return NO;
+    NSError* error = nil;
+    [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:targetPath error:&error];
+    return !error;
 }
 
 - (UIViewController*)loadControllerFromStoryboard:(NSString *)storyboardName

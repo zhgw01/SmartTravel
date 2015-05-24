@@ -11,8 +11,6 @@
 extern NSString * const DB_EXT;
 
 // DB names
-extern NSString * const DB_NAME_TOPLOCATION;
-extern NSString * const DB_NAME_MAIN_TEMPLATE;
 extern NSString * const DB_NAME_MAIN;
 
 // Table names of main db

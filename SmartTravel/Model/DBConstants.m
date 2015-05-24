@@ -12,8 +12,6 @@
 NSString * const DB_EXT = @"sqlite";
 
 // DB names
-NSString * const DB_NAME_TOPLOCATION = @"smartTravelTopLocation";
-NSString * const DB_NAME_MAIN_TEMPLATE = @"smartTravelTemplate";
 NSString * const DB_NAME_MAIN = @"smartTravel";
 
 // Table names of main db
