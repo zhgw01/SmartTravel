@@ -149,7 +149,9 @@ static CGFloat kHotSpotZoonRadius = 300.0;
 - (void) setupNavigationBar
 {
     //setup navigation
-    self.title = @"Smart Travel";
+    UIImage* image = [UIImage imageNamed:@"smartTravel"];
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:image];
+    self.navigationItem.titleView = imageView;
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"top_bg"]
                                                   forBarMetrics:UIBarMetricsDefault];
