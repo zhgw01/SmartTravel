@@ -335,7 +335,7 @@ static CGFloat kHotSpotZoonRadius = 300.0;
     // Check if satisfy warning pop up conditions
     LocationDirection* locationDirection = [[LocationDirection alloc] initWithCLLocationDirection:self.direction];
     Direction direction = locationDirection.direction;
-    NSLog(@"Heading %@", [LocationDirection directionToString:direction]);
+//    NSLog(@"Heading %@", [LocationDirection directionToString:direction]);
     
     // Get warning data list
     NSArray* reasonIds = [[[DBReasonAdapter alloc] init] getReasonIDsOfDate:[NSDate date]];

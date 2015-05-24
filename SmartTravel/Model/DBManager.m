@@ -90,10 +90,6 @@
         NSNumber* longitude = [NSNumber numberWithDouble:[resultSet doubleForColumn:@"Longitude"]];
 
         NSString* key = [resultSet stringForColumn:@"Loc_code"];
-        if (hotSpotType == HotSpotTypeMidStreet)
-        {
-            NSLog(@"*** %@", key);
-        }
         
         if ([[dic allKeys] containsObject:key])
         {
