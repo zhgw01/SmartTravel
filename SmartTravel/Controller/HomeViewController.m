@@ -264,17 +264,29 @@ static CGFloat kHotSpotZoonRadius = 300.0;
 
 - (void)didApproachHotSpot:(NSDictionary *)hotSpot
 {
-    static NSString* lastLocCodeReasonId = nil;
+    static NSDate* lastReportDate = nil;
     
     NSString* locCode = [hotSpot objectForKey:@"Loc_code"];
-    int reasonId = [(NSNumber*)[hotSpot objectForKey:@"Reason_id"] intValue];
-    NSString* locCodeReasonId = [NSString stringWithFormat:@"%@_%d", locCode, reasonId];
     
-    // Dont' duplicate the same warning
-    if (![locCodeReasonId isEqualToString:lastLocCodeReasonId])
+    // Determine if we should report. The period should be longer than 10s
+    NSDate* now = [NSDate date];
+    BOOL shouldReport = NO;
+    if (lastReportDate)
     {
-        lastLocCodeReasonId = [locCodeReasonId copy];
-        
+        NSTimeInterval secondsInterval= [now timeIntervalSinceDate:lastReportDate];
+        if (secondsInterval > 10)
+        {
+            shouldReport = YES;
+        }
+    }
+    else
+    {
+        shouldReport = YES;
+    }
+    
+    // Dont' repeat the warning in short time
+    if (shouldReport)
+    {
         NSString* locationName = [[NSString alloc] init];
         int reasonId = 0;
         int total = 0;
@@ -304,6 +316,9 @@ static CGFloat kHotSpotZoonRadius = 300.0;
                 // Breath the marker
                 [self.markerManager breathingMarker:locCode];
             }
+            
+            // Remember last report date
+            lastReportDate = [now copy];
         }
     }
 }
