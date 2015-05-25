@@ -13,12 +13,14 @@
 #import "DateUtility.h"
 
 static NSString * const kWeekdayColumn = @"Weekday";
+static NSString * const kWeekendColumn = @"Weekend";
 static NSString * const kSchooldayColumn = @"School_day";
 static NSString * const kDateColumn = @"Date";
 
 @interface DBDayTypeAdapter()
 
 @property (assign, readwrite) BOOL isWeekDay;
+@property (assign, readwrite) BOOL isWeekEnd;
 @property (assign, readwrite) BOOL isSchoolDay;
 
 @end
@@ -42,6 +44,7 @@ static NSString * const kDateColumn = @"Date";
                 if (!error)
                 {
                     self.isWeekDay = [resultSet boolForColumn:kWeekdayColumn];
+                    self.isWeekEnd = [resultSet boolForColumn:kWeekendColumn];
                     self.isSchoolDay = [resultSet boolForColumn:kSchooldayColumn];
                     foundInDb = YES;
                 }
@@ -58,6 +61,7 @@ static NSString * const kDateColumn = @"Date";
         if (!foundInDb)
         {
             self.isWeekDay = [DateUtility isDateWeekday:date];
+            self.isWeekEnd = !self.isWeekDay;
             // NOTE: If the date is not found in db, assume it's NOT school day by default.
             self.isSchoolDay = NO;
         }
@@ -68,7 +72,7 @@ static NSString * const kDateColumn = @"Date";
 - (NSString*)constructSmt:(NSDate*)date
 {    
     NSString* dateStr = [DateUtility getDateString:date];
-    return [NSString stringWithFormat:@"select %@, %@ from %@ where %@='%@'", kWeekdayColumn, kSchooldayColumn,  MAIN_DB_TBL_WM_DAYTYPE, kDateColumn, dateStr];
+    return [NSString stringWithFormat:@"select %@, %@, %@ from %@ where %@='%@'", kWeekdayColumn, kWeekendColumn, kSchooldayColumn, MAIN_DB_TBL_WM_DAYTYPE, kDateColumn, dateStr];
 }
 
 @end
