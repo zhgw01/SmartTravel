@@ -178,24 +178,14 @@ static CGFloat kHotSpotZoonRadius = 300.0;
 
 - (void)setNavigationMode:(BOOL)on
 {
-    AppLocationManager* locationManager = [AppLocationManager sharedInstance];
     if (on)
     {
         self.isNavigating = YES;
-        [locationManager startUpdatingLocation];
-        [locationManager startUpdatingHeading];
-        
-        if (self.locationDidEverUpdate)
-        {
-            self.warningView.hidden = NO;
-        }
+        self.warningView.hidden = !self.locationDidEverUpdate;
     }
     else
     {
         self.isNavigating = NO;
-        [locationManager stopUpdatingHeading];
-        [locationManager stopUpdatingLocation];
-        
         self.warningView.hidden = YES;
     }
 }
@@ -203,7 +193,7 @@ static CGFloat kHotSpotZoonRadius = 300.0;
 - (void)setupAV
 {
     self.avSpeechSynthesizer = [[AVSpeechSynthesizer alloc] init];
-    self.avSpeechSynthesisVoice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
+    self.avSpeechSynthesisVoice = [AVSpeechSynthesisVoice voiceWithLanguage:nil];
 }
 
 #pragma mark - Button Action
@@ -230,6 +220,7 @@ static CGFloat kHotSpotZoonRadius = 300.0;
     {
         [self.mapView animateToLocation:self.defaultLocation.coordinate];
     }
+    self.isNavigating = YES;
 }
 
 #pragma mark - SWRevealViewController Delegate
@@ -261,7 +252,8 @@ static CGFloat kHotSpotZoonRadius = 300.0;
 {
     if (status == kCLAuthorizationStatusAuthorizedWhenInUse)
     {
-
+        [[AppLocationManager sharedInstance] startUpdatingHeading];
+        [[AppLocationManager sharedInstance] startUpdatingLocation];
     }
 }
 
@@ -300,9 +292,6 @@ static CGFloat kHotSpotZoonRadius = 300.0;
                                   warningPriority:&warningPriority
                                         ofLocCode:locCode])
         {
-            
-            self.warningView.hidden = NO;
-            
             [self.warningView updateLocation:locationName
                                         rank:[NSNumber numberWithInt:warningPriority]
                                        count:[NSNumber numberWithInt:total]
@@ -337,7 +326,6 @@ static CGFloat kHotSpotZoonRadius = 300.0;
     // Check if satisfy warning pop up conditions
     LocationDirection* locationDirection = [[LocationDirection alloc] initWithCLLocationDirection:self.direction];
     Direction direction = locationDirection.direction;
-//    NSLog(@"Heading %@", [LocationDirection directionToString:direction]);
     
     // Get warning data list
     NSArray* reasonIds = [[[DBReasonAdapter alloc] init] getReasonIDsOfDate:[NSDate date]];
@@ -352,12 +340,16 @@ static CGFloat kHotSpotZoonRadius = 300.0;
         // Pop up warning view if there're warnings.
         if (hotSpot)
         {
+            // Show warning and hide hotspot detail
+            self.warningView.hidden = NO;
+            self.hotSpotDetailView.hidden = YES;
             [self didApproachHotSpot:hotSpot];
+            self.isNavigating = YES;
         }
         else
         {
-            [self.warningView updateLocation:nil rank:nil count:nil distance:nil];
             self.warningView.hidden = YES;
+            [self.warningView updateLocation:nil rank:nil count:nil distance:nil];
             
             [self.markerManager breathingMarker:nil];
         }
@@ -369,7 +361,6 @@ static CGFloat kHotSpotZoonRadius = 300.0;
         if (self.locationMarker == nil)
         {
             self.locationMarker = [CircleMarker markerWithPosition:self.recentLocation.coordinate];
-            //self.locationMarker.icon = [UIImage imageNamed:@"icon_currentlocation"];
             [self.locationMarker loadImages];
             self.locationMarker.map = self.mapView;
         }
