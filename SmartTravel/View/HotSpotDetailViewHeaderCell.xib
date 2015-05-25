@@ -24,8 +24,8 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reason" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0H-x0-f27" userLabel="Reason">
-                        <rect key="frame" x="78" y="13" width="49" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reason" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0H-x0-f27" userLabel="Reason">
+                        <rect key="frame" x="136" y="13" width="49" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                     <constraint firstAttribute="centerY" secondItem="t0H-x0-f27" secondAttribute="centerY" id="8CB-Z5-C3B"/>
                     <constraint firstItem="SQP-2Z-6I7" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-5" id="Dct-Ng-r2w"/>
                     <constraint firstAttribute="centerY" secondItem="SQP-2Z-6I7" secondAttribute="centerY" id="FqA-wA-StL"/>
-                    <constraint firstItem="t0H-x0-f27" firstAttribute="leading" secondItem="lwR-1f-pIL" secondAttribute="trailing" constant="5" id="YnM-dw-rvl"/>
+                    <constraint firstAttribute="centerX" secondItem="t0H-x0-f27" secondAttribute="centerX" id="Znb-9z-6pe"/>
                     <constraint firstItem="lwR-1f-pIL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="hMt-g2-d1V"/>
                     <constraint firstAttribute="centerY" secondItem="lwR-1f-pIL" secondAttribute="centerY" id="xz2-WC-cC3"/>
                 </constraints>
