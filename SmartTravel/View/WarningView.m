@@ -14,10 +14,8 @@
 @property (weak, nonatomic) IBOutlet UIView *gripBackgroundView;
 
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
-@property (weak, nonatomic) IBOutlet UILabel *rankLabel;
-@property (weak, nonatomic) IBOutlet UILabel *countLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *unitLabel;
+@property (weak, nonatomic) IBOutlet UILabel *reasonLabel;
 
 @end
 
@@ -28,12 +26,13 @@
     self.gripView.layer.cornerRadius = 4.0f;
     self.gripView.layer.masksToBounds = YES;
     
-    self.locationLabel.textAlignment = NSTextAlignmentCenter;
+    self.locationLabel.textAlignment = NSTextAlignmentLeft;
     self.locationLabel.numberOfLines = 0;
     self.locationLabel.lineBreakMode = NSLineBreakByWordWrapping;
     
-    self.distanceLabel.textColor = [UIColor redColor];
-    self.unitLabel.textColor = [UIColor redColor];
+    self.reasonLabel.textAlignment = NSTextAlignmentLeft;
+    self.reasonLabel.numberOfLines = 0;
+    self.reasonLabel.lineBreakMode = NSLineBreakByWordWrapping;
 }
 
 /*
@@ -61,8 +60,7 @@
 }
 
 - (void)updateLocation:(NSString*)location
-                  rank:(NSNumber*)rank
-                 count:(NSNumber*)count
+                reason:(NSString*)reason
               distance:(NSNumber*)distance
 {
     BOOL needsDisplay = NO;
@@ -73,29 +71,21 @@
         needsDisplay = YES;
     }
     
+    if (![reason isEqualToString:self.reasonLabel.text])
+    {
+        self.reasonLabel.text = reason;
+        needsDisplay = YES;
+    }
+    
     NSNumberFormatter* numberFormat = [[NSNumberFormatter alloc] init];
     numberFormat.numberStyle = NSNumberFormatterNoStyle;
     
-    NSString* rankStr = [numberFormat stringFromNumber:rank];
-    if (![rankStr isEqualToString:self.rankLabel.text])
+    NSString* distanceStr = [numberFormat stringFromNumber:distance];
+    if (![distanceStr isEqualToString:self.distanceLabel.text])
     {
-        self.rankLabel.text = rankStr;
+        self.distanceLabel.text = distanceStr;
         needsDisplay = YES;
     }
-    
-    NSString* countStr = [numberFormat stringFromNumber:count];
-    if (![countStr isEqualToString:self.countLabel.text])
-    {
-        self.countLabel.text = countStr;
-        needsDisplay = YES;
-    }
-    
-//    NSString* distanceStr = [numberFormat stringFromNumber:distance];
-//    if (![distanceStr isEqualToString:self.distanceLabel.text])
-//    {
-//        self.distanceLabel.text = distanceStr;
-//        needsDisplay = YES;
-//    }
     
     if (needsDisplay)
     {
