@@ -13,7 +13,7 @@
 - (instancetype)initWith:(NSDate*)date;
 
 @property (assign, readonly) BOOL isWeekDay;
-//@property (assign, readonly) BOOL isWeekEnd;
+@property (assign, readonly) BOOL isWeekEnd;
 @property (assign, readonly) BOOL isSchoolDay;
 
 
