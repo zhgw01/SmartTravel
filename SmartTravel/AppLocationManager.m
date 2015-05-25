@@ -27,6 +27,11 @@
     return sharedSingleton;
 }
 
++(CLAuthorizationStatus)authorizationStatus
+{
+    return [CLLocationManager authorizationStatus];
+}
+
 -(instancetype)init
 {
     if (self = [super init])

@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
 
 @interface AppLocationManager : NSObject
 
 +(AppLocationManager *)sharedInstance;
+
++(CLAuthorizationStatus)authorizationStatus;
 
 -(void)requestWhenInUserAuthorization;
 
