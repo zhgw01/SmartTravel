@@ -12,13 +12,6 @@
 
 - (NSArray*)getReasonIDsOfDate:(NSDate*)date;
 
-/**
- *  Get warning message of given reason id
- *
- *  @param reasonId reason id of int
- *
- *  @return warning message of NSString*
- */
-- (NSString*)getWarningMessage:(int)reasonId;
+- (NSArray*)getWarningMessageAndReasonOfId:(int)reasonId;
 
 @end

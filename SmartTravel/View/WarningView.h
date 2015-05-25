@@ -11,8 +11,7 @@
 @interface WarningView : UIView
 
 - (void)updateLocation:(NSString*)location
-                  rank:(NSNumber*)rank
-                 count:(NSNumber*)count
+                reason:(NSString*)reason
               distance:(NSNumber*)distance;
 
 @end

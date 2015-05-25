@@ -75,8 +75,8 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
 
 - (BOOL)getLocationName:(NSString**)locationName
                reasonId:(int*)reasonId
-                  total:(int*)total
-        warningPriority:(int*)warningPriority
+               latitude:(double*)latitude
+              longitude:(double*)longitude
               ofLocCode:(NSString*)locCode
 {
     BOOL res = NO;
@@ -84,16 +84,15 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
     FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
     if ([db open])
     {
-        NSString* smt = [NSString stringWithFormat:@"select l.Location_name, r.Reason_id, r.Total, r.Warning_priority from %@ as l, %@ as r where l.Loc_code = r.Loc_code and l.Loc_code ='%@'", MAIN_DB_TBL_COLLISION_LOCATION, MAIN_DB_TBL_LOCATION_REASON,locCode];
+        NSString* smt = [NSString stringWithFormat:@"select l.Location_name, l.Latitude, l.Longitude, r.Reason_id from %@ as l, %@ as r where l.Loc_code = r.Loc_code and l.Loc_code ='%@'", MAIN_DB_TBL_COLLISION_LOCATION, MAIN_DB_TBL_LOCATION_REASON,locCode];
         FMResultSet* resultSet = [db executeQuery:smt];
         NSError* error = nil;
         if([resultSet nextWithError:&error])
         {
             *locationName = [resultSet stringForColumn:kLocationNameColumn];
             *reasonId = [resultSet intForColumn:kReasonIdColumn];
-            *total = [resultSet intForColumn:kTotalColumn];
-            *warningPriority = [resultSet intForColumn:kWarningPriorityColumn];
-            
+            *latitude = [resultSet doubleForColumn:kLatitudeColumn];
+            *longitude = [resultSet doubleForColumn:kLongitudeColumn];
             res = YES;
         }
         [resultSet close];

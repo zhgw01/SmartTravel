@@ -14,6 +14,7 @@
 #import "DateUtility.h"
 
 static NSString * const kReasonIdColumn = @"Reason_id";
+static NSString * const kReasonColumn = @"Reason";
 static NSString * const kWarningMessageColumn = @"Warning_message";
 static NSString * const kMonthColumn = @"Month";
 static NSString * const kWeekdayColumn = @"Weekday";
@@ -56,19 +57,20 @@ static NSString * const kEndTimeColumn = @"End_time";
     return [res copy];
 }
 
-- (NSString*)getWarningMessage:(int)reasonId
+- (NSArray*)getWarningMessageAndReasonOfId:(int)reasonId
 {
-    NSString* res = nil;
+    NSMutableArray* res = [[NSMutableArray alloc] init];
     
     FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
     if ([db open])
     {
-        NSString* smt = [NSString stringWithFormat:@"select %@ from %@ where %@=%d", kWarningMessageColumn, MAIN_DB_TBL_WM_REASON_CONDITION, kReasonIdColumn, reasonId];
+        NSString* smt = [NSString stringWithFormat:@"select %@, %@ from %@ where %@=%d", kReasonColumn, kWarningMessageColumn, MAIN_DB_TBL_WM_REASON_CONDITION, kReasonIdColumn, reasonId];
         FMResultSet* resultSet = [db executeQuery:smt];
         NSError* error = nil;
         if ([resultSet nextWithError:&error] && !error)
         {
-            res = [resultSet stringForColumn:kWarningMessageColumn];
+            [res addObject:[resultSet stringForColumn:kWarningMessageColumn]];
+            [res addObject:[resultSet stringForColumn:kReasonColumn]];
         }
         [resultSet close];
         
@@ -78,7 +80,7 @@ static NSString * const kEndTimeColumn = @"End_time";
         }
     }
     
-    return res;
+    return [res copy];
 }
 
 - (NSString*)constructSmt:(NSDate*)date
