@@ -28,7 +28,7 @@
 
 static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
-static CGFloat kHotSpotZoonRadius = 200.0;
+static CGFloat kHotSpotZoonRadius = 100.0;
 
 @interface HomeViewController ()
 <
