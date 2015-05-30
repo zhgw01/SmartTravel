@@ -28,10 +28,6 @@
         </view>
     </objects>
     <resources>
-<<<<<<< HEAD
         <image name="SmartTravel-app-loading" width="750" height="1334"/>
-=======
-        <image name="splash" width="750" height="1334"/>
->>>>>>> origin/master
     </resources>
 </document>
