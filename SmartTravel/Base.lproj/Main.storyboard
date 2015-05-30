@@ -518,7 +518,7 @@
         <image name="button_locateme" width="80" height="79"/>
         <image name="button_setting" width="52" height="51"/>
         <image name="button_zoom" width="106" height="206"/>
-        <image name="logo" width="184" height="56"/>
+        <image name="logo" width="442" height="389"/>
         <image name="title_setting" width="194" height="53"/>
         <image name="top_bg" width="85" height="89"/>
     </resources>
