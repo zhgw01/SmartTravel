@@ -128,7 +128,7 @@
     {
         return 30.f;
     }
-    return 50.f;
+    return 52.f;
 }
 
 @end
