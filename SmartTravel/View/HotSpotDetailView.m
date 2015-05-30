@@ -13,10 +13,10 @@
 
 @interface HotSpotDetailView () <UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIView *gripView;
 @property (weak, nonatomic) IBOutlet UIView *gripBackgroundView;
 @property (weak, nonatomic) IBOutlet UITableView *detailsTableView;
-@property (copy, nonatomic) NSString* locationName;
 
 @property (strong, nonatomic) NSArray* details;
 
@@ -34,8 +34,9 @@
 
 - (void)reload:(NSArray*)details
 {
-    self.locationName = [details objectAtIndex:0];
+    self.titleLabel.text = [details objectAtIndex:0];
     self.details = [details objectAtIndex:1];
+    
     [self setNeedsDisplay];
     [self.detailsTableView reloadData];
 }
@@ -46,7 +47,15 @@
     self.gripView.layer.masksToBounds = YES;
     self.detailsTableView.delegate = self;
     self.detailsTableView.dataSource = self;
-    self.locationName = @"Location";
+    
+    // Title label
+    // Note: Don't use table's section header since it will be hidden when user scolls the cells, which PO doesn't like this default effect.
+    self.titleLabel.text = @"Location";
+    self.titleLabel.textColor = [UIColor colorWithRed:82.0/255 green:181.0/255 blue:219.0/255 alpha:1];
+    self.titleLabel.backgroundColor = [UIColor whiteColor];
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.numberOfLines = 0;
+    self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     
     self.details = [[NSArray alloc] init];
 }
@@ -68,18 +77,6 @@
 }
 
 #pragma mark - <UITableViewDataSource> methods
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
-    label.text = self.locationName;
-    label.textColor = [UIColor colorWithRed:82.0/255 green:181.0/255 blue:219.0/255 alpha:1];
-    label.backgroundColor = [UIColor whiteColor];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.numberOfLines = 0;
-    label.lineBreakMode = NSLineBreakByWordWrapping;
-    return label;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -127,12 +124,11 @@
 #pragma mark - <UITableViewDelegate> methods
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44.f;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 44.f;
+    if (indexPath.row == 0)
+    {
+        return 30.f;
+    }
+    return 52.f;
 }
 
 @end

@@ -21,7 +21,7 @@
     // Initialization code
     
     self.reasonLabel.textAlignment = NSTextAlignmentLeft;
-    self.reasonLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    self.reasonLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.reasonLabel.numberOfLines = 0;
 }
 
