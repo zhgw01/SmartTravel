@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="Wdf-R9-kCK">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmartTravel-app-loading" translatesAutoresizingMaskIntoConstraints="NO" id="Wdf-R9-kCK">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
             </subviews>
@@ -28,6 +28,10 @@
         </view>
     </objects>
     <resources>
+<<<<<<< HEAD
+        <image name="SmartTravel-app-loading" width="750" height="1334"/>
+=======
         <image name="splash" width="750" height="1334"/>
+>>>>>>> origin/master
     </resources>
 </document>
