@@ -124,7 +124,11 @@
 #pragma mark - <UITableViewDelegate> methods
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44.f;
+    if (indexPath.row == 0)
+    {
+        return 30.f;
+    }
+    return 50.f;
 }
 
 @end
