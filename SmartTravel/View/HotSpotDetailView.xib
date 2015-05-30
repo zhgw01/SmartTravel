@@ -12,8 +12,14 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wp-YP-OVr" userLabel="TitleLabel">
+                    <rect key="frame" x="0.0" y="10" width="600" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="shr-PK-zrf">
-                    <rect key="frame" x="0.0" y="10" width="600" height="590"/>
+                    <rect key="frame" x="0.0" y="31" width="600" height="569"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vO0-rV-B5B" userLabel="GripBkView">
@@ -39,16 +45,20 @@
             <constraints>
                 <constraint firstItem="vO0-rV-B5B" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Eqj-LT-ERw"/>
                 <constraint firstAttribute="trailing" secondItem="vO0-rV-B5B" secondAttribute="trailing" id="I0k-Br-DCU"/>
+                <constraint firstItem="8wp-YP-OVr" firstAttribute="top" secondItem="vO0-rV-B5B" secondAttribute="bottom" id="MCW-qc-G8e"/>
                 <constraint firstAttribute="bottom" secondItem="shr-PK-zrf" secondAttribute="bottom" id="NMz-DY-22O"/>
                 <constraint firstItem="shr-PK-zrf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VTh-Xa-W5l"/>
+                <constraint firstAttribute="trailing" secondItem="8wp-YP-OVr" secondAttribute="trailing" id="aux-wG-6UB"/>
+                <constraint firstItem="shr-PK-zrf" firstAttribute="top" secondItem="8wp-YP-OVr" secondAttribute="bottom" id="m3a-od-QnF"/>
                 <constraint firstAttribute="trailing" secondItem="shr-PK-zrf" secondAttribute="trailing" id="q1W-ax-b6B"/>
-                <constraint firstItem="vO0-rV-B5B" firstAttribute="bottom" secondItem="shr-PK-zrf" secondAttribute="top" id="rrg-bb-FsX"/>
                 <constraint firstItem="vO0-rV-B5B" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vzL-V9-xjF"/>
+                <constraint firstItem="8wp-YP-OVr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yd7-ev-i4m"/>
             </constraints>
             <connections>
                 <outlet property="detailsTableView" destination="shr-PK-zrf" id="xJ7-pf-Jpi"/>
                 <outlet property="gripBackgroundView" destination="vO0-rV-B5B" id="7Yp-Fv-E5k"/>
                 <outlet property="gripView" destination="Pu0-4h-2qG" id="NZ6-Af-Y0b"/>
+                <outlet property="titleLabel" destination="8wp-YP-OVr" id="yz7-ql-yQx"/>
             </connections>
             <point key="canvasLocation" x="162" y="317"/>
         </view>
