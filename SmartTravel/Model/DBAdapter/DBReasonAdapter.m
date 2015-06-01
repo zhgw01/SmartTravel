@@ -87,14 +87,16 @@ static NSString * const kEndTimeColumn = @"End_time";
 {
     DBDayTypeAdapter* dbDateAdapter = [[DBDayTypeAdapter alloc] initWith:date];
     return [NSString stringWithFormat:
-            @"select %@, %@, %@, %@ from %@ where (%@ = %d)",
+            @"select %@, %@, %@, %@ from %@ where (%@ = %d) and (%@ = %d)",
             kReasonIdColumn,
             kMonthColumn,
             kStartTimeColumn,
             kEndTimeColumn,
             MAIN_DB_TBL_WM_REASON_CONDITION,
             dbDateAdapter.isWeekDay ? kWeekdayColumn : kWeekendColumn,
-            1];
+            1,
+            kSchoolDayColumn,
+            dbDateAdapter.isSchoolDay ? 1 : 0];
 }
 
 @end

@@ -62,8 +62,8 @@ static NSString * const kDateColumn = @"Date";
         {
             self.isWeekDay = [DateUtility isDateWeekday:date];
             self.isWeekEnd = !self.isWeekDay;
-            // NOTE: If the date is not found in db, assume it's NOT school day by default.
-            self.isSchoolDay = NO;
+            // NOTE: If the date is not found in db, assume isSchoolDay is the same with isWeekDay by default.
+            self.isSchoolDay = self.isWeekDay;
         }
     }
     return self;
