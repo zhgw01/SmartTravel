@@ -10,6 +10,7 @@
 
 static NSString * const kRunCount = @"run-count";
 static NSString * const kIsWarningVoice = @"is-warning-voice";
+static NSString * const kIsAutoCheckUpdate = @"is-auto-check-update";
 
 @implementation AppSettingManager
 
@@ -41,6 +42,16 @@ static NSString * const kIsWarningVoice = @"is-warning-voice";
 -(void)setIsWarningVoice:(BOOL)flag
 {
     [[NSUserDefaults standardUserDefaults] setBool:flag forKey:kIsWarningVoice];
+}
+
+-(BOOL)getIsAutoCheckUpdate
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kIsAutoCheckUpdate];
+}
+
+-(void)setIsAutoCheckUpdate:(BOOL)flag
+{
+    [[NSUserDefaults standardUserDefaults] setBool:flag forKey:kIsAutoCheckUpdate];
 }
 
 @end

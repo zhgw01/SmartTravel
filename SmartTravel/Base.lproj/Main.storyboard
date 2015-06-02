@@ -473,7 +473,19 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voice Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfA-hd-t1W">
                                         <rect key="frame" x="312" y="28" width="122" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="textColor" red="0.18039215689999999" green="0.18823529410000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sMV-99-mpX" userLabel="checkUpdateSwitch">
+                                        <rect key="frame" x="533" y="143" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="autoCheckUpdateSwitchToggled:" destination="JBD-u7-yrp" eventType="valueChanged" id="1c6-aq-gRM"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto Check Update" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppa-ej-6hV" userLabel="checkUpdateLabel">
+                                        <rect key="frame" x="312" y="147" width="159" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -482,11 +494,15 @@
                                     <constraint firstAttribute="trailing" secondItem="D4U-FO-EZ1" secondAttribute="trailing" constant="18" id="B42-m0-yzL"/>
                                     <constraint firstItem="4kq-Q9-T7q" firstAttribute="top" secondItem="lfA-hd-t1W" secondAttribute="bottom" constant="10" id="ERX-zU-MFH"/>
                                     <constraint firstItem="YtW-cx-QUq" firstAttribute="leading" secondItem="lfA-hd-t1W" secondAttribute="leading" id="HKg-df-1Td"/>
+                                    <constraint firstItem="ppa-ej-6hV" firstAttribute="top" secondItem="YtW-cx-QUq" secondAttribute="bottom" constant="45" id="IiH-et-7h2"/>
+                                    <constraint firstItem="sMV-99-mpX" firstAttribute="leading" secondItem="D4U-FO-EZ1" secondAttribute="leading" id="LBI-tc-De8"/>
+                                    <constraint firstItem="ppa-ej-6hV" firstAttribute="leading" secondItem="lfA-hd-t1W" secondAttribute="leading" id="WTh-dS-OD8"/>
                                     <constraint firstItem="YtW-cx-QUq" firstAttribute="trailing" secondItem="D4U-FO-EZ1" secondAttribute="trailing" id="WmT-ja-LTp"/>
                                     <constraint firstItem="D4U-FO-EZ1" firstAttribute="bottom" secondItem="lfA-hd-t1W" secondAttribute="bottom" id="Y9o-yL-KaR"/>
                                     <constraint firstItem="D4U-FO-EZ1" firstAttribute="top" secondItem="lfA-hd-t1W" secondAttribute="top" id="ZxA-We-RdT"/>
                                     <constraint firstItem="YtW-cx-QUq" firstAttribute="trailing" secondItem="4kq-Q9-T7q" secondAttribute="trailing" id="gy8-bE-jkg"/>
                                     <constraint firstItem="4kq-Q9-T7q" firstAttribute="leading" secondItem="YtW-cx-QUq" secondAttribute="leading" id="mN9-ll-XHu"/>
+                                    <constraint firstItem="ppa-ej-6hV" firstAttribute="centerY" secondItem="sMV-99-mpX" secondAttribute="centerY" id="rh5-oe-jo8"/>
                                     <constraint firstItem="YtW-cx-QUq" firstAttribute="top" secondItem="lfA-hd-t1W" secondAttribute="bottom" constant="42" id="vSI-hT-UtT"/>
                                 </constraints>
                             </view>
@@ -504,6 +520,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="autoCheckUpdateLabel" destination="ppa-ej-6hV" id="3xI-ei-2id"/>
+                        <outlet property="autoCheckUpdateSwitch" destination="sMV-99-mpX" id="fot-lz-5et"/>
                         <outlet property="voiceMessageDescriptionLabel" destination="4kq-Q9-T7q" id="pq7-zT-Nm5"/>
                         <outlet property="voiceMessageSwitch" destination="D4U-FO-EZ1" id="aSh-dY-Pfx"/>
                     </connections>
@@ -518,7 +536,7 @@
         <image name="button_locateme" width="80" height="79"/>
         <image name="button_setting" width="52" height="51"/>
         <image name="button_zoom" width="106" height="206"/>
-        <image name="logo" width="442" height="389"/>
+        <image name="logo" width="184" height="56"/>
         <image name="title_setting" width="194" height="53"/>
         <image name="top_bg" width="85" height="89"/>
     </resources>

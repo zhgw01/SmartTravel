@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UISwitch *voiceMessageSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *voiceMessageDescriptionLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *autoCheckUpdateLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *autoCheckUpdateSwitch;
 @end
 
 @implementation SettingsViewController
@@ -23,6 +25,17 @@
     // Do any additional setup after loading the view.
     self.voiceMessageDescriptionLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.voiceMessageDescriptionLabel.numberOfLines = 0;
+    
+    BOOL isAutoCheckUpdate = [[AppSettingManager sharedInstance] getIsAutoCheckUpdate];
+#ifdef DEBUG
+    self.autoCheckUpdateLabel.hidden = NO;
+    self.autoCheckUpdateSwitch.hidden = NO;
+    self.autoCheckUpdateSwitch.on = isAutoCheckUpdate;
+#else
+    self.autoCheckUpdateLabel.hidden = YES;
+    self.autoCheckUpdateSwitch.hidden = YES;
+    self.autoCheckUpdateSwitch.on = isAutoCheckUpdate;
+#endif
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,6 +62,12 @@
 {
     UISwitch* swt = (UISwitch*)sender;
     [[AppSettingManager sharedInstance] setIsWarningVoice:swt.on];
+}
+
+- (IBAction)autoCheckUpdateSwitchToggled:(id)sender
+{
+    UISwitch* swt = (UISwitch*)sender;
+    [[AppSettingManager sharedInstance] setIsAutoCheckUpdate:swt.on];
 }
 
 @end

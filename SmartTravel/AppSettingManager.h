@@ -18,4 +18,7 @@
 -(BOOL)getIsWarningVoice;
 -(void)setIsWarningVoice:(BOOL)flag;
 
+-(BOOL)getIsAutoCheckUpdate;
+-(void)setIsAutoCheckUpdate:(BOOL)flag;
+
 @end
