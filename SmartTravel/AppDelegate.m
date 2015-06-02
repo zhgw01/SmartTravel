@@ -8,6 +8,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "AppSettingManager.h"
 #import "AppLocationManager.h"
+#import "ResourceManager.h"
 #import "AppDelegate.h"
 #import "TermUsage.h"
 #import "DBConstants.h"
@@ -41,56 +42,14 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
     //Copy database from main bundle with data ready.
     //Only force overwrite for 1st time;
     //later check only and copy in case it was removed by unknown exceptions.
-    [self copyResourceFromAppBundle:DB_NAME_MAIN
-          toUserDocumentWithNewName:DB_NAME_MAIN
-                            withExt:DB_EXT
-                     forceOverwrite:(runCount == 0)];
+    [ResourceManager copyResourceFromAppBundle:DB_NAME_MAIN
+                     toUserDocumentWithNewName:DB_NAME_MAIN
+                                       withExt:DB_EXT
+                                forceOverwrite:(runCount == 0)];
     
     [appSettings setRunCount:(runCount + 1)];
     
-    NSLog(@"Current data schema verson is %@", [[DBVersionAdapter alloc] getLatestVersion]);
-    
     return YES;
-}
-
-// Return YES if copy succeeded
-- (BOOL)copyResourceFromAppBundle:(NSString*)oldFileName
-        toUserDocumentWithNewName:(NSString*)newFileName
-                          withExt:(NSString*)ext
-                   forceOverwrite:(BOOL)forceOverwrite
-{
-    NSString* sourcePath = [[NSBundle mainBundle] pathForResource:oldFileName ofType:ext];
-    
-    // Return NO if source not exist
-    if(![[NSFileManager defaultManager] fileExistsAtPath:sourcePath])
-    {
-        return NO;
-    }
-    
-    NSString* userDocumentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-    NSString* targetPath = [[userDocumentDir stringByAppendingPathComponent:newFileName] stringByAppendingPathExtension:ext];
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:targetPath])
-    {
-        if (!forceOverwrite)
-        {
-            return YES;
-        }
-        // Remove target if it exists and forceOverwrite is YES
-        if (forceOverwrite)
-        {
-            NSError* error = nil;
-            [[NSFileManager defaultManager] removeItemAtPath:targetPath error:&error];
-            if (error)
-            {
-                return NO;
-            }
-        }
-    }
-    
-    NSError* error = nil;
-    [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:targetPath error:&error];
-    return !error;
 }
 
 - (UIViewController*)loadControllerFromStoryboard:(NSString *)storyboardName
@@ -133,6 +92,16 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
     {
         [[AppLocationManager sharedInstance] startUpdatingHeading];
         [[AppLocationManager sharedInstance] startUpdatingLocation];
+    }
+    
+    // Update data online if auto check update is chosen.
+    if ([[AppSettingManager sharedInstance] getIsAutoCheckUpdate])
+    {
+        BOOL res = [ResourceManager updateOnline];
+        if (res)
+        {
+            NSLog(@"Version has been updated to %@", [[DBVersionAdapter alloc] getLatestVersion]);
+        }
     }
 }
 

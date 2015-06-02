@@ -14,6 +14,9 @@
 
 +(DBManager *)sharedInstance;
 
+// Delete all items in table
++(BOOL)deleteFromTable:(NSString*)tableName;
+
 +(NSString*)makeInsertSmtForTable:(NSString*)tableName;
 
 +(NSString*)getPathOfMainDB;

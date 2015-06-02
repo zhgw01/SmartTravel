@@ -7,6 +7,7 @@ pod 'Google-Maps-iOS-SDK'
 pod 'FMDB'
 pod 'MTLFMDBAdapter'
 pod 'Geo-Utilities'
+pod 'AFNetworking', '~> 2.5.4'
 end
 
 target 'SmartTravelTests' do

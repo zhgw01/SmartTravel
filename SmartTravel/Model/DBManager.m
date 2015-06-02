@@ -22,6 +22,35 @@
     return sharedSingleton;
 }
 
++(BOOL)deleteFromTable:(NSString*)tableName
+{
+    if (!tableName) return NO;
+    
+    NSString* smt = [NSString stringWithFormat:@"DELETE FROM %@", tableName];
+    
+    NSString* mainDBPath = [DBManager getPathOfMainDB];
+    FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
+    if (![db open])
+    {
+        NSAssert(NO, @"Open db failed");
+        return NO;
+    }
+    
+    if (![db executeUpdate:smt])
+    {
+        NSAssert(NO, @"Delete table failed");
+        return NO;
+    }
+    
+    if (![db close])
+    {
+        NSAssert(NO, @"Close db failed");
+        return NO;
+    }
+    
+    return YES;
+}
+
 +(NSString*)makeInsertSmtForTable:(NSString*)tableName
 {
     if ([tableName isEqualToString:MAIN_DB_TBL_COLLISION_LOCATION])
