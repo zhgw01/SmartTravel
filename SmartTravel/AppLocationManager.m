@@ -43,7 +43,10 @@
 
 -(void)requestWhenInUserAuthorization
 {
-    [self.locationManager requestWhenInUseAuthorization];
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
+    {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
 }
 
 -(void)setDelegate:(id<CLLocationManagerDelegate>)delegate
