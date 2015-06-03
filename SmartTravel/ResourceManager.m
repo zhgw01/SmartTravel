@@ -82,8 +82,9 @@ static NSString * const kURLOfNewVersion = @"http://101.231.116.154:8080/STRESTW
         hasNewerVersion = YES;
     }
     
-    return YES;
-    // TODO: implement
+#ifdef DEBUG
+    hasNewerVersion = YES;
+#endif
 
     if (!hasNewerVersion)
     {
@@ -106,6 +107,11 @@ static NSString * const kURLOfNewVersion = @"http://101.231.116.154:8080/STRESTW
     }
     
     if (![ResourceManager updateWMDayTypeTable])
+    {
+        return NO;
+    }
+    
+    if (![ResourceManager updateNewVersionTable])
     {
         return NO;
     }
@@ -151,9 +157,8 @@ static NSString * const kURLOfNewVersion = @"http://101.231.116.154:8080/STRESTW
     {
         return NO;
     }
-    NSString* insertSQLSmt = [DBManager makeInsertSmtForTable:MAIN_DB_TBL_COLLISION_LOCATION];
     
-    return YES;
+    return [DBManager insertJSON:res intoTable:MAIN_DB_TBL_COLLISION_LOCATION];
 }
 
 + (BOOL)updateWMDayTypeTable
@@ -169,9 +174,7 @@ static NSString * const kURLOfNewVersion = @"http://101.231.116.154:8080/STRESTW
         return NO;
     }
     
-    NSString* insertSQLSmt = [DBManager makeInsertSmtForTable:MAIN_DB_TBL_WM_DAYTYPE];
-
-    return YES;
+    return [DBManager insertJSON:res intoTable:MAIN_DB_TBL_WM_DAYTYPE];
 }
 
 + (BOOL)updateLocationReasonTable
@@ -187,9 +190,7 @@ static NSString * const kURLOfNewVersion = @"http://101.231.116.154:8080/STRESTW
         return NO;
     }
     
-    NSString* insertSQLSmt = [DBManager makeInsertSmtForTable:MAIN_DB_TBL_LOCATION_REASON];
-
-    return YES;
+    return [DBManager insertJSON:res intoTable:MAIN_DB_TBL_LOCATION_REASON];
 }
 
 + (BOOL)updateWMReasonConditionTable
@@ -205,9 +206,23 @@ static NSString * const kURLOfNewVersion = @"http://101.231.116.154:8080/STRESTW
         return NO;
     }
     
-    NSString* insertSQLSmt = [DBManager makeInsertSmtForTable:MAIN_DB_TBL_WM_REASON_CONDITION];
+    return [DBManager insertJSON:res intoTable:MAIN_DB_TBL_WM_REASON_CONDITION];
+}
+
++ (BOOL)updateNewVersionTable
+{
+    NSDictionary* res = [ResourceManager fetchJSONDataFromURL:kURLOfNewVersion];
+    if (!res)
+    {
+        return NO;
+    }
     
-    return YES;
+    if (![DBManager deleteFromTable:MAIN_DB_TBL_NEW_VERSION])
+    {
+        return NO;
+    }
+    
+    return [DBManager insertJSON:res intoTable:MAIN_DB_TBL_NEW_VERSION];
 }
 
 @end

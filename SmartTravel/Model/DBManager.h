@@ -17,7 +17,11 @@
 // Delete all items in table
 +(BOOL)deleteFromTable:(NSString*)tableName;
 
-+(NSString*)makeInsertSmtForTable:(NSString*)tableName;
++(BOOL)insertJSON:(id)jsonArrayOrDic
+        intoTable:(NSString*)tableName;
+
+// For test purpose
++(void)insertTestData;
 
 +(NSString*)getPathOfMainDB;
 
