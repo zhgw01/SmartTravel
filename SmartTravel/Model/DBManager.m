@@ -51,29 +51,171 @@
     return YES;
 }
 
-+(NSString*)makeInsertSmtForTable:(NSString*)tableName
++(BOOL)insertJSON:(id)jsonArrayOrDic
+        intoTable:(NSString*)tableName
 {
-    if ([tableName isEqualToString:MAIN_DB_TBL_COLLISION_LOCATION])
+    NSString* mainDBPath = [DBManager getPathOfMainDB];
+    FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
+    if (![db open])
     {
-        return [NSString stringWithFormat:@"INSERT INTO %@ (Loc_code, Location_name, Roadway_portion, Latitude, Longitude) values(:Loc_code, :Location_name, :Roadway_portion, :Latitude, :Longitude)", MAIN_DB_TBL_COLLISION_LOCATION];
+        NSAssert(NO, @"Open db failed");
+        return NO;
     }
-    else if ([tableName isEqualToString:MAIN_DB_TBL_LOCATION_REASON])
+    
+    if ([jsonArrayOrDic isKindOfClass:[NSArray class]])
     {
-        return [NSString stringWithFormat:@"INSERT INTO %@ (Id, Loc_code, Travel_direction, Reason_id, Total, Warning_priority) values(:Id, :Loc_code, :Travel_direction, :Reason_id, :Total, :Warning_priority)", MAIN_DB_TBL_LOCATION_REASON];
+        NSArray* jsonArray = (NSArray*)jsonArrayOrDic;
+
+        NSUInteger idx = 0;
+        for (NSDictionary* dic in jsonArray)
+        {
+            if ([tableName isEqualToString:MAIN_DB_TBL_COLLISION_LOCATION])
+            {
+                id location_name = [dic valueForKey:@"location_name"];
+                id roadway_portion = [dic valueForKey:@"roadway_portion"];
+                if (!roadway_portion)
+                {
+                    roadway_portion = @"";
+                }
+                id longitude = [dic valueForKey:@"longitude"];
+                id latitude = [dic valueForKey:@"latitude"];
+                id loc_code = [dic valueForKey:@"loc_code"];
+                
+                NSString* sql = [NSString stringWithFormat:@"INSERT INTO %@ (Loc_code, Location_name, Roadway_portion, Latitude, Longitude) VALUES (?, ?, ?, ?, ?)", MAIN_DB_TBL_COLLISION_LOCATION];
+                BOOL res = [db executeUpdate:sql, loc_code, location_name, roadway_portion, latitude, longitude];
+                if (!res)
+                {
+                    NSLog(@"Error insert %@ into %@", dic, MAIN_DB_TBL_COLLISION_LOCATION);
+                    break;
+                }
+            }
+            else if ([tableName isEqualToString:MAIN_DB_TBL_LOCATION_REASON])
+            {
+                id row = [NSNumber numberWithUnsignedInteger:idx];
+                id total = [dic valueForKey:@"total"];
+                id warning_priority = [dic valueForKey:@"warning_priority"];
+                id reason_id = [dic valueForKey:@"reason_id"];
+                id loc_code = [dic valueForKey:@"loc_code"];
+                id travel_direction = [dic valueForKey:@"travel_direction"];
+                if (!travel_direction)
+                {
+                    travel_direction = @"ALL";
+                }
+                
+                NSString* sql = [NSString stringWithFormat:@"INSERT INTO %@ (Id, Loc_code, Travel_direction, Reason_id, Total, Warning_priority) VALUES (?, ?, ?, ?, ?, ?)", MAIN_DB_TBL_LOCATION_REASON];
+                BOOL res = [db executeUpdate:sql, row, loc_code, travel_direction, reason_id, total, warning_priority];
+                if (!res)
+                {
+                    NSLog(@"Error insert %@ into %@", dic, MAIN_DB_TBL_LOCATION_REASON);
+                    break;
+                }
+            }
+            else if ([tableName isEqualToString:MAIN_DB_TBL_WM_DAYTYPE])
+            {
+                id weekday = [dic valueForKey:@"weekday"];
+                id weekend = [dic valueForKey:@"weekend"];
+                id date = [dic valueForKey:@"date"];
+                id school_day = [dic valueForKey:@"school_day"];
+                
+                NSString* sql= [NSString stringWithFormat:@"INSERT INTO %@ (Date, Weekday, Weekend, School_day) VALUES (?, ?, ?, ?)", MAIN_DB_TBL_WM_DAYTYPE];
+                BOOL res = [db executeUpdate:sql,
+                            date,
+                            [weekday isEqual:@"TRUE"] ? @1 : @0,
+                            [weekend isEqual:@"TRUE"] ? @1 : @0,
+                            [school_day isEqual:@"TRUE"] ? @1 : @0];
+                if (!res)
+                {
+                    NSLog(@"Error insert %@ into %@", dic, MAIN_DB_TBL_WM_DAYTYPE);
+                    break;
+                }
+            }
+            else if ([tableName isEqualToString:MAIN_DB_TBL_WM_REASON_CONDITION])
+            {
+                id warning_message = [dic valueForKey:@"warning_message"];
+                id weekday = [dic valueForKey:@"weekday"];
+                id reason = [dic valueForKey:@"reason"];
+                id reason_id = [dic valueForKey:@"reason_id"];
+                id month = [dic valueForKey:@"month"];
+                id weekend = [dic valueForKey:@"weekend"];
+                id start_time = [dic valueForKey:@"start_time"];
+                id end_time = [dic valueForKey:@"end_time"];
+                id school_day = [dic valueForKey:@"school_day"];
+                
+                NSString* sql =[NSString stringWithFormat:@"INSERT INTO %@ (Reason_id, Reason, Month, Weekday, Weekend, School_day, Start_time, End_time, Warning_message) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", MAIN_DB_TBL_WM_REASON_CONDITION];
+                BOOL res = [db executeUpdate:sql,
+                            reason_id,
+                            reason,
+                            month,
+                            [weekday isEqual:@"TRUE"] ? @1 : @0,
+                            [weekend isEqual:@"TRUE"] ? @1 : @0,
+                            [school_day isEqual:@"TRUE"] ? @1 : @0,
+                            start_time,
+                            end_time,
+                            warning_message];
+                if (!res)
+                {
+                    NSLog(@"Error insert %@ into %@", dic, MAIN_DB_TBL_WM_REASON_CONDITION);
+                    break;
+                }
+            }
+            else
+            {
+                NSAssert(NO, @"Not implemented");
+            }
+            ++idx;
+        }
     }
-    else if ([tableName isEqualToString:MAIN_DB_TBL_WM_DAYTYPE])
+    else if ([jsonArrayOrDic isKindOfClass:[NSDictionary class]])
     {
-        return [NSString stringWithFormat:@"INSERT INTO %@ (Date, Weekday, Weekend, School_day) values(:Date, :Weekday, :Weekend, :School_day)", MAIN_DB_TBL_WM_DAYTYPE];
-    }
-    else if ([tableName isEqualToString:MAIN_DB_TBL_WM_REASON_CONDITION])
-    {
-        return [NSString stringWithFormat:@"INSERT INTO %@ (Reason_id, Reason, Month, Weekday, Weekend, School_day, Start_time, End_time, Warning_message) values(:Reason_id, :Reason, :Month, :Weekday, :Weekend, :School_day, :Start_time, :End_time, :Warning_message)", MAIN_DB_TBL_WM_REASON_CONDITION];
+        NSDictionary* jsonDic = (NSDictionary*)jsonArrayOrDic;
+        
+        if ([tableName isEqualToString:MAIN_DB_TBL_NEW_VERSION])
+        {
+            id version = [jsonDic valueForKey:@"version"];
+            NSString* sql = [NSString stringWithFormat:@"INSERT INTO %@ (Version) VALUES (?)", MAIN_DB_TBL_NEW_VERSION];
+            BOOL res = [db executeUpdate:sql, version];
+            if (!res)
+            {
+                NSLog(@"Error insert %@ into %@", jsonDic, MAIN_DB_TBL_NEW_VERSION);
+            }
+        }
+        else
+        {
+            NSAssert(NO, @"Not implemented");
+        }
     }
     else
     {
-        NSAssert(NO, @"Not implemented");
+        NSLog(@"Error jsonArrayOrDic class: %@", [[jsonArrayOrDic class] description]);
     }
-    return nil;
+    
+    if (![db close])
+    {
+        NSAssert(NO, @"Close db failed");
+        return NO;
+    }
+    
+    return YES;
+}
+
++(void)insertTestData
+{
+    NSString* mainDBPath = [DBManager getPathOfMainDB];
+    FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
+    if (![db open])
+    {
+        NSAssert(NO, @"Open db failed");
+        return;
+    }
+    
+    [db executeUpdate:@"INSERT INTO TBL_COLLISION_LOCATION VALUES (\"TEST_LOC_CODE_2\",\"TEST_LOCATION_NAME_1\",\"MID STREET\",\"31.146932\",\"121.513425\")"];
+    [db executeUpdate:@"INSERT INTO TBL_LOCATION_REASON VALUES (\"10001\",\"TEST_LOC_CODE_2\",\"ALL\",\"1001\",\"999\",\"999\")"];
+    [db executeUpdate:@"INSERT INTO TBL_WM_REASON_CONDITION VALUES (\"1001\",\"TEST 1(School Days between 00:01 and 23:59)\",\"111111111111\",\"1\",\"1\",\"1\",\"00:01\",\"23:59\",\"This is test. You should here WARNING every 10 seconds!\")"];
+    
+    if (![db close])
+    {
+        NSAssert(NO, @"Close db failed");
+    }
 }
 
 +(NSString*)getPathOfMainDB

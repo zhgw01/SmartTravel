@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "TermUsage.h"
 #import "DBConstants.h"
+#import "DBManager.h"
 #import "DBVersionAdapter.h"
 
 @interface AppDelegate ()
@@ -46,7 +47,7 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
                      toUserDocumentWithNewName:DB_NAME_MAIN
                                        withExt:DB_EXT
                                 forceOverwrite:(runCount == 0)];
-    
+
     [appSettings setRunCount:(runCount + 1)];
     
     return YES;
@@ -101,6 +102,9 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
         if (res)
         {
             NSLog(@"Version has been updated to %@", [[DBVersionAdapter alloc] getLatestVersion]);
+#ifdef DEBUG
+            [DBManager insertTestData];
+#endif
         }
     }
 }
