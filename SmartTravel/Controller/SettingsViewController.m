@@ -26,16 +26,7 @@
     self.voiceMessageDescriptionLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.voiceMessageDescriptionLabel.numberOfLines = 0;
     
-    BOOL isAutoCheckUpdate = [[AppSettingManager sharedInstance] getIsAutoCheckUpdate];
-#ifdef DEBUG
-    self.autoCheckUpdateLabel.hidden = NO;
-    self.autoCheckUpdateSwitch.hidden = NO;
-    self.autoCheckUpdateSwitch.on = isAutoCheckUpdate;
-#else
-    self.autoCheckUpdateLabel.hidden = YES;
-    self.autoCheckUpdateSwitch.hidden = YES;
-    self.autoCheckUpdateSwitch.on = isAutoCheckUpdate;
-#endif
+    self.autoCheckUpdateSwitch.on = [[AppSettingManager sharedInstance] getIsAutoCheckUpdate];
 }
 
 - (void)didReceiveMemoryWarning {

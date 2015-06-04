@@ -450,12 +450,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VuT-cD-4XT" userLabel="setting view">
                                 <rect key="frame" x="0.0" y="48" width="600" height="552"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YtW-cx-QUq" userLabel="sperator view">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YtW-cx-QUq" userLabel="sperator view 1">
                                         <rect key="frame" x="312" y="101" width="270" height="1"/>
                                         <color key="backgroundColor" red="0.6705882353" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="3Ev-Vp-Pqi"/>
                                             <constraint firstAttribute="width" constant="270" id="5uR-mT-TjO"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJf-kZ-N5d" userLabel="sperator view 2">
+                                        <rect key="frame" x="312" y="205" width="270" height="1"/>
+                                        <color key="backgroundColor" red="0.6705882353" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="HDs-ws-sFo"/>
+                                            <constraint firstAttribute="width" constant="270" id="UxP-pM-MPP"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description See Mac in Person at the Apple Retail Store and have all your questions answred" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kq-Q9-T7q">
@@ -477,13 +485,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sMV-99-mpX" userLabel="checkUpdateSwitch">
-                                        <rect key="frame" x="533" y="143" width="51" height="31"/>
+                                        <rect key="frame" x="533" y="138" width="51" height="31"/>
                                         <connections>
                                             <action selector="autoCheckUpdateSwitchToggled:" destination="JBD-u7-yrp" eventType="valueChanged" id="1c6-aq-gRM"/>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto Check Update" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppa-ej-6hV" userLabel="checkUpdateLabel">
-                                        <rect key="frame" x="312" y="147" width="159" height="22"/>
+                                        <rect key="frame" x="312" y="142" width="159" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -491,10 +499,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.71372549019607845" green="0.73333333333333328" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="ppa-ej-6hV" firstAttribute="bottom" secondItem="nJf-kZ-N5d" secondAttribute="bottom" constant="-42" id="0MR-nY-ZjS"/>
                                     <constraint firstAttribute="trailing" secondItem="D4U-FO-EZ1" secondAttribute="trailing" constant="18" id="B42-m0-yzL"/>
+                                    <constraint firstItem="nJf-kZ-N5d" firstAttribute="leading" secondItem="YtW-cx-QUq" secondAttribute="leading" id="CQZ-tT-QrV"/>
                                     <constraint firstItem="4kq-Q9-T7q" firstAttribute="top" secondItem="lfA-hd-t1W" secondAttribute="bottom" constant="10" id="ERX-zU-MFH"/>
                                     <constraint firstItem="YtW-cx-QUq" firstAttribute="leading" secondItem="lfA-hd-t1W" secondAttribute="leading" id="HKg-df-1Td"/>
-                                    <constraint firstItem="ppa-ej-6hV" firstAttribute="top" secondItem="YtW-cx-QUq" secondAttribute="bottom" constant="45" id="IiH-et-7h2"/>
+                                    <constraint firstItem="ppa-ej-6hV" firstAttribute="top" secondItem="YtW-cx-QUq" secondAttribute="bottom" constant="40" id="IiH-et-7h2"/>
                                     <constraint firstItem="sMV-99-mpX" firstAttribute="leading" secondItem="D4U-FO-EZ1" secondAttribute="leading" id="LBI-tc-De8"/>
                                     <constraint firstItem="ppa-ej-6hV" firstAttribute="leading" secondItem="lfA-hd-t1W" secondAttribute="leading" id="WTh-dS-OD8"/>
                                     <constraint firstItem="YtW-cx-QUq" firstAttribute="trailing" secondItem="D4U-FO-EZ1" secondAttribute="trailing" id="WmT-ja-LTp"/>
