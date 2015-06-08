@@ -143,13 +143,13 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
         return nil;
     }
     
-    NSString* locCodesStr = [self arrayToSQLInConditions:locCodes];
-    NSString* reasonIdsStr = [self arrayToSQLInConditions:reasonIds];
+    NSString* locCodesParametersStr = [self locCodesToSQLParameters:locCodes];
+    NSString* reasonIdsStr = [self reasonIdsToSQLArguments:reasonIds];
     
     // Get location_reasons
-    NSString*(^constructSqlSmt)(Direction, NSString*, NSString*) = ^(Direction direction, NSString* locCodesStr, NSString* reasonIdsStr) {
+    NSString*(^constructSqlSmt)(Direction, NSString*, NSString*) = ^(Direction direction, NSString* locCodesParametersStr, NSString* reasonIdsStr) {
         NSString* smt = [NSString  stringWithFormat:
-                         @"select %@, %@, %@, %@, %@ from %@ where (%@ = '%@' or %@ = 'ALL') and %@ in %@ and %@ in %@ order by %@ desc limit 1",
+                         @"select %@, %@, %@, %@, %@ from %@ where (%@ = '%@' or %@ = 'ALL') and %@ in (%@) and %@ in %@ order by %@ desc limit 1",
                          kLocCodeColumn,
                          kTravelDirectionColumn,
                          kReasonIdColumn,
@@ -160,20 +160,20 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
                          [LocationDirection directionToString:direction],
                          kTravelDirectionColumn,
                          kLocCodeColumn,
-                         locCodes,
+                         locCodesParametersStr,
                          kReasonIdColumn,
                          reasonIds,
                          kWarningPriorityColumn];
         return smt;
     };
-    NSString* smt = constructSqlSmt(direction, locCodesStr, reasonIdsStr);
+    NSString* smt = constructSqlSmt(direction, locCodesParametersStr, reasonIdsStr);
     
     NSDictionary* res = nil;
     
     FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
     if ([db open])
     {
-        FMResultSet* resultSet = [db executeQuery:smt];
+        FMResultSet* resultSet = [db executeQuery:smt withArgumentsInArray:locCodes];
         NSError* error = nil;
         if([resultSet nextWithError:&error])
         {
@@ -203,14 +203,21 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
 }
 
 #pragma mark - Private methods
-- (NSString*)arrayToSQLInConditions:(NSArray*)array
+- (NSString*)reasonIdsToSQLArguments:(NSArray*)reasonIds
 {
-    NSMutableArray* arrayWithSingleQuotes = [[NSMutableArray alloc] init];
-    for (NSString* str in array)
+    return [reasonIds componentsJoinedByString:@","];
+}
+
+- (NSString*)locCodesToSQLParameters:(NSArray*)locCodes
+{
+    NSUInteger cnt = locCodes.count;
+    NSMutableArray* placeholders = [[NSMutableArray alloc] init];
+    for (NSUInteger idx = 0; idx < cnt; ++idx)
     {
-        [arrayWithSingleQuotes addObject:[NSString stringWithFormat:@"'%@'", str]];
+        [placeholders addObject:@"?"];
     }
-    return [arrayWithSingleQuotes componentsJoinedByString:@","];
+    
+    return [placeholders componentsJoinedByString:@","];
 }
 
 @end

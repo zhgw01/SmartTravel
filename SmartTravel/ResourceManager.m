@@ -82,9 +82,9 @@ static NSString * const kURLOfNewVersion = @"http://101.231.116.154:8080/STRESTW
         hasNewerVersion = YES;
     }
     
-#ifdef DEBUG
-    hasNewerVersion = YES;
-#endif
+//#ifdef DEBUG
+//    hasNewerVersion = YES;
+//#endif
 
     if (!hasNewerVersion)
     {
