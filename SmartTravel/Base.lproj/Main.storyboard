@@ -110,10 +110,10 @@
                                 <rect key="frame" x="75" y="47" width="10" height="138"/>
                                 <color key="backgroundColor" red="0.31764705882352939" green="0.71372549019607845" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SP8-fd-ZMe" userLabel="midstreetSelectionIndicatorView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SP8-fd-ZMe" userLabel="MidAvenueSelectionIndicatorView">
                                 <rect key="frame" x="75" y="185" width="10" height="139"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lR9-bd-AIR" userLabel="midavenuSelectionIndicatorView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lR9-bd-AIR" userLabel="MidStreetSelectionIndicatorView">
                                 <rect key="frame" x="75" y="324" width="10" height="138"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rd0-b7-fJc" userLabel="schoolzoneSelectionIndicatorView">
@@ -180,13 +180,13 @@
                                         <color key="textColor" red="0.11372549019607843" green="0.20000000000000001" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjI-YF-DqY" userLabel="midAvenueCount">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjI-YF-DqY" userLabel="midStreetCount">
                                         <rect key="frame" x="0.0" y="324" width="75" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mid Avenue" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3S4-Ek-MzR">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mid Street" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3S4-Ek-MzR">
                                         <rect key="frame" x="0.0" y="366" width="75" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Qzx-G4-J3E"/>
@@ -210,13 +210,13 @@
                                         <color key="textColor" red="0.1137254902" green="0.20000000000000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZX-sl-FfL" userLabel="midStreetCount">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZX-sl-FfL" userLabel="midAvenueCount">
                                         <rect key="frame" x="0.0" y="187" width="75" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mid Street" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV7-PT-zZp">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mid Avenue" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV7-PT-zZp">
                                         <rect key="frame" x="0.0" y="229" width="75" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Gaw-kl-wme"/>
@@ -234,15 +234,6 @@
                                             <action selector="intersectionSelected:" destination="tEd-je-gPE" eventType="touchUpInside" id="bVj-sp-1e2"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sR-Hj-r4K" userLabel="midAvenueButton">
-                                        <rect key="frame" x="0.0" y="276" width="75" height="138"/>
-                                        <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="midAvenueSelected:" destination="tEd-je-gPE" eventType="touchUpInside" id="bq0-I1-Msw"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwG-c0-y3i" userLabel="schoolZoneButton">
                                         <rect key="frame" x="0.0" y="415" width="75" height="138"/>
                                         <state key="normal">
@@ -252,13 +243,22 @@
                                             <action selector="schoolZoneSelected:" destination="tEd-je-gPE" eventType="touchUpInside" id="pcW-49-J0m"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwt-C9-9HG" userLabel="midStreetButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwt-C9-9HG" userLabel="midAvenueButton">
                                         <rect key="frame" x="0.0" y="138" width="75" height="138"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="midStreetSelected:" destination="tEd-je-gPE" eventType="touchUpInside" id="pG5-vg-ljj"/>
+                                            <action selector="midAvenueSelected:" destination="tEd-je-gPE" eventType="touchUpInside" id="phF-PT-Xhq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sR-Hj-r4K" userLabel="midStreetButton">
+                                        <rect key="frame" x="0.0" y="276" width="75" height="138"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="midStreetSelected:" destination="tEd-je-gPE" eventType="touchUpInside" id="20p-dL-hTz"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -360,10 +360,10 @@
                     <connections>
                         <outlet property="intersectionCountLabel" destination="CDf-BK-T1r" id="b7p-iI-mYG"/>
                         <outlet property="intersectionIndicatorView" destination="gw5-dR-rjs" id="Ncd-nw-bcQ"/>
-                        <outlet property="midAvenueCountLabel" destination="UjI-YF-DqY" id="tHn-P0-cyZ"/>
-                        <outlet property="midAvenueIndicatorView" destination="lR9-bd-AIR" id="gkI-e6-5KZ"/>
-                        <outlet property="midStreetCountLabel" destination="mZX-sl-FfL" id="FM3-c3-ypg"/>
-                        <outlet property="midStreetIndicatorView" destination="SP8-fd-ZMe" id="tsd-gu-d73"/>
+                        <outlet property="midAvenueCountLabel" destination="mZX-sl-FfL" id="gfm-4s-NtF"/>
+                        <outlet property="midAvenueIndicatorView" destination="SP8-fd-ZMe" id="o9r-ST-HGj"/>
+                        <outlet property="midStreetCountLabel" destination="UjI-YF-DqY" id="T0d-Dr-PdU"/>
+                        <outlet property="midStreetIndicatorView" destination="lR9-bd-AIR" id="XEy-H5-ugq"/>
                         <outlet property="schoolZoneCountLabel" destination="1py-zH-cuL" id="Oys-rj-nPP"/>
                         <outlet property="schoolZoneIndicatorView" destination="Rd0-b7-fJc" id="AXc-aw-INR"/>
                         <outlet property="tableView" destination="e8B-aC-8n1" id="i9L-33-sOO"/>
