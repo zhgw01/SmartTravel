@@ -30,6 +30,9 @@ static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
 static CGFloat kHotSpotZoonRadius = 100.0;
 
+static NSUInteger kReportRepeat = 2;
+static double kReportInterval = 5;
+
 @interface HomeViewController ()
 <
     SWRevealViewControllerDelegate,
@@ -73,6 +76,9 @@ static CGFloat kHotSpotZoonRadius = 100.0;
 @property (strong, nonatomic) AVSpeechSynthesizer* avSpeechSynthesizer;
 @property (strong, nonatomic) AVSpeechSynthesisVoice* avSpeechSynthesisVoice;
 
+@property (copy, nonatomic) NSString *reportLocCode;
+@property (assign, nonatomic) NSUInteger reportCount;
+
 @end
 
 @implementation HomeViewController
@@ -94,6 +100,9 @@ static CGFloat kHotSpotZoonRadius = 100.0;
     
     // Set default mode
     [self setNavigationMode:YES];
+    
+    self.reportLocCode = @"";
+    self.reportCount = 0;
 }
 
 - (void)setupWarning
@@ -257,11 +266,47 @@ static CGFloat kHotSpotZoonRadius = 100.0;
     }
 }
 
-- (void)didApproachHotSpot:(NSDictionary *)hotSpot
+- (BOOL)shouldReportWarningOfLocCode:(NSString*)locCode
+                              onDate:(NSDate*)date
 {
     // Remember last voice report date
     static NSDate* lastReportDate = nil;
+    static NSString *lastReportLocCode = nil;
+    static NSUInteger lastReportCount = 0;
     
+    if (!lastReportDate)
+    {
+        lastReportDate = date;
+        lastReportLocCode = [locCode copy];
+        lastReportCount = 0;
+        return YES;
+    }
+
+    NSTimeInterval secondsInterval= [date timeIntervalSinceDate:lastReportDate];
+    if (secondsInterval > kReportInterval)
+    {
+        if ([lastReportLocCode isEqualToString:locCode])
+        {
+            if (++lastReportCount >= kReportRepeat)
+            {
+                return NO;
+            }
+        }
+        else
+        {
+            lastReportLocCode = [locCode copy];
+            lastReportCount = 0;
+        }
+
+        lastReportDate = date;
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (void)didApproachHotSpot:(NSDictionary *)hotSpot
+{
     NSString* locCode = [hotSpot objectForKey:@"Loc_code"];
     NSString* locationName = [[NSString alloc] init];
     int reasonId = 0;
@@ -282,24 +327,8 @@ static CGFloat kHotSpotZoonRadius = 100.0;
         
         [self.warningView updateLocation:locationName reason:reason distance:[NSNumber numberWithDouble:dis]];
     
-        // Determine if we should report. The period should be longer than 10s
-        NSDate* now = [NSDate date];
-        BOOL shouldReport = NO;
-        if (lastReportDate)
-        {
-            NSTimeInterval secondsInterval= [now timeIntervalSinceDate:lastReportDate];
-            if (secondsInterval > 10)
-            {
-                shouldReport = YES;
-            }
-        }
-        else
-        {
-            shouldReport = YES;
-        }
-        
-        // Dont' repeat the warning in short time
-        if (shouldReport)
+        if ([self shouldReportWarningOfLocCode:locCode
+                                        onDate:[NSDate date]])
         {
             // Speak out the warning message
             if ([[AppSettingManager sharedInstance] getIsWarningVoice])
@@ -311,9 +340,6 @@ static CGFloat kHotSpotZoonRadius = 100.0;
                 // Breath the marker
                 [self.markerManager breathingMarker:locCode];
             }
-            
-            // Remember last check date
-            lastReportDate = [now copy];
         }
     }
 }
