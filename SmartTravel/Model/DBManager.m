@@ -210,23 +210,23 @@
     
     [db executeUpdate:@"INSERT INTO TBL_COLLISION_LOCATION VALUES (\"Test1\",\"Test1\'s Home\",\"SCHOOL ZONE\",\"31.146932\",\"121.513425\")"];
     [db executeUpdate:@"INSERT INTO TBL_LOCATION_REASON VALUES (\"10001\",\"Test1\",\"ALL\",\"1001\",\"111\",\"111\")"];
-    [db executeUpdate:@"INSERT INTO TBL_WM_REASON_CONDITION VALUES (\"1001\",\"TEST1 (XXX Days between 00:01 and 23:59)\",\"111111111111\",\"1\",\"1\",\"1\",\"00:01\",\"23:59\",\"This is test 1. You should here WARNING every 10 seconds!\")"];
+    [db executeUpdate:@"INSERT INTO TBL_WM_REASON_CONDITION VALUES (\"1001\",\"TEST1 (XXX Days between 00:01 and 23:59)\",\"111111111111\",\"1\",\"1\",\"1\",\"00:01\",\"23:59\",\"This is test 1. You should here WARNING every 5 seconds!\")"];
     
     [db executeUpdate:@"INSERT INTO TBL_COLLISION_LOCATION VALUES (\"Test2\",\"Test2\'s Home\",\"SCHOOL ZONE\",\"31.146008\",\"121.513420\")"];
     [db executeUpdate:@"INSERT INTO TBL_LOCATION_REASON VALUES (\"10002\",\"Test2\",\"ALL\",\"1002\",\"222\",\"222\")"];
-    [db executeUpdate:@"INSERT INTO TBL_WM_REASON_CONDITION VALUES (\"1002\",\"TEST2 (XXX Days between 00:01 and 23:59)\",\"111111111111\",\"1\",\"1\",\"1\",\"00:01\",\"23:59\",\"This is test 2. You should here WARNING every 10 seconds!\")"];
+    [db executeUpdate:@"INSERT INTO TBL_WM_REASON_CONDITION VALUES (\"1002\",\"TEST2 (XXX Days between 00:01 and 23:59)\",\"111111111111\",\"1\",\"1\",\"1\",\"00:01\",\"23:59\",\"This is test 2. You should here WARNING every 5 seconds!\")"];
     
     [db executeUpdate:@"INSERT INTO TBL_COLLISION_LOCATION VALUES (\"Test3\",\"Test3\'s Home\",\"SCHOOL ZONE\",\"31.293021\",\"121.536683\")"];
     [db executeUpdate:@"INSERT INTO TBL_LOCATION_REASON VALUES (\"10003\",\"Test3\",\"ALL\",\"1003\",\"333\",\"333\")"];
-    [db executeUpdate:@"INSERT INTO TBL_WM_REASON_CONDITION VALUES (\"1003\",\"TEST3 (XXX Days between 00:01 and 23:59)\",\"111111111111\",\"1\",\"1\",\"1\",\"00:01\",\"23:59\",\"This is test 3. You should here WARNING every 10 seconds!\")"];
+    [db executeUpdate:@"INSERT INTO TBL_WM_REASON_CONDITION VALUES (\"1003\",\"TEST3 (XXX Days between 00:01 and 23:59)\",\"111111111111\",\"1\",\"1\",\"1\",\"00:01\",\"23:59\",\"This is test 3. You should here WARNING every 5 seconds!\")"];
     
     [db executeUpdate:@"INSERT INTO TBL_COLLISION_LOCATION VALUES (\"Test4\",\"Test4\'s Home\",\"SCHOOL ZONE\",\"53.523451\",\"-113.510887\")"];
     [db executeUpdate:@"INSERT INTO TBL_LOCATION_REASON VALUES (\"10004\",\"Test4\",\"ALL\",\"1004\",\"444\",\"444\")"];
-    [db executeUpdate:@"INSERT INTO TBL_WM_REASON_CONDITION VALUES (\"1004\",\"TEST4 (XXX Days between 00:01 and 23:59)\",\"111111111111\",\"1\",\"1\",\"1\",\"00:01\",\"23:59\",\"This is test 4. You should here WARNING every 10 seconds!\")"];
+    [db executeUpdate:@"INSERT INTO TBL_WM_REASON_CONDITION VALUES (\"1004\",\"TEST4 (XXX Days between 00:01 and 23:59)\",\"111111111111\",\"1\",\"1\",\"1\",\"00:01\",\"23:59\",\"This is test 4. You should here WARNING every 5 seconds!\")"];
     
     [db executeUpdate:@"INSERT INTO TBL_COLLISION_LOCATION VALUES (\"Test5\",\"Test5\'s Home\",\"SCHOOL ZONE\",\"53.526528\",\"-113.529447\")"];
     [db executeUpdate:@"INSERT INTO TBL_LOCATION_REASON VALUES (\"10005\",\"Test5\",\"ALL\",\"1005\",\"555\",\"555\")"];
-    [db executeUpdate:@"INSERT INTO TBL_WM_REASON_CONDITION VALUES (\"1005\",\"TEST5 (XXX Days between 00:01 and 23:59)\",\"111111111111\",\"1\",\"1\",\"1\",\"00:01\",\"23:59\",\"This is test 5. You should here WARNING every 10 seconds!\")"];
+    [db executeUpdate:@"INSERT INTO TBL_WM_REASON_CONDITION VALUES (\"1005\",\"TEST5 (XXX Days between 00:01 and 23:59)\",\"111111111111\",\"1\",\"1\",\"1\",\"00:01\",\"23:59\",\"This is test 5. You should here WARNING every 5 seconds!\")"];
     
     if (![db close])
     {
