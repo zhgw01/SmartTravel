@@ -28,7 +28,7 @@
 
 static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
-static CGFloat kHotSpotZoonRadius = 100.0;
+static CGFloat kHotSpotZoonRadius = 150.0;
 
 static NSUInteger kReportRepeat = 2;
 static double kReportInterval = 5;

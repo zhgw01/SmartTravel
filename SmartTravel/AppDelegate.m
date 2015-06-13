@@ -25,10 +25,10 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    if (![TermUsage agree]) {
-        self.window.rootViewController = [self loadControllerFromStoryboard:@"FirstLaunch"];
-        [self.window makeKeyAndVisible];
-    }
+//    if (![TermUsage agree]) {
+//        self.window.rootViewController = [self loadControllerFromStoryboard:@"FirstLaunch"];
+//        [self.window makeKeyAndVisible];
+//    }
     
     //Initialize GMap
     [GMSServices provideAPIKey:GMAP_API_KEY];
