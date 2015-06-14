@@ -181,14 +181,14 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
             NSString* directionValue = [resultSet stringForColumn:kTravelDirectionColumn];
             int reasonIdValue = [resultSet intForColumn:kReasonIdColumn];
             int totalValue = [resultSet intForColumn:kTotalColumn];
-            int waringPriorityValue = [resultSet intForColumn:kWarningPriorityColumn];
+            int warningPriorityValue = [resultSet intForColumn:kWarningPriorityColumn];
             
             res = [NSDictionary dictionaryWithObjectsAndKeys:
                    locCodeValue, kLocCodeColumn,
                    directionValue, kTravelDirectionColumn,
                    [NSNumber numberWithInt:reasonIdValue], kReasonIdColumn,
                    [NSNumber numberWithInt:totalValue], kTotalColumn,
-                   [NSNumber numberWithInt:waringPriorityValue], kWarningPriorityColumn,
+                   [NSNumber numberWithInt:warningPriorityValue], kWarningPriorityColumn,
                    nil];
         }
         [resultSet close];

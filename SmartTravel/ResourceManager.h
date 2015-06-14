@@ -21,4 +21,7 @@
 // Check if there's newer version online. If there's, update the data.
 + (BOOL)updateOnline;
 
+// Get audio file path for the specific reason
+- (NSString*)getAudioFilePathByReasonID:(NSNumber*)reasonId;
+
 @end
