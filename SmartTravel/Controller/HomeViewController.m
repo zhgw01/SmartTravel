@@ -19,6 +19,7 @@
 
 #import "DBReasonAdapter.h"
 #import "DBLocationAdapter.h"
+#import "ResourceManager.h"
 #import "DateUtility.h"
 
 #import "MarkerManager.h"
@@ -29,8 +30,7 @@
 static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
 static CGFloat kHotSpotZoonRadius = 150.0;
-
-static NSUInteger kReportRepeat = 2;
+static NSUInteger kReportRepeat = 3;
 static double kReportInterval = 5;
 
 @interface HomeViewController ()
@@ -56,6 +56,9 @@ static double kReportInterval = 5;
 
 @property (strong, nonatomic) DBLocationAdapter* locationAdapter;
 
+@property (copy, nonatomic) NSString *lastReportLocCode;
+@property (assign, nonatomic) NSUInteger lastReportCount;
+
 // Indicating that user is in navigating mode or not.
 //
 // On:
@@ -75,9 +78,7 @@ static double kReportInterval = 5;
 // Speech
 @property (strong, nonatomic) AVSpeechSynthesizer* avSpeechSynthesizer;
 @property (strong, nonatomic) AVSpeechSynthesisVoice* avSpeechSynthesisVoice;
-
-@property (copy, nonatomic) NSString *reportLocCode;
-@property (assign, nonatomic) NSUInteger reportCount;
+@property (strong, nonatomic) AVAudioPlayer *avAudioPlayer;
 
 @end
 
@@ -101,8 +102,8 @@ static double kReportInterval = 5;
     // Set default mode
     [self setNavigationMode:YES];
     
-    self.reportLocCode = @"";
-    self.reportCount = 0;
+    self.lastReportCount = 0;
+    self.lastReportLocCode = @"";
 }
 
 - (void)setupWarning
@@ -271,38 +272,79 @@ static double kReportInterval = 5;
 {
     // Remember last voice report date
     static NSDate* lastReportDate = nil;
-    static NSString *lastReportLocCode = nil;
-    static NSUInteger lastReportCount = 0;
-    
     if (!lastReportDate)
     {
         lastReportDate = date;
-        lastReportLocCode = [locCode copy];
-        lastReportCount = 0;
+        self.lastReportLocCode = locCode;
+        self.lastReportCount = 1;
         return YES;
     }
-
+    
     NSTimeInterval secondsInterval= [date timeIntervalSinceDate:lastReportDate];
-    if (secondsInterval > kReportInterval)
+    if (secondsInterval < kReportInterval)
     {
-        if ([lastReportLocCode isEqualToString:locCode])
+        return NO;
+    }
+    
+    if ([self.lastReportLocCode isEqualToString:locCode])
+    {
+        if (self.lastReportCount >= kReportRepeat)
         {
-            if (++lastReportCount >= kReportRepeat)
-            {
-                return NO;
-            }
+            return NO;
         }
         else
         {
-            lastReportLocCode = [locCode copy];
-            lastReportCount = 0;
+            ++self.lastReportCount;
+            lastReportDate = date;
+            return YES;
         }
-
+    }
+    else
+    {
+        self.lastReportLocCode = locCode;
+        self.lastReportCount = 1;
         lastReportDate = date;
         return YES;
     }
     
     return NO;
+}
+
+- (void)speakOutWarningMessage:(NSString *)warningMessage
+                       locCode:(NSString *)locCode
+                      reasonID:(NSNumber *)reasonId
+{
+    if ([self.avAudioPlayer isPlaying])
+    {
+        [self.avAudioPlayer stop];
+    }
+    
+    NSString *audioPath = [[ResourceManager sharedInstance] getAudioFilePathByReasonID:reasonId];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:audioPath])
+    {
+        NSURL *audioURL = [NSURL fileURLWithPath:audioPath];
+        NSError *error = nil;
+        self.avAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioURL error:&error];
+
+        if (!error)
+        {
+            [self.avAudioPlayer prepareToPlay];
+            [self.avAudioPlayer setVolume:1.0];
+            [self.avAudioPlayer setNumberOfLoops:0];
+            [self.avAudioPlayer play];
+        }
+    }
+    else
+    {
+        AVSpeechUtterance* utterance = [[AVSpeechUtterance alloc] initWithString:warningMessage];
+        utterance.rate *= 0.5;
+        utterance.voice = self.avSpeechSynthesisVoice;
+        [self.avSpeechSynthesizer speakUtterance:utterance];
+    }
+    NSLog(@"Last report count %ld", self.lastReportCount);
+
+    // Breath the marker
+    [self.markerManager breathingMarker:locCode];
 }
 
 - (void)didApproachHotSpot:(NSDictionary *)hotSpot
@@ -333,12 +375,10 @@ static double kReportInterval = 5;
             // Speak out the warning message
             if ([[AppSettingManager sharedInstance] getIsWarningVoice])
             {
-                AVSpeechUtterance* utterance = [[AVSpeechUtterance alloc] initWithString:warningMessage];
-                utterance.rate *= 0.5;
-                [self.avSpeechSynthesizer speakUtterance:utterance];
-                
-                // Breath the marker
-                [self.markerManager breathingMarker:locCode];
+                NSNumber *reasonIdNumber = [NSNumber numberWithInt:reasonId];
+                [self speakOutWarningMessage:warningMessage
+                                     locCode:locCode
+                                    reasonID:reasonIdNumber];
             }
         }
     }
@@ -377,6 +417,8 @@ static double kReportInterval = 5;
         }
         else
         {
+            self.lastReportLocCode = @"";
+            
             self.warningView.hidden = YES;
             [self.warningView updateLocation:nil reason:nil distance:nil];
             

@@ -71,8 +71,12 @@ static NSString * const kURLOfNewVersion = @"http://101.231.116.154:8080/STRESTW
 
 - (NSString*)getAudioFilePathByReasonID:(NSNumber*)reasonId
 {
-    NSString* fileName = [self.reasonIDToAudioFile objectForKey:reasonId];
-    return [[NSBundle mainBundle] pathForResource:fileName ofType:@"m4a"];
+//    if ([self.reasonIDToAudioFile objectForKey:reasonId])
+//    {
+        NSString* fileName = [self.reasonIDToAudioFile objectForKey:reasonId];
+        return [[NSBundle mainBundle] pathForResource:fileName ofType:@"m4a"];
+//    }
+//    return nil;
 }
 
 + (BOOL)copyResourceFromAppBundle:(NSString*)oldFileName
