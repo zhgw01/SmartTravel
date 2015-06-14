@@ -18,6 +18,12 @@ static NSString * const kURLOfWMDayType = @"http://101.231.116.154:8080/STRESTWe
 static NSString * const kURLOfWMReasonCondition = @"http://101.231.116.154:8080/STRESTWeb/wmReasonCondition/jsonOfList";
 static NSString * const kURLOfNewVersion = @"http://101.231.116.154:8080/STRESTWeb/newVersion/json";
 
+@interface ResourceManager ()
+
+@property (strong, nonatomic) NSDictionary * reasonIDToAudioFile;
+
+@end
+
 @implementation ResourceManager
 
 +(ResourceManager *)sharedInstance
@@ -28,6 +34,49 @@ static NSString * const kURLOfNewVersion = @"http://101.231.116.154:8080/STRESTW
         sharedSingleton = [[self alloc] init];
     });
     return sharedSingleton;
+}
+
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        self.reasonIDToAudioFile = @{
+            @1: @"Morning rush hour",
+            @2: @"Morning rush hour",
+            @3: @"afternoon rush hour",
+            @4: @"afternoon rush hour",
+            @5: @"weekend early morning",
+            @6: @"weekend early morning",
+            @7: @"Pedestrians",
+            @8: @"Pedestrians",
+            @9: @"Cyclist",
+            @10: @"Cyclist",
+            @11: @"Motorcyclist",
+            @12: @"Motorcyclist",
+            @13: @"increase the gap",
+            @14: @"increase the gap",
+            @15: @"", // TODO: Customer will provide it
+            @16: @"Red-light running",
+            @17: @"Stop sign violation",
+            @18: @"Improper lane change",
+            @19: @"Improper lane change",
+            @20: @"Ran off road",
+            @21: @"attention high risk collision area",
+            @22: @"attention high risk collision area",
+            @23: @"School zone"
+        };
+    }
+    return self;
+}
+
+- (NSString*)getAudioFilePathByReasonID:(NSNumber*)reasonId
+{
+//    if ([self.reasonIDToAudioFile objectForKey:reasonId])
+//    {
+        NSString* fileName = [self.reasonIDToAudioFile objectForKey:reasonId];
+        return [[NSBundle mainBundle] pathForResource:fileName ofType:@"m4a"];
+//    }
+//    return nil;
 }
 
 + (BOOL)copyResourceFromAppBundle:(NSString*)oldFileName

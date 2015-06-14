@@ -29,6 +29,19 @@
 		42C6A8C81B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C6A8C41B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m */; };
 		42C6A8C91B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42C6A8C51B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib */; };
 		6613E4635B5E884F0B519EDB /* libPods-SmartTravel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */; };
+		84232CD41B2D7DE000E0BE11 /* afternoon rush hour.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CC71B2D7DE000E0BE11 /* afternoon rush hour.m4a */; };
+		84232CD51B2D7DE000E0BE11 /* attention high risk collision area.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CC81B2D7DE000E0BE11 /* attention high risk collision area.m4a */; };
+		84232CD61B2D7DE000E0BE11 /* Cyclist.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CC91B2D7DE000E0BE11 /* Cyclist.m4a */; };
+		84232CD71B2D7DE000E0BE11 /* Improper lane change.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CCA1B2D7DE000E0BE11 /* Improper lane change.m4a */; };
+		84232CD81B2D7DE000E0BE11 /* increase the gap.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CCB1B2D7DE000E0BE11 /* increase the gap.m4a */; };
+		84232CD91B2D7DE000E0BE11 /* Morning rush hour.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CCC1B2D7DE000E0BE11 /* Morning rush hour.m4a */; };
+		84232CDA1B2D7DE000E0BE11 /* Motorcyclist.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CCD1B2D7DE000E0BE11 /* Motorcyclist.m4a */; };
+		84232CDB1B2D7DE000E0BE11 /* Pedestrians.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CCE1B2D7DE000E0BE11 /* Pedestrians.m4a */; };
+		84232CDC1B2D7DE000E0BE11 /* Ran off road.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CCF1B2D7DE000E0BE11 /* Ran off road.m4a */; };
+		84232CDD1B2D7DE000E0BE11 /* Red-light running.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CD01B2D7DE000E0BE11 /* Red-light running.m4a */; };
+		84232CDE1B2D7DE000E0BE11 /* School zone.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CD11B2D7DE000E0BE11 /* School zone.m4a */; };
+		84232CDF1B2D7DE000E0BE11 /* Stop sign violation.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CD21B2D7DE000E0BE11 /* Stop sign violation.m4a */; };
+		84232CE01B2D7DE000E0BE11 /* weekend early morning.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CD31B2D7DE000E0BE11 /* weekend early morning.m4a */; };
 		8475E8651B1218FB000E0AD5 /* smartTravel.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8475E8641B1218FB000E0AD5 /* smartTravel.sqlite */; };
 		84B3367D1B1DD93100BF32B0 /* ResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B3367C1B1DD93100BF32B0 /* ResourceManager.m */; };
 		84F38DDC1B0FE86C00A0EB42 /* DBVersionAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DDB1B0FE86C00A0EB42 /* DBVersionAdapter.m */; };
@@ -111,6 +124,19 @@
 		42C6A8C51B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HotSpotDetailViewHeaderCell.xib; path = View/HotSpotDetailViewHeaderCell.xib; sourceTree = "<group>"; };
 		5EEEC9CCD391050A8D1BA199 /* libPods-SmartTravelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartTravelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6928DA7D73FEF35E1EBF313F /* Pods-SmartTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravel/Pods-SmartTravel.release.xcconfig"; sourceTree = "<group>"; };
+		84232CC71B2D7DE000E0BE11 /* afternoon rush hour.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "afternoon rush hour.m4a"; path = "Resource/M4a/afternoon rush hour.m4a"; sourceTree = "<group>"; };
+		84232CC81B2D7DE000E0BE11 /* attention high risk collision area.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "attention high risk collision area.m4a"; path = "Resource/M4a/attention high risk collision area.m4a"; sourceTree = "<group>"; };
+		84232CC91B2D7DE000E0BE11 /* Cyclist.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = Cyclist.m4a; path = Resource/M4a/Cyclist.m4a; sourceTree = "<group>"; };
+		84232CCA1B2D7DE000E0BE11 /* Improper lane change.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Improper lane change.m4a"; path = "Resource/M4a/Improper lane change.m4a"; sourceTree = "<group>"; };
+		84232CCB1B2D7DE000E0BE11 /* increase the gap.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "increase the gap.m4a"; path = "Resource/M4a/increase the gap.m4a"; sourceTree = "<group>"; };
+		84232CCC1B2D7DE000E0BE11 /* Morning rush hour.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Morning rush hour.m4a"; path = "Resource/M4a/Morning rush hour.m4a"; sourceTree = "<group>"; };
+		84232CCD1B2D7DE000E0BE11 /* Motorcyclist.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = Motorcyclist.m4a; path = Resource/M4a/Motorcyclist.m4a; sourceTree = "<group>"; };
+		84232CCE1B2D7DE000E0BE11 /* Pedestrians.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = Pedestrians.m4a; path = Resource/M4a/Pedestrians.m4a; sourceTree = "<group>"; };
+		84232CCF1B2D7DE000E0BE11 /* Ran off road.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ran off road.m4a"; path = "Resource/M4a/Ran off road.m4a"; sourceTree = "<group>"; };
+		84232CD01B2D7DE000E0BE11 /* Red-light running.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Red-light running.m4a"; path = "Resource/M4a/Red-light running.m4a"; sourceTree = "<group>"; };
+		84232CD11B2D7DE000E0BE11 /* School zone.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "School zone.m4a"; path = "Resource/M4a/School zone.m4a"; sourceTree = "<group>"; };
+		84232CD21B2D7DE000E0BE11 /* Stop sign violation.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stop sign violation.m4a"; path = "Resource/M4a/Stop sign violation.m4a"; sourceTree = "<group>"; };
+		84232CD31B2D7DE000E0BE11 /* weekend early morning.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "weekend early morning.m4a"; path = "Resource/M4a/weekend early morning.m4a"; sourceTree = "<group>"; };
 		8475E8641B1218FB000E0AD5 /* smartTravel.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = smartTravel.sqlite; path = Resource/SQLite/smartTravel.sqlite; sourceTree = "<group>"; };
 		84B3367B1B1DD93100BF32B0 /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceManager.h; sourceTree = "<group>"; };
 		84B3367C1B1DD93100BF32B0 /* ResourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceManager.m; sourceTree = "<group>"; };
@@ -250,6 +276,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		84232CC61B2D7DAF00E0BE11 /* M4a */ = {
+			isa = PBXGroup;
+			children = (
+				84232CC71B2D7DE000E0BE11 /* afternoon rush hour.m4a */,
+				84232CC81B2D7DE000E0BE11 /* attention high risk collision area.m4a */,
+				84232CC91B2D7DE000E0BE11 /* Cyclist.m4a */,
+				84232CCA1B2D7DE000E0BE11 /* Improper lane change.m4a */,
+				84232CCB1B2D7DE000E0BE11 /* increase the gap.m4a */,
+				84232CCC1B2D7DE000E0BE11 /* Morning rush hour.m4a */,
+				84232CCD1B2D7DE000E0BE11 /* Motorcyclist.m4a */,
+				84232CCE1B2D7DE000E0BE11 /* Pedestrians.m4a */,
+				84232CCF1B2D7DE000E0BE11 /* Ran off road.m4a */,
+				84232CD01B2D7DE000E0BE11 /* Red-light running.m4a */,
+				84232CD11B2D7DE000E0BE11 /* School zone.m4a */,
+				84232CD21B2D7DE000E0BE11 /* Stop sign violation.m4a */,
+				84232CD31B2D7DE000E0BE11 /* weekend early morning.m4a */,
+			);
+			name = M4a;
+			sourceTree = "<group>";
+		};
 		84F38DEB1B10122800A0EB42 /* SQLite */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +424,7 @@
 		9B6A85AE1ADFDEFF00667170 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				84232CC61B2D7DAF00E0BE11 /* M4a */,
 				84F38DEB1B10122800A0EB42 /* SQLite */,
 				425754B81B088BA60046433F /* GPX */,
 				9B5EE8631AF3EEE600524F4A /* default.gpx */,
@@ -510,19 +557,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84232CD51B2D7DE000E0BE11 /* attention high risk collision area.m4a in Resources */,
 				42C6A8B51B0A0FAC00EE1518 /* WarningView.xib in Resources */,
+				84232CDF1B2D7DE000E0BE11 /* Stop sign violation.m4a in Resources */,
 				9BC3392F1AE296250046AAB5 /* termofusage.html in Resources */,
+				84232CDE1B2D7DE000E0BE11 /* School zone.m4a in Resources */,
 				42C6A8C91B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib in Resources */,
 				4290A0AE1AF6050100CB46E5 /* HotSpotTableViewCell.xib in Resources */,
 				9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */,
+				84232CD61B2D7DE000E0BE11 /* Cyclist.m4a in Resources */,
+				84232CD41B2D7DE000E0BE11 /* afternoon rush hour.m4a in Resources */,
 				42C6A8B31B0A0FAC00EE1518 /* HotSpotDetailView.xib in Resources */,
+				84232CDD1B2D7DE000E0BE11 /* Red-light running.m4a in Resources */,
 				425754B71B088BA20046433F /* 20150517013203-58195-data.gpx in Resources */,
 				42C6A8C71B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.xib in Resources */,
 				8475E8651B1218FB000E0AD5 /* smartTravel.sqlite in Resources */,
+				84232CDA1B2D7DE000E0BE11 /* Motorcyclist.m4a in Resources */,
+				84232CD71B2D7DE000E0BE11 /* Improper lane change.m4a in Resources */,
+				84232CDB1B2D7DE000E0BE11 /* Pedestrians.m4a in Resources */,
 				9B6A85BA1ADFDF0000667170 /* Main.storyboard in Resources */,
 				9B6A85BF1ADFDF0000667170 /* LaunchScreen.xib in Resources */,
 				9B6A85BC1ADFDF0000667170 /* Images.xcassets in Resources */,
+				84232CDC1B2D7DE000E0BE11 /* Ran off road.m4a in Resources */,
+				84232CD91B2D7DE000E0BE11 /* Morning rush hour.m4a in Resources */,
+				84232CE01B2D7DE000E0BE11 /* weekend early morning.m4a in Resources */,
 				9B5EE8641AF3EEE600524F4A /* default.gpx in Resources */,
+				84232CD81B2D7DE000E0BE11 /* increase the gap.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
