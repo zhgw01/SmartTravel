@@ -195,14 +195,14 @@
                                         <color key="textColor" red="0.1137254902" green="0.20000000000000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1py-zH-cuL" userLabel="schoolZoneCount">
-                                        <rect key="frame" x="0.0" y="463" width="75" height="42"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1py-zH-cuL" userLabel="schoolZoneCount">
+                                        <rect key="frame" x="0.0" y="484" width="75" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School Zone" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zk0-be-pHP">
-                                        <rect key="frame" x="0.0" y="505" width="75" height="20"/>
+                                        <rect key="frame" x="0.0" y="484" width="75" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="zhA-Xs-8iJ"/>
                                         </constraints>

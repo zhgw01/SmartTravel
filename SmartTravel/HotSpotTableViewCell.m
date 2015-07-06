@@ -19,7 +19,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    self.countLabel.layer.cornerRadius = 6.f;
+    self.countLabel.layer.cornerRadius = 4.f;
     self.countLabel.layer.masksToBounds = YES;
     
     self.locationLabel.numberOfLines = 0;
