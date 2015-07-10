@@ -14,6 +14,7 @@
 #import "DBConstants.h"
 #import "DBManager.h"
 #import "DBVersionAdapter.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface AppDelegate ()
 
@@ -54,6 +55,8 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
     // Please comment this line when it's ready to release
     [DBManager insertTestData];
     //#endif
+    
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil]; 
     
     return YES;
 }
