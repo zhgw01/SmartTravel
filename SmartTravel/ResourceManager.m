@@ -68,7 +68,8 @@ static NSString * const kURLOfNewVersion = @"http://101.231.116.154:8080/STRESTW
             @1002:@"afternoon rush hour",
             @1003:@"weekend early morning",
             @1004:@"Pedestrians",
-            @1005:@"Cyclist"
+            @1005:@"Cyclist",
+            @1006:@"Motorcyclist"
         };
     }
     return self;
