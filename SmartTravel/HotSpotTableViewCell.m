@@ -19,7 +19,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    self.countLabel.layer.cornerRadius = 4.f;
+    self.countLabel.layer.cornerRadius = 6.f;
     self.countLabel.layer.masksToBounds = YES;
     
     self.locationLabel.numberOfLines = 0;
@@ -57,6 +57,7 @@
 
 - (void)configureCellWithLocation:(NSString*)location
                          andCount:(NSNumber*)count
+                           ofType:(HotSpotType)hotSpotType
 {
     BOOL needsLayout = NO;
     
@@ -79,6 +80,16 @@
         needsLayout = YES;
     }
     
+    // Don't show hot spot type count
+    if (hotSpotType == HotSpotTypeSchoolZone)
+    {
+        self.countLabel.hidden = YES;
+    }
+    else
+    {
+        self.countLabel.hidden = NO;
+    }
+
     if (needsLayout)
     {
         [self setNeedsLayout];

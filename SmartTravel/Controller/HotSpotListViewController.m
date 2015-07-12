@@ -56,7 +56,7 @@
     self.intersectionCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.intersections.count];
     self.midStreetCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.midStreets.count];
     self.midAvenueCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.midAvenues.count];
-//    self.schoolZoneCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)9999/*self.schoolZones.count*/];
+    self.schoolZoneCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.schoolZones.count];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -171,7 +171,9 @@
     
     HotSpot* hotSpot = [self getHotSpotOfType:self.type atRow:indexPath.row];
     
-    [cell configureCellWithLocation:hotSpot.location andCount:hotSpot.count];
+    [cell configureCellWithLocation:hotSpot.location
+                           andCount:hotSpot.count
+                             ofType:self.type];
     
     return cell;
 }

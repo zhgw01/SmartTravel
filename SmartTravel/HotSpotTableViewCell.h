@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HotSpot.h"
 
 @interface HotSpotTableViewCell : UITableViewCell
 
 - (void)configureCellWithLocation:(NSString*)location
-                         andCount:(NSNumber*)count;
+                         andCount:(NSNumber*)count
+                           ofType:(HotSpotType)hotSpotType;
 
 @end
