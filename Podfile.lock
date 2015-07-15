@@ -51,11 +51,11 @@ SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   Geo-Utilities: ed3b96a7f572646b225f553d51902ba65872e1a7
-  Google-Maps-iOS-SDK: 7f89cc1edb3ca239a410e5bc83cd1e060db3a289
+  Google-Maps-iOS-SDK: 4c008abdb68e03ae125c7f674be841d369e2b3de
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   MTLFMDBAdapter: 491e80bb9fcda3f6a9e7b2cbad4a8e7be93189be
   OCHamcrest: 6f03ffa81d12feab872638490a44ab0a6d3aca10
   OCMockito: 4981140c9a9ec06c31af40f636e3c0f25f27e6b2
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.37.1

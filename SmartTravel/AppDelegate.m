@@ -48,6 +48,9 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
                      toUserDocumentWithNewName:DB_NAME_MAIN
                                        withExt:DB_EXT
                                 forceOverwrite:(runCount == 0)];
+#ifdef DEBUG
+    NSLog(@"User document dir is :%@", [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]);
+#endif
 
     [appSettings setRunCount:(runCount + 1)];
     

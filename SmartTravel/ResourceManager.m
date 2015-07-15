@@ -55,7 +55,7 @@ static NSString * const kURLOfNewVersion = @"http://101.231.116.154:8080/STRESTW
             @12: @"Motorcyclist",
             @13: @"increase the gap",
             @14: @"increase the gap",
-            @15: @"", // TODO: Customer will provide it
+            @15: @"Left Turn",
             @16: @"Red-light running",
             @17: @"Stop sign violation",
             @18: @"Improper lane change",
