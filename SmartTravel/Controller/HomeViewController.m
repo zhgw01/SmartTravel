@@ -88,7 +88,6 @@ static double kReportInterval = 5;
     [super viewDidLoad];
     
     // Initialize views
-    [self setupNavigationBar];
     [self setupSideBarMenu];
     [self setupMap];
     [self setupWarning];
@@ -156,17 +155,10 @@ static double kReportInterval = 5;
     self.mapView.myLocationEnabled = YES;
 }
 
-- (void) setupNavigationBar
+- (void) viewWillAppear:(BOOL)animated
 {
-    //setup navigation
-    UIImage* image = [UIImage imageNamed:@"smartTravel"];
-    UIImageView* imageView = [[UIImageView alloc] initWithImage:image];
-    self.navigationItem.titleView = imageView;
-    
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"top_bg"]
-                                                  forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
-    self.navigationController.navigationBar.translucent = YES;
+    [super viewWillAppear:animated];
+    self.title = @"Smart Travel";
 }
 
 - (void) setupSideBarMenu
