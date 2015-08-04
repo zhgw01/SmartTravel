@@ -33,7 +33,8 @@
 
 static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
-static CGFloat kHotSpotZoonRadius = 150.0;
+//static CGFloat kHotSpotZoonRadius = 150.0;
+static CGFloat kHotSpotEarlyWarningInterval = 10.0;
 static NSUInteger kReportRepeat = 3;
 static double kReportInterval = 5;
 
@@ -411,13 +412,14 @@ static double kReportInterval = 5;
     
     // Get warning data list
     NSArray* reasonIds = [[[DBReasonAdapter alloc] init] getReasonIDsOfDate:[NSDate date]];
-    if (reasonIds.count > 0)
+    if (reasonIds.count > 0 && lastLocation.speed > 0)
     {
+        CGFloat hotSpotZoonRadius = lastLocation.speed * kHotSpotEarlyWarningInterval;
         NSDictionary* hotSpot = [self.locationAdapter getLocationReasonAtLatitude:self.recentLocation.coordinate.latitude
                                                                         longitude:self.recentLocation.coordinate.longitude
                                                                       ofReasonIds:reasonIds
                                                                       inDirection:direction
-                                                                     withinRadius:kHotSpotZoonRadius];
+                                                                     withinRadius:hotSpotZoonRadius];
         
         // Pop up warning view if there're warnings.
         if (hotSpot)
