@@ -151,7 +151,7 @@ static NSString * const kURLOfNewVersion = @"http://101.231.116.154:8080/STRESTW
         return NO;
     }
     
-    if (![ResourceManager updateWMDayTypeTable])
+    if (![ResourceManager updateLocationReasonTable])
     {
         return NO;
     }
