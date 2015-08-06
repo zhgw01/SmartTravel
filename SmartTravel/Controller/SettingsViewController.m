@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *autoCheckUpdateSwitch;
 
 @property (weak, nonatomic) IBOutlet UILabel *dateUpdateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 
 @end
 
@@ -33,8 +34,13 @@
     
     self.autoCheckUpdateSwitch.on = [[AppSettingManager sharedInstance] getIsAutoCheckUpdate];
     
-    NSString* currentVersion = [[[DBVersionAdapter alloc] init] getLatestVersion];
+    NSString *currentVersion = [[[DBVersionAdapter alloc] init] getLatestVersion];
     self.dateUpdateLabel.text = currentVersion;
+    
+    
+    NSDictionary *bundleDic = [[NSBundle mainBundle] infoDictionary];
+    NSString *bundleShortVersionString = [bundleDic objectForKey:@"CFBundleShortVersionString"];
+    self.versionLabel.text = bundleShortVersionString;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(versionHasBeenUpdated:)

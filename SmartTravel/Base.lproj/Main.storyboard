@@ -469,7 +469,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description See Mac in Person at the Apple Retail Store and have all your questions answred" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kq-Q9-T7q">
                                         <rect key="frame" x="312" y="69" width="270" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" red="0.58431372550000005" green="0.58431372550000005" blue="0.58431372550000005" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.58431372549019611" green="0.58431372549019611" blue="0.58431372549019611" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4U-FO-EZ1">
@@ -496,19 +496,31 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tC-9w-nzf">
-                                        <rect key="frame" x="422" y="544" width="120" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tC-9w-nzf" userLabel="DateUpdateLabel">
+                                        <rect key="frame" x="422" y="512" width="120" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="Ndq-L5-C5S"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.58431372550000005" green="0.58431372550000005" blue="0.58431372550000005" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Update:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAW-SC-35W">
-                                        <rect key="frame" x="312" y="523" width="102" height="21"/>
+                                        <rect key="frame" x="312" y="491" width="102" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.58431372550000005" green="0.58431372550000005" blue="0.58431372550000005" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDs-bg-vjw">
+                                        <rect key="frame" x="312" y="520" width="102" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.58431372550000005" green="0.58431372550000005" blue="0.58431372550000005" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99k-Lk-T7b" userLabel="VersionLabel">
+                                        <rect key="frame" x="422" y="541" width="120" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.58431372550000005" green="0.58431372550000005" blue="0.58431372550000005" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -520,6 +532,7 @@
                                     <constraint firstItem="4kq-Q9-T7q" firstAttribute="top" secondItem="lfA-hd-t1W" secondAttribute="bottom" constant="10" id="ERX-zU-MFH"/>
                                     <constraint firstItem="YtW-cx-QUq" firstAttribute="leading" secondItem="lfA-hd-t1W" secondAttribute="leading" id="HKg-df-1Td"/>
                                     <constraint firstItem="ppa-ej-6hV" firstAttribute="top" secondItem="YtW-cx-QUq" secondAttribute="bottom" constant="40" id="IiH-et-7h2"/>
+                                    <constraint firstItem="99k-Lk-T7b" firstAttribute="bottom" secondItem="xDs-bg-vjw" secondAttribute="bottom" id="Imi-5g-dRy"/>
                                     <constraint firstItem="sMV-99-mpX" firstAttribute="leading" secondItem="D4U-FO-EZ1" secondAttribute="leading" id="LBI-tc-De8"/>
                                     <constraint firstItem="9tC-9w-nzf" firstAttribute="leading" secondItem="YAW-SC-35W" secondAttribute="trailing" constant="8" id="UqH-zY-wkR"/>
                                     <constraint firstItem="ppa-ej-6hV" firstAttribute="leading" secondItem="lfA-hd-t1W" secondAttribute="leading" id="WTh-dS-OD8"/>
@@ -528,10 +541,15 @@
                                     <constraint firstItem="D4U-FO-EZ1" firstAttribute="top" secondItem="lfA-hd-t1W" secondAttribute="top" id="ZxA-We-RdT"/>
                                     <constraint firstItem="ppa-ej-6hV" firstAttribute="leading" secondItem="YAW-SC-35W" secondAttribute="leading" id="bTp-Jq-ocu"/>
                                     <constraint firstItem="9tC-9w-nzf" firstAttribute="bottom" secondItem="YAW-SC-35W" secondAttribute="bottom" id="c5W-vG-yJx"/>
+                                    <constraint firstItem="YAW-SC-35W" firstAttribute="leading" secondItem="xDs-bg-vjw" secondAttribute="leading" id="f1f-we-uZd"/>
+                                    <constraint firstItem="99k-Lk-T7b" firstAttribute="width" secondItem="9tC-9w-nzf" secondAttribute="width" id="f7F-dD-67A"/>
                                     <constraint firstItem="YtW-cx-QUq" firstAttribute="trailing" secondItem="4kq-Q9-T7q" secondAttribute="trailing" id="gy8-bE-jkg"/>
+                                    <constraint firstItem="xDs-bg-vjw" firstAttribute="top" secondItem="YAW-SC-35W" secondAttribute="bottom" constant="8" id="iQa-Qw-38N"/>
                                     <constraint firstItem="4kq-Q9-T7q" firstAttribute="leading" secondItem="YtW-cx-QUq" secondAttribute="leading" id="mN9-ll-XHu"/>
-                                    <constraint firstAttribute="bottom" secondItem="YAW-SC-35W" secondAttribute="bottom" constant="8" id="p4M-nn-fzA"/>
+                                    <constraint firstAttribute="bottom" secondItem="YAW-SC-35W" secondAttribute="bottom" constant="40" id="p4M-nn-fzA"/>
+                                    <constraint firstItem="99k-Lk-T7b" firstAttribute="leading" secondItem="9tC-9w-nzf" secondAttribute="leading" id="qBK-4N-6mH"/>
                                     <constraint firstItem="ppa-ej-6hV" firstAttribute="centerY" secondItem="sMV-99-mpX" secondAttribute="centerY" id="rh5-oe-jo8"/>
+                                    <constraint firstItem="YAW-SC-35W" firstAttribute="width" secondItem="xDs-bg-vjw" secondAttribute="width" id="uDQ-QH-xaw"/>
                                     <constraint firstItem="YtW-cx-QUq" firstAttribute="top" secondItem="lfA-hd-t1W" secondAttribute="bottom" constant="42" id="vSI-hT-UtT"/>
                                 </constraints>
                             </view>
@@ -552,6 +570,7 @@
                         <outlet property="autoCheckUpdateLabel" destination="ppa-ej-6hV" id="3xI-ei-2id"/>
                         <outlet property="autoCheckUpdateSwitch" destination="sMV-99-mpX" id="fot-lz-5et"/>
                         <outlet property="dateUpdateLabel" destination="9tC-9w-nzf" id="p49-hV-oXL"/>
+                        <outlet property="versionLabel" destination="99k-Lk-T7b" id="B99-1N-XoB"/>
                         <outlet property="voiceMessageDescriptionLabel" destination="4kq-Q9-T7q" id="pq7-zT-Nm5"/>
                         <outlet property="voiceMessageSwitch" destination="D4U-FO-EZ1" id="aSh-dY-Pfx"/>
                     </connections>
