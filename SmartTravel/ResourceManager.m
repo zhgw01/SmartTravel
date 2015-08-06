@@ -12,6 +12,8 @@
 #import "DBConstants.h"
 #import "DBVersionAdapter.h"
 
+NSString * const kNotificationNameVersionHasBeenUpdated = @"kNotificationNameVersionHasBeenUpdated";
+
 static NSString * const kURLOfCollisionLocation = @"http://101.231.116.154:8080/STRESTWeb/collisionLocation/jsonOfList";
 static NSString * const kURLOfLocationReason = @"http://101.231.116.154:8080/STRESTWeb/locationReason/jsonOfList";
 static NSString * const kURLOfWMDayType = @"http://101.231.116.154:8080/STRESTWeb/wmDayType/jsonOfList";
@@ -169,6 +171,12 @@ static NSString * const kURLOfNewVersion = @"http://101.231.116.154:8080/STRESTW
     if (![ResourceManager updateNewVersionTable])
     {
         return NO;
+    }
+    else
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationNameVersionHasBeenUpdated
+                                                            object:nil
+                                                          userInfo:@{@"version":latestVersion}];
     }
     
     return YES;

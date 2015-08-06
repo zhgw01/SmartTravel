@@ -496,6 +496,21 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tC-9w-nzf">
+                                        <rect key="frame" x="422" y="544" width="120" height="0.0"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="Ndq-L5-C5S"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Update:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAW-SC-35W">
+                                        <rect key="frame" x="312" y="523" width="102" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.71372549019607845" green="0.73333333333333328" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -506,12 +521,16 @@
                                     <constraint firstItem="YtW-cx-QUq" firstAttribute="leading" secondItem="lfA-hd-t1W" secondAttribute="leading" id="HKg-df-1Td"/>
                                     <constraint firstItem="ppa-ej-6hV" firstAttribute="top" secondItem="YtW-cx-QUq" secondAttribute="bottom" constant="40" id="IiH-et-7h2"/>
                                     <constraint firstItem="sMV-99-mpX" firstAttribute="leading" secondItem="D4U-FO-EZ1" secondAttribute="leading" id="LBI-tc-De8"/>
+                                    <constraint firstItem="9tC-9w-nzf" firstAttribute="leading" secondItem="YAW-SC-35W" secondAttribute="trailing" constant="8" id="UqH-zY-wkR"/>
                                     <constraint firstItem="ppa-ej-6hV" firstAttribute="leading" secondItem="lfA-hd-t1W" secondAttribute="leading" id="WTh-dS-OD8"/>
                                     <constraint firstItem="YtW-cx-QUq" firstAttribute="trailing" secondItem="D4U-FO-EZ1" secondAttribute="trailing" id="WmT-ja-LTp"/>
                                     <constraint firstItem="D4U-FO-EZ1" firstAttribute="bottom" secondItem="lfA-hd-t1W" secondAttribute="bottom" id="Y9o-yL-KaR"/>
                                     <constraint firstItem="D4U-FO-EZ1" firstAttribute="top" secondItem="lfA-hd-t1W" secondAttribute="top" id="ZxA-We-RdT"/>
+                                    <constraint firstItem="ppa-ej-6hV" firstAttribute="leading" secondItem="YAW-SC-35W" secondAttribute="leading" id="bTp-Jq-ocu"/>
+                                    <constraint firstItem="9tC-9w-nzf" firstAttribute="bottom" secondItem="YAW-SC-35W" secondAttribute="bottom" id="c5W-vG-yJx"/>
                                     <constraint firstItem="YtW-cx-QUq" firstAttribute="trailing" secondItem="4kq-Q9-T7q" secondAttribute="trailing" id="gy8-bE-jkg"/>
                                     <constraint firstItem="4kq-Q9-T7q" firstAttribute="leading" secondItem="YtW-cx-QUq" secondAttribute="leading" id="mN9-ll-XHu"/>
+                                    <constraint firstAttribute="bottom" secondItem="YAW-SC-35W" secondAttribute="bottom" constant="8" id="p4M-nn-fzA"/>
                                     <constraint firstItem="ppa-ej-6hV" firstAttribute="centerY" secondItem="sMV-99-mpX" secondAttribute="centerY" id="rh5-oe-jo8"/>
                                     <constraint firstItem="YtW-cx-QUq" firstAttribute="top" secondItem="lfA-hd-t1W" secondAttribute="bottom" constant="42" id="vSI-hT-UtT"/>
                                 </constraints>
@@ -532,6 +551,7 @@
                     <connections>
                         <outlet property="autoCheckUpdateLabel" destination="ppa-ej-6hV" id="3xI-ei-2id"/>
                         <outlet property="autoCheckUpdateSwitch" destination="sMV-99-mpX" id="fot-lz-5et"/>
+                        <outlet property="dateUpdateLabel" destination="9tC-9w-nzf" id="p49-hV-oXL"/>
                         <outlet property="voiceMessageDescriptionLabel" destination="4kq-Q9-T7q" id="pq7-zT-Nm5"/>
                         <outlet property="voiceMessageSwitch" destination="D4U-FO-EZ1" id="aSh-dY-Pfx"/>
                     </connections>

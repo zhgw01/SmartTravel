@@ -8,6 +8,8 @@
 
 #import "SettingsViewController.h"
 #import "AppSettingManager.h"
+#import "DBVersionAdapter.h"
+#import "ResourceManager.h"
 
 @interface SettingsViewController ()
 
@@ -16,6 +18,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *autoCheckUpdateLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *autoCheckUpdateSwitch;
+
+@property (weak, nonatomic) IBOutlet UILabel *dateUpdateLabel;
+
 @end
 
 @implementation SettingsViewController
@@ -27,6 +32,32 @@
     self.voiceMessageDescriptionLabel.numberOfLines = 0;
     
     self.autoCheckUpdateSwitch.on = [[AppSettingManager sharedInstance] getIsAutoCheckUpdate];
+    
+    NSString* currentVersion = [[[DBVersionAdapter alloc] init] getLatestVersion];
+    self.dateUpdateLabel.text = currentVersion;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(versionHasBeenUpdated:)
+                                                 name:kNotificationNameVersionHasBeenUpdated
+                                               object:nil];
+}
+
+- (void)versionHasBeenUpdated:(NSDictionary*)data
+{
+    if (data)
+    {
+        NSDictionary *userInfo = [data valueForKey:@"userInfo"];
+        if (userInfo)
+        {
+            self.dateUpdateLabel.text = [userInfo valueForKey:@"version"];
+            [self.view setNeedsDisplay];
+        }
+    }
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
