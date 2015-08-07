@@ -42,6 +42,8 @@
 		84232CDE1B2D7DE000E0BE11 /* School zone.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CD11B2D7DE000E0BE11 /* School zone.m4a */; };
 		84232CDF1B2D7DE000E0BE11 /* Stop sign violation.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CD21B2D7DE000E0BE11 /* Stop sign violation.m4a */; };
 		84232CE01B2D7DE000E0BE11 /* weekend early morning.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CD31B2D7DE000E0BE11 /* weekend early morning.m4a */; };
+		844A89AE1B74BBFB00DD70E0 /* VoicePromptEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A89AD1B74BBFB00DD70E0 /* VoicePromptEngine.m */; };
+		844A89B11B74D27A00DD70E0 /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A89B01B74D27A00DD70E0 /* AudioManager.m */; };
 		8475E8651B1218FB000E0AD5 /* smartTravel.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8475E8641B1218FB000E0AD5 /* smartTravel.sqlite */; };
 		84B3367D1B1DD93100BF32B0 /* ResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B3367C1B1DD93100BF32B0 /* ResourceManager.m */; };
 		84F38DDC1B0FE86C00A0EB42 /* DBVersionAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DDB1B0FE86C00A0EB42 /* DBVersionAdapter.m */; };
@@ -137,6 +139,10 @@
 		84232CD11B2D7DE000E0BE11 /* School zone.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "School zone.m4a"; path = "Resource/M4a/School zone.m4a"; sourceTree = "<group>"; };
 		84232CD21B2D7DE000E0BE11 /* Stop sign violation.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stop sign violation.m4a"; path = "Resource/M4a/Stop sign violation.m4a"; sourceTree = "<group>"; };
 		84232CD31B2D7DE000E0BE11 /* weekend early morning.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "weekend early morning.m4a"; path = "Resource/M4a/weekend early morning.m4a"; sourceTree = "<group>"; };
+		844A89AC1B74BBFB00DD70E0 /* VoicePromptEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoicePromptEngine.h; sourceTree = "<group>"; };
+		844A89AD1B74BBFB00DD70E0 /* VoicePromptEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoicePromptEngine.m; sourceTree = "<group>"; };
+		844A89AF1B74D27A00DD70E0 /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
+		844A89B01B74D27A00DD70E0 /* AudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManager.m; sourceTree = "<group>"; };
 		8475E8641B1218FB000E0AD5 /* smartTravel.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = smartTravel.sqlite; path = Resource/SQLite/smartTravel.sqlite; sourceTree = "<group>"; };
 		84B3367B1B1DD93100BF32B0 /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceManager.h; sourceTree = "<group>"; };
 		84B3367C1B1DD93100BF32B0 /* ResourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceManager.m; sourceTree = "<group>"; };
@@ -343,6 +349,8 @@
 				9B7E595F1AE3966F0008D25C /* HomeViewController.m */,
 				9B812DDA1AEB3EB7008F17B6 /* SettingsViewController.h */,
 				9B812DDB1AEB3EB7008F17B6 /* SettingsViewController.m */,
+				844A89AF1B74D27A00DD70E0 /* AudioManager.h */,
+				844A89B01B74D27A00DD70E0 /* AudioManager.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -417,6 +425,8 @@
 				9B6A85AE1ADFDEFF00667170 /* Supporting Files */,
 				84B3367B1B1DD93100BF32B0 /* ResourceManager.h */,
 				84B3367C1B1DD93100BF32B0 /* ResourceManager.m */,
+				844A89AC1B74BBFB00DD70E0 /* VoicePromptEngine.h */,
+				844A89AD1B74BBFB00DD70E0 /* VoicePromptEngine.m */,
 			);
 			path = SmartTravel;
 			sourceTree = "<group>";
@@ -687,9 +697,11 @@
 				9BF1281A1AFE537D008E72DA /* Direction.m in Sources */,
 				9B7E59511AE37FD10008D25C /* TermUsage.m in Sources */,
 				84B3367D1B1DD93100BF32B0 /* ResourceManager.m in Sources */,
+				844A89B11B74D27A00DD70E0 /* AudioManager.m in Sources */,
 				9B5EE8691AF3F6B400524F4A /* CircleMarker.m in Sources */,
 				84F38DF51B107E5200A0EB42 /* AppSettingManager.m in Sources */,
 				9B7E59601AE3966F0008D25C /* HomeViewController.m in Sources */,
+				844A89AE1B74BBFB00DD70E0 /* VoicePromptEngine.m in Sources */,
 				84F38DF21B102B3300A0EB42 /* AnimatedGMSMarker.m in Sources */,
 				42C6A8B21B0A0FAC00EE1518 /* HotSpotDetailView.m in Sources */,
 				9B7E59551AE3882A0008D25C /* GuideViewController.m in Sources */,
@@ -849,6 +861,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = SmartTravel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

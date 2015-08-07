@@ -5,7 +5,6 @@
 //  Created by Gongwei on 15/4/19.
 //  Copyright (c) 2015年 Gongwei. All rights reserved.
 //
-#import <AVFoundation/AVFoundation.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import <SWRevealViewController/SWRevealViewController.h>
 #import <Geo-Utilities/CLLocation+Navigation.h>
@@ -26,6 +25,10 @@
 #import "DBManager.h"
 #import "AppSettingManager.h"
 #import "AppLocationManager.h"
+
+#import "VoicePromptEngine.h"
+
+#import "AudioManager.h"
 
 static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
@@ -75,11 +78,6 @@ static double kReportInterval = 5;
 @property (strong, nonatomic) WarningView *warningView;
 @property (strong, nonatomic) HotSpotDetailView* hotSpotDetailView;
 
-// Speech
-@property (strong, nonatomic) AVSpeechSynthesizer* avSpeechSynthesizer;
-@property (strong, nonatomic) AVSpeechSynthesisVoice* avSpeechSynthesisVoice;
-@property (strong, nonatomic) AVAudioPlayer *avAudioPlayer;
-
 @end
 
 @implementation HomeViewController
@@ -92,7 +90,6 @@ static double kReportInterval = 5;
     [self setupMap];
     [self setupWarning];
     [self setupHotSpotDetail];
-    [self setupAV];
     
     // Initialize DB adapter and set delegate
     self.locationAdapter = [[DBLocationAdapter alloc] init];
@@ -103,6 +100,41 @@ static double kReportInterval = 5;
     
     self.lastReportCount = 0;
     self.lastReportLocCode = @"";
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(voicePromptStatusHasBeenChanged:)
+                                                 name:kNNVPStatusHasBeenChanged
+                                               object:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)voicePromptStatusHasBeenChanged:(id)sender
+{
+    NSNumber *statusNumber = [[sender userInfo] objectForKey:@"status"];
+    switch ([statusNumber unsignedIntegerValue]) {
+        case kVoicePromptStatusActive:
+        {
+            [[AudioManager sharedInstance] speekText:@"Voice prompt has been activated"];
+        }
+            break;
+        case kVoicePromptStatusClose:
+        {
+            if ([[AudioManager sharedInstance] isSlient:0.4])
+            {
+                // Prompt use to adjust volume
+                // TOOD:
+            }
+        }
+            break;
+        case kVoicePromptStatusUnActive:
+        case kVoicePromptStatusUnKnown:
+        default:
+            break;
+    }
 }
 
 - (void)setupWarning
@@ -190,12 +222,6 @@ static double kReportInterval = 5;
         self.isNavigating = NO;
         self.warningView.hidden = YES;
     }
-}
-
-- (void)setupAV
-{
-    self.avSpeechSynthesizer = [[AVSpeechSynthesizer alloc] init];
-    self.avSpeechSynthesisVoice = [AVSpeechSynthesisVoice voiceWithLanguage:nil];
 }
 
 #pragma mark - Button Action
@@ -306,33 +332,8 @@ static double kReportInterval = 5;
                        locCode:(NSString *)locCode
                       reasonID:(NSNumber *)reasonId
 {
-    if ([self.avAudioPlayer isPlaying])
-    {
-        [self.avAudioPlayer stop];
-    }
-    
     NSString *audioPath = [[ResourceManager sharedInstance] getAudioFilePathByReasonID:reasonId];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:audioPath])
-    {
-        NSURL *audioURL = [NSURL fileURLWithPath:audioPath];
-        NSError *error = nil;
-        self.avAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioURL error:&error];
-
-        if (!error)
-        {
-            [self.avAudioPlayer prepareToPlay];
-            [self.avAudioPlayer setVolume:1.0];
-            [self.avAudioPlayer setNumberOfLoops:0];
-            [self.avAudioPlayer play];
-        }
-    }
-    else
-    {
-        AVSpeechUtterance* utterance = [[AVSpeechUtterance alloc] initWithString:warningMessage];
-        utterance.rate *= 0.5;
-        utterance.voice = self.avSpeechSynthesisVoice;
-        [self.avSpeechSynthesizer speakUtterance:utterance];
-    }
+    [[AudioManager sharedInstance] speekFromFile:audioPath];
     NSLog(@"Last report count %ld", (unsigned long)self.lastReportCount);
 
     // Breath the marker
@@ -382,6 +383,13 @@ static double kReportInterval = 5;
     
     CLLocation* lastLocation = self.recentLocation;
     self.recentLocation = locations.lastObject;
+    
+    if (self.recentLocation &&
+        self.recentLocation.speed >= 20)
+    {
+        [[VoicePromptEngine sharedInstance] eventHappend:kVoicePromptEventUserReachSpeed];
+    }
+    
     self.direction = [lastLocation kv_bearingOnRhumbLineToCoordinate:self.recentLocation.coordinate];
     
     // Check if satisfy warning pop up conditions

@@ -14,6 +14,7 @@
 #import "DBConstants.h"
 #import "DBManager.h"
 #import "DBVersionAdapter.h"
+#import "VoicePromptEngine.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface AppDelegate ()
@@ -58,6 +59,9 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
     // Please comment this line when it's ready to release
     [DBManager insertTestData];
     //#endif
+    
+    // Create voice prompt engine
+    [VoicePromptEngine sharedInstance];
     
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     
@@ -121,6 +125,8 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
             NSLog(@"Version has been updated to %@", [[DBVersionAdapter alloc] getLatestVersion]);
         }
     }
+    
+    [[VoicePromptEngine sharedInstance] eventHappend:kVoicePromptEventUserUseAppAgain];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
