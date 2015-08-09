@@ -126,24 +126,20 @@ static NSString * const kURLOfNewVersion = @"http://101.231.116.154:8080/STRESTW
     return !error;
 }
 
++ (BOOL)hasNewerDataVersion:(NSString**)latestVersion
+{
+    *latestVersion = [[ResourceManager fetchJSONDataFromURL:kURLOfNewVersion] valueForKey:@"version"];
+    NSString* currentVersion = [[[DBVersionAdapter alloc] init] getLatestVersion];
+    return (latestVersion &&
+            currentVersion &&
+            NSOrderedDescending == [*latestVersion compare:currentVersion]);
+}
+
 + (BOOL)updateOnline
 {
-    BOOL hasNewerVersion = NO;
-    
-    NSString* latestVersion = [[ResourceManager fetchJSONDataFromURL:kURLOfNewVersion] valueForKey:@"version"];
-    NSString* currentVersion = [[[DBVersionAdapter alloc] init] getLatestVersion];
-    if (latestVersion &&
-        currentVersion &&
-        NSOrderedDescending == [latestVersion compare:currentVersion])
-    {
-        hasNewerVersion = YES;
-    }
-    
-//#ifdef DEBUG
-//    hasNewerVersion = YES;
-//#endif
+    NSString *latestVersion = nil;
 
-    if (!hasNewerVersion)
+    if (![ResourceManager hasNewerDataVersion:&latestVersion])
     {
         return NO;
     }
@@ -172,12 +168,10 @@ static NSString * const kURLOfNewVersion = @"http://101.231.116.154:8080/STRESTW
     {
         return NO;
     }
-    else
-    {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationNameVersionHasBeenUpdated
-                                                            object:nil
-                                                          userInfo:@{@"version":latestVersion}];
-    }
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationNameVersionHasBeenUpdated
+                                                        object:nil
+                                                      userInfo:@{@"version":latestVersion}];
     
     return YES;
 }

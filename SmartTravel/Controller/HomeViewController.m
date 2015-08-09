@@ -29,6 +29,7 @@
 #import "VoicePromptEngine.h"
 
 #import "AudioManager.h"
+#import "DataUpdateVC.h"
 
 static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
@@ -105,6 +106,18 @@ static double kReportInterval = 5;
                                              selector:@selector(voicePromptStatusHasBeenChanged:)
                                                  name:kNNVPStatusHasBeenChanged
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(newerDataFound)
+                                                 name:@"NNNewerDataFound"
+                                               object:nil];
+    
+    
+}
+
+- (void)newerDataFound
+{
+    DataUpdateVC *dataUpdateVC =[[DataUpdateVC alloc] init];
+    [self.navigationController presentViewController:dataUpdateVC animated:NO completion:nil];
 }
 
 - (void)dealloc

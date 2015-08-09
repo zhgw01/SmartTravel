@@ -34,7 +34,6 @@
     if (self = [super init])
     {
         self.avSpeechSynthesizer = [[AVSpeechSynthesizer alloc] init];
-        self.avSpeechSynthesisVoice = [AVSpeechSynthesisVoice voiceWithLanguage:nil];
         self.avAudioPlayer = [[AVAudioPlayer alloc] init];
     }
     return self;

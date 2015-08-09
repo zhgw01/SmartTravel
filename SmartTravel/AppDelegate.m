@@ -119,10 +119,10 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
     // Update data online if auto check update is chosen.
     if ([[AppSettingManager sharedInstance] getIsAutoCheckUpdate])
     {
-        BOOL res = [ResourceManager updateOnline];
-        if (res)
+        NSString *latestVersion = nil;
+        if ([ResourceManager hasNewerDataVersion:&latestVersion])
         {
-            NSLog(@"Version has been updated to %@", [[DBVersionAdapter alloc] getLatestVersion]);
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"NNNewerDataFound" object:nil];
         }
     }
     

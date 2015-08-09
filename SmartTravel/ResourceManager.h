@@ -20,7 +20,11 @@ extern NSString * const kNotificationNameVersionHasBeenUpdated;
                           withExt:(NSString*)ext
                    forceOverwrite:(BOOL)forceOverwrite;
 
-// Check if there's newer version online. If there's, update the data.
+// Check if there's newer version online.
+// If YES returned, lastestVersion will be returned.
++ (BOOL)hasNewerDataVersion:(NSString**)lastestVersion;
+
+// Update the data.
 + (BOOL)updateOnline;
 
 // Get audio file path for the specific reasonØ
