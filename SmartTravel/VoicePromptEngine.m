@@ -27,7 +27,7 @@ NSString * const kNNVPStatusHasBeenChanged = @"kNNVPStatusHasBeenChanged";
 {
     if (self = [super init])
     {
-        [self reset];
+        self.status = kVoicePromptStatusActive;
     }
     return self;
 }

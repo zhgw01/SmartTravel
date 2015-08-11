@@ -61,7 +61,6 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
     //#endif
     
     // Create voice prompt engine
-    [VoicePromptEngine sharedInstance];
     
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     
