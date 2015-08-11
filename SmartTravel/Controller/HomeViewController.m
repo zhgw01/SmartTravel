@@ -333,7 +333,7 @@ static double kReportInterval = 5;
         utterance.voice = self.avSpeechSynthesisVoice;
         [self.avSpeechSynthesizer speakUtterance:utterance];
     }
-    NSLog(@"Last report count %ld", self.lastReportCount);
+    NSLog(@"Last report count %ld", (unsigned long)self.lastReportCount);
 
     // Breath the marker
     [self.markerManager breathingMarker:locCode];
