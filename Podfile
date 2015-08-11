@@ -3,7 +3,7 @@
 
 target 'SmartTravel' do
 pod 'SWRevealViewController'
-pod 'Google-Maps-iOS-SDK'
+pod 'GoogleMaps', '~> 1.10.1'
 pod 'FMDB'
 pod 'MTLFMDBAdapter'
 pod 'Geo-Utilities'
