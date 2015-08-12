@@ -25,6 +25,7 @@
 #import "DBManager.h"
 #import "AppSettingManager.h"
 #import "AppLocationManager.h"
+#import "TimeManager.h"
 
 #import "VoicePromptEngine.h"
 
@@ -37,6 +38,14 @@ static CGFloat kHotSpotZoonRadius = 150.0;
 static CGFloat kHotSpotEarlyWarningInterval = 10.0;
 static NSUInteger kReportRepeat = 3;
 static double kReportInterval = 5;
+
+//typedef struct DangerDetail {
+////    NSString* locationCode;
+////    NSString* locationName;
+//    int reasonId;
+//    double latitude;
+//    double longitude;
+//} DangerDetail;
 
 @interface HomeViewController ()
 <
@@ -54,8 +63,8 @@ static double kReportInterval = 5;
 @property (strong, nonatomic) MarkerManager* markerManager;
 
 @property (copy, nonatomic)   CLLocation *recentLocation;
+@property (copy, nonatomic)   CLLocation *halfAnHourAgoLocation;
 @property (strong, nonatomic) CLLocation* defaultLocation;
-@property (assign, nonatomic) CLLocationDirection direction;
 
 @property (assign, nonatomic) BOOL locationDidEverUpdate;
 
@@ -99,7 +108,7 @@ static double kReportInterval = 5;
     
     // Set default mode
     [self setNavigationMode:YES];
-    
+
     self.lastReportCount = 0;
     self.lastReportLocCode = @"";
     
@@ -354,122 +363,169 @@ static double kReportInterval = 5;
     [self.markerManager breathingMarker:locCode];
 }
 
-- (void)didApproachHotSpot:(NSDictionary *)hotSpot
+- (void)hotSpotDidGet:(NSDictionary *)hotSpot
+     visualCompletion:(void(^)(double /*distance*/, NSString */*locationName*/, NSString */*warningReason*/))vc
+    hearingCompletion:(void(^)(int /*reasonId*/, NSString */*locationCode*/, NSString */*warningMessage*/))hc;
 {
-    NSString* locCode = [hotSpot objectForKey:@"Loc_code"];
-    NSString* locationName = [[NSString alloc] init];
+
+    // Show warning and hide hotspot detail
+    self.warningView.hidden = NO;
+    self.hotSpotDetailView.hidden = YES;
+    
+    // Force enter navigation mode
+    self.isNavigating = YES;
+
+    // Get details of dangerous location
+    NSString *locationCode = [hotSpot objectForKey:@"Loc_code"];
+    NSString *locationName = [[NSString alloc] init];
     int reasonId = 0;
     double latitude = 0;
     double longitude = 0;
+    
     if ([self.locationAdapter getLocationName:&locationName
                                      reasonId:&reasonId
                                      latitude:&latitude
                                     longitude:&longitude
-                                    ofLocCode:locCode])
+                                    ofLocCode:locationCode])
     {
-        // Update warning view in time
-        CLLocation* location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
-        double dis = [location distanceFromLocation:self.recentLocation];
-        NSArray* warningMessageAndReason = [[[DBReasonAdapter alloc] init] getWarningMessageAndReasonOfId:reasonId];
-        NSString* warningMessage = [warningMessageAndReason objectAtIndex:0];
-        NSString* reason = [warningMessageAndReason objectAtIndex:1];
+        NSArray* warningMessageAndReason = [[[DBReasonAdapter alloc] init]
+                                            getWarningMessageAndReasonOfId:reasonId];
         
-        [self.warningView updateLocation:locationName reason:reason distance:[NSNumber numberWithDouble:dis]];
-    
-        if ([self shouldReportWarningOfLocCode:locCode
+        // Visual action need be done when dangerous location found
+        CLLocation* location = [[CLLocation alloc] initWithLatitude:latitude
+                                                          longitude:longitude];
+        double dis = [location distanceFromLocation:self.recentLocation];
+        vc(dis, locationName, [warningMessageAndReason objectAtIndex:1]);
+        
+        // Hearing action need be done when dangerous location found
+        if ([self shouldReportWarningOfLocCode:locationCode
                                         onDate:[NSDate date]])
         {
-            // Speak out the warning message
-            if ([[AppSettingManager sharedInstance] getIsWarningVoice])
-            {
-                NSNumber *reasonIdNumber = [NSNumber numberWithInt:reasonId];
-                [self speakOutWarningMessage:warningMessage
-                                     locCode:locCode
-                                    reasonID:reasonIdNumber];
-            }
+            hc(reasonId, locationCode, [warningMessageAndReason objectAtIndex:0]);
         }
     }
 }
 
-- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+- (void)hotSpotDidNotGet
 {
-    self.locationDidEverUpdate = YES;
+    self.lastReportLocCode = @"";
     
-    CLLocation* lastLocation = self.recentLocation;
-    self.recentLocation = locations.lastObject;
+    self.warningView.hidden = YES;
+    [self.warningView updateLocation:nil reason:nil distance:nil];
     
-    if (self.recentLocation &&
-        self.recentLocation.speed >= 20)
+    [self.markerManager breathingMarker:nil];
+}
+
+- (void)updateCamera
+{
+    if (self.locationMarker == nil)
     {
-        [[VoicePromptEngine sharedInstance] eventHappend:kVoicePromptEventUserReachSpeed];
+        self.locationMarker = [CircleMarker markerWithPosition:self.recentLocation.coordinate];
+        [self.locationMarker loadImages];
+        self.locationMarker.map = self.mapView;
+    }
+    else
+    {
+        self.locationMarker.position = self.recentLocation.coordinate;
     }
     
-    self.direction = [lastLocation kv_bearingOnRhumbLineToCoordinate:self.recentLocation.coordinate];
-    
-    // Check if satisfy warning pop up conditions
-    LocationDirection* locationDirection = [[LocationDirection alloc] initWithCLLocationDirection:self.direction];
-    Direction direction = locationDirection.direction;
-    
-    // Get warning data list
-    NSArray* reasonIds = [[[DBReasonAdapter alloc] init] getReasonIDsOfDate:[NSDate date]];
-    if (reasonIds.count > 0 )
-    {
-        NSDictionary* hotSpot     = nil;
-        if (lastLocation.speed > 0)
-        {
-            CGFloat hotSpotZoonRadius = lastLocation.speed * kHotSpotEarlyWarningInterval;
-            hotSpot = [self.locationAdapter getLocationReasonAtLatitude:self.recentLocation.coordinate.latitude
-                                                              longitude:self.recentLocation.coordinate.longitude
-                                                            ofReasonIds:reasonIds
-                                                            inDirection:direction
-                                                           withinRadius:hotSpotZoonRadius];
-        }
-        else
-        {
-            hotSpot = [self.locationAdapter getLocationReasonAtLatitude:self.recentLocation.coordinate.latitude
-                                                              longitude:self.recentLocation.coordinate.longitude
-                                                            ofReasonIds:reasonIds
-                                                            inDirection:direction
-                                                           withinRadius:kHotSpotZoonRadius];
-        }
+    GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:self.recentLocation.coordinate];
+    [self.mapView animateWithCameraUpdate:newTarget];
+}
 
-        // Pop up warning view if there're warnings.
-        if (hotSpot)
+- (void)locationManager:(CLLocationManager *)manager
+     didUpdateLocations:(NSArray *)locations
+{
+    CLLocation* lastLocation = [self.recentLocation copy];
+    self.recentLocation = locations.lastObject;
+    
+    // Judge if user stay within 100 meters for more than 30 minutes
+    BOOL isUserStay = NO;
+    if (self.locationDidEverUpdate)
+    {
+        if ([[TimeManager sharedInstance] timeIntervalFromBenchmark] >= 1800)
         {
-            // Show warning and hide hotspot detail
-            self.warningView.hidden = NO;
-            self.hotSpotDetailView.hidden = YES;
-            [self didApproachHotSpot:hotSpot];
-            self.isNavigating = YES;
+            // If user move less than distance within half an hour
+            double dis = [self.recentLocation distanceFromLocation:self.halfAnHourAgoLocation];
+            if (dis < 100)
+            {
+                isUserStay = YES;
+            }
         }
-        else
-        {
-            self.lastReportLocCode = @"";
-            
-            self.warningView.hidden = YES;
-            [self.warningView updateLocation:nil reason:nil distance:nil];
-            
-            [self.markerManager breathingMarker:nil];
-        }
+    }
+    else // First time location was updated
+    {
+        [[TimeManager sharedInstance] reset];
+        self.halfAnHourAgoLocation = self.recentLocation ;
+        
+        self.locationDidEverUpdate = YES;
+    }
+    
+    // Judge if user speed exceeds 20 / 3.6
+//    BOOL isUserSpeedExceed = (self.recentLocation.speed >= (20/3.6));
+    //[[VoicePromptEngine sharedInstance] eventHappend:kVoicePromptEventUserReachSpeed];
+    
+    NSDictionary* hotSpot = [self getHotSpotUserApproach:lastLocation
+                                         currentLocation:self.recentLocation];
+    if (hotSpot)
+    {
+        [self hotSpotDidGet:hotSpot
+           visualCompletion:^(double dis, NSString *locationName, NSString *warningReason)
+            {
+                // Update warning view in time
+                [self.warningView updateLocation:locationName
+                                          reason:warningReason
+                                        distance:@(dis)];
+            }
+          hearingCompletion:^(int reasonId, NSString *locationCode, NSString* warningMessage)
+            {
+                 // Speak out the warning message
+                 if ([[AppSettingManager sharedInstance] getIsWarningVoice])
+                 {
+                     [self speakOutWarningMessage:warningMessage
+                                          locCode:locationCode
+                                         reasonID:@(reasonId)];
+                 }
+            }
+        ];
+    }
+    else
+    {
+        [self hotSpotDidNotGet];
     }
     
     // Only update camera of map if in navigation mode.
     if (self.isNavigating)
     {
-        if (self.locationMarker == nil)
-        {
-            self.locationMarker = [CircleMarker markerWithPosition:self.recentLocation.coordinate];
-            [self.locationMarker loadImages];
-            self.locationMarker.map = self.mapView;
-        }
-        else
-        {
-            self.locationMarker.position = self.recentLocation.coordinate;
-        }
-        
-        GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:self.recentLocation.coordinate];
-        [self.mapView animateWithCameraUpdate:newTarget];
+        [self updateCamera];
     }
+}
+
+- (NSDictionary*)getHotSpotUserApproach:(CLLocation*)lastLocation
+                        currentLocation:(CLLocation*)curLocation
+{
+    // Compute direction
+    CLLocationDirection accurateDir = [lastLocation kv_bearingOnRhumbLineToCoordinate:curLocation.coordinate];
+    Direction direction = [[LocationDirection alloc] initWithCLLocationDirection:accurateDir].direction;
+    
+    NSArray* reasonIds = [[[DBReasonAdapter alloc] init] getReasonIDsOfDate:[NSDate date]];
+    if (reasonIds.count == 0)
+    {
+        return nil;
+    }
+    
+    CGFloat hotSpotZoonRadius = kHotSpotZoonRadius;
+    if (lastLocation.speed > 0)
+    {
+        hotSpotZoonRadius = lastLocation.speed * kHotSpotEarlyWarningInterval;
+    }
+    NSDictionary *hotSpot = [self.locationAdapter getLocationReasonAtLatitude:self.recentLocation.coordinate.latitude
+                                                                    longitude:self.recentLocation.coordinate.longitude
+                                                                  ofReasonIds:reasonIds
+                                                                  inDirection:direction
+                                                                 withinRadius:hotSpotZoonRadius];
+    
+    return hotSpot;
 }
 
 /*

@@ -28,6 +28,6 @@
         </view>
     </objects>
     <resources>
-        <image name="SmartTravel-app-loading" width="750" height="1334"/>
+        <image name="SmartTravel-app-loading" width="640" height="960"/>
     </resources>
 </document>

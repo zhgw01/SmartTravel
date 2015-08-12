@@ -47,6 +47,9 @@
 		8475E8651B1218FB000E0AD5 /* smartTravel.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8475E8641B1218FB000E0AD5 /* smartTravel.sqlite */; };
 		849289AF1B7733C900837FF7 /* DataUpdateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849289AD1B7733C900837FF7 /* DataUpdateVC.m */; };
 		849289B01B7733C900837FF7 /* DataUpdateVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849289AE1B7733C900837FF7 /* DataUpdateVC.xib */; };
+		849DE7D51B7B825400B1FA3D /* NoInterferVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DE7D31B7B825400B1FA3D /* NoInterferVCViewController.m */; };
+		849DE7D61B7B825400B1FA3D /* NoInterferVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849DE7D41B7B825400B1FA3D /* NoInterferVCViewController.xib */; };
+		849DE7D91B7B84D500B1FA3D /* TimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DE7D81B7B84D500B1FA3D /* TimeManager.m */; };
 		84B3367D1B1DD93100BF32B0 /* ResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B3367C1B1DD93100BF32B0 /* ResourceManager.m */; };
 		84F38DDC1B0FE86C00A0EB42 /* DBVersionAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DDB1B0FE86C00A0EB42 /* DBVersionAdapter.m */; };
 		84F38DDE1B0FF36500A0EB42 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F38DDD1B0FF36500A0EB42 /* AVFoundation.framework */; };
@@ -149,6 +152,11 @@
 		849289AC1B7733C900837FF7 /* DataUpdateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataUpdateVC.h; path = Controller/DataUpdateVC.h; sourceTree = "<group>"; };
 		849289AD1B7733C900837FF7 /* DataUpdateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataUpdateVC.m; path = Controller/DataUpdateVC.m; sourceTree = "<group>"; };
 		849289AE1B7733C900837FF7 /* DataUpdateVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DataUpdateVC.xib; path = Controller/DataUpdateVC.xib; sourceTree = "<group>"; };
+		849DE7D21B7B825400B1FA3D /* NoInterferVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoInterferVCViewController.h; path = Controller/NoInterferVCViewController.h; sourceTree = "<group>"; };
+		849DE7D31B7B825400B1FA3D /* NoInterferVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoInterferVCViewController.m; path = Controller/NoInterferVCViewController.m; sourceTree = "<group>"; };
+		849DE7D41B7B825400B1FA3D /* NoInterferVCViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoInterferVCViewController.xib; path = Controller/NoInterferVCViewController.xib; sourceTree = "<group>"; };
+		849DE7D71B7B84D500B1FA3D /* TimeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeManager.h; sourceTree = "<group>"; };
+		849DE7D81B7B84D500B1FA3D /* TimeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeManager.m; sourceTree = "<group>"; };
 		84B3367B1B1DD93100BF32B0 /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceManager.h; sourceTree = "<group>"; };
 		84B3367C1B1DD93100BF32B0 /* ResourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceManager.m; sourceTree = "<group>"; };
 		84B3367E1B1DE1EF00BF32B0 /* libPods-SmartTravel-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SmartTravel-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-SmartTravel-AFNetworking.a"; sourceTree = "<group>"; };
@@ -359,6 +367,9 @@
 				849289AC1B7733C900837FF7 /* DataUpdateVC.h */,
 				849289AD1B7733C900837FF7 /* DataUpdateVC.m */,
 				849289AE1B7733C900837FF7 /* DataUpdateVC.xib */,
+				849DE7D21B7B825400B1FA3D /* NoInterferVCViewController.h */,
+				849DE7D31B7B825400B1FA3D /* NoInterferVCViewController.m */,
+				849DE7D41B7B825400B1FA3D /* NoInterferVCViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -435,6 +446,8 @@
 				84B3367C1B1DD93100BF32B0 /* ResourceManager.m */,
 				844A89AC1B74BBFB00DD70E0 /* VoicePromptEngine.h */,
 				844A89AD1B74BBFB00DD70E0 /* VoicePromptEngine.m */,
+				849DE7D71B7B84D500B1FA3D /* TimeManager.h */,
+				849DE7D81B7B84D500B1FA3D /* TimeManager.m */,
 			);
 			path = SmartTravel;
 			sourceTree = "<group>";
@@ -598,6 +611,7 @@
 				849289B01B7733C900837FF7 /* DataUpdateVC.xib in Resources */,
 				9B6A85BC1ADFDF0000667170 /* Images.xcassets in Resources */,
 				84232CDC1B2D7DE000E0BE11 /* Ran off road.m4a in Resources */,
+				849DE7D61B7B825400B1FA3D /* NoInterferVCViewController.xib in Resources */,
 				84232CD91B2D7DE000E0BE11 /* Morning rush hour.m4a in Resources */,
 				84232CE01B2D7DE000E0BE11 /* weekend early morning.m4a in Resources */,
 				9B5EE8641AF3EEE600524F4A /* default.gpx in Resources */,
@@ -699,6 +713,7 @@
 				422977841B0810DB00A11E90 /* DBWMDayType.m in Sources */,
 				42C6A8C61B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.m in Sources */,
 				9B6C7DA81AF500C500DF6FA9 /* DBManager.m in Sources */,
+				849DE7D91B7B84D500B1FA3D /* TimeManager.m in Sources */,
 				9B812DD91AEB3E9D008F17B6 /* HotSpotListViewController.m in Sources */,
 				9B812DDC1AEB3EB7008F17B6 /* SettingsViewController.m in Sources */,
 				9B6A85B11ADFDEFF00667170 /* main.m in Sources */,
@@ -707,6 +722,7 @@
 				9B7E59511AE37FD10008D25C /* TermUsage.m in Sources */,
 				84B3367D1B1DD93100BF32B0 /* ResourceManager.m in Sources */,
 				844A89B11B74D27A00DD70E0 /* AudioManager.m in Sources */,
+				849DE7D51B7B825400B1FA3D /* NoInterferVCViewController.m in Sources */,
 				9B5EE8691AF3F6B400524F4A /* CircleMarker.m in Sources */,
 				84F38DF51B107E5200A0EB42 /* AppSettingManager.m in Sources */,
 				9B7E59601AE3966F0008D25C /* HomeViewController.m in Sources */,

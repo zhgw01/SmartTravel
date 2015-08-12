@@ -42,6 +42,7 @@
 - (void)speekText:(NSString*)text
 {
     AVSpeechUtterance *avSpeechUtterance = [[AVSpeechUtterance alloc] initWithString:text];
+    avSpeechUtterance.rate = 0.6;
     [self.avSpeechSynthesizer speakUtterance:avSpeechUtterance];
 }
 
