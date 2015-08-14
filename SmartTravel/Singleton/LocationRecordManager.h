@@ -41,4 +41,9 @@
  */
 - (BOOL)shrinkWithinDuration:(NSTimeInterval)duration;
 
+/**
+ *  Remove all recorded locations
+ */
+- (void)reset;
+
 @end

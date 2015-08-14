@@ -93,7 +93,7 @@
     }
 
     NSUInteger lengthBeforeShrink = [self.locationRecordQueue length];
-    if (lengthBeforeShrink < 2)
+    if (lengthBeforeShrink <= 2)
     {
         return NO;
     }
@@ -102,26 +102,32 @@
     NSTimeInterval newestTimeStamp = newest.timeStamp;
 
     LocationRecord *oldest = [self.locationRecordQueue getHead];
-    
-    while ((newestTimeStamp - oldest.timeStamp) > duration)
+    while ((newestTimeStamp - oldest.timeStamp) > duration &&
+           self.locationRecordQueue.length > 2)
     {
+        // Try to dequeue oldest record
         oldest = [self.locationRecordQueue dequeue];
         
         LocationRecord *nextOldest = [self.locationRecordQueue getHead];
+        // If next oldest record failes to satisfy duration requirement,
+        // put back the oldest record and stop.
         if (!nextOldest ||
             (newestTimeStamp - nextOldest.timeStamp) <= duration)
         {
             [self.locationRecordQueue enqueue:oldest];
             break;
         }
-        else
-        {
-            oldest = nextOldest;
-        }
+
+        // Update oldest record
+        oldest = nextOldest;
     }
     
-    NSUInteger lengthAfterShrink = [self.locationRecordQueue length];
-    return lengthAfterShrink < lengthBeforeShrink;
+    return [self.locationRecordQueue length] < lengthBeforeShrink;
+}
+
+- (void)reset
+{
+    [self.locationRecordQueue clear];
 }
 
 @end

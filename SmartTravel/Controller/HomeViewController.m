@@ -10,77 +10,73 @@
 #import <Geo-Utilities/CLLocation+Navigation.h>
 
 #import "HomeViewController.h"
-#import "CircleMarker.h"
+#import "DataUpdateVC.h"
 #import "HotSpotListViewController.h"
-#import "WarningView.h"
-#import "HotSpotDetailView.h"
+
+#import "MarkerManager.h"
+#import "CircleMarker.h"
 #import "AnimatedGMSMarker.h"
+
+#import "WarningView.h"
+
+#import "HotSpotDetailView.h"
 
 #import "DBReasonAdapter.h"
 #import "DBLocationAdapter.h"
 #import "ResourceManager.h"
 #import "DateUtility.h"
 
-#import "MarkerManager.h"
-#import "DBManager.h"
 #import "AppSettingManager.h"
 #import "AppLocationManager.h"
 #import "LocationRecordManager.h"
-
-#import "VoicePromptEngine.h"
-
 #import "AudioManager.h"
-#import "DataUpdateVC.h"
+#import "MapModeManager.h"
+#import "DBManager.h"
+
+#import "StateMachine.h"
 
 static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
 static CGFloat kHotSpotZoonRadius = 150.0;
 static CGFloat kHotSpotEarlyWarningInterval = 10.0;
+
 static NSUInteger kReportRepeat = 3;
 static double kReportInterval = 5;
+
+// Default location is Edmonton, CA
+static double kDefaultLat = 53.5501400;
+static double kDefaultLon = -113.4687100;
 
 @interface HomeViewController ()
 <
     SWRevealViewControllerDelegate,
-    CLLocationManagerDelegate,
     HotSpotListViewControllerMapDelegate,
-    GMSMapViewDelegate
+    GMSMapViewDelegate,
+    CLLocationManagerDelegate
 >
 
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hotspotListButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 
-@property (strong, nonatomic) CircleMarker* locationMarker;
-@property (strong, nonatomic) MarkerManager* markerManager;
+@property (strong, nonatomic) CircleMarker *locationMarker;
+@property (strong, nonatomic) MarkerManager *markerManager;
 
-@property (copy, nonatomic)   CLLocation *recentLocation;
-@property (strong, nonatomic) CLLocation* defaultLocation;
-
-@property (assign, nonatomic) BOOL locationDidEverUpdate;
-
-@property (strong, nonatomic) DBLocationAdapter* locationAdapter;
-
-@property (copy, nonatomic) NSString *lastReportLocCode;
-@property (assign, nonatomic) NSUInteger lastReportCount;
+@property (strong, nonatomic) DBLocationAdapter *locationAdapter;
+@property (weak, nonatomic) DBManager *dbManager;
+@property (weak, nonatomic) AppLocationManager *appLocationManager;
 
 @property (strong, nonatomic) NSTimer *updatingTimer;
 
-// Indicating that user is in navigating mode or not.
-//
-// On:
-//  1) Default user is in
-//  2) Whatever the mode is, when user is approaching a hotspot, go into navigating mode
-//  3) User hide the hotspot detail view manually.
-//
-// Off:
-//  1) Gesture on map detected, e.g., pan, pinch which indicate that user want to view the map.
-//  2) User click on one of the hotspots listed on the left side view and hotspot detail view popup.
-
-@property (assign, nonatomic) BOOL isNavigating;
-
 @property (strong, nonatomic) WarningView *warningView;
 @property (strong, nonatomic) HotSpotDetailView* hotSpotDetailView;
+
+// Location related properties
+@property (assign, nonatomic) BOOL       locationDidEverUpdate;
+@property (assign, nonatomic) NSUInteger lastReportCount;
+
+@property (copy, nonatomic) CLLocation *recentLocation;
+@property (copy, nonatomic) NSString   *lastReportLocCode;
 
 @end
 
@@ -89,26 +85,31 @@ static double kReportInterval = 5;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.locationDidEverUpdate = NO;
+    self.lastReportCount = 0;
+    self.lastReportLocCode = @"";
+    
     // Initialize views
     [self setupSideBarMenu];
-    [self setupMap];
+    [self setupMap:[[CLLocation alloc] initWithLatitude:kDefaultLat
+                                              longitude:kDefaultLon]];
     [self setupWarning];
     [self setupHotSpotDetail];
     
     // Initialize DB adapter and set delegate
     self.locationAdapter = [[DBLocationAdapter alloc] init];
-    [[AppLocationManager sharedInstance] setDelegate:self];
     
-    // Set default mode
-    [self setNavigationMode:YES];
-
-    self.lastReportCount = 0;
-    self.lastReportLocCode = @"";
+    self.appLocationManager = [AppLocationManager sharedInstance];
+    [self.appLocationManager setDelegate:self];
     
+    self.dbManager = [DBManager sharedInstance];
+    
+    // Register notifications
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(voicePromptStatusHasBeenChanged:)
-                                                 name:kNNVPStatusHasBeenChanged
+                                             selector:@selector(statusHasBeenChanged:)
+                                                 name:kStatusHasBeenChanged
                                                object:nil];
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(newerDataFound)
                                                  name:@"NNNewerDataFound"
@@ -117,41 +118,54 @@ static double kReportInterval = 5;
     
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.title = @"Smart Travel";
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.appLocationManager setDelegate:nil];
+}
+
 - (void)newerDataFound
 {
     DataUpdateVC *dataUpdateVC =[[DataUpdateVC alloc] init];
     [self.navigationController presentViewController:dataUpdateVC animated:NO completion:nil];
 }
 
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)voicePromptStatusHasBeenChanged:(id)sender
+- (void)statusHasBeenChanged:(id)sender
 {
     NSNumber *statusNumber = [[sender userInfo] objectForKey:@"status"];
-    switch ([statusNumber unsignedIntegerValue]) {
-        case kVoicePromptStatusActive:
+    switch ([statusNumber unsignedIntegerValue])
+    {
+        case kStateActive:
         {
             [[AudioManager sharedInstance] speekText:@"Voice prompt has been activated"];
-        }
-            break;
-        case kVoicePromptStatusClose:
-        {
-            if ([[AudioManager sharedInstance] isSlient:0.4])
+            
+            if (self.updatingTimer &&
+                [self.updatingTimer isValid])
             {
-                // Prompt use to adjust volume
-                // TOOD:
+                [self.updatingTimer invalidate];
             }
         }
             break;
-        case kVoicePromptStatusUnActive:
+        case kStateClose:
+        {
+            // TODO:
+        }
+            break;
+        case kStateUnActive:
         {
             if (self.updatingTimer && [self.updatingTimer isValid])
             {
                 [self.updatingTimer invalidate];
             }
+            
+            // One cycle is 5 minutes.
+            // Half cycle disable updating; another half cycle enable updating.
             self.updatingTimer = [NSTimer scheduledTimerWithTimeInterval:150
                                                                   target:self
                                                                 selector:@selector(handleUpdatingTimer:)
@@ -159,7 +173,7 @@ static double kReportInterval = 5;
                                                                  repeats:YES];
         }
             break;
-        case kVoicePromptStatusUnKnown:
+        case kStateUnKnown:
         default:
             break;
     }
@@ -169,29 +183,29 @@ static double kReportInterval = 5;
 {
     if (timer == self.updatingTimer)
     {
-        AppLocationManager *appLocationManager = [AppLocationManager sharedInstance];
-        
         // Toggle location updating status
-        if (appLocationManager.updatingLocationEnabled)
+        if (self.appLocationManager.updatingLocationEnabled)
         {
-            [appLocationManager stopUpdatingLocation];
+            [self.appLocationManager stopUpdatingLocation];
         }
         else
         {
-            [appLocationManager startUpdatingLocation];
+            [self.appLocationManager startUpdatingLocation];
         }
         
-        if (appLocationManager.updatingHeadingEnabled)
+        // Toggle heading updating status
+        if (self.appLocationManager.updatingHeadingEnabled)
         {
-            [appLocationManager stopUpdatingHeading];
+            [self.appLocationManager stopUpdatingHeading];
         }
         else
         {
-            [appLocationManager startUpdatingHeading];
+            [self.appLocationManager startUpdatingHeading];
         }
     }
 }
 
+#pragma mark - Setup other views in viewDidLoad
 - (void)setupWarning
 {
     self.warningView = [[[NSBundle mainBundle] loadNibNamed:@"WarningView" owner:self options:nil] firstObject];
@@ -218,17 +232,11 @@ static double kReportInterval = 5;
     self.hotSpotDetailView.hidden = YES;
 }
 
-- (void)setupMap
+- (void)setupMap:(CLLocation*)defaultLocation
 {
-    self.locationDidEverUpdate = NO;
-    
-    // Set default location to Edmonton
-    self.defaultLocation = [[CLLocation alloc] initWithLatitude:53.5501400  longitude:-113.4687100];
-    self.recentLocation = [self.defaultLocation copy];
-    
     // Show default location on map
-    self.mapView.camera = [GMSCameraPosition cameraWithLatitude:self.defaultLocation.coordinate.latitude
-                                                      longitude:self.defaultLocation.coordinate.longitude
+    self.mapView.camera = [GMSCameraPosition cameraWithLatitude:defaultLocation.coordinate.latitude
+                                                      longitude:defaultLocation.coordinate.longitude
                                                            zoom:12.0];
     
     // Draw marker on map to represent all hotspots except shool zones
@@ -240,12 +248,6 @@ static double kReportInterval = 5;
     
     // Enable locate me
     self.mapView.myLocationEnabled = YES;
-}
-
-- (void) viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.title = @"Smart Travel";
 }
 
 - (void) setupSideBarMenu
@@ -265,45 +267,32 @@ static double kReportInterval = 5;
     }
 }
 
-- (void)setNavigationMode:(BOOL)on
-{
-    if (on)
-    {
-        self.isNavigating = YES;
-        self.warningView.hidden = !self.locationDidEverUpdate;
-    }
-    else
-    {
-        self.isNavigating = NO;
-        self.warningView.hidden = YES;
-    }
-}
-
-#pragma mark - Button Action
+#pragma mark - Map Button Action
 
 - (IBAction)zoomIn:(id)sender
 {
     GMSCameraUpdate *zoomIn = [GMSCameraUpdate zoomIn];
     [self.mapView animateWithCameraUpdate:zoomIn];
+    [[MapModeManager sharedInstance] eventHappened:kMapModeUserGesture];
 }
 
 - (IBAction)zoomOut:(id)sender
 {
     GMSCameraUpdate *zoomOut = [GMSCameraUpdate zoomOut];
     [self.mapView animateWithCameraUpdate:zoomOut];
+    [[MapModeManager sharedInstance] eventHappened:kMapModeUserGesture];
 }
 
 - (IBAction)locateMe:(id)sender
 {
-    if (self.mapView.myLocation)
+    CLLocation *location = self.mapView.myLocation;
+    if (!location)
     {
-        [self.mapView animateToLocation:self.mapView.myLocation.coordinate];
+        location = [[CLLocation alloc] initWithLatitude:kDefaultLat longitude:kDefaultLon];
     }
-    else
-    {
-        [self.mapView animateToLocation:self.defaultLocation.coordinate];
-    }
-    self.isNavigating = YES;
+    [self.mapView animateToLocation:location.coordinate];
+    
+    [[MapModeManager sharedInstance] eventHappened:kMapModeUserClickLocateMe];
 }
 
 #pragma mark - SWRevealViewController Delegate
@@ -329,43 +318,14 @@ static double kReportInterval = 5;
     }
 }
 
-- (void)startGPSUpdating
-{
-    AppLocationManager *appLocationManager = [AppLocationManager sharedInstance];
-    
-    if (!appLocationManager.updatingLocationEnabled)
-    {
-        [appLocationManager startUpdatingHeading];
-    }
-    
-    if (!appLocationManager.updatingHeadingEnabled)
-    {
-        [appLocationManager startUpdatingLocation];
-    }
-}
-
-- (void)stopGPSUpdating
-{
-    AppLocationManager *appLocationManager = [AppLocationManager sharedInstance];
-
-    if (appLocationManager.updatingLocationEnabled)
-    {
-        [appLocationManager stopUpdatingHeading];
-    }
-    
-    if (appLocationManager.updatingHeadingEnabled)
-    {
-        [appLocationManager stopUpdatingLocation];
-    }
-}
-
 #pragma mark - Location Manager Delegate
 
 - (void) locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
     if (status == kCLAuthorizationStatusAuthorizedWhenInUse)
     {
-        [self startGPSUpdating];
+        [self.appLocationManager startUpdatingHeading];
+        [self.appLocationManager startUpdatingLocation];
     }
 }
 
@@ -429,11 +389,8 @@ static double kReportInterval = 5;
     hearingCompletion:(void(^)(int /*reasonId*/, NSString */*locationCode*/, NSString */*warningMessage*/))hc;
 {
     // Show warning and hide hotspot detail
-    self.warningView.hidden = NO;
-    self.hotSpotDetailView.hidden = YES;
     
-    // Force enter navigation mode
-    self.isNavigating = YES;
+    [[MapModeManager sharedInstance] eventHappened:kMapModeUserApproachHotSpot];
 
     // Get details of dangerous location
     NSString *locationCode = [hotSpot objectForKey:@"Loc_code"];
@@ -476,64 +433,75 @@ static double kReportInterval = 5;
     [self.markerManager breathingMarker:nil];
 }
 
-- (void)updateCamera
+- (void)updateCamera:(CLLocation*)location
 {
     if (self.locationMarker == nil)
     {
-        self.locationMarker = [CircleMarker markerWithPosition:self.recentLocation.coordinate];
+        self.locationMarker = [CircleMarker markerWithPosition:location.coordinate];
         [self.locationMarker loadImages];
         self.locationMarker.map = self.mapView;
     }
-    else
-    {
-        self.locationMarker.position = self.recentLocation.coordinate;
-    }
+
+    self.locationMarker.position = location.coordinate;
     
-    GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:self.recentLocation.coordinate];
+    GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:location.coordinate];
     [self.mapView animateWithCameraUpdate:newTarget];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray *)locations
 {
+    // Whatever status, should
+    // 1) Update recent location
     CLLocation* lastLocation = [self.recentLocation copy];
     self.recentLocation = locations.lastObject;
     
+    // 2) Mark if the located has been updated
     if (!self.locationDidEverUpdate)
     {
         self.locationDidEverUpdate = YES;
     }
     
     LocationRecordManager* locationRecordManager = [LocationRecordManager sharedInstance];
-    [locationRecordManager record:self.recentLocation];
-    
-    
-    // Judge if user speed slower than 20 / 3.6
+    // 3) If user speed is slower than 20 / 3.6 m/s, need to verify
+    // if user stay within 100 meters for more than 30 minutes.
     if (self.recentLocation.speed < kNoticeableSpeed)
     {
-        // Judge if user stay within 100 meters for more than 30 minutes
+        [locationRecordManager record:self.recentLocation];
+
         if ([locationRecordManager duration] > kHalfHour)
         {
             double distance = 0;
-            BOOL moreThanOneLocations = [locationRecordManager distance:&distance];
-            if (moreThanOneLocations)
+            if ([locationRecordManager distance:&distance])
             {
                 if (distance < 100)
                 {
-                    // TODO:
-                    [locationRecordManager shrinkWithinDuration:kHalfHour];
+                    [[StateMachine sharedInstance] eventHappend:kEventUserStay];
                 }
             }
         }
     }
+    else
+    {
+        [locationRecordManager reset];
+        [locationRecordManager record:self.recentLocation];
+        
+        [[StateMachine sharedInstance] eventHappend:kEventUserMove];
+    }
 
-    NSDictionary* hotSpot = [self getHotSpotUserApproach:lastLocation
-                                         currentLocation:self.recentLocation];
+    NSDictionary* hotSpot = [self getApproachingHotSpot:lastLocation
+                                        currentLocation:self.recentLocation];
     if (hotSpot)
     {
         [self hotSpotDidGet:hotSpot
            visualCompletion:^(double dis, NSString *locationName, NSString *warningReason)
             {
+                // Hide detail view
+                self.hotSpotDetailView.hidden = YES;
+
+                // Show warning view
+                self.warningView.hidden = NO;
+                
                 // Update warning view in time
                 [self.warningView updateLocation:locationName
                                           reason:warningReason
@@ -541,13 +509,15 @@ static double kReportInterval = 5;
             }
           hearingCompletion:^(int reasonId, NSString *locationCode, NSString* warningMessage)
             {
-                 // Speak out the warning message
-                 if ([[AppSettingManager sharedInstance] getIsWarningVoice])
-                 {
-                     [self speakOutWarningMessage:warningMessage
-                                          locCode:locationCode
-                                         reasonID:@(reasonId)];
-                 }
+                // Only speak out the warning message in active status
+                // and it's enabled.
+                if ([StateMachine sharedInstance].status == kStateActive &&
+                    [[AppSettingManager sharedInstance] getIsWarningVoice])
+                {
+                    [self speakOutWarningMessage:warningMessage
+                                         locCode:locationCode
+                                        reasonID:@(reasonId)];
+                }
             }
         ];
     }
@@ -557,32 +527,34 @@ static double kReportInterval = 5;
     }
     
     // Only update camera of map if in navigation mode.
-    if (self.isNavigating)
+    if ([MapModeManager sharedInstance].isNavigationOn)
     {
-        [self updateCamera];
+        [self updateCamera:self.recentLocation];
     }
 }
 
-- (NSDictionary*)getHotSpotUserApproach:(CLLocation*)lastLocation
+- (NSDictionary*)getApproachingHotSpot:(CLLocation*)lastLocation
                         currentLocation:(CLLocation*)curLocation
 {
     // Compute direction
     CLLocationDirection accurateDir = [lastLocation kv_bearingOnRhumbLineToCoordinate:curLocation.coordinate];
     Direction direction = [[LocationDirection alloc] initWithCLLocationDirection:accurateDir].direction;
     
+    // Filter out reasons
     NSArray* reasonIds = [[[DBReasonAdapter alloc] init] getReasonIDsOfDate:[NSDate date]];
     if (reasonIds.count == 0)
     {
         return nil;
     }
     
+    // Filter out hot spot
     CGFloat hotSpotZoonRadius = kHotSpotZoonRadius;
     if (lastLocation.speed > 0)
     {
         hotSpotZoonRadius = lastLocation.speed * kHotSpotEarlyWarningInterval;
     }
-    NSDictionary *hotSpot = [self.locationAdapter getLocationReasonAtLatitude:self.recentLocation.coordinate.latitude
-                                                                    longitude:self.recentLocation.coordinate.longitude
+    NSDictionary *hotSpot = [self.locationAdapter getLocationReasonAtLatitude:curLocation.coordinate.latitude
+                                                                    longitude:curLocation.coordinate.longitude
                                                                   ofReasonIds:reasonIds
                                                                   inDirection:direction
                                                                  withinRadius:hotSpotZoonRadius];
@@ -590,21 +562,10 @@ static double kReportInterval = 5;
     return hotSpot;
 }
 
-/*
-#pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 #pragma mark - <HotSpotListViewControllerMapDelegate> methods
 
 - (void)hotSpotTableViewCellDidSelect:(HotSpot*)hotSpot
 {
-    [self setNavigationMode:NO];
-    
     NSAssert(hotSpot, @"The cell user selected has no hot spot info");
     
     // Hide HotSpotListView
@@ -621,8 +582,10 @@ static double kReportInterval = 5;
     
     // Show hot spot details
     self.hotSpotDetailView.hidden = NO;
+    
+    [[MapModeManager sharedInstance] eventHappened:kMapModeUserClickHotSpot];
 
-    NSArray* hotSpotDetails = [[DBManager sharedInstance] getHotSpotDetailsByLocationCode:hotSpot.locCode];
+    NSArray* hotSpotDetails = [self.dbManager getHotSpotDetailsByLocationCode:hotSpot.locCode];
     [self.hotSpotDetailView reload:@[hotSpot.location, hotSpotDetails]];
 }
 
@@ -632,13 +595,14 @@ static double kReportInterval = 5;
 {
     if (gesture)
     {
-        [self setNavigationMode:NO];
+        [[MapModeManager sharedInstance] eventHappened:kMapModeUserGesture];
     }
 }
 
--(BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
+-(BOOL)mapView:(GMSMapView *)mapView
+  didTapMarker:(GMSMarker *)marker
 {
-    [self setNavigationMode:NO];
+    [[MapModeManager sharedInstance] eventHappened:kMapModeUserTapMarker];
     
     // Zoom to hot spot location
     double latitude = marker.position.latitude;
@@ -651,10 +615,11 @@ static double kReportInterval = 5;
     // Show hot spot details
     self.hotSpotDetailView.hidden = NO;
     
+    // Refresh hot spot detail
     AnimatedGMSMarker* animatedGMSMarker = (AnimatedGMSMarker*)marker;
     if (animatedGMSMarker)
     {
-        NSArray* hotSpotDetails = [[DBManager sharedInstance] getHotSpotDetailsByLocationCode:animatedGMSMarker.locCode];
+        NSArray* hotSpotDetails = [self.dbManager getHotSpotDetailsByLocationCode:animatedGMSMarker.locCode];
         [self.hotSpotDetailView reload:@[animatedGMSMarker.locationName, hotSpotDetails]];
     }
     

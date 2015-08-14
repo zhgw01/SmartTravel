@@ -14,7 +14,7 @@
 #import "DBConstants.h"
 #import "DBManager.h"
 #import "DBVersionAdapter.h"
-#import "VoicePromptEngine.h"
+#import "StateMachine.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface AppDelegate ()
@@ -125,7 +125,7 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
         }
     }
     
-    [[VoicePromptEngine sharedInstance] eventHappend:kVoicePromptEventUserUseAppAgain];
+    [[StateMachine sharedInstance] eventHappend:kEventUserUse];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
