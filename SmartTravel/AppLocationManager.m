@@ -11,6 +11,8 @@
 
 @interface AppLocationManager ()
 
+@property (assign, nonatomic, readwrite) BOOL updatingLocationEnabled;
+@property (assign, nonatomic, readwrite) BOOL updatingHeadingEnabled;
 @property (strong, nonatomic) CLLocationManager* locationManager;
 
 @end
@@ -37,6 +39,8 @@
     if (self = [super init])
     {
         self.locationManager = [[CLLocationManager alloc] init];
+        self.updatingLocationEnabled = NO;
+        self.updatingHeadingEnabled = NO;
     }
     return self;
 }
@@ -57,21 +61,25 @@
 -(void)startUpdatingLocation
 {
     [self.locationManager startUpdatingLocation];
+    self.updatingLocationEnabled = YES;
 }
 
 -(void)stopUpdatingLocation
 {
     [self.locationManager stopUpdatingLocation];
+    self.updatingLocationEnabled = NO;
 }
 
 -(void)startUpdatingHeading
 {
     [self.locationManager startUpdatingHeading];
+    self.updatingHeadingEnabled = YES;
 }
 
 -(void)stopUpdatingHeading
 {
     [self.locationManager stopUpdatingHeading];
+    self.updatingHeadingEnabled = NO;
 }
 
 @end

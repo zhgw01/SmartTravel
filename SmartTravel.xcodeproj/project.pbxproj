@@ -49,7 +49,9 @@
 		849289B01B7733C900837FF7 /* DataUpdateVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849289AE1B7733C900837FF7 /* DataUpdateVC.xib */; };
 		849DE7D51B7B825400B1FA3D /* NoInterferVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DE7D31B7B825400B1FA3D /* NoInterferVCViewController.m */; };
 		849DE7D61B7B825400B1FA3D /* NoInterferVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849DE7D41B7B825400B1FA3D /* NoInterferVCViewController.xib */; };
-		849DE7D91B7B84D500B1FA3D /* TimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DE7D81B7B84D500B1FA3D /* TimeManager.m */; };
+		849DE7D91B7B84D500B1FA3D /* LocationRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 849DE7D81B7B84D500B1FA3D /* LocationRecordManager.m */; };
+		84AC4A571B7D680A00842F88 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AC4A561B7D680A00842F88 /* Queue.m */; };
+		84AC4A5A1B7D6C4600842F88 /* LocationRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AC4A591B7D6C4600842F88 /* LocationRecord.m */; };
 		84B3367D1B1DD93100BF32B0 /* ResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B3367C1B1DD93100BF32B0 /* ResourceManager.m */; };
 		84F38DDC1B0FE86C00A0EB42 /* DBVersionAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DDB1B0FE86C00A0EB42 /* DBVersionAdapter.m */; };
 		84F38DDE1B0FF36500A0EB42 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F38DDD1B0FF36500A0EB42 /* AVFoundation.framework */; };
@@ -155,8 +157,12 @@
 		849DE7D21B7B825400B1FA3D /* NoInterferVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoInterferVCViewController.h; path = Controller/NoInterferVCViewController.h; sourceTree = "<group>"; };
 		849DE7D31B7B825400B1FA3D /* NoInterferVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoInterferVCViewController.m; path = Controller/NoInterferVCViewController.m; sourceTree = "<group>"; };
 		849DE7D41B7B825400B1FA3D /* NoInterferVCViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoInterferVCViewController.xib; path = Controller/NoInterferVCViewController.xib; sourceTree = "<group>"; };
-		849DE7D71B7B84D500B1FA3D /* TimeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeManager.h; sourceTree = "<group>"; };
-		849DE7D81B7B84D500B1FA3D /* TimeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeManager.m; sourceTree = "<group>"; };
+		849DE7D71B7B84D500B1FA3D /* LocationRecordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationRecordManager.h; sourceTree = "<group>"; };
+		849DE7D81B7B84D500B1FA3D /* LocationRecordManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationRecordManager.m; sourceTree = "<group>"; };
+		84AC4A551B7D680A00842F88 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Queue.h; path = Model/Utility/Queue.h; sourceTree = "<group>"; };
+		84AC4A561B7D680A00842F88 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Queue.m; path = Model/Utility/Queue.m; sourceTree = "<group>"; };
+		84AC4A581B7D6C4600842F88 /* LocationRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationRecord.h; path = Model/LocationRecord.h; sourceTree = "<group>"; };
+		84AC4A591B7D6C4600842F88 /* LocationRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationRecord.m; path = Model/LocationRecord.m; sourceTree = "<group>"; };
 		84B3367B1B1DD93100BF32B0 /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceManager.h; sourceTree = "<group>"; };
 		84B3367C1B1DD93100BF32B0 /* ResourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceManager.m; sourceTree = "<group>"; };
 		84B3367E1B1DE1EF00BF32B0 /* libPods-SmartTravel-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SmartTravel-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-SmartTravel-AFNetworking.a"; sourceTree = "<group>"; };
@@ -240,6 +246,8 @@
 			children = (
 				4203DDB51B0879350002D67F /* DateUtility.h */,
 				4203DDB61B0879350002D67F /* DateUtility.m */,
+				84AC4A551B7D680A00842F88 /* Queue.h */,
+				84AC4A561B7D680A00842F88 /* Queue.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -390,6 +398,8 @@
 				9B7E59501AE37FD10008D25C /* TermUsage.m */,
 				9BF128181AFE537D008E72DA /* Direction.h */,
 				9BF128191AFE537D008E72DA /* Direction.m */,
+				84AC4A581B7D6C4600842F88 /* LocationRecord.h */,
+				84AC4A591B7D6C4600842F88 /* LocationRecord.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -446,8 +456,8 @@
 				84B3367C1B1DD93100BF32B0 /* ResourceManager.m */,
 				844A89AC1B74BBFB00DD70E0 /* VoicePromptEngine.h */,
 				844A89AD1B74BBFB00DD70E0 /* VoicePromptEngine.m */,
-				849DE7D71B7B84D500B1FA3D /* TimeManager.h */,
-				849DE7D81B7B84D500B1FA3D /* TimeManager.m */,
+				849DE7D71B7B84D500B1FA3D /* LocationRecordManager.h */,
+				849DE7D81B7B84D500B1FA3D /* LocationRecordManager.m */,
 			);
 			path = SmartTravel;
 			sourceTree = "<group>";
@@ -700,6 +710,7 @@
 				422977831B0810DB00A11E90 /* DBLocationReason.m in Sources */,
 				42C6A8B41B0A0FAC00EE1518 /* WarningView.m in Sources */,
 				4225F8341B081A4100C5A73F /* DBLocationAdapter.m in Sources */,
+				84AC4A5A1B7D6C4600842F88 /* LocationRecord.m in Sources */,
 				9B6A85B71ADFDEFF00667170 /* ViewController.m in Sources */,
 				4225F8361B081A4100C5A73F /* DBReasonAdapter.m in Sources */,
 				42C6A8A61B0A0CEC00EE1518 /* HotSpot.m in Sources */,
@@ -713,7 +724,7 @@
 				422977841B0810DB00A11E90 /* DBWMDayType.m in Sources */,
 				42C6A8C61B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.m in Sources */,
 				9B6C7DA81AF500C500DF6FA9 /* DBManager.m in Sources */,
-				849DE7D91B7B84D500B1FA3D /* TimeManager.m in Sources */,
+				849DE7D91B7B84D500B1FA3D /* LocationRecordManager.m in Sources */,
 				9B812DD91AEB3E9D008F17B6 /* HotSpotListViewController.m in Sources */,
 				9B812DDC1AEB3EB7008F17B6 /* SettingsViewController.m in Sources */,
 				9B6A85B11ADFDEFF00667170 /* main.m in Sources */,
@@ -730,6 +741,7 @@
 				844A89AE1B74BBFB00DD70E0 /* VoicePromptEngine.m in Sources */,
 				84F38DF21B102B3300A0EB42 /* AnimatedGMSMarker.m in Sources */,
 				42C6A8B21B0A0FAC00EE1518 /* HotSpotDetailView.m in Sources */,
+				84AC4A571B7D680A00842F88 /* Queue.m in Sources */,
 				9B7E59551AE3882A0008D25C /* GuideViewController.m in Sources */,
 				9BDBCA461AF8EEE600F23275 /* MarkerManager.m in Sources */,
 				84F38DDC1B0FE86C00A0EB42 /* DBVersionAdapter.m in Sources */,

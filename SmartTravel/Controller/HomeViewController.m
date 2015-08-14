@@ -25,7 +25,7 @@
 #import "DBManager.h"
 #import "AppSettingManager.h"
 #import "AppLocationManager.h"
-#import "TimeManager.h"
+#import "LocationRecordManager.h"
 
 #import "VoicePromptEngine.h"
 
@@ -38,14 +38,6 @@ static CGFloat kHotSpotZoonRadius = 150.0;
 static CGFloat kHotSpotEarlyWarningInterval = 10.0;
 static NSUInteger kReportRepeat = 3;
 static double kReportInterval = 5;
-
-//typedef struct DangerDetail {
-////    NSString* locationCode;
-////    NSString* locationName;
-//    int reasonId;
-//    double latitude;
-//    double longitude;
-//} DangerDetail;
 
 @interface HomeViewController ()
 <
@@ -63,7 +55,6 @@ static double kReportInterval = 5;
 @property (strong, nonatomic) MarkerManager* markerManager;
 
 @property (copy, nonatomic)   CLLocation *recentLocation;
-@property (copy, nonatomic)   CLLocation *halfAnHourAgoLocation;
 @property (strong, nonatomic) CLLocation* defaultLocation;
 
 @property (assign, nonatomic) BOOL locationDidEverUpdate;
@@ -72,6 +63,8 @@ static double kReportInterval = 5;
 
 @property (copy, nonatomic) NSString *lastReportLocCode;
 @property (assign, nonatomic) NSUInteger lastReportCount;
+
+@property (strong, nonatomic) NSTimer *updatingTimer;
 
 // Indicating that user is in navigating mode or not.
 //
@@ -154,9 +147,48 @@ static double kReportInterval = 5;
         }
             break;
         case kVoicePromptStatusUnActive:
+        {
+            if (self.updatingTimer && [self.updatingTimer isValid])
+            {
+                [self.updatingTimer invalidate];
+            }
+            self.updatingTimer = [NSTimer scheduledTimerWithTimeInterval:150
+                                                                  target:self
+                                                                selector:@selector(handleUpdatingTimer:)
+                                                                userInfo:nil
+                                                                 repeats:YES];
+        }
+            break;
         case kVoicePromptStatusUnKnown:
         default:
             break;
+    }
+}
+
+- (void)handleUpdatingTimer:(NSTimer*)timer
+{
+    if (timer == self.updatingTimer)
+    {
+        AppLocationManager *appLocationManager = [AppLocationManager sharedInstance];
+        
+        // Toggle location updating status
+        if (appLocationManager.updatingLocationEnabled)
+        {
+            [appLocationManager stopUpdatingLocation];
+        }
+        else
+        {
+            [appLocationManager startUpdatingLocation];
+        }
+        
+        if (appLocationManager.updatingHeadingEnabled)
+        {
+            [appLocationManager stopUpdatingHeading];
+        }
+        else
+        {
+            [appLocationManager startUpdatingHeading];
+        }
     }
 }
 
@@ -297,14 +329,43 @@ static double kReportInterval = 5;
     }
 }
 
+- (void)startGPSUpdating
+{
+    AppLocationManager *appLocationManager = [AppLocationManager sharedInstance];
+    
+    if (!appLocationManager.updatingLocationEnabled)
+    {
+        [appLocationManager startUpdatingHeading];
+    }
+    
+    if (!appLocationManager.updatingHeadingEnabled)
+    {
+        [appLocationManager startUpdatingLocation];
+    }
+}
+
+- (void)stopGPSUpdating
+{
+    AppLocationManager *appLocationManager = [AppLocationManager sharedInstance];
+
+    if (appLocationManager.updatingLocationEnabled)
+    {
+        [appLocationManager stopUpdatingHeading];
+    }
+    
+    if (appLocationManager.updatingHeadingEnabled)
+    {
+        [appLocationManager stopUpdatingLocation];
+    }
+}
+
 #pragma mark - Location Manager Delegate
 
 - (void) locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
     if (status == kCLAuthorizationStatusAuthorizedWhenInUse)
     {
-        [[AppLocationManager sharedInstance] startUpdatingHeading];
-        [[AppLocationManager sharedInstance] startUpdatingLocation];
+        [self startGPSUpdating];
     }
 }
 
@@ -367,7 +428,6 @@ static double kReportInterval = 5;
      visualCompletion:(void(^)(double /*distance*/, NSString */*locationName*/, NSString */*warningReason*/))vc
     hearingCompletion:(void(^)(int /*reasonId*/, NSString */*locationCode*/, NSString */*warningMessage*/))hc;
 {
-
     // Show warning and hide hotspot detail
     self.warningView.hidden = NO;
     self.hotSpotDetailView.hidden = YES;
@@ -439,32 +499,34 @@ static double kReportInterval = 5;
     CLLocation* lastLocation = [self.recentLocation copy];
     self.recentLocation = locations.lastObject;
     
-    // Judge if user stay within 100 meters for more than 30 minutes
-    BOOL isUserStay = NO;
-    if (self.locationDidEverUpdate)
+    if (!self.locationDidEverUpdate)
     {
-        if ([[TimeManager sharedInstance] timeIntervalFromBenchmark] >= 1800)
-        {
-            // If user move less than distance within half an hour
-            double dis = [self.recentLocation distanceFromLocation:self.halfAnHourAgoLocation];
-            if (dis < 100)
-            {
-                isUserStay = YES;
-            }
-        }
-    }
-    else // First time location was updated
-    {
-        [[TimeManager sharedInstance] reset];
-        self.halfAnHourAgoLocation = self.recentLocation ;
-        
         self.locationDidEverUpdate = YES;
     }
     
-    // Judge if user speed exceeds 20 / 3.6
-//    BOOL isUserSpeedExceed = (self.recentLocation.speed >= (20/3.6));
-    //[[VoicePromptEngine sharedInstance] eventHappend:kVoicePromptEventUserReachSpeed];
+    LocationRecordManager* locationRecordManager = [LocationRecordManager sharedInstance];
+    [locationRecordManager record:self.recentLocation];
     
+    
+    // Judge if user speed slower than 20 / 3.6
+    if (self.recentLocation.speed < kNoticeableSpeed)
+    {
+        // Judge if user stay within 100 meters for more than 30 minutes
+        if ([locationRecordManager duration] > kHalfHour)
+        {
+            double distance = 0;
+            BOOL moreThanOneLocations = [locationRecordManager distance:&distance];
+            if (moreThanOneLocations)
+            {
+                if (distance < 100)
+                {
+                    // TODO:
+                    [locationRecordManager shrinkWithinDuration:kHalfHour];
+                }
+            }
+        }
+    }
+
     NSDictionary* hotSpot = [self getHotSpotUserApproach:lastLocation
                                          currentLocation:self.recentLocation];
     if (hotSpot)

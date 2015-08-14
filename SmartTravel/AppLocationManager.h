@@ -18,6 +18,9 @@
 
 -(void)setDelegate:(id<CLLocationManagerDelegate>)delegate;
 
+@property (assign, nonatomic, readonly) BOOL updatingLocationEnabled;
+@property (assign, nonatomic, readonly) BOOL updatingHeadingEnabled;
+
 -(void)startUpdatingLocation;
 
 -(void)stopUpdatingLocation;
