@@ -55,10 +55,9 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
 
     [appSettings setRunCount:(runCount + 1)];
     
-    //#ifdef DEBUG
-    // Please comment this line when it's ready to release
+    #ifdef DEBUG
     [DBManager insertTestData];
-    //#endif
+    #endif
     
     // Create voice prompt engine
     
