@@ -1,6 +1,8 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, '7.0'
 
+source "https://gitcafe.com/fannheyward/CocoaPodsSpecs"
+
 target 'SmartTravel' do
 pod 'SWRevealViewController'
 pod 'GoogleMaps', '~> 1.10.1'

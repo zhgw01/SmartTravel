@@ -27,11 +27,6 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    if (![TermUsage agree]) {
-//        self.window.rootViewController = [self loadControllerFromStoryboard:@"FirstLaunch"];
-//        [self.window makeKeyAndVisible];
-//    }
-    
     //Initialize GMap
     [GMSServices provideAPIKey:GMAP_API_KEY];
     
@@ -40,6 +35,7 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
     if (runCount == 0)
     {
         [appSettings setIsWarningVoice:YES];
+        [appSettings setIsAutoCheckUpdate:YES];
     }
     
     //Copy database from main bundle with data ready.
@@ -55,10 +51,9 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
 
     [appSettings setRunCount:(runCount + 1)];
     
-    //#ifdef DEBUG
-    // Please comment this line when it's ready to release
+    #ifdef DEBUG
     [DBManager insertTestData];
-    //#endif
+    #endif
     
     // Create voice prompt engine
     
