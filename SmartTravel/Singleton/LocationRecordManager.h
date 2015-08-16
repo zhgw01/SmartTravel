@@ -9,8 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+#ifdef DEBUG
+#define kHalfHour 180
+#elif
 #define kHalfHour 1800
+#endif
+
+#ifdef DEBUG
+#define kNoticeableSpeed 5
+#elif
 #define kNoticeableSpeed (20.0/3.6)
+#endif
 
 @interface LocationRecordManager : NSObject
 

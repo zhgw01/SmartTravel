@@ -47,10 +47,13 @@
 
 - (NSTimeInterval)duration
 {
+    if (self.locationRecordQueue.length < 2)
+    {
+        return 0;
+    }
+    
     LocationRecord *oldest = [self.locationRecordQueue getHead];
-    if (!oldest) return 0;
     LocationRecord *newest = [self.locationRecordQueue getTail];
-    if (!newest) return 0;
     
     return (newest.timeStamp - oldest.timeStamp);
 }

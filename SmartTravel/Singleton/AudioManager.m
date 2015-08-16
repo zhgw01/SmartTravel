@@ -53,19 +53,20 @@
         NSURL *audioURL = [NSURL fileURLWithPath:audioPath];
         NSError *error = nil;
         
-        if ([self.avAudioPlayer isPlaying])
-        {
-            [self.avAudioPlayer stop];
-        }
-        
         self.avAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioURL error:&error];
         
         if (!error)
         {
-            [self.avAudioPlayer prepareToPlay];
+            if (![self.avAudioPlayer prepareToPlay])
+            {
+                NSLog(@"%@", @"self.avAudioPlayer prepareToPlay failed");
+            }
             [self.avAudioPlayer setVolume:1.0];
             [self.avAudioPlayer setNumberOfLoops:0];
-            [self.avAudioPlayer play];
+            if (![self.avAudioPlayer play])
+            {
+                NSLog(@"%@", @"self.avAudioPlay play failed");
+            }
         }
     }
 }

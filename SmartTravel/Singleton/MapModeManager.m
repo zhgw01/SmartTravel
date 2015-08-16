@@ -8,6 +8,8 @@
 
 #import "MapModeManager.h"
 
+NSString * const kMapModeChanged = @"MapModeChanged";
+
 @interface MapModeManager ()
 
 @property (assign, nonatomic, readwrite) BOOL isNavigationOn;
@@ -41,13 +43,25 @@
         event == kMapModeUserHideHotSpotDetail ||
         event == kMapModeUserClickLocateMe)
     {
-        self.isNavigationOn = YES;
+        if (!self.isNavigationOn)
+        {
+            self.isNavigationOn = YES;
+            [[NSNotificationCenter defaultCenter] postNotificationName:kMapModeChanged
+                                                                object:nil
+                                                              userInfo:@{@"isNavigationOn" : @YES}];
+        }
     }
     else if (event == kMapModeUserGesture ||
              event == kMapModeUserTapMarker ||
              event == kMapModeUserClickHotSpot)
     {
-        self.isNavigationOn = NO;
+        if (self.isNavigationOn)
+        {
+            self.isNavigationOn = NO;
+            [[NSNotificationCenter defaultCenter] postNotificationName:kMapModeChanged
+                                                                object:nil
+                                                              userInfo:@{@"isNavigationOn" : @NO}];
+        }
     }
     else
     {

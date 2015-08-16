@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const kMapModeChanged;
+
 typedef enum {
    kMapModeUserApproachHotSpot   = -3,
    kMapModeUserHideHotSpotDetail = -2,

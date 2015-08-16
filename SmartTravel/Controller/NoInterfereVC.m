@@ -1,18 +1,21 @@
 //
-//  NoInterferVCViewController.m
+//  NoInterferVC.m
 //  SmartTravel
 //
 //  Created by Pengyu Chen on 15/8/12.
 //  Copyright (c) 2015年 Gongwei. All rights reserved.
 //
 
-#import "NoInterferVCViewController.h"
+#import "NoInterfereVC.h"
+#import "AppSettingManager.h"
 
-@interface NoInterferVCViewController ()
+@interface NoInterfereVC ()
+
+@property (weak, nonatomic) IBOutlet UIButton *notDrivingButton;
 
 @end
 
-@implementation NoInterferVCViewController
+@implementation NoInterfereVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +25,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
+
+- (IBAction)notDrivingButtonDidPress:(id)sender {
+    [[AppSettingManager sharedInstance] setShowNoInterfereUI:NO];
 }
 
 /*

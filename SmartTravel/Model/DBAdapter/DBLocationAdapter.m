@@ -143,30 +143,27 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
         return nil;
     }
     
-    NSString* locCodesParametersStr = [self locCodesToSQLParameters:locCodes];
-    NSString* reasonIdsStr = [self reasonIdsToSQLArguments:reasonIds];
-    
     // Get location_reasons
-    NSString*(^constructSqlSmt)(Direction, NSString*, NSString*) = ^(Direction direction, NSString* locCodesParametersStr, NSString* reasonIdsStr) {
-        NSString* smt = [NSString  stringWithFormat:
-                         @"select %@, %@, %@, %@, %@ from %@ where (%@ = '%@' or %@ = 'ALL') and %@ in (%@) and %@ in %@ order by %@ desc limit 1",
-                         kLocCodeColumn,
-                         kTravelDirectionColumn,
-                         kReasonIdColumn,
-                         kTotalColumn,
-                         kWarningPriorityColumn,
-                         MAIN_DB_TBL_LOCATION_REASON,
-                         kTravelDirectionColumn,
-                         [LocationDirection directionToString:direction],
-                         kTravelDirectionColumn,
-                         kLocCodeColumn,
-                         locCodesParametersStr,
-                         kReasonIdColumn,
-                         reasonIds,
-                         kWarningPriorityColumn];
-        return smt;
-    };
-    NSString* smt = constructSqlSmt(direction, locCodesParametersStr, reasonIdsStr);
+    NSString* smt = [NSString  stringWithFormat:
+                     @"select %@, %@, %@, %@, %@ from %@ where (%@ = '%@' or %@ = 'ALL') and %@ in (%@) and %@ in %@ order by %@ desc limit 1",
+                     kLocCodeColumn,
+                     kTravelDirectionColumn,
+                     kReasonIdColumn,
+                     kTotalColumn,
+                     kWarningPriorityColumn,
+                     MAIN_DB_TBL_LOCATION_REASON,
+                     kTravelDirectionColumn,
+                     [LocationDirection directionToString:direction],
+                     kTravelDirectionColumn,
+                     kLocCodeColumn,
+                     [self locCodesToSQLParameters:locCodes],
+                     kReasonIdColumn,
+#ifdef DEBUG
+                     @[@(1006)],
+#else
+                     reasonIds,
+#endif
+                     kWarningPriorityColumn];
     
     NSDictionary* res = nil;
     
@@ -203,11 +200,6 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
 }
 
 #pragma mark - Private methods
-- (NSString*)reasonIdsToSQLArguments:(NSArray*)reasonIds
-{
-    return [reasonIds componentsJoinedByString:@","];
-}
-
 - (NSString*)locCodesToSQLParameters:(NSArray*)locCodes
 {
     NSUInteger cnt = locCodes.count;

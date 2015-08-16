@@ -1,5 +1,5 @@
 //
-//  NoInterferVCViewController.h
+//  NoInterfereVC.h
 //  SmartTravel
 //
 //  Created by Pengyu Chen on 15/8/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NoInterferVCViewController : UIViewController
+@interface NoInterfereVC : UIViewController
 
 @end

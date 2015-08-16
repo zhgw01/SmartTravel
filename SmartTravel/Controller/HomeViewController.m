@@ -12,6 +12,7 @@
 #import "HomeViewController.h"
 #import "DataUpdateVC.h"
 #import "HotSpotListViewController.h"
+#import "NoInterfereVC.h"
 
 #import "MarkerManager.h"
 #import "CircleMarker.h"
@@ -37,7 +38,11 @@
 
 static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
+#ifdef DEBUG
+static CGFloat kHotSpotZoonRadius = 1500.0;
+#else
 static CGFloat kHotSpotZoonRadius = 150.0;
+#endif
 static CGFloat kHotSpotEarlyWarningInterval = 10.0;
 
 static NSUInteger kReportRepeat = 3;
@@ -70,6 +75,7 @@ static double kDefaultLon = -113.4687100;
 
 @property (strong, nonatomic) WarningView *warningView;
 @property (strong, nonatomic) HotSpotDetailView* hotSpotDetailView;
+@property (strong, nonatomic) NoInterfereVC *noInterfereVC;
 
 // Location related properties
 @property (assign, nonatomic) BOOL       locationDidEverUpdate;
@@ -96,6 +102,8 @@ static double kDefaultLon = -113.4687100;
     [self setupWarning];
     [self setupHotSpotDetail];
     
+    self.noInterfereVC = [[NoInterfereVC alloc] init];
+    
     // Initialize DB adapter and set delegate
     self.locationAdapter = [[DBLocationAdapter alloc] init];
     
@@ -115,7 +123,10 @@ static double kDefaultLon = -113.4687100;
                                                  name:@"NNNewerDataFound"
                                                object:nil];
     
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(mapModeChanged:)
+                                                 name:kMapModeChanged
+                                               object:nil];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -145,8 +156,9 @@ static double kDefaultLon = -113.4687100;
         {
             [[AudioManager sharedInstance] speekText:@"Voice prompt has been activated"];
             
-            if (self.updatingTimer &&
-                [self.updatingTimer isValid])
+            [[AppSettingManager sharedInstance] setShowNoInterfereUI:YES];
+
+            if (self.updatingTimer && [self.updatingTimer isValid])
             {
                 [self.updatingTimer invalidate];
             }
@@ -176,6 +188,19 @@ static double kDefaultLon = -113.4687100;
         case kStateUnKnown:
         default:
             break;
+    }
+}
+
+- (void)mapModeChanged:(id)sender
+{
+    BOOL isNavigationOn = [[[sender userInfo] valueForKey:@"isNavigationOn"] boolValue];
+    if (isNavigationOn)
+    {
+        self.hotSpotDetailView.hidden = YES;
+    }
+    else
+    {
+        self.warningView.hidden = YES;
     }
 }
 
@@ -487,6 +512,17 @@ static double kDefaultLon = -113.4687100;
         [locationRecordManager record:self.recentLocation];
         
         [[StateMachine sharedInstance] eventHappend:kEventUserMove];
+        
+        // TODO: CPY
+        // Show no-interfere UI
+        if ([StateMachine sharedInstance].status == kStateActive)
+        {
+            if ([AppSettingManager sharedInstance].getShowNoInterfereUI)
+            {
+                [self.noInterfereVC removeFromParentViewController];
+                [self.navigationController pushViewController:self.noInterfereVC animated:NO];
+            }
+        }
     }
 
     NSDictionary* hotSpot = [self getApproachingHotSpot:lastLocation
@@ -496,9 +532,6 @@ static double kDefaultLon = -113.4687100;
         [self hotSpotDidGet:hotSpot
            visualCompletion:^(double dis, NSString *locationName, NSString *warningReason)
             {
-                // Hide detail view
-                self.hotSpotDetailView.hidden = YES;
-
                 // Show warning view
                 self.warningView.hidden = NO;
                 

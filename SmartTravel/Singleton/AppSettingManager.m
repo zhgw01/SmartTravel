@@ -11,6 +11,7 @@
 static NSString * const kRunCount = @"run-count";
 static NSString * const kIsWarningVoice = @"is-warning-voice";
 static NSString * const kIsAutoCheckUpdate = @"is-auto-check-update";
+static NSString * const kShowNoInterfereUI = @"show-no-interfere-UI";
 
 @implementation AppSettingManager
 
@@ -52,6 +53,16 @@ static NSString * const kIsAutoCheckUpdate = @"is-auto-check-update";
 -(void)setIsAutoCheckUpdate:(BOOL)flag
 {
     [[NSUserDefaults standardUserDefaults] setBool:flag forKey:kIsAutoCheckUpdate];
+}
+
+-(BOOL)getShowNoInterfereUI
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kShowNoInterfereUI];
+}
+
+-(void)setShowNoInterfereUI:(BOOL)flag
+{
+    [[NSUserDefaults standardUserDefaults] setBool:flag forKey:kShowNoInterfereUI];
 }
 
 @end

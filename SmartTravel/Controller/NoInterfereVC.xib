@@ -6,8 +6,9 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoInterferVCViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoInterfereVC">
             <connections>
+                <outlet property="notDrivingButton" destination="ptI-Wp-NfH" id="bFF-Wm-EWO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,24 +20,29 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmartTravel-app-loading" translatesAutoresizingMaskIntoConstraints="NO" id="GHF-9G-V0d">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm not driving now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pao-vD-3VA">
-                    <rect key="frame" x="175" y="501" width="250" height="50"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptI-Wp-NfH">
+                    <rect key="frame" x="175" y="500" width="250" height="50"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="250" id="CGC-9A-vC2"/>
-                        <constraint firstAttribute="height" constant="50" id="Ckq-C1-Ylb"/>
+                        <constraint firstAttribute="width" constant="250" id="hVo-Ur-iMz"/>
+                        <constraint firstAttribute="height" constant="50" id="pPJ-5D-KF1"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                    <state key="normal" title="I'm not driving now">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="notDrivingButtonDidPress:" destination="-1" eventType="touchUpInside" id="izh-wZ-d8n"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="centerX" secondItem="ptI-Wp-NfH" secondAttribute="centerX" id="3Na-d0-twr"/>
                 <constraint firstAttribute="trailing" secondItem="GHF-9G-V0d" secondAttribute="trailing" id="4un-AR-s6w"/>
                 <constraint firstItem="GHF-9G-V0d" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="K4Z-mB-PTv"/>
-                <constraint firstAttribute="centerY" secondItem="Pao-vD-3VA" secondAttribute="centerY" multiplier="1:1.75" id="Uov-O7-2ix"/>
-                <constraint firstAttribute="centerX" secondItem="Pao-vD-3VA" secondAttribute="centerX" id="ZYR-V4-FhA"/>
+                <constraint firstAttribute="centerY" secondItem="ptI-Wp-NfH" secondAttribute="centerY" multiplier="1:1.75" id="dhA-bJ-rk4"/>
                 <constraint firstAttribute="bottom" secondItem="GHF-9G-V0d" secondAttribute="bottom" id="fra-h7-zqi"/>
                 <constraint firstItem="GHF-9G-V0d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pQO-uh-Z9p"/>
             </constraints>

@@ -21,4 +21,7 @@
 -(BOOL)getIsAutoCheckUpdate;
 -(void)setIsAutoCheckUpdate:(BOOL)flag;
 
+-(BOOL)getShowNoInterfereUI;
+-(void)setShowNoInterfereUI:(BOOL)flag;
+
 @end
