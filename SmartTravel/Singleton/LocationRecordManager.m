@@ -85,7 +85,7 @@
     CLLocation *rightDown = [[CLLocation alloc] initWithLatitude:maxLat longitude:maxLon];
     
     *value = [leftUp distanceFromLocation:rightDown];
-    return 0;
+    return YES;
 }
 
 - (BOOL)shrinkWithinDuration:(NSTimeInterval)duration

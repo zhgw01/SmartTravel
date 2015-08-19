@@ -27,7 +27,7 @@ NSString * const kStatusHasBeenChanged = @"kStatusHasBeenChanged";
 {
     if (self = [super init])
     {
-        self.status = kStateActive;
+        [self reset];
     }
     return self;
 }
@@ -35,11 +35,6 @@ NSString * const kStatusHasBeenChanged = @"kStatusHasBeenChanged";
 - (void)reset
 {
     self.status = kStateActive;
-    [self postStatus];
-}
-
-- (void)postStatus
-{
     [[NSNotificationCenter defaultCenter] postNotificationName:kStatusHasBeenChanged
                                                         object:nil
                                                       userInfo:@{@"status" : @(self.status)}];
@@ -47,26 +42,33 @@ NSString * const kStatusHasBeenChanged = @"kStatusHasBeenChanged";
 
 - (void)eventHappend:(StateMachineEvent)event
 {
+    StateMachineState preStatus = self.status;
     switch (self.status) {
         case kStateClose:
             [self eventHappendWhenEngineOnCloseStatus:event];
             break;
         case kStateActive:
-            [self eventHappendWhenEngineOnUnActiveStatus:event];
+            [self eventHappendWhenEngineOnActiveStatus:event];
             break;
-        case kStateUnActive:
-            [self eventHappendWhenEngineOnUnActiveStatus:event];
+        case kStateInactive:
+            [self eventHappendWhenEngineOnInactiveStatus:event];
             break;
         case kStateUnKnown:
         default:
             [self eventHappendWhenEngineOnUnKnownStatus:event];
             break;
     }
+    if (preStatus != self.status)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kStatusHasBeenChanged
+                                                            object:nil
+                                                          userInfo:@{@"status" : @(self.status)}];
+    }
 }
 
 - (void)ignoreEvent:(StateMachineEvent)event
 {
-    NSLog(@"event %@ ignore under status %@",
+    NSLog(@"event %@ ignored under status %@",
           [StateMachine eventToString:event],
           [StateMachine statusToString:self.status]);
 }
@@ -79,13 +81,15 @@ NSString * const kStatusHasBeenChanged = @"kStatusHasBeenChanged";
             break;
         case kEventUserUse:
             self.status = kStateActive;
-            [self postStatus];
             break;
         case kEventUserStay:
             [self ignoreEvent:event];
             break;
         case kEventUserMove:
             [self ignoreEvent:event];
+            break;
+        case kEventUserResignActive:
+            self.status = kStateClose;
             break;
         case kEventUnKnown:
         default:
@@ -105,11 +109,13 @@ NSString * const kStatusHasBeenChanged = @"kStatusHasBeenChanged";
             [self ignoreEvent:event];
             break;
         case kEventUserStay:
-            self.status = kStateUnActive;
-            [self postStatus];
+            self.status = kStateInactive;
             break;
         case kEventUserMove:
             [self ignoreEvent:event];
+            break;
+        case kEventUserResignActive:
+            self.status = kStateClose;
             break;
         case kEventUnKnown:
         default:
@@ -119,7 +125,7 @@ NSString * const kStatusHasBeenChanged = @"kStatusHasBeenChanged";
     }
 }
 
-- (void)eventHappendWhenEngineOnUnActiveStatus:(StateMachineEvent)event
+- (void)eventHappendWhenEngineOnInactiveStatus:(StateMachineEvent)event
 {
     switch (event) {
         case kEventUserDisable:
@@ -127,14 +133,15 @@ NSString * const kStatusHasBeenChanged = @"kStatusHasBeenChanged";
             break;
         case kEventUserUse:
             self.status = kStateActive;
-            [self postStatus];
             break;
         case kEventUserStay:
             [self ignoreEvent:event];
             break;
         case kEventUserMove:
             self.status = kStateActive;
-            [self postStatus];
+            break;
+        case kEventUserResignActive:
+            self.status = kStateClose;
             break;
         case kEventUnKnown:
         default:
@@ -158,8 +165,8 @@ NSString * const kStatusHasBeenChanged = @"kStatusHasBeenChanged";
             return @"active status";
         case kStateClose:
             return @"close status";
-        case kStateUnActive:
-            return @"un active status";
+        case kStateInactive:
+            return @"inactive status";
         case kStateUnKnown:
         default:
             return @"unknown status";
@@ -178,6 +185,8 @@ NSString * const kStatusHasBeenChanged = @"kStatusHasBeenChanged";
             return @"kEventUserStay";
         case kEventUserMove:
             return @"kEventUserMove";
+        case kEventUserResignActive:
+            return @"kEventUserResignActive";
         case kEventUnKnown:
         default:
             return @"kEventUnKnown";

@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 #ifdef DEBUG
-#define kHalfHour 180
+#define kHalfHour 100
 #elif
 #define kHalfHour 1800
 #endif

@@ -85,6 +85,8 @@ static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
         [[AppLocationManager sharedInstance] stopUpdatingHeading];
         [[AppLocationManager sharedInstance] stopUpdatingLocation];
     }
+    
+    [[StateMachine sharedInstance] eventHappend:kEventUserResignActive];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {

@@ -35,6 +35,7 @@
 
 - (IBAction)notDrivingButtonDidPress:(id)sender {
     [[AppSettingManager sharedInstance] setShowNoInterfereUI:NO];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 /*

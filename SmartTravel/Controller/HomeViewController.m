@@ -52,6 +52,14 @@ static double kReportInterval = 5;
 static double kDefaultLat = 53.5501400;
 static double kDefaultLon = -113.4687100;
 
+#ifdef DEBUG
+#define kGeoUpdatingActiveInterval   10
+#define kGeoUpdatingInActiveInterval 50
+#else
+#define kGeoUpdatingActiveInterval   60
+#define kGeoUpdatingInActiveInterval 300
+#endif
+
 @interface HomeViewController ()
 <
     SWRevealViewControllerDelegate,
@@ -71,11 +79,13 @@ static double kDefaultLon = -113.4687100;
 @property (weak, nonatomic) DBManager *dbManager;
 @property (weak, nonatomic) AppLocationManager *appLocationManager;
 
-@property (strong, nonatomic) NSTimer *updatingTimer;
+@property (strong, nonatomic) NSTimer *startTimer;
+@property (strong, nonatomic) NSTimer *stopTimer;
 
 @property (strong, nonatomic) WarningView *warningView;
 @property (strong, nonatomic) HotSpotDetailView* hotSpotDetailView;
 @property (strong, nonatomic) NoInterfereVC *noInterfereVC;
+@property (assign, atomic) BOOL noInterfereVCShowed;
 
 // Location related properties
 @property (assign, nonatomic) BOOL       locationDidEverUpdate;
@@ -103,6 +113,7 @@ static double kDefaultLon = -113.4687100;
     [self setupHotSpotDetail];
     
     self.noInterfereVC = [[NoInterfereVC alloc] init];
+    self.noInterfereVCShowed = NO;
     
     // Initialize DB adapter and set delegate
     self.locationAdapter = [[DBLocationAdapter alloc] init];
@@ -147,6 +158,73 @@ static double kDefaultLon = -113.4687100;
     [self.navigationController presentViewController:dataUpdateVC animated:NO completion:nil];
 }
 
+- (void)invalidateTimers
+{
+    if (self.startTimer)
+    {
+        if ([self.startTimer isValid])
+        {
+            [self.startTimer invalidate];
+        }
+        self.startTimer = nil;
+    }
+    
+    if (self.stopTimer)
+    {
+        if ([self.stopTimer isValid])
+        {
+            [self.stopTimer invalidate];
+        }
+        self.stopTimer = nil;
+    }
+}
+
+- (void)stopGeoUpdating
+{
+    if (self.appLocationManager.updatingLocationEnabled)
+    {
+        [self.appLocationManager stopUpdatingLocation];
+    }
+    
+    if (self.appLocationManager.updatingHeadingEnabled)
+    {
+        [self.appLocationManager stopUpdatingHeading];
+    }
+}
+
+- (void)startGeoUpdating
+{
+    if (!self.appLocationManager.updatingLocationEnabled)
+    {
+        [self.appLocationManager startUpdatingLocation];
+    }
+    
+    if (!self.appLocationManager.updatingHeadingEnabled)
+    {
+        [self.appLocationManager startUpdatingHeading];
+    }
+}
+
+- (void)startGeoUpdatingTemporarily
+{
+    [self startGeoUpdating];
+    self.stopTimer = [NSTimer scheduledTimerWithTimeInterval:kGeoUpdatingActiveInterval
+                                                      target:self
+                                                    selector:@selector(stopGeoUpdatingTemporarily)
+                                                    userInfo:nil
+                                                     repeats:NO];
+}
+
+- (void)stopGeoUpdatingTemporarily
+{
+    [self stopGeoUpdating];
+    self.startTimer = [NSTimer scheduledTimerWithTimeInterval:kGeoUpdatingInActiveInterval
+                                                       target:self
+                                                     selector:@selector(startGeoUpdatingTemporarily)
+                                                     userInfo:nil
+                                                      repeats:NO];
+}
+
 - (void)statusHasBeenChanged:(id)sender
 {
     NSNumber *statusNumber = [[sender userInfo] objectForKey:@"status"];
@@ -154,39 +232,34 @@ static double kDefaultLon = -113.4687100;
     {
         case kStateActive:
         {
-            [[AudioManager sharedInstance] speekText:@"Voice prompt has been activated"];
-            
-            [[AppSettingManager sharedInstance] setShowNoInterfereUI:YES];
+            NSLog(@"State has been changed to \"active\"");
 
-            if (self.updatingTimer && [self.updatingTimer isValid])
-            {
-                [self.updatingTimer invalidate];
-            }
+            [[AppSettingManager sharedInstance] setShowNoInterfereUI:YES];
+            
+            [self invalidateTimers];
+            [self startGeoUpdating];
         }
             break;
         case kStateClose:
         {
+            NSLog(@"State has been changed to \"close\"");
+
             // TODO:
         }
             break;
-        case kStateUnActive:
+        case kStateInactive:
         {
-            if (self.updatingTimer && [self.updatingTimer isValid])
-            {
-                [self.updatingTimer invalidate];
-            }
-            
-            // One cycle is 5 minutes.
-            // Half cycle disable updating; another half cycle enable updating.
-            self.updatingTimer = [NSTimer scheduledTimerWithTimeInterval:150
-                                                                  target:self
-                                                                selector:@selector(handleUpdatingTimer:)
-                                                                userInfo:nil
-                                                                 repeats:YES];
+            NSLog(@"State has been changed to \"inactive\"");
+
+            [self invalidateTimers];
+            [self stopGeoUpdatingTemporarily];
         }
             break;
         case kStateUnKnown:
         default:
+        {
+            NSLog(@"State has been changed to \"unknown\"");
+        }
             break;
     }
 }
@@ -201,32 +274,6 @@ static double kDefaultLon = -113.4687100;
     else
     {
         self.warningView.hidden = YES;
-    }
-}
-
-- (void)handleUpdatingTimer:(NSTimer*)timer
-{
-    if (timer == self.updatingTimer)
-    {
-        // Toggle location updating status
-        if (self.appLocationManager.updatingLocationEnabled)
-        {
-            [self.appLocationManager stopUpdatingLocation];
-        }
-        else
-        {
-            [self.appLocationManager startUpdatingLocation];
-        }
-        
-        // Toggle heading updating status
-        if (self.appLocationManager.updatingHeadingEnabled)
-        {
-            [self.appLocationManager stopUpdatingHeading];
-        }
-        else
-        {
-            [self.appLocationManager startUpdatingHeading];
-        }
     }
 }
 
@@ -513,14 +560,15 @@ static double kDefaultLon = -113.4687100;
         
         [[StateMachine sharedInstance] eventHappend:kEventUserMove];
         
-        // TODO: CPY
-        // Show no-interfere UI
-        if ([StateMachine sharedInstance].status == kStateActive)
+        if (!self.noInterfereVCShowed)
         {
-            if ([AppSettingManager sharedInstance].getShowNoInterfereUI)
+            if ([StateMachine sharedInstance].status == kStateActive)
             {
-                [self.noInterfereVC removeFromParentViewController];
-                [self.navigationController pushViewController:self.noInterfereVC animated:NO];
+                if ([AppSettingManager sharedInstance].getShowNoInterfereUI)
+                {
+                    [self.navigationController pushViewController:self.noInterfereVC animated:NO];
+                    self.noInterfereVCShowed = YES;
+                }
             }
         }
     }
