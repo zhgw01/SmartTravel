@@ -16,6 +16,7 @@
 #import "DBVersionAdapter.h"
 #import "StateMachine.h"
 #import <AVFoundation/AVFoundation.h>
+#import "Flurry.h"
 
 @interface AppDelegate ()
 
@@ -24,9 +25,13 @@
 @implementation AppDelegate
 
 static NSString* GMAP_API_KEY =  @"AIzaSyDXhjRks183HMms1UzRmIjeL7fTgy5WqFw";
+static NSString* FLURRY_TOKEN = @"TSWW3SMF623BGQ37NT6H";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Flurry setCrashReportingEnabled:YES];
+    [Flurry startSession:FLURRY_TOKEN];
+    
     //Initialize GMap
     [GMSServices provideAPIKey:GMAP_API_KEY];
     

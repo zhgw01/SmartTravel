@@ -16,6 +16,9 @@
 		422977831B0810DB00A11E90 /* DBLocationReason.m in Sources */ = {isa = PBXBuildFile; fileRef = 4229777F1B0810DB00A11E90 /* DBLocationReason.m */; };
 		422977841B0810DB00A11E90 /* DBWMDayType.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977801B0810DB00A11E90 /* DBWMDayType.m */; };
 		422977851B0810DB00A11E90 /* DBWMReasonCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 422977811B0810DB00A11E90 /* DBWMReasonCondition.m */; };
+		424859B41B874BC200C75F9F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 424859B31B874BC200C75F9F /* SystemConfiguration.framework */; };
+		42485BA21B87DFD700C75F9F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42485BA11B87DFD700C75F9F /* Security.framework */; };
+		42485BA61B87EEB000C75F9F /* libFlurry_6.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42485BA51B87EEB000C75F9F /* libFlurry_6.7.0.a */; };
 		425754B71B088BA20046433F /* 20150517013203-58195-data.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 425754B61B088BA20046433F /* 20150517013203-58195-data.gpx */; };
 		4290A0AD1AF6050100CB46E5 /* HotSpotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4290A0AB1AF6050100CB46E5 /* HotSpotTableViewCell.m */; };
 		4290A0AE1AF6050100CB46E5 /* HotSpotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4290A0AC1AF6050100CB46E5 /* HotSpotTableViewCell.xib */; };
@@ -113,6 +116,11 @@
 		422977871B08113100A11E90 /* DBLocationReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBLocationReason.h; path = Model/DBSqlite/DBLocationReason.h; sourceTree = "<group>"; };
 		422977881B08113100A11E90 /* DBWMDayType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBWMDayType.h; path = Model/DBSqlite/DBWMDayType.h; sourceTree = "<group>"; };
 		422977891B08113100A11E90 /* DBWMReasonCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBWMReasonCondition.h; path = Model/DBSqlite/DBWMReasonCondition.h; sourceTree = "<group>"; };
+		424859B31B874BC200C75F9F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		42485BA11B87DFD700C75F9F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		42485BA31B87EEB000C75F9F /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = SmartTravel/3rdParty/Flurry/Flurry.h; sourceTree = SOURCE_ROOT; };
+		42485BA41B87EEB000C75F9F /* FlurryWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryWatch.h; path = SmartTravel/3rdParty/Flurry/FlurryWatch.h; sourceTree = SOURCE_ROOT; };
+		42485BA51B87EEB000C75F9F /* libFlurry_6.7.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry_6.7.0.a; path = SmartTravel/3rdParty/Flurry/libFlurry_6.7.0.a; sourceTree = SOURCE_ROOT; };
 		425754B61B088BA20046433F /* 20150517013203-58195-data.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "20150517013203-58195-data.gpx"; path = "Test/GPX/20150517013203-58195-data.gpx"; sourceTree = "<group>"; };
 		4290A0AA1AF6050100CB46E5 /* HotSpotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotSpotTableViewCell.h; sourceTree = "<group>"; };
 		4290A0AB1AF6050100CB46E5 /* HotSpotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotSpotTableViewCell.m; sourceTree = "<group>"; };
@@ -223,6 +231,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42485BA21B87DFD700C75F9F /* Security.framework in Frameworks */,
+				42485BA61B87EEB000C75F9F /* libFlurry_6.7.0.a in Frameworks */,
+				424859B41B874BC200C75F9F /* SystemConfiguration.framework in Frameworks */,
 				84F38DDE1B0FF36500A0EB42 /* AVFoundation.framework in Frameworks */,
 				9B7E595D1AE38F660008D25C /* CoreLocation.framework in Frameworks */,
 				9B7E595B1AE38F610008D25C /* MapKit.framework in Frameworks */,
@@ -282,6 +293,25 @@
 			name = DBSqlite;
 			sourceTree = "<group>";
 		};
+		424859AF1B874AF400C75F9F /* 3rdParty */ = {
+			isa = PBXGroup;
+			children = (
+				42485B991B8754CB00C75F9F /* Flurry */,
+			);
+			name = 3rdParty;
+			sourceTree = "<group>";
+		};
+		42485B991B8754CB00C75F9F /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				42485BA31B87EEB000C75F9F /* Flurry.h */,
+				42485BA41B87EEB000C75F9F /* FlurryWatch.h */,
+				42485BA51B87EEB000C75F9F /* libFlurry_6.7.0.a */,
+			);
+			name = Flurry;
+			path = "3rdParty/Flurry iPhone SDK viPhone 6.7.0/Flurry-iOS-6.7.0/Flurry";
+			sourceTree = "<group>";
+		};
 		425754B81B088BA60046433F /* GPX */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +323,8 @@
 		5144BF6598479F6C7B046745 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42485BA11B87DFD700C75F9F /* Security.framework */,
+				424859B31B874BC200C75F9F /* SystemConfiguration.framework */,
 				84B3367E1B1DE1EF00BF32B0 /* libPods-SmartTravel-AFNetworking.a */,
 				84F38DDD1B0FF36500A0EB42 /* AVFoundation.framework */,
 				9B7E595C1AE38F660008D25C /* CoreLocation.framework */,
@@ -455,6 +487,7 @@
 		9B6A85AD1ADFDEFF00667170 /* SmartTravel */ = {
 			isa = PBXGroup;
 			children = (
+				424859AF1B874AF400C75F9F /* 3rdParty */,
 				84A5BC441B7DFA51001EAECB /* Singleton */,
 				9BDBCA431AF8EE8F00F23275 /* ViewModel */,
 				9B5EE8661AF3F65E00524F4A /* StoryBoard */,
@@ -897,6 +930,21 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/SmartTravel/3rdParty/Flurry",
+					iPhone,
+					SDK,
+					viPhone,
+					"6.7.0/Flurry-iOS-6.7.0/Flurry",
+					"$(PROJECT_DIR)/SmartTravel/3rdParty/Flurry",
+					iPhone,
+					SDK,
+					viPhone,
+					"6.7.0/Flurry-iOS-6.7.0/Flurry",
+					"$(PROJECT_DIR)/SmartTravel/3rdParty/Flurry",
+					iPhone,
+					SDK,
+					viPhone,
+					"6.7.0/Flurry-iOS-6.7.0/FlurryAds",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -916,6 +964,21 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/SmartTravel/3rdParty/Flurry",
+					iPhone,
+					SDK,
+					viPhone,
+					"6.7.0/Flurry-iOS-6.7.0/Flurry",
+					"$(PROJECT_DIR)/SmartTravel/3rdParty/Flurry",
+					iPhone,
+					SDK,
+					viPhone,
+					"6.7.0/Flurry-iOS-6.7.0/Flurry",
+					"$(PROJECT_DIR)/SmartTravel/3rdParty/Flurry",
+					iPhone,
+					SDK,
+					viPhone,
+					"6.7.0/Flurry-iOS-6.7.0/FlurryAds",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

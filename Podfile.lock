@@ -27,9 +27,9 @@ PODS:
     - FMDB/common
   - Geo-Utilities (0.0.1)
   - GoogleMaps (1.10.1)
-  - Mantle (2.0.3):
-    - Mantle/extobjc (= 2.0.3)
-  - Mantle/extobjc (2.0.3)
+  - Mantle (2.0.4):
+    - Mantle/extobjc (= 2.0.4)
+  - Mantle/extobjc (2.0.4)
   - MTLFMDBAdapter (0.2.0):
     - FMDB (~> 2.3)
     - Mantle (~> 2.0)
@@ -54,11 +54,11 @@ SPEC CHECKSUMS:
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   Geo-Utilities: ed3b96a7f572646b225f553d51902ba65872e1a7
   GoogleMaps: ebf08677f181d9c2dcdbd1721d206f02beccc9b1
-  Mantle: 8d6b14979a082a9ed4994463eb7a4ff576c94632
+  Mantle: 6bee68168423948be0c0c5924832bf3af188e099
   MTLFMDBAdapter: 8957b2fdb61cbf93ddd8739641310f835777e490
   OCHamcrest: 6f03ffa81d12feab872638490a44ab0a6d3aca10
   OCMockito: 4981140c9a9ec06c31af40f636e3c0f25f27e6b2
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
   VPPDropDown: 46a92110362aee139cdcc51fa0188e84b986410e
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.37.2
