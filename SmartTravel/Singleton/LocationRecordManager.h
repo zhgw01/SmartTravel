@@ -11,13 +11,13 @@
 
 #ifdef DEBUG
 #define kHalfHour 100
-#elif
+#else
 #define kHalfHour 1800
 #endif
 
 #ifdef DEBUG
 #define kNoticeableSpeed 5
-#elif
+#else
 #define kNoticeableSpeed (20.0/3.6)
 #endif
 

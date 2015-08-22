@@ -40,7 +40,7 @@ static NSString * const kEndTimeColumn = @"End_time";
 #ifdef DEBUG
             NSString* reasonId = [resultSet stringForColumn:kReasonIdColumn];
             [res addObject:reasonId];
-#elif
+#else
             NSString* reasonId = [resultSet stringForColumn:kReasonIdColumn];
             NSString* monthStr = [resultSet stringForColumn:kMonthColumn];
             NSString* startTimeStr = [resultSet stringForColumn:kStartTimeColumn];
