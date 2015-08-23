@@ -15,7 +15,6 @@
 #import "NoInterfereVC.h"
 
 #import "MarkerManager.h"
-#import "CircleMarker.h"
 #import "AnimatedGMSMarker.h"
 
 #import "WarningView.h"
@@ -72,7 +71,6 @@ static double kDefaultLon = -113.4687100;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hotspotListButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 
-@property (strong, nonatomic) CircleMarker *locationMarker;
 @property (strong, nonatomic) MarkerManager *markerManager;
 
 @property (strong, nonatomic) DBLocationAdapter *locationAdapter;
@@ -143,6 +141,7 @@ static double kDefaultLon = -113.4687100;
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = NO;
     self.title = @"Smart Travel";
 }
 
@@ -507,15 +506,6 @@ static double kDefaultLon = -113.4687100;
 
 - (void)updateCamera:(CLLocation*)location
 {
-    if (self.locationMarker == nil)
-    {
-        self.locationMarker = [CircleMarker markerWithPosition:location.coordinate];
-        [self.locationMarker loadImages];
-        self.locationMarker.map = self.mapView;
-    }
-
-    self.locationMarker.position = location.coordinate;
-    
     GMSCameraUpdate *newTarget = [GMSCameraUpdate setTarget:location.coordinate];
     [self.mapView animateWithCameraUpdate:newTarget];
 }

@@ -65,7 +65,6 @@
 		84F38DF81B108D0900A0EB42 /* AppLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DF71B108D0900A0EB42 /* AppLocationManager.m */; };
 		9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B295C081ADFF0B200758837 /* FirstLaunch.storyboard */; };
 		9B5EE8641AF3EEE600524F4A /* default.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9B5EE8631AF3EEE600524F4A /* default.gpx */; };
-		9B5EE8691AF3F6B400524F4A /* CircleMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EE8681AF3F6B400524F4A /* CircleMarker.m */; };
 		9B6A85B11ADFDEFF00667170 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A85B01ADFDEFF00667170 /* main.m */; };
 		9B6A85B41ADFDEFF00667170 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A85B31ADFDEFF00667170 /* AppDelegate.m */; };
 		9B6A85BA1ADFDF0000667170 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6A85B81ADFDF0000667170 /* Main.storyboard */; };
@@ -190,8 +189,6 @@
 		8D390935FB46D35A2294BF7D /* Pods-SmartTravelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravelTests/Pods-SmartTravelTests.release.xcconfig"; sourceTree = "<group>"; };
 		9B295C091ADFF0B200758837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FirstLaunch.storyboard; sourceTree = "<group>"; };
 		9B5EE8631AF3EEE600524F4A /* default.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default.gpx; sourceTree = "<group>"; };
-		9B5EE8671AF3F6B400524F4A /* CircleMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircleMarker.h; path = View/CircleMarker.h; sourceTree = "<group>"; };
-		9B5EE8681AF3F6B400524F4A /* CircleMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircleMarker.m; path = View/CircleMarker.m; sourceTree = "<group>"; };
 		9B6A85AB1ADFDEFF00667170 /* SmartTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B6A85AF1ADFDEFF00667170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B6A85B01ADFDEFF00667170 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -402,8 +399,6 @@
 				42C6A8AF1B0A0FAC00EE1518 /* WarningView.h */,
 				42C6A8B01B0A0FAC00EE1518 /* WarningView.m */,
 				42C6A8B11B0A0FAC00EE1518 /* WarningView.xib */,
-				9B5EE8671AF3F6B400524F4A /* CircleMarker.h */,
-				9B5EE8681AF3F6B400524F4A /* CircleMarker.m */,
 				84F38DF01B102B3300A0EB42 /* AnimatedGMSMarker.h */,
 				84F38DF11B102B3300A0EB42 /* AnimatedGMSMarker.m */,
 			);
@@ -776,7 +771,6 @@
 				9B7E59511AE37FD10008D25C /* TermUsage.m in Sources */,
 				84A5BC521B7DFACC001EAECB /* AudioManager.m in Sources */,
 				849DE7D51B7B825400B1FA3D /* NoInterfereVC.m in Sources */,
-				9B5EE8691AF3F6B400524F4A /* CircleMarker.m in Sources */,
 				84A5BC511B7DFACC001EAECB /* AppSettingManager.m in Sources */,
 				9B7E59601AE3966F0008D25C /* HomeViewController.m in Sources */,
 				849289AF1B7733C900837FF7 /* DataUpdateVC.m in Sources */,
