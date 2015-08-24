@@ -636,6 +636,7 @@ static double kDefaultLon = -113.4687100;
 #pragma mark - <HotSpotListViewControllerMapDelegate> methods
 
 - (void)hotSpotTableViewCellDidSelect:(HotSpot*)hotSpot
+                               ofType:(HotSpotType)type
 {
     NSAssert(hotSpot, @"The cell user selected has no hot spot info");
     
@@ -656,8 +657,20 @@ static double kDefaultLon = -113.4687100;
     
     [[MapModeManager sharedInstance] eventHappened:kMapModeUserClickHotSpot];
 
-    NSArray* hotSpotDetails = [self.dbManager getHotSpotDetailsByLocationCode:hotSpot.locCode];
-    [self.hotSpotDetailView reload:@[hotSpot.location, hotSpotDetails]];
+    NSArray* hotSpotDetails = nil;
+    if (type == HotSpotTypeSchoolZone)
+    {
+        hotSpotDetails = @[];
+    }
+    else
+    {
+        hotSpotDetails = [self.dbManager getHotSpotDetailsByLocationCode:hotSpot.locCode];
+    }
+    [self.hotSpotDetailView configWithType:type
+                                   andData:@{
+                                             @"name" : hotSpot.location,
+                                             @"details": hotSpotDetails
+                                            }];
 }
 
 #pragma mark - GMSMapViewDelegate methods
@@ -691,7 +704,12 @@ static double kDefaultLon = -113.4687100;
     if (animatedGMSMarker)
     {
         NSArray* hotSpotDetails = [self.dbManager getHotSpotDetailsByLocationCode:animatedGMSMarker.locCode];
-        [self.hotSpotDetailView reload:@[animatedGMSMarker.locationName, hotSpotDetails]];
+        // School zone has no marker
+        [self.hotSpotDetailView configWithType:HotSpotTypeAllExceptSchoolZone
+                                       andData:@{
+                                                 @"name":animatedGMSMarker.locationName,
+                                              @"details":hotSpotDetails
+                                                 }];
     }
     
     return YES;

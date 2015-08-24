@@ -11,7 +11,8 @@
 
 @protocol HotSpotListViewControllerMapDelegate <NSObject>
 
-- (void)hotSpotTableViewCellDidSelect:(HotSpot*)hotSpot;
+- (void)hotSpotTableViewCellDidSelect:(HotSpot*)hotSpot
+                               ofType:(HotSpotType)type;
 
 @end
 

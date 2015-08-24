@@ -9,7 +9,7 @@
 #import "HotSpotDetailView.h"
 #import "HotSpotDetailViewHeaderCell.h"
 #import "HotSpotDetailViewBodyCell.h"
-
+#import "DBDayTypeAdapter.h"
 
 @interface HotSpotDetailView () <UITableViewDataSource, UITableViewDelegate>
 
@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIView *gripView;
 @property (weak, nonatomic) IBOutlet UIView *gripBackgroundView;
 @property (weak, nonatomic) IBOutlet UITableView *detailsTableView;
+@property (weak, nonatomic) IBOutlet UIView *schoolView;
+@property (weak, nonatomic) IBOutlet UILabel *schoolDayLabel;
 
 @property (strong, nonatomic) NSArray* details;
 
@@ -32,13 +34,34 @@
 }
 */
 
-- (void)reload:(NSArray*)details
+- (void)configWithType:(HotSpotType)type
+               andData:(id)data
 {
-    self.titleLabel.text = [details objectAtIndex:0];
-    self.details = [details objectAtIndex:1];
-    
+    self.titleLabel.text = [data objectForKey:@"name"];
+    if (type == HotSpotTypeSchoolZone)
+    {
+        self.schoolView.hidden = NO;
+        self.detailsTableView.hidden = YES;
+
+        DBDayTypeAdapter *dayHelper = [[DBDayTypeAdapter alloc] initWith:[NSDate date]];
+        if (dayHelper.isSchoolDay)
+        {
+            self.schoolDayLabel.text = @"School Day (08:00 - 16:30)";
+        }
+        else
+        {
+            self.schoolDayLabel.text = @"No School Today";
+        }
+    }
+    else
+    {
+        self.schoolView.hidden = YES;
+        self.detailsTableView.hidden = NO;
+
+        self.details = [data objectForKey:@"details"];
+        [self.detailsTableView reloadData];
+    }
     [self setNeedsDisplay];
-    [self.detailsTableView reloadData];
 }
 
 - (void)awakeFromNib
@@ -65,6 +88,7 @@
     UIPanGestureRecognizer* panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     [self.gripBackgroundView addGestureRecognizer:panRecognizer];
 }
+
 
 - (void)handlePan:(UIPanGestureRecognizer*)recognizer
 {

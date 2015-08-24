@@ -188,9 +188,10 @@
 {
     HotSpot* hotSpot = [self getHotSpotOfType:self.type atRow:indexPath.row];
 
-    if ([self.mapDelegate respondsToSelector:@selector(hotSpotTableViewCellDidSelect:)])
+    if ([self.mapDelegate respondsToSelector:@selector(hotSpotTableViewCellDidSelect:ofType:)])
     {
-        [self.mapDelegate hotSpotTableViewCellDidSelect:hotSpot];
+        [self.mapDelegate hotSpotTableViewCellDidSelect:hotSpot
+                                                 ofType:self.type];
     }
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -18,8 +18,8 @@
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50a-FY-M1p">
                         <rect key="frame" x="68" y="8" width="209" height="27"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Reason" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUe-SK-tBI" userLabel="Reason">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="56"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reason" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUe-SK-tBI" userLabel="Reason">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="WNT-hD-1lP"/>
                                     <constraint firstAttribute="height" constant="44" id="qDZ-AF-LuT"/>
@@ -38,7 +38,7 @@
                         </constraints>
                     </scrollView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Direction" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71q-AO-say" userLabel="DirectionLabel">
-                        <rect key="frame" x="13" y="14" width="50" height="15"/>
+                        <rect key="frame" x="13" y="14.5" width="50" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="AHe-nn-IFZ"/>
                         </constraints>
@@ -47,7 +47,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqF-Q9-xJZ" userLabel="TotalLabel">
-                        <rect key="frame" x="272" y="14" width="35" height="15"/>
+                        <rect key="frame" x="272" y="14.5" width="35" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="35" id="ReK-TN-zcY"/>
                         </constraints>
