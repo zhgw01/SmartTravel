@@ -22,6 +22,50 @@
     return sharedSingleton;
 }
 
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(locationDetected:)
+                                                     name:@"ShowTestDataOfShanghai"
+                                                   object:nil];
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)locationDetected:(id)sender
+{
+    BOOL showTestDataOfShanghai = [[[sender userInfo] objectForKey:@"ShowTestDataOfShanghai"] boolValue];
+    if (!showTestDataOfShanghai)
+    {
+        NSString* mainDBPath = [DBManager getPathOfMainDB];
+        FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
+        if (![db open])
+        {
+            NSAssert(NO, @"Open db failed");
+            return;
+        }
+        
+        NSString* smt = @"DELETE FROM TBL_COLLISION_LOCATION WHERE longitude>0";
+        
+        if (![db executeUpdate:smt])
+        {
+            NSAssert(NO, @"Delete locations of Shanghai failed");
+        }
+        
+        if (![db close])
+        {
+            NSAssert(NO, @"Close db failed");
+        }
+    }
+}
+
 +(BOOL)deleteFromTable:(NSString*)tableName
 {
     if (!tableName) return NO;
