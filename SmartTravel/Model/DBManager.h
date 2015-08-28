@@ -20,9 +20,6 @@
 +(BOOL)insertJSON:(id)jsonArrayOrDic
         intoTable:(NSString*)tableName;
 
-// For test purpose
-+(void)insertTestData;
-
 +(NSString*)getPathOfMainDB;
 
 -(NSArray*)selectHotSpots:(HotSpotType)hotSpotType;

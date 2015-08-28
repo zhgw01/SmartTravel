@@ -122,15 +122,18 @@
                     roadway_portion = @"";
                 }
                 id longitude = [dic valueForKey:@"longitude"];
+
                 id latitude = [dic valueForKey:@"latitude"];
+
                 id loc_code = [dic valueForKey:@"loc_code"];
+
                 
                 NSString* sql = [NSString stringWithFormat:@"INSERT INTO %@ (Loc_code, Location_name, Roadway_portion, Latitude, Longitude) VALUES (?, ?, ?, ?, ?)", MAIN_DB_TBL_COLLISION_LOCATION];
                 BOOL res = [db executeUpdate:sql, loc_code, location_name, roadway_portion, latitude, longitude];
                 if (!res)
                 {
                     NSLog(@"Error insert %@ into %@", dic, MAIN_DB_TBL_COLLISION_LOCATION);
-                    break;
+                    continue;
                 }
             }
             else if ([tableName isEqualToString:MAIN_DB_TBL_LOCATION_REASON])
@@ -151,7 +154,7 @@
                 if (!res)
                 {
                     NSLog(@"Error insert %@ into %@", dic, MAIN_DB_TBL_LOCATION_REASON);
-                    break;
+                    continue;
                 }
             }
             else if ([tableName isEqualToString:MAIN_DB_TBL_WM_DAYTYPE])
@@ -170,7 +173,7 @@
                 if (!res)
                 {
                     NSLog(@"Error insert %@ into %@", dic, MAIN_DB_TBL_WM_DAYTYPE);
-                    break;
+                    continue;
                 }
             }
             else if ([tableName isEqualToString:MAIN_DB_TBL_WM_REASON_CONDITION])
@@ -199,7 +202,7 @@
                 if (!res)
                 {
                     NSLog(@"Error insert %@ into %@", dic, MAIN_DB_TBL_WM_REASON_CONDITION);
-                    break;
+                    continue;
                 }
             }
             else
@@ -240,46 +243,6 @@
     }
     
     return YES;
-}
-
-+(void)insertTestData
-{
-    NSString* mainDBPath = [DBManager getPathOfMainDB];
-    FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
-    if (![db open])
-    {
-        NSAssert(NO, @"Open db failed");
-        return;
-    }
-    
-    [db executeUpdate:@"INSERT INTO TBL_COLLISION_LOCATION VALUES (\"Test1\",\"Test1\'s Home\",\"MID STREET\",\"31.146932\",\"121.513425\")"];
-    [db executeUpdate:@"INSERT INTO TBL_LOCATION_REASON VALUES (\"10001\",\"Test1\",\"ALL\",\"1001\",\"111\",\"111\")"];
-    [db executeUpdate:@"INSERT INTO TBL_WM_REASON_CONDITION VALUES (\"1001\",\"TEST1 (XXX Days between 00:01 and 23:59)\",\"111111111111\",\"1\",\"1\",\"1\",\"00:01\",\"23:59\",\"This is test 1. You should here WARNING every 5 seconds!\")"];
-    
-    [db executeUpdate:@"INSERT INTO TBL_COLLISION_LOCATION VALUES (\"Test2\",\"Test2\'s Home\",\"INTERSECTION\",\"31.146008\",\"121.513420\")"];
-    [db executeUpdate:@"INSERT INTO TBL_LOCATION_REASON VALUES (\"10002\",\"Test2\",\"ALL\",\"1002\",\"222\",\"222\")"];
-    [db executeUpdate:@"INSERT INTO TBL_WM_REASON_CONDITION VALUES (\"1002\",\"TEST2 (XXX Days between 00:01 and 23:59)\",\"111111111111\",\"1\",\"1\",\"1\",\"00:01\",\"23:59\",\"This is test 2. You should here WARNING every 5 seconds!\")"];
-    
-    [db executeUpdate:@"INSERT INTO TBL_COLLISION_LOCATION VALUES (\"Test3\",\"Test3\'s Home\",\"MID AVENUE\",\"31.293021\",\"121.536683\")"];
-    [db executeUpdate:@"INSERT INTO TBL_LOCATION_REASON VALUES (\"10003\",\"Test3\",\"ALL\",\"1003\",\"333\",\"333\")"];
-    [db executeUpdate:@"INSERT INTO TBL_WM_REASON_CONDITION VALUES (\"1003\",\"TEST3 (XXX Days between 00:01 and 23:59)\",\"111111111111\",\"1\",\"1\",\"1\",\"00:01\",\"23:59\",\"This is test 3. You should here WARNING every 5 seconds!\")"];
-    
-    [db executeUpdate:@"INSERT INTO TBL_COLLISION_LOCATION VALUES (\"Test4\",\"Test4\'s Home\",\"MID AVENUE\",\"53.523451\",\"-113.510887\")"];
-    [db executeUpdate:@"INSERT INTO TBL_LOCATION_REASON VALUES (\"10004\",\"Test4\",\"ALL\",\"1004\",\"444\",\"444\")"];
-    [db executeUpdate:@"INSERT INTO TBL_WM_REASON_CONDITION VALUES (\"1004\",\"TEST4 (XXX Days between 00:01 and 23:59)\",\"111111111111\",\"1\",\"1\",\"1\",\"00:01\",\"23:59\",\"This is test 4. You should here WARNING every 5 seconds!\")"];
-    
-    [db executeUpdate:@"INSERT INTO TBL_COLLISION_LOCATION VALUES (\"Test5\",\"Test5\'s Home\",\"INTERSECTION\",\"53.526528\",\"-113.529447\")"];
-    [db executeUpdate:@"INSERT INTO TBL_LOCATION_REASON VALUES (\"10005\",\"Test5\",\"ALL\",\"1005\",\"555\",\"555\")"];
-    [db executeUpdate:@"INSERT INTO TBL_WM_REASON_CONDITION VALUES (\"1005\",\"TEST5 (XXX Days between 00:01 and 23:59)\",\"111111111111\",\"1\",\"1\",\"1\",\"00:01\",\"23:59\",\"This is test 5. You should here WARNING every 5 seconds!\")"];
-
-    [db executeUpdate:@"INSERT INTO TBL_COLLISION_LOCATION VALUES (\"Test6\",\"Tester 6\'s Home with very very long address text\",\"MID AVENUE\",\"31.288347\",\"121.303005\")"];
-    [db executeUpdate:@"INSERT INTO TBL_LOCATION_REASON VALUES (\"10006\",\"Test6\",\"ALL\",\"1006\",\"666\",\"666\")"];
-    [db executeUpdate:@"INSERT INTO TBL_WM_REASON_CONDITION VALUES (\"1006\",\"TEST6 (XXX Days between 00:01 and 23:59)\",\"111111111111\",\"1\",\"1\",\"1\",\"00:01\",\"23:59\",\"This is test 5. You should here WARNING every 5 seconds!\")"];
-
-    if (![db close])
-    {
-        NSAssert(NO, @"Close db failed");
-    }
 }
 
 +(NSString*)getPathOfMainDB

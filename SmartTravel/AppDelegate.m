@@ -55,11 +55,7 @@ static NSString* FLURRY_TOKEN = @"TSWW3SMF623BGQ37NT6H";
 #endif
 
     [appSettings setRunCount:(runCount + 1)];
-    
-    #ifdef DEBUG
-    [DBManager insertTestData];
-    #endif
-    
+
     // Create voice prompt engine
     
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
