@@ -11,7 +11,8 @@
 
 #import "HomeViewController.h"
 #import "DataUpdateVC.h"
-#import "HotSpotListViewController.h"
+#import "ReasonListVC.h"
+#import "HotspotListVC.h"
 #import "NoInterfereVC.h"
 
 #import "MarkerManager.h"
@@ -62,7 +63,6 @@ static double kDefaultLon = -113.4687100;
 @interface HomeViewController ()
 <
     SWRevealViewControllerDelegate,
-    HotSpotListViewControllerMapDelegate,
     GMSMapViewDelegate,
     CLLocationManagerDelegate
 >
@@ -135,6 +135,11 @@ static double kDefaultLon = -113.4687100;
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(mapModeChanged:)
                                                  name:kMapModeChanged
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(hotspotCellDidSelect:)
+                                                 name:kNotificatonNameHotSpotSelected
                                                object:nil];
 }
 
@@ -371,21 +376,9 @@ static double kDefaultLon = -113.4687100;
 {
     if (position != FrontViewPositionLeft) {
         self.mapView.userInteractionEnabled = NO;
-        
-        HotSpotListViewController* hotSpotListVC = (HotSpotListViewController*)revealController.rearViewController;
-        if (hotSpotListVC)
-        {
-            hotSpotListVC.mapDelegate = self;
-        }
     }
     else {
         self.mapView.userInteractionEnabled = YES;
-        
-        HotSpotListViewController* hotSpotListVC = (HotSpotListViewController*)revealController.rearViewController;
-        if (hotSpotListVC)
-        {
-            hotSpotListVC.mapDelegate = nil;
-        }
     }
 }
 
@@ -640,11 +633,9 @@ static double kDefaultLon = -113.4687100;
     return hotSpot;
 }
 
-#pragma mark - <HotSpotListViewControllerMapDelegate> methods
-
-- (void)hotSpotTableViewCellDidSelect:(HotSpot*)hotSpot
-                               ofType:(HotSpotType)type
+- (void)hotspotCellDidSelect:(id)data
 {
+    HotSpot *hotSpot = [[data userInfo] objectForKey:@"HotSpot"];
     NSAssert(hotSpot, @"The cell user selected has no hot spot info");
     
     // Hide HotSpotListView
@@ -665,7 +656,7 @@ static double kDefaultLon = -113.4687100;
     [[MapModeManager sharedInstance] eventHappened:kMapModeUserClickHotSpot];
 
     NSArray* hotSpotDetails = nil;
-    if (type == HotSpotTypeSchoolZone)
+    if (hotSpot.type == HotSpotTypeSchoolZone)
     {
         hotSpotDetails = @[];
     }
@@ -673,7 +664,7 @@ static double kDefaultLon = -113.4687100;
     {
         hotSpotDetails = [self.dbManager getHotSpotDetailsByLocationCode:hotSpot.locCode];
     }
-    [self.hotSpotDetailView configWithType:type
+    [self.hotSpotDetailView configWithType:hotSpot.type
                                    andData:@{
                                              @"name" : hotSpot.location,
                                              @"details": hotSpotDetails

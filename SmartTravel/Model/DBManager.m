@@ -336,6 +336,82 @@
     return [self sortHotSpotsOrderByLocationNameAsc:res];
 }
 
+-(NSArray*)selectHotSpotsOfReason:(NSString*)reasonId
+{
+    NSString* mainDBPath = [DBManager getPathOfMainDB];
+    FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
+    if (![db open])
+    {
+        NSAssert(NO, @"Open db failed");
+        return nil;
+    }
+    
+    NSError* error = nil;
+    NSMutableArray* res = [[NSMutableArray alloc] init];
+    NSString* smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Roadway_portion, l.Longitude, l.Latitude, r.Total from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and r.Reason_id='%@'", reasonId];
+    
+    NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
+    FMResultSet* resultSet = [db executeQuery:smt];
+    while ([resultSet nextWithError:&error])
+    {
+        NSString* locationName = [resultSet stringForColumn:@"Location_name"];
+        NSString* roadwayPortion = [resultSet stringForColumn:@"Roadway_portion"];
+        NSNumber* total = [NSNumber numberWithInt:[resultSet intForColumn:@"Total"]];
+        NSNumber* latitude = [NSNumber numberWithDouble:[resultSet doubleForColumn:@"Latitude"]];
+        NSNumber* longitude = [NSNumber numberWithDouble:[resultSet doubleForColumn:@"Longitude"]];
+        
+        NSString* key = [resultSet stringForColumn:@"Loc_code"];
+        
+        if ([[dic allKeys] containsObject:key])
+        {
+            NSMutableDictionary* obj = [NSMutableDictionary dictionaryWithDictionary:[dic objectForKey:key]];
+            NSNumber* totalSum = [obj objectForKey:@"Total"];
+            NSNumber* newTotalNum = [NSNumber numberWithInt:[totalSum intValue] + [total intValue]];
+            
+            [obj setObject:newTotalNum forKey:@"Total"];
+            [dic setObject:obj forKey:key];
+        }
+        else
+        {
+            NSDictionary* obj = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 locationName, @"Location_name",
+                                 roadwayPortion, @"Roadway_portion",
+                                 total, @"Total",
+                                 latitude, @"Latitude",
+                                 longitude, @"Longitude",
+                                 nil];
+            [dic setObject:obj forKey:key];
+        }
+    }
+    [resultSet close];
+    
+    if (![db close])
+    {
+        NSAssert(NO, @"Close db failed");
+    }
+    
+    // Create hotspot
+    for (NSString* locCode in [dic allKeys])
+    {
+        NSDictionary* hotSpotData = [dic objectForKey:locCode];
+        NSString* locationName = [hotSpotData valueForKey:@"Location_name"];
+        NSString* roadwayPortion = [hotSpotData valueForKey:@"Roadway_portion"];
+        int count = [((NSNumber*)[hotSpotData objectForKey:@"Total"]) intValue];
+        double latitude = [((NSNumber*)[hotSpotData objectForKey:@"Latitude"]) doubleValue];
+        double longitude = [((NSNumber*)[hotSpotData objectForKey:@"Longitude"]) doubleValue];
+        
+        HotSpot* hotSpot = [[HotSpot alloc] initWithLocCode:locCode
+                                                   location:locationName
+                                                      count:count rank:0
+                                                   latitude:latitude
+                                                 longtitude:longitude];
+        hotSpot.type = [HotSpot fromString:roadwayPortion];
+        [res addObject:hotSpot];
+    }
+    
+    return [self sortHotSpotsOrderByLocationNameAsc:res];
+}
+
 -(NSArray*)sortHotSpotsOrderByLocationNameAsc:(NSArray*)hotSpots
 {
     NSComparator cmptr = ^(id obj1, id obj2)
@@ -346,6 +422,42 @@
     };
     
     return [hotSpots sortedArrayUsingComparator:cmptr];
+}
+
+-(NSArray*)selectAllReasonNames
+{
+    NSString* mainDBPath = [DBManager getPathOfMainDB];
+    FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
+    if (![db open])
+    {
+        NSAssert(NO, @"Open db failed");
+        return nil;
+    }
+    
+    NSMutableArray *res = [[NSMutableArray alloc] init];
+    
+    FMResultSet* resultSet = [db executeQuery:@"select Reason_id, Reason from TBL_WM_REASON_CONDITION asc order by Reason"];
+    NSError *error = nil;
+    while ([resultSet nextWithError:&error])
+    {
+        if (error)
+        {
+            NSLog(@"File: %s\nLine:%d\nError:%@\n", __FILE__, __LINE__, error.description);
+            continue;
+        }
+        
+        [res addObject:@{
+                        @"Reason_id":[resultSet stringForColumn:@"Reason_id"],
+                        @"Reason":[resultSet stringForColumn:@"Reason"]
+                        }];
+    }
+    
+    if (![db close])
+    {
+        NSAssert(NO, @"Close db failed");
+    }
+    
+    return res;
 }
 
 -(NSArray*)getHotSpotDetailsByLocationCode:(NSString*)locCode

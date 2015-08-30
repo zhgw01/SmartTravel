@@ -25,6 +25,7 @@
         self.rank = [NSNumber numberWithInt:rank];
         self.latitude = [NSNumber numberWithDouble:latitude];
         self.longtitude = [NSNumber numberWithDouble:longtitude];
+        self.type = HotSpotTypeCnt;
     }
     return self;
 }
@@ -48,6 +49,27 @@
         return @"SCHOOL ZONE";
     }
     return @"";
+}
+
++ (HotSpotType)fromString:(NSString*)typeStr
+{
+    if ([typeStr isEqualToString:@"INTERSECTION"])
+    {
+        return HotSpotTypeIntersection;
+    }
+    else if ([typeStr isEqualToString:@"MID STREET"])
+    {
+        return HotSpotTypeMidStreet ;
+    }
+    else if ([typeStr isEqualToString: @"MID AVENUE"])
+    {
+        return HotSpotTypeMidAvenue;
+    }
+    else if ([typeStr isEqualToString:@"SCHOOL ZONE"])
+    {
+        return HotSpotTypeSchoolZone;
+    }
+    return HotSpotTypeCnt;
 }
 
 @end

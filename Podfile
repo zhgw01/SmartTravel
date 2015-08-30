@@ -10,7 +10,6 @@ pod 'FMDB'
 pod 'MTLFMDBAdapter'
 pod 'Geo-Utilities'
 pod 'AFNetworking', '~> 2.5.4'
-pod 'VPPDropDown', '~> 0.3.0'
 end
 
 target 'SmartTravelTests' do

@@ -24,6 +24,22 @@
 
 -(NSArray*)selectHotSpots:(HotSpotType)hotSpotType;
 
+/**
+ *  Selecta all hot spots of specific reason
+ *
+ *  @param reasonId ID of reason
+ *
+ *  @return array of hotspot of HotSpot type
+ */
+-(NSArray*)selectHotSpotsOfReason:(NSString*)reasonId;
+
 -(NSArray*)getHotSpotDetailsByLocationCode:(NSString*)locCode;
+
+/**
+ *  Select all reason names
+ *
+ *  @return array of {Reason_id:@"", Reason:""}
+ */
+-(NSArray*)selectAllReasonNames;
 
 @end

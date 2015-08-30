@@ -37,7 +37,6 @@ PODS:
   - OCMockito (1.4.0):
     - OCHamcrest (~> 4.0)
   - SWRevealViewController (2.3.0)
-  - VPPDropDown (0.3.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.4)
@@ -47,7 +46,6 @@ DEPENDENCIES:
   - MTLFMDBAdapter
   - OCMockito
   - SWRevealViewController
-  - VPPDropDown (~> 0.3.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
@@ -59,6 +57,5 @@ SPEC CHECKSUMS:
   OCHamcrest: 6f03ffa81d12feab872638490a44ab0a6d3aca10
   OCMockito: 4981140c9a9ec06c31af40f636e3c0f25f27e6b2
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
-  VPPDropDown: 46a92110362aee139cdcc51fa0188e84b986410e
 
 COCOAPODS: 0.38.2

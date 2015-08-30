@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
+@property (weak, nonatomic) IBOutlet UILabel *roadwayPortionLabel;
 
 @end
 
@@ -68,7 +69,7 @@
         needsLayout = YES;
     }
     
-    // Update label
+    // Update count label
     NSNumberFormatter* numberFormat = [[NSNumberFormatter alloc] init];
     numberFormat.numberStyle = NSNumberFormatterNoStyle;
     NSString* countStr = [numberFormat stringFromNumber:count];
@@ -77,6 +78,14 @@
         self.countLabel.text = countStr;
         self.countLabel.backgroundColor =[self getColorForCount:count];
         
+        needsLayout = YES;
+    }
+    
+    // Update roadwayPortionLabel
+    NSString *hotSpotTypeStr = [HotSpot toString:hotSpotType];
+    if (![self.roadwayPortionLabel.text isEqualToString:hotSpotTypeStr])
+    {
+        self.roadwayPortionLabel.text = hotSpotTypeStr;
         needsLayout = YES;
     }
     
