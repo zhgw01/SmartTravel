@@ -11,6 +11,8 @@
 #import "DBLocationAdapter.h"
 #import "DBConstants.h"
 #import "DBManager.h"
+#import "Flurry.h"
+#import "STConstants.h"
 
 static NSString * const kLocCodeColumn = @"Loc_code";
 static NSString * const kReasonIdColumn = @"Reason_id";
@@ -158,11 +160,7 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
                      kLocCodeColumn,
                      [self locCodesToSQLParameters:locCodes],
                      kReasonIdColumn,
-#ifdef DEBUG
-                     @[@(1006)],
-#else
                      reasonIds,
-#endif
                      kWarningPriorityColumn];
     
     NSDictionary* res = nil;
@@ -195,7 +193,14 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
             NSAssert(NO, @"Close db failed");
         }
     }
-    
+
+    if (!res || res.count == 0)
+    {
+        [Flurry logEvent:kFlurryEventHotspotIgnoreByDirection
+          withParameters:@{@"direction": [LocationDirection directionToString:direction],
+                           @"location codes" : locCodes,
+                           @"reason ids" : reasonIds}];
+    }
     return [res copy];
 }
 

@@ -35,6 +35,7 @@
 		42C6A8C81B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C6A8C41B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m */; };
 		42C6A8C91B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42C6A8C51B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib */; };
 		6613E4635B5E884F0B519EDB /* libPods-SmartTravel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */; };
+		841EE2AE1B9482170022A067 /* STConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 841EE2AD1B9482170022A067 /* STConstants.m */; };
 		84232CD41B2D7DE000E0BE11 /* afternoon rush hour.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CC71B2D7DE000E0BE11 /* afternoon rush hour.m4a */; };
 		84232CD51B2D7DE000E0BE11 /* attention high risk collision area.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CC81B2D7DE000E0BE11 /* attention high risk collision area.m4a */; };
 		84232CD61B2D7DE000E0BE11 /* Cyclist.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CC91B2D7DE000E0BE11 /* Cyclist.m4a */; };
@@ -148,6 +149,8 @@
 		42C6A8C51B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HotSpotDetailViewHeaderCell.xib; path = View/HotSpotDetailViewHeaderCell.xib; sourceTree = "<group>"; };
 		5EEEC9CCD391050A8D1BA199 /* libPods-SmartTravelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartTravelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6928DA7D73FEF35E1EBF313F /* Pods-SmartTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravel/Pods-SmartTravel.release.xcconfig"; sourceTree = "<group>"; };
+		841EE2AC1B9482170022A067 /* STConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STConstants.h; path = Singleton/STConstants.h; sourceTree = "<group>"; };
+		841EE2AD1B9482170022A067 /* STConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STConstants.m; path = Singleton/STConstants.m; sourceTree = "<group>"; };
 		84232CC71B2D7DE000E0BE11 /* afternoon rush hour.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "afternoon rush hour.m4a"; path = "Resource/M4a/afternoon rush hour.m4a"; sourceTree = "<group>"; };
 		84232CC81B2D7DE000E0BE11 /* attention high risk collision area.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "attention high risk collision area.m4a"; path = "Resource/M4a/attention high risk collision area.m4a"; sourceTree = "<group>"; };
 		84232CC91B2D7DE000E0BE11 /* Cyclist.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = Cyclist.m4a; path = Resource/M4a/Cyclist.m4a; sourceTree = "<group>"; };
@@ -379,6 +382,8 @@
 				84A5BC501B7DFACC001EAECB /* StateMachine.m */,
 				426EC3381B92D9AF00ED4BBA /* UIColor+ST.h */,
 				426EC3391B92D9AF00ED4BBA /* UIColor+ST.m */,
+				841EE2AC1B9482170022A067 /* STConstants.h */,
+				841EE2AD1B9482170022A067 /* STConstants.m */,
 			);
 			name = Singleton;
 			sourceTree = "<group>";
@@ -777,6 +782,7 @@
 				422977841B0810DB00A11E90 /* DBWMDayType.m in Sources */,
 				42C6A8C61B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.m in Sources */,
 				9B6C7DA81AF500C500DF6FA9 /* DBManager.m in Sources */,
+				841EE2AE1B9482170022A067 /* STConstants.m in Sources */,
 				9B812DD91AEB3E9D008F17B6 /* ReasonListVC.m in Sources */,
 				9B812DDC1AEB3EB7008F17B6 /* SettingsViewController.m in Sources */,
 				426EC33A1B92D9AF00ED4BBA /* UIColor+ST.m in Sources */,

@@ -12,6 +12,8 @@
 #import "DBConstants.h"
 #import "DBManager.h"
 #import "DateUtility.h"
+#import "Flurry.h"
+#import "STConstants.h"
 
 static NSString * const kReasonIdColumn = @"Reason_id";
 static NSString * const kReasonColumn = @"Reason";
@@ -37,10 +39,6 @@ static NSString * const kEndTimeColumn = @"End_time";
         NSError* error = nil;
         while([resultSet nextWithError:&error])
         {
-#ifdef DEBUG
-            NSString* reasonId = [resultSet stringForColumn:kReasonIdColumn];
-            [res addObject:reasonId];
-#else
             NSString* reasonId = [resultSet stringForColumn:kReasonIdColumn];
             NSString* monthStr = [resultSet stringForColumn:kMonthColumn];
             NSString* startTimeStr = [resultSet stringForColumn:kStartTimeColumn];
@@ -49,7 +47,17 @@ static NSString * const kEndTimeColumn = @"End_time";
             {
                 [res addObject:reasonId];
             }
-#endif
+            else
+            {
+                [Flurry logEvent:kFlurryEventReasonNotMatchForInvalidMonthOrStartAndEndTime
+                  withParameters:@{
+                                   @"date":date,
+                                   @"reason id":reasonId,
+                                   @"month":monthStr,
+                                   @"start time":startTimeStr,
+                                   @"end time":endTimeStr
+                                   }];
+            }
         }
         [resultSet close];
         
@@ -92,7 +100,7 @@ static NSString * const kEndTimeColumn = @"End_time";
 {
     DBDayTypeAdapter* dbDateAdapter = [[DBDayTypeAdapter alloc] initWith:date];
     return [NSString stringWithFormat:
-            @"select %@, %@, %@, %@ from %@ where (%@ = %d) and (%@ = %d)",
+            @"select %@, %@, %@, %@ from %@ where (%@ = %d) and (%@ = %d or %@ = %d)",
             kReasonIdColumn,
             kMonthColumn,
             kStartTimeColumn,
@@ -100,6 +108,8 @@ static NSString * const kEndTimeColumn = @"End_time";
             MAIN_DB_TBL_WM_REASON_CONDITION,
             dbDateAdapter.isWeekDay ? kWeekdayColumn : kWeekendColumn,
             1,
+            kSchoolDayColumn,
+            0,
             kSchoolDayColumn,
             dbDateAdapter.isSchoolDay ? 1 : 0];
 }
