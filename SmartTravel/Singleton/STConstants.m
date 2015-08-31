@@ -11,4 +11,4 @@
 #pragma mark - Flurry event names
 
 NSString * const kFlurryEventHotspotIgnoreByDirection = @"Hotspot ignored by direction";
-NSString * const kFlurryEventReasonNotMatchForInvalidMonthOrStartAndEndTime = @"Reason not match for invalidv month or start/end time";
+NSString * const kFlurryEventReasonNotMatchForInvalidMonthOrStartAndEndTime = @"Reason not match for invalidate month or start/end time";
