@@ -75,6 +75,7 @@
         cell.textLabel.textAlignment = NSTextAlignmentLeft;
         cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
         cell.textLabel.numberOfLines = 0;
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
     }
     
     // Configure Cell
