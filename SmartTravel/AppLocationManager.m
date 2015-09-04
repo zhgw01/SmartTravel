@@ -45,11 +45,11 @@
     return self;
 }
 
--(void)requestWhenInUserAuthorization
+-(void)requestAlwaysAuthorization
 {
-    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
+    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)])
     {
-        [self.locationManager requestWhenInUseAuthorization];
+        [self.locationManager requestAlwaysAuthorization];
     }
 }
 

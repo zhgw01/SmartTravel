@@ -105,7 +105,7 @@ static NSString* FLURRY_TOKEN = @"TSWW3SMF623BGQ37NT6H";
     if (clAuthStatus != kCLAuthorizationStatusAuthorizedWhenInUse &&
         clAuthStatus != kCLAuthorizationStatusAuthorizedAlways)
     {
-        [[AppLocationManager sharedInstance] requestWhenInUserAuthorization];
+        [[AppLocationManager sharedInstance] requestAlwaysAuthorization];
     }
     else
     {

@@ -386,7 +386,8 @@ static double kDefaultLon = -113.4687100;
 
 - (void) locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
-    if (status == kCLAuthorizationStatusAuthorizedWhenInUse)
+    if (status == kCLAuthorizationStatusAuthorizedWhenInUse ||
+        status == kCLAuthorizationStatusAuthorizedAlways)
     {
         [self.appLocationManager startUpdatingHeading];
         [self.appLocationManager startUpdatingLocation];

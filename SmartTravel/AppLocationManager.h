@@ -14,7 +14,7 @@
 
 +(CLAuthorizationStatus)authorizationStatus;
 
--(void)requestWhenInUserAuthorization;
+-(void)requestAlwaysAuthorization;
 
 -(void)setDelegate:(id<CLLocationManagerDelegate>)delegate;
 
