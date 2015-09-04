@@ -51,7 +51,7 @@ static NSString * const kEndTimeColumn = @"End_time";
             {
                 [Flurry logEvent:kFlurryEventReasonNotMatchForInvalidMonthOrStartAndEndTime
                   withParameters:@{
-                                   @"date":date,
+                                   @"date":[DateUtility getDateString:date],
                                    @"reason id":reasonId,
                                    @"month":monthStr,
                                    @"start time":startTimeStr,

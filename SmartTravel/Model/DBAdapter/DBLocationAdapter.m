@@ -197,9 +197,12 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
     if (!res || res.count == 0)
     {
         [Flurry logEvent:kFlurryEventHotspotIgnoreByDirection
-          withParameters:@{@"direction": [LocationDirection directionToString:direction],
-                           @"location codes" : locCodes,
-                           @"reason ids" : reasonIds}];
+          withParameters:@{
+                           @"direction": [LocationDirection directionToString:direction],
+                           @"location codes" : [locCodes componentsJoinedByString:@","],
+                           @"reason ids" : [reasonIds componentsJoinedByString:@","]
+                           }
+         ];
     }
     return [res copy];
 }
