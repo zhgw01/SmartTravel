@@ -490,7 +490,10 @@ static double kDefaultLon = -113.4687100;
 
 - (void)hotSpotDidNotGet
 {
-    self.lastReportLocCode = @"";
+    if(self.recentLocation.speed > 0)
+    {
+        self.lastReportLocCode = @"";
+    }
     
     self.warningView.hidden = YES;
     [self.warningView updateLocation:nil reason:nil distance:nil];
