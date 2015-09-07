@@ -58,7 +58,7 @@
     // Valid time should in range of [startTime, endTime]
     NSDateComponents* dateCom1 = [calendar components:(NSCalendarUnitHour|NSCalendarUnitMinute) fromDate:date];
     NSInteger hourAndMinutes = [self convertMinutesFromHour:[dateCom1 hour] andMinute:[dateCom1 minute]];
-    if ( hourAndMinutes < [self getMinutesFromTimeStr:startTimeStr] ||
+    if (hourAndMinutes < [self getMinutesFromTimeStr:startTimeStr] ||
         hourAndMinutes > [self getMinutesFromTimeStr:endTimeStr])
     {
         return false;
@@ -68,7 +68,7 @@
     NSDateComponents* dateCom2 = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:date];
     NSInteger month = [dateCom2 month];
     BOOL isMonthValid = NO;
-    for (NSInteger i = 0; i < 12; ++i)
+    for (NSInteger i = 0; i < monthStr.length; ++i)
     {
         if ([monthStr characterAtIndex:i] == '1')
         {

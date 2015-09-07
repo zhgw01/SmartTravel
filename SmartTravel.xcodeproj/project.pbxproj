@@ -63,6 +63,8 @@
 		84A5BC561B7DFACC001EAECB /* StateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5BC501B7DFACC001EAECB /* StateMachine.m */; };
 		84AC4A571B7D680A00842F88 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AC4A561B7D680A00842F88 /* Queue.m */; };
 		84AC4A5A1B7D6C4600842F88 /* LocationRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AC4A591B7D6C4600842F88 /* LocationRecord.m */; };
+		84DB0BA41B9C7FBE00938F60 /* DateUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4203DDB61B0879350002D67F /* DateUtility.m */; };
+		84DB0BA61B9C7FDC00938F60 /* DateUtilityTC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DB0BA51B9C7FDC00938F60 /* DateUtilityTC.m */; };
 		84F38DDC1B0FE86C00A0EB42 /* DBVersionAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DDB1B0FE86C00A0EB42 /* DBVersionAdapter.m */; };
 		84F38DDE1B0FF36500A0EB42 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F38DDD1B0FF36500A0EB42 /* AVFoundation.framework */; };
 		84F38DE11B1000E100A0EB42 /* DBDayTypeAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DE01B1000E100A0EB42 /* DBDayTypeAdapter.m */; };
@@ -191,6 +193,7 @@
 		84AC4A581B7D6C4600842F88 /* LocationRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationRecord.h; path = Model/LocationRecord.h; sourceTree = "<group>"; };
 		84AC4A591B7D6C4600842F88 /* LocationRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationRecord.m; path = Model/LocationRecord.m; sourceTree = "<group>"; };
 		84B3367E1B1DE1EF00BF32B0 /* libPods-SmartTravel-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SmartTravel-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-SmartTravel-AFNetworking.a"; sourceTree = "<group>"; };
+		84DB0BA51B9C7FDC00938F60 /* DateUtilityTC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtilityTC.m; sourceTree = "<group>"; };
 		84F38DDA1B0FE86C00A0EB42 /* DBVersionAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBVersionAdapter.h; path = Model/DBAdapter/DBVersionAdapter.h; sourceTree = "<group>"; };
 		84F38DDB1B0FE86C00A0EB42 /* DBVersionAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBVersionAdapter.m; path = Model/DBAdapter/DBVersionAdapter.m; sourceTree = "<group>"; };
 		84F38DDD1B0FF36500A0EB42 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -539,6 +542,7 @@
 			isa = PBXGroup;
 			children = (
 				9B6A85C81ADFDF0000667170 /* Supporting Files */,
+				84DB0BA51B9C7FDC00938F60 /* DateUtilityTC.m */,
 			);
 			path = SmartTravelTests;
 			sourceTree = "<group>";
@@ -822,6 +826,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84DB0BA41B9C7FBE00938F60 /* DateUtility.m in Sources */,
+				84DB0BA61B9C7FDC00938F60 /* DateUtilityTC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

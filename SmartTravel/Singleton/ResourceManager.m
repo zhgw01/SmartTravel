@@ -65,13 +65,7 @@ static NSString * const kURLOfNewVersion = @"http://101.231.116.154:8080/STRESTW
             @20: @"Ran off road",
             @21: @"attention high risk collision area",
             @22: @"attention high risk collision area",
-            @23: @"School zone",
-            @1001:@"Morning rush hour",
-            @1002:@"afternoon rush hour",
-            @1003:@"weekend early morning",
-            @1004:@"Pedestrians",
-            @1005:@"Cyclist",
-            @1006:@"Motorcyclist"
+            @23: @"School zone"
         };
     }
     return self;
