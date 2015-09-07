@@ -11,3 +11,5 @@
 #pragma mark - Flurry event names
 extern NSString * const kFlurryEventHotspotIgnoreByDirection;
 extern NSString * const kFlurryEventReasonNotMatchForInvalidMonthOrStartAndEndTime;
+extern NSString * const kFlurryEventNoVoicePromptForInActiveStatus;
+extern NSString * const kFlurryEventNoVoicePromptForDisabled;

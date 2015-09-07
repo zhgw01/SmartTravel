@@ -12,3 +12,5 @@
 
 NSString * const kFlurryEventHotspotIgnoreByDirection = @"Hotspot ignored by direction";
 NSString * const kFlurryEventReasonNotMatchForInvalidMonthOrStartAndEndTime = @"Reason not match for invalidate month or start/end time";
+NSString * const kFlurryEventNoVoicePromptForInActiveStatus = @"Voice not speak out for inactive status";
+NSString * const kFlurryEventNoVoicePromptForDisabled = @"Voice not speak out for user turn it off";

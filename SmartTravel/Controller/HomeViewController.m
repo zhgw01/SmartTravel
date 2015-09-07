@@ -37,6 +37,9 @@
 #import "StateMachine.h"
 #import "LocationVoicePromptInfo.h"
 
+#import "Flurry.h"
+#import "STConstants.h"
+
 static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
 #ifndef NDEBUG
@@ -574,12 +577,31 @@ static double kDefaultLon = -113.4687100;
             {
                 // Only speak out the warning message in active status
                 // and it's enabled.
-                if ([StateMachine sharedInstance].status == kStateActive &&
-                    [[AppSettingManager sharedInstance] getIsWarningVoice])
+                if ([StateMachine sharedInstance].status == kStateActive)
                 {
-                    [self speakOutWarningMessage:warningMessage
+                    if ([[AppSettingManager sharedInstance] getIsWarningVoice])
+                    {
+                        [self speakOutWarningMessage:warningMessage
                                          locCode:locationCode
                                         reasonID:@(reasonId)];
+                        NSLog(@"Voice prompt at loc code %@ of reason %d", locationCode, reasonId);
+                    }
+                    else
+                    {
+                        [Flurry logEvent:kFlurryEventNoVoicePromptForInActiveStatus
+                          withParameters:@{
+                                           @"reason id" : @(reasonId),
+                                           @"location code" : locationCode
+                                           }];
+                    }
+                }
+                else
+                {
+                    [Flurry logEvent:kFlurryEventReasonNotMatchForInvalidMonthOrStartAndEndTime
+                      withParameters:@{
+                                       @"reason id" : @(reasonId),
+                                       @"location code" : locationCode
+                                       }];
                 }
             }
         ];
