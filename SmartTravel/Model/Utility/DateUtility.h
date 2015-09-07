@@ -20,4 +20,7 @@
 // Return date string of format "yyyy-MM-dd"
 + (NSString*)getDateString:(NSDate*)date;
 
+// Return date string of format "yyyy-MM-dd hh:mm:ss"
++ (NSString*)getDateString1:(NSDate *)date;
+
 @end

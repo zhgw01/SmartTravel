@@ -35,6 +35,7 @@
 #import "DBManager.h"
 
 #import "StateMachine.h"
+#import "LocationVoicePromptInfo.h"
 
 static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
@@ -87,10 +88,10 @@ static double kDefaultLon = -113.4687100;
 
 // Location related properties
 @property (assign, nonatomic) BOOL       locationDidEverUpdate;
-@property (assign, nonatomic) NSUInteger lastReportCount;
 
 @property (copy, nonatomic) CLLocation *recentLocation;
-@property (copy, nonatomic) NSString   *lastReportLocCode;
+
+@property (strong, nonatomic) LocationVoicePromptInfo *locationVoicePromptInfo;
 
 @end
 
@@ -100,8 +101,7 @@ static double kDefaultLon = -113.4687100;
     [super viewDidLoad];
     
     self.locationDidEverUpdate = NO;
-    self.lastReportCount = 0;
-    self.lastReportLocCode = @"";
+    self.locationVoicePromptInfo = [[LocationVoicePromptInfo alloc] init];
     
     // Initialize views
     [self setupSideBarMenu];
@@ -397,44 +397,42 @@ static double kDefaultLon = -113.4687100;
 - (BOOL)shouldReportWarningOfLocCode:(NSString*)locCode
                               onDate:(NSDate*)date
 {
-    // Remember last voice report date
-    static NSDate* lastReportDate = nil;
-    if (!lastReportDate)
+    NSTimeInterval nowTimeStamp = [date timeIntervalSince1970];
+    if ([locCode isEqualToString:self.locationVoicePromptInfo.locationCode])
     {
-        lastReportDate = date;
-        self.lastReportLocCode = locCode;
-        self.lastReportCount = 1;
-        return YES;
-    }
-    
-    NSTimeInterval secondsInterval= [date timeIntervalSinceDate:lastReportDate];
-    if (secondsInterval < kReportInterval)
-    {
-        return NO;
-    }
-    
-    if ([self.lastReportLocCode isEqualToString:locCode])
-    {
-        if (self.lastReportCount >= kReportRepeat)
+        if ([self.locationVoicePromptInfo exceedWindow:date])
         {
-            return NO;
+            self.locationVoicePromptInfo.count = 1;
+            self.locationVoicePromptInfo.windowStartTime = nowTimeStamp;
+            self.locationVoicePromptInfo.lastTime = nowTimeStamp;
+            return YES;
         }
         else
         {
-            ++self.lastReportCount;
-            lastReportDate = date;
-            return YES;
+            if (nowTimeStamp - self.locationVoicePromptInfo.lastTime < kReportInterval)
+            {
+                return NO;
+            }
+            else
+            {
+                if (self.locationVoicePromptInfo.count >= kMaxPromptCount)
+                {
+                    return NO;
+                }
+                self.locationVoicePromptInfo.count += 1;
+                self.locationVoicePromptInfo.lastTime = nowTimeStamp;
+                return YES;
+            }
         }
     }
     else
     {
-        self.lastReportLocCode = locCode;
-        self.lastReportCount = 1;
-        lastReportDate = date;
+        self.locationVoicePromptInfo.locationCode = locCode;
+        self.locationVoicePromptInfo.count = 1;
+        self.locationVoicePromptInfo.windowStartTime = nowTimeStamp;
+        self.locationVoicePromptInfo.lastTime = nowTimeStamp;
         return YES;
     }
-    
-    return NO;
 }
 
 - (void)speakOutWarningMessage:(NSString *)warningMessage
@@ -443,7 +441,6 @@ static double kDefaultLon = -113.4687100;
 {
     NSString *audioPath = [[ResourceManager sharedInstance] getAudioFilePathByReasonID:reasonId];
     [[AudioManager sharedInstance] speekFromFile:audioPath];
-    NSLog(@"Last report count %ld", (unsigned long)self.lastReportCount);
 
     // Breath the marker
     [self.markerManager breathingMarker:locCode];
@@ -490,11 +487,6 @@ static double kDefaultLon = -113.4687100;
 
 - (void)hotSpotDidNotGet
 {
-    if(self.recentLocation.speed > 0)
-    {
-        self.lastReportLocCode = @"";
-    }
-    
     self.warningView.hidden = YES;
     [self.warningView updateLocation:nil reason:nil distance:nil];
     

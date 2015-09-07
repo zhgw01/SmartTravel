@@ -20,6 +20,7 @@
 		42485BA21B87DFD700C75F9F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42485BA11B87DFD700C75F9F /* Security.framework */; };
 		42485BA61B87EEB000C75F9F /* libFlurry_6.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42485BA51B87EEB000C75F9F /* libFlurry_6.7.0.a */; };
 		425754B71B088BA20046433F /* 20150517013203-58195-data.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 425754B61B088BA20046433F /* 20150517013203-58195-data.gpx */; };
+		426BC42D1B9D3CD50094F509 /* LocationVoicePromptInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BC42C1B9D3CD50094F509 /* LocationVoicePromptInfo.m */; };
 		426EC33A1B92D9AF00ED4BBA /* UIColor+ST.m in Sources */ = {isa = PBXBuildFile; fileRef = 426EC3391B92D9AF00ED4BBA /* UIColor+ST.m */; };
 		426EC3461B92E67100ED4BBA /* HotspotListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 426EC3441B92E67100ED4BBA /* HotspotListVC.m */; };
 		426EC3471B92E67100ED4BBA /* HotspotListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 426EC3451B92E67100ED4BBA /* HotspotListVC.xib */; };
@@ -125,6 +126,8 @@
 		42485BA41B87EEB000C75F9F /* FlurryWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryWatch.h; path = SmartTravel/3rdParty/Flurry/FlurryWatch.h; sourceTree = SOURCE_ROOT; };
 		42485BA51B87EEB000C75F9F /* libFlurry_6.7.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry_6.7.0.a; path = SmartTravel/3rdParty/Flurry/libFlurry_6.7.0.a; sourceTree = SOURCE_ROOT; };
 		425754B61B088BA20046433F /* 20150517013203-58195-data.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "20150517013203-58195-data.gpx"; path = "Test/GPX/20150517013203-58195-data.gpx"; sourceTree = "<group>"; };
+		426BC42B1B9D3CD50094F509 /* LocationVoicePromptInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationVoicePromptInfo.h; path = Model/LocationVoicePromptInfo.h; sourceTree = "<group>"; };
+		426BC42C1B9D3CD50094F509 /* LocationVoicePromptInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationVoicePromptInfo.m; path = Model/LocationVoicePromptInfo.m; sourceTree = "<group>"; };
 		426EC3381B92D9AF00ED4BBA /* UIColor+ST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+ST.h"; path = "Singleton/UIColor+ST.h"; sourceTree = "<group>"; };
 		426EC3391B92D9AF00ED4BBA /* UIColor+ST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+ST.m"; path = "Singleton/UIColor+ST.m"; sourceTree = "<group>"; };
 		426EC3431B92E67100ED4BBA /* HotspotListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HotspotListVC.h; path = Controller/HotspotListVC.h; sourceTree = "<group>"; };
@@ -464,6 +467,8 @@
 				9BF128191AFE537D008E72DA /* Direction.m */,
 				84AC4A581B7D6C4600842F88 /* LocationRecord.h */,
 				84AC4A591B7D6C4600842F88 /* LocationRecord.m */,
+				426BC42B1B9D3CD50094F509 /* LocationVoicePromptInfo.h */,
+				426BC42C1B9D3CD50094F509 /* LocationVoicePromptInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -800,6 +805,7 @@
 				84A5BC511B7DFACC001EAECB /* AppSettingManager.m in Sources */,
 				9B7E59601AE3966F0008D25C /* HomeViewController.m in Sources */,
 				426EC3461B92E67100ED4BBA /* HotspotListVC.m in Sources */,
+				426BC42D1B9D3CD50094F509 /* LocationVoicePromptInfo.m in Sources */,
 				849289AF1B7733C900837FF7 /* DataUpdateVC.m in Sources */,
 				84F38DF21B102B3300A0EB42 /* AnimatedGMSMarker.m in Sources */,
 				42C6A8B21B0A0FAC00EE1518 /* HotSpotDetailView.m in Sources */,

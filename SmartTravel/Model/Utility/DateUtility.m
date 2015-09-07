@@ -92,4 +92,13 @@
     return dateStr;
 }
 
++ (NSString*)getDateString1:(NSDate *)date
+{
+    NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    
+    NSString* dateStr = [dateFormat stringFromDate:date];
+    return dateStr;
+}
+
 @end
