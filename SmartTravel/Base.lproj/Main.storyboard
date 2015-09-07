@@ -262,10 +262,16 @@
                                             <constraint firstAttribute="width" constant="270" id="UxP-pM-MPP"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description See Mac in Person at the Apple Retail Store and have all your questions answred" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kq-Q9-T7q">
-                                        <rect key="frame" x="312" y="69" width="270" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow to receive audio alert when approaching high collision risk locations, school zones, etc" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kq-Q9-T7q">
+                                        <rect key="frame" x="312" y="69" width="270" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.58431372549019611" green="0.58431372549019611" blue="0.58431372549019611" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow to check update automatically" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ysh-Wt-mmP">
+                                        <rect key="frame" x="312" y="174" width="270" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.58431372550000005" green="0.58431372550000005" blue="0.58431372550000005" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4U-FO-EZ1">
@@ -274,8 +280,8 @@
                                             <action selector="voiceMessageSwitchToggled:" destination="JBD-u7-yrp" eventType="valueChanged" id="nhE-5L-bhw"/>
                                         </connections>
                                     </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voice Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfA-hd-t1W">
-                                        <rect key="frame" x="312" y="28" width="122" height="31"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audio Alert" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfA-hd-t1W">
+                                        <rect key="frame" x="312" y="28" width="89" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -326,10 +332,12 @@
                                     <constraint firstAttribute="trailing" secondItem="D4U-FO-EZ1" secondAttribute="trailing" constant="18" id="B42-m0-yzL"/>
                                     <constraint firstItem="nJf-kZ-N5d" firstAttribute="leading" secondItem="YtW-cx-QUq" secondAttribute="leading" id="CQZ-tT-QrV"/>
                                     <constraint firstItem="4kq-Q9-T7q" firstAttribute="top" secondItem="lfA-hd-t1W" secondAttribute="bottom" constant="10" id="ERX-zU-MFH"/>
+                                    <constraint firstItem="Ysh-Wt-mmP" firstAttribute="top" secondItem="ppa-ej-6hV" secondAttribute="bottom" constant="10" id="Ge9-iw-Bd2"/>
                                     <constraint firstItem="YtW-cx-QUq" firstAttribute="leading" secondItem="lfA-hd-t1W" secondAttribute="leading" id="HKg-df-1Td"/>
                                     <constraint firstItem="ppa-ej-6hV" firstAttribute="top" secondItem="YtW-cx-QUq" secondAttribute="bottom" constant="40" id="IiH-et-7h2"/>
                                     <constraint firstItem="99k-Lk-T7b" firstAttribute="bottom" secondItem="xDs-bg-vjw" secondAttribute="bottom" id="Imi-5g-dRy"/>
                                     <constraint firstItem="sMV-99-mpX" firstAttribute="leading" secondItem="D4U-FO-EZ1" secondAttribute="leading" id="LBI-tc-De8"/>
+                                    <constraint firstItem="Ysh-Wt-mmP" firstAttribute="trailing" secondItem="nJf-kZ-N5d" secondAttribute="trailing" id="SvU-yB-5OJ"/>
                                     <constraint firstItem="9tC-9w-nzf" firstAttribute="leading" secondItem="YAW-SC-35W" secondAttribute="trailing" constant="8" id="UqH-zY-wkR"/>
                                     <constraint firstItem="ppa-ej-6hV" firstAttribute="leading" secondItem="lfA-hd-t1W" secondAttribute="leading" id="WTh-dS-OD8"/>
                                     <constraint firstItem="YtW-cx-QUq" firstAttribute="trailing" secondItem="D4U-FO-EZ1" secondAttribute="trailing" id="WmT-ja-LTp"/>
@@ -347,6 +355,7 @@
                                     <constraint firstItem="ppa-ej-6hV" firstAttribute="centerY" secondItem="sMV-99-mpX" secondAttribute="centerY" id="rh5-oe-jo8"/>
                                     <constraint firstItem="YAW-SC-35W" firstAttribute="width" secondItem="xDs-bg-vjw" secondAttribute="width" id="uDQ-QH-xaw"/>
                                     <constraint firstItem="YtW-cx-QUq" firstAttribute="top" secondItem="lfA-hd-t1W" secondAttribute="bottom" constant="42" id="vSI-hT-UtT"/>
+                                    <constraint firstItem="Ysh-Wt-mmP" firstAttribute="leading" secondItem="nJf-kZ-N5d" secondAttribute="leading" id="zzl-ZA-T5b"/>
                                 </constraints>
                             </view>
                         </subviews>
