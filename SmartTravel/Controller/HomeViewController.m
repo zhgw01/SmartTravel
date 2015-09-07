@@ -39,15 +39,12 @@
 
 static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
-#ifdef DEBUG
+#ifndef NDEBUG
 static CGFloat kHotSpotZoonRadius = 1500.0;
 #else
 static CGFloat kHotSpotZoonRadius = 150.0;
 #endif
 static CGFloat kHotSpotEarlyWarningInterval = 10.0;
-
-static NSUInteger kReportRepeat = 3;
-static double kReportInterval = 5;
 
 // Default location is Edmonton, CA
 static double kDefaultLat = 53.5501400;
@@ -400,7 +397,7 @@ static double kDefaultLon = -113.4687100;
     NSTimeInterval nowTimeStamp = [date timeIntervalSince1970];
     if ([locCode isEqualToString:self.locationVoicePromptInfo.locationCode])
     {
-        if ([self.locationVoicePromptInfo exceedWindow:date])
+        if ([self.locationVoicePromptInfo exceedWindow:nowTimeStamp])
         {
             self.locationVoicePromptInfo.count = 1;
             self.locationVoicePromptInfo.windowStartTime = nowTimeStamp;
@@ -409,20 +406,19 @@ static double kDefaultLon = -113.4687100;
         }
         else
         {
-            if (nowTimeStamp - self.locationVoicePromptInfo.lastTime < kReportInterval)
+            if (![self.locationVoicePromptInfo exceedSubWindow:nowTimeStamp])
             {
                 return NO;
             }
-            else
+            
+            if (self.locationVoicePromptInfo.count >= kMaxPromptCount)
             {
-                if (self.locationVoicePromptInfo.count >= kMaxPromptCount)
-                {
-                    return NO;
-                }
-                self.locationVoicePromptInfo.count += 1;
-                self.locationVoicePromptInfo.lastTime = nowTimeStamp;
-                return YES;
+                return NO;
             }
+            
+            self.locationVoicePromptInfo.count += 1;
+            self.locationVoicePromptInfo.lastTime = nowTimeStamp;
+            return YES;
         }
     }
     else

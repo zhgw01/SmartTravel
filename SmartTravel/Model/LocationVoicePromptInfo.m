@@ -22,9 +22,14 @@
     return self;
 }
 
-- (BOOL)exceedWindow:(NSDate*)now
+- (BOOL)exceedWindow:(NSTimeInterval)timeIntervalSince1970
 {
-    return ([now timeIntervalSince1970] - self.windowStartTime) > kMaxWindowDuration;
+    return (timeIntervalSince1970 - self.windowStartTime) > kMaxWindowDuration;
+}
+
+- (BOOL)exceedSubWindow:(NSTimeInterval)timeIntervalSince1970;
+{
+    return (timeIntervalSince1970 - self.lastTime) > kMaxSubWindowDuration;
 }
 
 @end

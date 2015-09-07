@@ -8,7 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-#define kMaxWindowDuration (6000)
+#define kMaxSubWindowDuration (5)
+#ifndef NDEBUG
+#define kMaxWindowDuration (120)
+#else
+#define kMaxWindowDuration (600)
+#endif
 #define kMaxPromptCount (3)
 
 @interface LocationVoicePromptInfo : NSObject
@@ -33,6 +38,8 @@
  */
 @property (assign, nonatomic) int count;
 
-- (BOOL)exceedWindow:(NSDate*)now;
+- (BOOL)exceedWindow:(NSTimeInterval)timeIntervalSince1970;
+
+- (BOOL)exceedSubWindow:(NSTimeInterval)timeIntervalSince1970;
 
 @end
