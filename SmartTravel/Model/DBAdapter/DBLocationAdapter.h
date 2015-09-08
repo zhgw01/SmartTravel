@@ -28,7 +28,6 @@
                      longitude:(double)longitude;
 
 - (BOOL)getLocationName:(NSString**)locationName
-               reasonId:(int*)reasonId
                latitude:(double*)latitude
               longitude:(double*)longitude
               ofLocCode:(NSString*)locCode;

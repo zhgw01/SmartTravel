@@ -43,7 +43,7 @@
 static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
 #ifndef NDEBUG
-static CGFloat kHotSpotZoonRadius = 1500.0;
+static CGFloat kHotSpotZoonRadius = 100.0;
 #else
 static CGFloat kHotSpotZoonRadius = 150.0;
 #endif
@@ -456,12 +456,12 @@ static double kDefaultLon = -113.4687100;
     // Get details of dangerous location
     NSString *locationCode = [hotSpot objectForKey:@"Loc_code"];
     NSString *locationName = [[NSString alloc] init];
-    int reasonId = 0;
+    int reasonId = [[hotSpot objectForKey:@"Reason_id"] intValue];
+    
     double latitude = 0;
     double longitude = 0;
     
     if ([self.locationAdapter getLocationName:&locationName
-                                     reasonId:&reasonId
                                      latitude:&latitude
                                     longitude:&longitude
                                     ofLocCode:locationCode])
