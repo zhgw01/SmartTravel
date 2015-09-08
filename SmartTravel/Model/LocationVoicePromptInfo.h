@@ -9,11 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #define kMaxSubWindowDuration (5)
-#ifndef NDEBUG
-#define kMaxWindowDuration (120)
-#else
 #define kMaxWindowDuration (600)
-#endif
 #define kMaxPromptCount (3)
 
 @interface LocationVoicePromptInfo : NSObject

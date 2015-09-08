@@ -42,11 +42,7 @@
 
 static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
-#ifndef NDEBUG
-static CGFloat kHotSpotZoonRadius = 100.0;
-#else
 static CGFloat kHotSpotZoonRadius = 150.0;
-#endif
 static CGFloat kHotSpotEarlyWarningInterval = 10.0;
 
 // Default location is Edmonton, CA
