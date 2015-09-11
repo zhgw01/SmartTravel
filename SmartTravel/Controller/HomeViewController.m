@@ -630,9 +630,9 @@ static double kDefaultLon = -113.4687100;
     
     // Filter out hot spot
     CGFloat hotSpotZoonRadius = kHotSpotZoonRadius;
-    if (lastLocation.speed > 0)
+    if (curLocation.speed > 0)
     {
-        hotSpotZoonRadius = lastLocation.speed * kHotSpotEarlyWarningInterval;
+        hotSpotZoonRadius = curLocation.speed * kHotSpotEarlyWarningInterval;
     }
     NSDictionary *hotSpot = [self.locationAdapter getLocationReasonAtLatitude:curLocation.coordinate.latitude
                                                                     longitude:curLocation.coordinate.longitude
