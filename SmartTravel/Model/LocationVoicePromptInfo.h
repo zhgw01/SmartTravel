@@ -30,6 +30,12 @@
 @property (assign, nonatomic) NSTimeInterval lastTime;
 
 /**
+ *  distance from user location to target location
+ *  of last time when voice prompt
+ */
+@property (assign, nonatomic) double lastDistance;
+
+/**
  *  prompt count
  */
 @property (assign, nonatomic) int count;

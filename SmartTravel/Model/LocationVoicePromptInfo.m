@@ -14,10 +14,11 @@
 {
     if (self = [super init])
     {
-        self.locationCode = @"";
+        self.locationCode    = @"";
         self.windowStartTime = [[NSDate date] timeIntervalSince1970] - kMaxWindowDuration;
-        self.lastTime = self.windowStartTime;
-        self.count = 0;
+        self.lastTime        = self.windowStartTime;
+        self.lastDistance    = MAXFLOAT;
+        self.count           = 0;
     }
     return self;
 }

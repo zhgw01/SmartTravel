@@ -392,15 +392,17 @@ static double kDefaultLon = -113.4687100;
 
 - (BOOL)shouldReportWarningOfLocCode:(NSString*)locCode
                               onDate:(NSDate*)date
+                          atDistance:(double)distance
 {
     NSTimeInterval nowTimeStamp = [date timeIntervalSince1970];
     if ([locCode isEqualToString:self.locationVoicePromptInfo.locationCode])
     {
         if ([self.locationVoicePromptInfo exceedWindow:nowTimeStamp])
         {
-            self.locationVoicePromptInfo.count = 1;
+            self.locationVoicePromptInfo.count           = 1;
             self.locationVoicePromptInfo.windowStartTime = nowTimeStamp;
-            self.locationVoicePromptInfo.lastTime = nowTimeStamp;
+            self.locationVoicePromptInfo.lastTime        = nowTimeStamp;
+            self.locationVoicePromptInfo.lastDistance    = distance;
             return YES;
         }
         else
@@ -415,17 +417,24 @@ static double kDefaultLon = -113.4687100;
                 return NO;
             }
             
-            self.locationVoicePromptInfo.count += 1;
-            self.locationVoicePromptInfo.lastTime = nowTimeStamp;
+            if (distance > self.locationVoicePromptInfo.lastDistance)
+            {
+                return NO;
+            }
+
+            self.locationVoicePromptInfo.count        += 1;
+            self.locationVoicePromptInfo.lastTime     = nowTimeStamp;
+            self.locationVoicePromptInfo.lastDistance = distance;
             return YES;
         }
     }
     else
     {
-        self.locationVoicePromptInfo.locationCode = locCode;
-        self.locationVoicePromptInfo.count = 1;
+        self.locationVoicePromptInfo.locationCode    = locCode;
+        self.locationVoicePromptInfo.count           = 1;
         self.locationVoicePromptInfo.windowStartTime = nowTimeStamp;
-        self.locationVoicePromptInfo.lastTime = nowTimeStamp;
+        self.locationVoicePromptInfo.lastTime        = nowTimeStamp;
+        self.locationVoicePromptInfo.lastDistance    = distance;
         return YES;
     }
 }
@@ -473,7 +482,8 @@ static double kDefaultLon = -113.4687100;
         
         // Hearing action need be done when dangerous location found
         if ([self shouldReportWarningOfLocCode:locationCode
-                                        onDate:[NSDate date]])
+                                        onDate:[NSDate date]
+                                    atDistance:dis])
         {
             hc(reasonId, locationCode, [warningMessageAndReason objectAtIndex:0]);
         }
