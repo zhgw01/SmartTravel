@@ -312,8 +312,8 @@ static double kDefaultLon = -113.4687100;
                                                            zoom:12.0];
     
     // Draw marker on map to represent all hotspots except shool zones
-    self.markerManager = [[MarkerManager alloc] init];
-    [self.markerManager drawMarkers:self.mapView];
+    self.markerManager = [[MarkerManager alloc] initWithType:HotSpotTypeAllExceptSchoolZone];
+    [self.markerManager attachGMSMapView:self.mapView];
     
     // Set up GPSMapViewDelegate
     self.mapView.delegate = self;
@@ -447,7 +447,7 @@ static double kDefaultLon = -113.4687100;
     [[AudioManager sharedInstance] speekFromFile:audioPath];
 
     // Breath the marker
-    [self.markerManager breathingMarker:locCode];
+    [self.markerManager breath:locCode];
 }
 
 - (void)hotSpotDidGet:(NSDictionary *)hotSpot
@@ -493,9 +493,11 @@ static double kDefaultLon = -113.4687100;
 - (void)hotSpotDidNotGet
 {
     self.warningView.hidden = YES;
-    [self.warningView updateLocation:nil reason:nil distance:nil];
+    [self.warningView updateLocation:nil
+                              reason:nil
+                            distance:nil];
     
-    [self.markerManager breathingMarker:nil];
+    [self.markerManager stopBreath];
 }
 
 - (void)updateCamera:(CLLocation*)location

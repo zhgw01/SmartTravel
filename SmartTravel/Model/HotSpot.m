@@ -13,19 +13,18 @@
 - (instancetype)initWithLocCode:(NSString*)locCode
                        location:(NSString*)location
                           count:(int)count
-                           rank:(int)rank
                        latitude:(double)latitude
                      longtitude:(double)longtitude
+                           type:(HotSpotType)type
 {
     if (self = [super init])
     {
-        self.locCode = locCode;
-        self.location = location;
-        self.count = [NSNumber numberWithInt:count];
-        self.rank = [NSNumber numberWithInt:rank];
-        self.latitude = [NSNumber numberWithDouble:latitude];
+        self.locCode    = locCode;
+        self.location   = location;
+        self.count      = [NSNumber numberWithInt:count];
+        self.latitude   = [NSNumber numberWithDouble:latitude];
         self.longtitude = [NSNumber numberWithDouble:longtitude];
-        self.type = HotSpotTypeCnt;
+        self.type       = type;
     }
     return self;
 }

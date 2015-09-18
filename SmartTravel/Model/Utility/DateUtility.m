@@ -13,8 +13,8 @@
 + (BOOL)isDateWeekday:(NSDate*)date
 {
     NSCalendar* calendar = [NSCalendar currentCalendar];
-    NSRange weekdayRange = [calendar maximumRangeOfUnit:NSWeekdayCalendarUnit];
-    NSDateComponents* components = [calendar components:NSWeekdayCalendarUnit fromDate:date];
+    NSRange weekdayRange = [calendar maximumRangeOfUnit:NSCalendarUnitWeekday];
+    NSDateComponents* components = [calendar components:NSCalendarUnitWeekday fromDate:date];
     NSUInteger weekdayOfDate = [components weekday];
     
     if (weekdayOfDate == weekdayRange.location || weekdayOfDate == weekdayRange.length)

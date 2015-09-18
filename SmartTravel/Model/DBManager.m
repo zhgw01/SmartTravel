@@ -267,25 +267,26 @@
     
     if (hotSpotType == HotSpotTypeCnt)
     {
-        smt = @"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code";
+        smt = @"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, l.Roadway_portion, r.Total from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code";
     }
     else if (hotSpotType == HotSpotTypeAllExceptSchoolZone)
     {
-        smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and (l.Roadway_portion = '%@' or l.Roadway_portion = '%@' or l.Roadway_portion = '%@')", @"INTERSECTION", @"MID STREET", @"MID AVENUE"];
+        smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, l.Roadway_portion, r.Total from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and (l.Roadway_portion = '%@' or l.Roadway_portion = '%@' or l.Roadway_portion = '%@')", @"INTERSECTION", @"MID STREET", @"MID AVENUE"];
     }
     else
     {
-        smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, r.Total from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and l.Roadway_portion = '%@'", [HotSpot toString:hotSpotType]];
+        smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, l.Roadway_portion, r.Total from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and l.Roadway_portion = '%@'", [HotSpot toString:hotSpotType]];
     }
     
     NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
     FMResultSet* resultSet = [db executeQuery:smt];
     while ([resultSet nextWithError:&error])
     {
-        NSString* locationName = [resultSet stringForColumn:@"Location_name"];
-        NSNumber* total = [NSNumber numberWithInt:[resultSet intForColumn:@"Total"]];
-        NSNumber* latitude = [NSNumber numberWithDouble:[resultSet doubleForColumn:@"Latitude"]];
-        NSNumber* longitude = [NSNumber numberWithDouble:[resultSet doubleForColumn:@"Longitude"]];
+        NSString* locationName   = [resultSet stringForColumn:@"Location_name"];
+        NSNumber* total          = [NSNumber numberWithInt:[resultSet intForColumn:@"Total"]];
+        NSNumber* latitude       = [NSNumber numberWithDouble:[resultSet doubleForColumn:@"Latitude"]];
+        NSNumber* longitude      = [NSNumber numberWithDouble:[resultSet doubleForColumn:@"Longitude"]];
+        NSString* roadwayPortion = [resultSet stringForColumn:@"Roadway_portion"];
 
         NSString* key = [resultSet stringForColumn:@"Loc_code"];
         
@@ -305,8 +306,10 @@
                                  total, @"Total",
                                  latitude, @"Latitude",
                                  longitude, @"Longitude",
+                                 roadwayPortion, @"Roadway_portion",
                                  nil];
-            [dic setObject:obj forKey:key];
+            [dic setObject:obj
+                    forKey:key];
         }
     }
     [resultSet close];
@@ -320,16 +323,19 @@
     for (NSString* locCode in [dic allKeys])
     {
         NSDictionary* hotSpotData = [dic objectForKey:locCode];
-        NSString* locationName = [hotSpotData valueForKey:@"Location_name"];
-        int count = [((NSNumber*)[hotSpotData objectForKey:@"Total"]) intValue];
-        double latitude = [((NSNumber*)[hotSpotData objectForKey:@"Latitude"]) doubleValue];
-        double longitude = [((NSNumber*)[hotSpotData objectForKey:@"Longitude"]) doubleValue];
+        NSString* locationName    = [hotSpotData valueForKey:@"Location_name"];
+        int count                 = [((NSNumber*)[hotSpotData objectForKey:@"Total"]) intValue];
+        double latitude           = [((NSNumber*)[hotSpotData objectForKey:@"Latitude"]) doubleValue];
+        double longitude          = [((NSNumber*)[hotSpotData objectForKey:@"Longitude"]) doubleValue];
+        NSString *roadwayPortion  = [hotSpotData valueForKey:@"Roadway_portion"];
+        HotSpotType type          = [HotSpot fromString:roadwayPortion];
         
         HotSpot* hotSpot = [[HotSpot alloc] initWithLocCode:locCode
                                                    location:locationName
-                                                      count:count rank:0
+                                                      count:count
                                                    latitude:latitude
-                                                 longtitude:longitude];
+                                                 longtitude:longitude
+                                                       type:type];
         [res addObject:hotSpot];
     }
     
@@ -354,11 +360,11 @@
     FMResultSet* resultSet = [db executeQuery:smt];
     while ([resultSet nextWithError:&error])
     {
-        NSString* locationName = [resultSet stringForColumn:@"Location_name"];
+        NSString* locationName   = [resultSet stringForColumn:@"Location_name"];
         NSString* roadwayPortion = [resultSet stringForColumn:@"Roadway_portion"];
-        NSNumber* total = [NSNumber numberWithInt:[resultSet intForColumn:@"Total"]];
-        NSNumber* latitude = [NSNumber numberWithDouble:[resultSet doubleForColumn:@"Latitude"]];
-        NSNumber* longitude = [NSNumber numberWithDouble:[resultSet doubleForColumn:@"Longitude"]];
+        NSNumber* total          = [NSNumber numberWithInt:[resultSet intForColumn:@"Total"]];
+        NSNumber* latitude       = [NSNumber numberWithDouble:[resultSet doubleForColumn:@"Latitude"]];
+        NSNumber* longitude      = [NSNumber numberWithDouble:[resultSet doubleForColumn:@"Longitude"]];
         
         NSString* key = [resultSet stringForColumn:@"Loc_code"];
         
@@ -394,18 +400,19 @@
     for (NSString* locCode in [dic allKeys])
     {
         NSDictionary* hotSpotData = [dic objectForKey:locCode];
-        NSString* locationName = [hotSpotData valueForKey:@"Location_name"];
-        NSString* roadwayPortion = [hotSpotData valueForKey:@"Roadway_portion"];
-        int count = [((NSNumber*)[hotSpotData objectForKey:@"Total"]) intValue];
-        double latitude = [((NSNumber*)[hotSpotData objectForKey:@"Latitude"]) doubleValue];
-        double longitude = [((NSNumber*)[hotSpotData objectForKey:@"Longitude"]) doubleValue];
+        NSString* locationName    = [hotSpotData valueForKey:@"Location_name"];
+        NSString* roadwayPortion  = [hotSpotData valueForKey:@"Roadway_portion"];
+        HotSpotType type          = [HotSpot fromString:roadwayPortion];
+        int count                 = [((NSNumber*)[hotSpotData objectForKey:@"Total"]) intValue];
+        double latitude           = [((NSNumber*)[hotSpotData objectForKey:@"Latitude"]) doubleValue];
+        double longitude          = [((NSNumber*)[hotSpotData objectForKey:@"Longitude"]) doubleValue];
         
         HotSpot* hotSpot = [[HotSpot alloc] initWithLocCode:locCode
                                                    location:locationName
-                                                      count:count rank:0
+                                                      count:count
                                                    latitude:latitude
-                                                 longtitude:longitude];
-        hotSpot.type = [HotSpot fromString:roadwayPortion];
+                                                 longtitude:longitude
+                                                       type:type];
         [res addObject:hotSpot];
     }
     

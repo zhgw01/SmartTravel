@@ -22,7 +22,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy) NSString *locCode;
 @property (nonatomic, copy) NSString *location;
 @property (nonatomic, copy) NSNumber *count;
-@property (nonatomic, copy) NSNumber *rank;
 @property (nonatomic, copy) NSNumber *latitude;
 @property (nonatomic, copy) NSNumber *longtitude;
 @property (nonatomic, assign) HotSpotType type;
@@ -30,9 +29,9 @@ typedef enum : NSUInteger {
 - (instancetype)initWithLocCode:(NSString*)locCode
                         location:(NSString*)location
                            count:(int)count
-                            rank:(int)rank
                         latitude:(double)latitude
-                      longtitude:(double)longtitude;
+                      longtitude:(double)longtitude
+                            type:(HotSpotType)type;
 
 + (NSString*)toString:(HotSpotType)type;
 + (HotSpotType)fromString:(NSString*)typeStr;

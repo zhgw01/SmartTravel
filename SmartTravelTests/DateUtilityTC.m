@@ -35,8 +35,10 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
     NSDate *date = [dateFormatter dateFromString:@"2015-09-07 07:33:22"];
-    
-    BOOL actual = [DateUtility isDateMatched:[NSDate date] month:@"111111111111" startTime:@"16:00" endTime:@"19:00"];
+    BOOL actual = [DateUtility isDateMatched:date
+                                       month:@"111111111111"
+                                   startTime:@"16:00"
+                                     endTime:@"19:00"];
     XCTAssertFalse(actual);
 }
 

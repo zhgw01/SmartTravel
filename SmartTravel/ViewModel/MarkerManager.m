@@ -6,34 +6,25 @@
 //  Copyright (c) 2015年 Gongwei. All rights reserved.
 //
 
+#import "Marker.h"
 #import "MarkerManager.h"
 #import "DBManager.h"
 #import "HotSpot.h"
 #import "AnimatedGMSMarker.h"
 
-static NSString * const kStaticMarkerIconName = @"area_collision";
+static NSString * const kStaticMarkerIconName  = @"area_collision";
 static NSString * const kBreathingIconBaseName = @"breathing";
-
-@interface MarkerManager()
-
-/**
- *  Key is location code
- *  Value is the marker
- */
-@property (nonatomic, strong) NSDictionary* hotSpotMarkersDic;
-
-@property (nonatomic, copy) NSString* lastBreathingLocCode;
-@property (nonatomic, strong) NSArray* breathingFrameArray;
-
-@end
 
 @implementation MarkerManager
 
-- (instancetype)init
+- (instancetype)initWithType:(HotSpotType)type
 {
     if (self = [super init])
     {
-        self.breathingFrameArray = @[
+        self.type                  = type;
+        self.hotSpotMarkers        = nil;
+        self.preBreathLocationCode = nil;
+        self.breathFrameArray  = @[
                                      @"01", @"02", @"03", @"04", @"05", @"06", @"07", @"08", @"09", @"10",
                                      @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20",
                                      @"21", @"22", @"23", @"24", @"25", @"26", @"27", @"28", @"29", @"30"
@@ -42,65 +33,99 @@ static NSString * const kBreathingIconBaseName = @"breathing";
     return self;
 }
 
-- (void)clearMarkers
+- (void)refreshHotSpotMarkers
 {
-    NSEnumerator* enu = [self.hotSpotMarkersDic keyEnumerator];
-    NSString* locCode = nil;
-    while (locCode = [enu nextObject])
-    {
-        AnimatedGMSMarker* marker = self.hotSpotMarkersDic[locCode];
-        marker.map = nil;
-    }
-}
-
-- (void)getHotSpotMarkers
-{
-    NSArray* hotSpots = [[DBManager sharedInstance] selectHotSpots:HotSpotTypeAllExceptSchoolZone];
-    NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
+    NSArray* hotSpots = [[DBManager sharedInstance] selectHotSpots:self.type];
+    
+    NSMutableArray *markArr = [[NSMutableArray alloc] init];
     for (HotSpot* hotSpot in hotSpots)
     {
-        AnimatedGMSMarker* marker = [[AnimatedGMSMarker alloc] init];
-        marker.position = CLLocationCoordinate2DMake(hotSpot.latitude.doubleValue,
-                                                     hotSpot.longtitude.doubleValue);
-        marker.icon = [UIImage imageNamed:kStaticMarkerIconName];
-        marker.locCode = hotSpot.locCode;
-        marker.locationName = hotSpot.location;
+        AnimatedGMSMarker* gmsMarker = [[AnimatedGMSMarker alloc] init];
+        gmsMarker.position           = CLLocationCoordinate2DMake(hotSpot.latitude.doubleValue, hotSpot.longtitude.doubleValue);
+        gmsMarker.icon               = [UIImage imageNamed:kStaticMarkerIconName];
+        gmsMarker.locCode            = hotSpot.locCode;
+        gmsMarker.locationName       = hotSpot.location;
         
-        [dic setObject:marker forKey:hotSpot.locCode];
+        Marker *marker = [[Marker alloc] initWithLocationId:hotSpot.locCode
+                                                       type:hotSpot.type
+                                                  gmsMarker:gmsMarker];
+        [markArr addObject:marker];
     }
-    self.hotSpotMarkersDic = [dic copy];
+    self.hotSpotMarkers = [markArr copy];
 }
 
-- (void)drawMarkers: (GMSMapView *)mapView
+- (void)detachGMSMapView
 {
-    [self clearMarkers];
-    [self getHotSpotMarkers];
-    
-    NSEnumerator* enu = [self.hotSpotMarkersDic keyEnumerator];
-    NSString* locCode = nil;
-    while (locCode = [enu nextObject])
+    for (Marker *marker in self.hotSpotMarkers)
     {
-        AnimatedGMSMarker* marker = self.hotSpotMarkersDic[locCode];
-        marker.map = mapView;
+        marker.gmsMarker.map = nil;
     }
 }
 
-- (void)breathingMarker:(NSString*)locCode;
+- (void)attachGMSMapView:(GMSMapView *)mapView
 {
-    if ([self.lastBreathingLocCode isEqualToString:locCode])
+    [self detachGMSMapView];
+    [self refreshHotSpotMarkers];
+    
+    for (Marker *marker in self.hotSpotMarkers)
+    {
+        marker.gmsMarker.map = mapView;
+    }
+}
+
+- (void)breath:(NSString*)locationCode
+{
+    if ([self.preBreathLocationCode isEqualToString:locationCode])
     {
         return;
     }
     
     // Stop breathing last marker
-    AnimatedGMSMarker* lastBreathingMarker = [self.hotSpotMarkersDic objectForKey:self.lastBreathingLocCode];
-    [lastBreathingMarker stopAnimation:kStaticMarkerIconName];
+    Marker *lastBreathingMarker = [self selectMarker:self.preBreathLocationCode];
+    if (lastBreathingMarker)
+    {
+        AnimatedGMSMarker *animatedGMSMarker = (AnimatedGMSMarker *)lastBreathingMarker.gmsMarker;
+        [animatedGMSMarker stopAnimation:kStaticMarkerIconName];
+    }
     
-    self.lastBreathingLocCode = locCode;
+    self.preBreathLocationCode = locationCode;
     
     // Start breathing recent marker
-    AnimatedGMSMarker* marker = [self.hotSpotMarkersDic objectForKey:self.lastBreathingLocCode];
-    [marker setAnimation:kBreathingIconBaseName forFrames:self.breathingFrameArray];
+    Marker *curBreathingMarker = [self selectMarker:locationCode];
+    if (curBreathingMarker)
+    {
+        AnimatedGMSMarker *animatedGMSMarker = (AnimatedGMSMarker *)curBreathingMarker.gmsMarker;
+        [animatedGMSMarker setAnimation:kBreathingIconBaseName forFrames:self.breathFrameArray];
+    }
+}
+
+- (void)stopBreath
+{
+    if (self.preBreathLocationCode)
+    {
+        Marker *lastBreathingMarker = [self selectMarker:self.preBreathLocationCode];
+        if (lastBreathingMarker)
+        {
+            AnimatedGMSMarker *animatedGMSMarker = (AnimatedGMSMarker *)lastBreathingMarker.gmsMarker;
+            [animatedGMSMarker stopAnimation:kStaticMarkerIconName];
+        }
+        
+        self.preBreathLocationCode = nil;
+    }
+}
+
+- (Marker*)selectMarker:(NSString*)locationCode
+{
+    Marker *res = nil;
+    for (Marker *marker in self.hotSpotMarkers)
+    {
+        if ([marker.locationCode isEqualToString:locationCode])
+        {
+            res = marker;
+            break;
+        }
+    }
+    return res;
 }
 
 @end
