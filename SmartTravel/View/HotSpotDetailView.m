@@ -46,7 +46,7 @@
         DBDayTypeAdapter *dayHelper = [[DBDayTypeAdapter alloc] initWith:[NSDate date]];
         if (dayHelper.isSchoolDay)
         {
-            self.schoolDayLabel.text = @"School Day (08:00 - 16:30)";
+            self.schoolDayLabel.text = @"School Day (08:00 - 16:30)\n30km/h Speed Limited";
         }
         else
         {
