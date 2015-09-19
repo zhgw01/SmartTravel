@@ -15,6 +15,15 @@
 static NSString * const kStaticMarkerIconName  = @"area_collision";
 static NSString * const kBreathingIconBaseName = @"breathing";
 
+@interface MarkerManager ()
+
+@property (nonatomic, assign) HotSpotType type;
+@property (nonatomic, strong) NSArray     * hotSpotMarkers;
+@property (nonatomic, copy  ) NSString    * preBreathLocationCode;
+@property (nonatomic, strong) NSArray     * breathFrameArray;
+
+@end
+
 @implementation MarkerManager
 
 - (instancetype)initWithType:(HotSpotType)type
@@ -31,6 +40,22 @@ static NSString * const kBreathingIconBaseName = @"breathing";
                                      ];
     }
     return self;
+}
+
+- (void)changeType:(HotSpotType)type
+       withMapView:(GMSMapView*)mapView
+{
+    if (self.type == type)
+    {
+        return;
+    }
+    
+    self.type = type;
+    
+    [self stopBreath];
+    [self detachGMSMapView];
+    [self refreshHotSpotMarkers];
+    [self attachGMSMapView:mapView];
 }
 
 - (void)refreshHotSpotMarkers

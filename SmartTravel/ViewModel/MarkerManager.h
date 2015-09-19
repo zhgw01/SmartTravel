@@ -12,11 +12,6 @@
 
 @interface MarkerManager : NSObject
 
-@property (nonatomic, assign) HotSpotType type;
-@property (nonatomic, strong) NSArray  * hotSpotMarkers;
-@property (nonatomic, copy  ) NSString * preBreathLocationCode;
-@property (nonatomic, strong) NSArray  * breathFrameArray;
-
 - (instancetype)initWithType:(HotSpotType)type;
 
 - (void)detachGMSMapView;
@@ -24,5 +19,8 @@
 
 - (void)breath:(NSString*)locationCode;
 - (void)stopBreath;
+
+- (void)changeType:(HotSpotType)type
+       withMapView:(GMSMapView*)mapView;
 
 @end
