@@ -37,6 +37,8 @@
 		42C6A8C91B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42C6A8C51B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib */; };
 		42E518941BAC36C70084D683 /* Marker.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E518931BAC36C70084D683 /* Marker.m */; };
 		42E9F19A1BACE702000EAB39 /* ReasonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9F1991BACE702000EAB39 /* ReasonInfo.m */; };
+		42E9F1A01BAD7FD2000EAB39 /* GMSShapeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9F19F1BAD7FD2000EAB39 /* GMSShapeManager.m */; };
+		42E9F1A31BAD840C000EAB39 /* LocationCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9F1A21BAD840C000EAB39 /* LocationCoordinate.m */; };
 		6613E4635B5E884F0B519EDB /* libPods-SmartTravel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */; };
 		841EE2AE1B9482170022A067 /* STConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 841EE2AD1B9482170022A067 /* STConstants.m */; };
 		84232CD41B2D7DE000E0BE11 /* afternoon rush hour.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CC71B2D7DE000E0BE11 /* afternoon rush hour.m4a */; };
@@ -158,6 +160,10 @@
 		42E518931BAC36C70084D683 /* Marker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Marker.m; path = ViewModel/Marker.m; sourceTree = "<group>"; };
 		42E9F1981BACE702000EAB39 /* ReasonInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReasonInfo.h; path = ViewModel/ReasonInfo.h; sourceTree = "<group>"; };
 		42E9F1991BACE702000EAB39 /* ReasonInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReasonInfo.m; path = ViewModel/ReasonInfo.m; sourceTree = "<group>"; };
+		42E9F19E1BAD7FD2000EAB39 /* GMSShapeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMSShapeManager.h; path = ViewModel/GMSShapeManager.h; sourceTree = "<group>"; };
+		42E9F19F1BAD7FD2000EAB39 /* GMSShapeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GMSShapeManager.m; path = ViewModel/GMSShapeManager.m; sourceTree = "<group>"; };
+		42E9F1A11BAD840C000EAB39 /* LocationCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationCoordinate.h; path = Model/LocationCoordinate.h; sourceTree = "<group>"; };
+		42E9F1A21BAD840C000EAB39 /* LocationCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationCoordinate.m; path = Model/LocationCoordinate.m; sourceTree = "<group>"; };
 		5EEEC9CCD391050A8D1BA199 /* libPods-SmartTravelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartTravelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6928DA7D73FEF35E1EBF313F /* Pods-SmartTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravel/Pods-SmartTravel.release.xcconfig"; sourceTree = "<group>"; };
 		841EE2AC1B9482170022A067 /* STConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STConstants.h; path = Singleton/STConstants.h; sourceTree = "<group>"; };
@@ -478,6 +484,8 @@
 				84AC4A591B7D6C4600842F88 /* LocationRecord.m */,
 				426BC42B1B9D3CD50094F509 /* VoicePromptInfo.h */,
 				426BC42C1B9D3CD50094F509 /* VoicePromptInfo.m */,
+				42E9F1A11BAD840C000EAB39 /* LocationCoordinate.h */,
+				42E9F1A21BAD840C000EAB39 /* LocationCoordinate.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -571,6 +579,8 @@
 				42E518931BAC36C70084D683 /* Marker.m */,
 				42E9F1981BACE702000EAB39 /* ReasonInfo.h */,
 				42E9F1991BACE702000EAB39 /* ReasonInfo.m */,
+				42E9F19E1BAD7FD2000EAB39 /* GMSShapeManager.h */,
+				42E9F19F1BAD7FD2000EAB39 /* GMSShapeManager.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -797,6 +807,7 @@
 				84A5BC561B7DFACC001EAECB /* StateMachine.m in Sources */,
 				9B6A85B41ADFDEFF00667170 /* AppDelegate.m in Sources */,
 				84A5BC541B7DFACC001EAECB /* MapModeManager.m in Sources */,
+				42E9F1A01BAD7FD2000EAB39 /* GMSShapeManager.m in Sources */,
 				84A5BC551B7DFACC001EAECB /* ResourceManager.m in Sources */,
 				4290A0AD1AF6050100CB46E5 /* HotSpotTableViewCell.m in Sources */,
 				4203DDB91B0879350002D67F /* DateUtility.m in Sources */,
@@ -806,6 +817,7 @@
 				422977841B0810DB00A11E90 /* DBWMDayType.m in Sources */,
 				42C6A8C61B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.m in Sources */,
 				9B6C7DA81AF500C500DF6FA9 /* DBManager.m in Sources */,
+				42E9F1A31BAD840C000EAB39 /* LocationCoordinate.m in Sources */,
 				841EE2AE1B9482170022A067 /* STConstants.m in Sources */,
 				9B812DD91AEB3E9D008F17B6 /* ReasonListVC.m in Sources */,
 				9B812DDC1AEB3EB7008F17B6 /* SettingsViewController.m in Sources */,

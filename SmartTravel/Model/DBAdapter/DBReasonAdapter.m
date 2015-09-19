@@ -16,15 +16,15 @@
 #import "STConstants.h"
 #import "ReasonInfo.h"
 
-static NSString * const kReasonIdColumn = @"Reason_id";
-static NSString * const kReasonColumn = @"Reason";
+static NSString * const kReasonIdColumn       = @"Reason_id";
+static NSString * const kReasonColumn         = @"Reason";
 static NSString * const kWarningMessageColumn = @"Warning_message";
-static NSString * const kMonthColumn = @"Month";
-static NSString * const kWeekdayColumn = @"Weekday";
-static NSString * const kWeekendColumn = @"Weekend";
-static NSString * const kSchoolDayColumn = @"School_day";
-static NSString * const kStartTimeColumn = @"Start_time";
-static NSString * const kEndTimeColumn = @"End_time";
+static NSString * const kMonthColumn          = @"Month";
+static NSString * const kWeekdayColumn        = @"Weekday";
+static NSString * const kWeekendColumn        = @"Weekend";
+static NSString * const kSchoolDayColumn      = @"School_day";
+static NSString * const kStartTimeColumn      = @"Start_time";
+static NSString * const kEndTimeColumn        = @"End_time";
 
 @implementation DBReasonAdapter
 
