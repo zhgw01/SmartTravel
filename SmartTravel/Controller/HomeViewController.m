@@ -19,6 +19,7 @@
 #import "AnimatedGMSMarker.h"
 
 #import "WarningView.h"
+#import "ReasonInfo.h"
 
 #import "HotSpotDetailView.h"
 
@@ -35,7 +36,7 @@
 #import "DBManager.h"
 
 #import "StateMachine.h"
-#import "LocationVoicePromptInfo.h"
+#import "VoicePromptInfo.h"
 
 #import "Flurry.h"
 #import "STConstants.h"
@@ -83,11 +84,9 @@ static double kDefaultLon = -113.4687100;
 @property (assign, atomic) BOOL noInterfereVCShowed;
 
 // Location related properties
-@property (assign, nonatomic) BOOL       locationDidEverUpdate;
-
-@property (copy, nonatomic) CLLocation *recentLocation;
-
-@property (strong, nonatomic) LocationVoicePromptInfo *locationVoicePromptInfo;
+@property (assign, nonatomic) BOOL            locationDidEverUpdate;
+@property (copy, nonatomic  ) CLLocation      *recentLocation;
+@property (strong, nonatomic) VoicePromptInfo *voicePromptInfo;
 
 @end
 
@@ -97,7 +96,7 @@ static double kDefaultLon = -113.4687100;
     [super viewDidLoad];
     
     self.locationDidEverUpdate = NO;
-    self.locationVoicePromptInfo = [[LocationVoicePromptInfo alloc] init];
+    self.voicePromptInfo = [[VoicePromptInfo alloc] init];
     
     // Initialize views
     [self setupSideBarMenu];
@@ -155,7 +154,9 @@ static double kDefaultLon = -113.4687100;
 - (void)newerDataFound
 {
     DataUpdateVC *dataUpdateVC =[[DataUpdateVC alloc] init];
-    [self.navigationController presentViewController:dataUpdateVC animated:NO completion:nil];
+    [self.navigationController presentViewController:dataUpdateVC
+                                            animated:NO
+                                          completion:nil];
 }
 
 - (void)invalidateTimers
@@ -395,46 +396,49 @@ static double kDefaultLon = -113.4687100;
                           atDistance:(double)distance
 {
     NSTimeInterval nowTimeStamp = [date timeIntervalSince1970];
-    if ([locCode isEqualToString:self.locationVoicePromptInfo.locationCode])
+    if ([locCode isEqualToString:self.voicePromptInfo.locationCode])
     {
-        if ([self.locationVoicePromptInfo exceedWindow:nowTimeStamp])
+        if ([self.voicePromptInfo exceedWindow:nowTimeStamp])
         {
-            self.locationVoicePromptInfo.count           = 1;
-            self.locationVoicePromptInfo.windowStartTime = nowTimeStamp;
-            self.locationVoicePromptInfo.lastTime        = nowTimeStamp;
-            self.locationVoicePromptInfo.lastDistance    = distance;
+            self.voicePromptInfo.canShowWarningView = YES;
+            self.voicePromptInfo.count              = 1;
+            self.voicePromptInfo.windowStartTime    = nowTimeStamp;
+            self.voicePromptInfo.lastTime           = nowTimeStamp;
+            self.voicePromptInfo.lastDistance       = distance;
             return YES;
         }
         else
         {
-            if (![self.locationVoicePromptInfo exceedSubWindow:nowTimeStamp])
+            if (![self.voicePromptInfo exceedSubWindow:nowTimeStamp])
             {
                 return NO;
             }
             
-            if (self.locationVoicePromptInfo.count >= kMaxPromptCount)
+            if (self.voicePromptInfo.count >= kMaxPromptCount)
             {
                 return NO;
             }
             
-            if (distance > self.locationVoicePromptInfo.lastDistance)
+            if (distance > self.voicePromptInfo.lastDistance)
             {
                 return NO;
             }
 
-            self.locationVoicePromptInfo.count        += 1;
-            self.locationVoicePromptInfo.lastTime     = nowTimeStamp;
-            self.locationVoicePromptInfo.lastDistance = distance;
+            self.voicePromptInfo.count              += 1;
+            self.voicePromptInfo.canShowWarningView = self.voicePromptInfo.count < kMaxPromptCount;
+            self.voicePromptInfo.lastTime           = nowTimeStamp;
+            self.voicePromptInfo.lastDistance       = distance;
             return YES;
         }
     }
     else
     {
-        self.locationVoicePromptInfo.locationCode    = locCode;
-        self.locationVoicePromptInfo.count           = 1;
-        self.locationVoicePromptInfo.windowStartTime = nowTimeStamp;
-        self.locationVoicePromptInfo.lastTime        = nowTimeStamp;
-        self.locationVoicePromptInfo.lastDistance    = distance;
+        self.voicePromptInfo.canShowWarningView = YES;
+        self.voicePromptInfo.locationCode       = locCode;
+        self.voicePromptInfo.count              = 1;
+        self.voicePromptInfo.windowStartTime    = nowTimeStamp;
+        self.voicePromptInfo.lastTime           = nowTimeStamp;
+        self.voicePromptInfo.lastDistance       = distance;
         return YES;
     }
 }
@@ -461,7 +465,7 @@ static double kDefaultLon = -113.4687100;
     // Get details of dangerous location
     NSString *locationCode = [hotSpot objectForKey:@"Loc_code"];
     NSString *locationName = [[NSString alloc] init];
-    int reasonId = [[hotSpot objectForKey:@"Reason_id"] intValue];
+    int reasonId           = [[hotSpot objectForKey:@"Reason_id"] intValue];
     
     double latitude = 0;
     double longitude = 0;
@@ -471,32 +475,43 @@ static double kDefaultLon = -113.4687100;
                                     longitude:&longitude
                                     ofLocCode:locationCode])
     {
-        NSArray* warningMessageAndReason = [[[DBReasonAdapter alloc] init]
-                                            getWarningMessageAndReasonOfId:reasonId];
+        ReasonInfo* reasonIfo = [[[DBReasonAdapter alloc] init] getReasonInfo:reasonId];
         
-        // Visual action need be done when dangerous location found
         CLLocation* location = [[CLLocation alloc] initWithLatitude:latitude
                                                           longitude:longitude];
         double dis = [location distanceFromLocation:self.recentLocation];
-        vc(dis, locationName, [warningMessageAndReason objectAtIndex:1]);
         
         // Hearing action need be done when dangerous location found
         if ([self shouldReportWarningOfLocCode:locationCode
                                         onDate:[NSDate date]
                                     atDistance:dis])
         {
-            hc(reasonId, locationCode, [warningMessageAndReason objectAtIndex:0]);
+            hc(reasonId, locationCode, reasonIfo.warningMessage);
+        }
+        
+        // Visual action need be done when dangerous location found
+        if (self.voicePromptInfo.canShowWarningView)
+        {
+            vc(dis, locationName, reasonIfo.reason);
+        }
+        else
+        {
+            [self resetWarningView];
         }
     }
 }
 
-- (void)hotSpotDidNotGet
+- (void)resetWarningView
 {
     self.warningView.hidden = YES;
     [self.warningView updateLocation:nil
                               reason:nil
                             distance:nil];
-    
+}
+
+- (void)hotSpotDidNotGet
+{
+    [self resetWarningView];
     [self.markerManager stopBreath];
 }
 
@@ -590,8 +605,8 @@ static double kDefaultLon = -113.4687100;
                     if ([[AppSettingManager sharedInstance] getIsWarningVoice])
                     {
                         [self speakOutWarningMessage:warningMessage
-                                         locCode:locationCode
-                                        reasonID:@(reasonId)];
+                                             locCode:locationCode
+                                            reasonID:@(reasonId)];
                         NSLog(@"Voice prompt at loc code %@ of reason %d", locationCode, reasonId);
                     }
                     else

@@ -1,5 +1,5 @@
 //
-//  LocationVoicePromptInfo.h
+//  VoicePromptInfo.h
 //  SmartTravel
 //
 //  Created by chenpold on 9/7/15.
@@ -12,7 +12,7 @@
 #define kMaxWindowDuration (600)
 #define kMaxPromptCount (3)
 
-@interface LocationVoicePromptInfo : NSObject
+@interface VoicePromptInfo : NSObject
 
 /**
  *  code of location
@@ -39,6 +39,11 @@
  *  prompt count
  */
 @property (assign, nonatomic) int count;
+
+/**
+ *  can show warning view if YES
+ */
+@property (assign, nonatomic) BOOL canShowWarningView;
 
 - (BOOL)exceedWindow:(NSTimeInterval)timeIntervalSince1970;
 

@@ -14,6 +14,7 @@
 #import "DateUtility.h"
 #import "Flurry.h"
 #import "STConstants.h"
+#import "ReasonInfo.h"
 
 static NSString * const kReasonIdColumn = @"Reason_id";
 static NSString * const kReasonColumn = @"Reason";
@@ -70,9 +71,9 @@ static NSString * const kEndTimeColumn = @"End_time";
     return [res copy];
 }
 
-- (NSArray*)getWarningMessageAndReasonOfId:(int)reasonId
+- (ReasonInfo*)getReasonInfo:(int)reasonId
 {
-    NSMutableArray* res = [[NSMutableArray alloc] init];
+    ReasonInfo *res = [[ReasonInfo alloc] init];
     
     FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
     if ([db open])
@@ -82,8 +83,9 @@ static NSString * const kEndTimeColumn = @"End_time";
         NSError* error = nil;
         if ([resultSet nextWithError:&error] && !error)
         {
-            [res addObject:[resultSet stringForColumn:kWarningMessageColumn]];
-            [res addObject:[resultSet stringForColumn:kReasonColumn]];
+            res.reasonId       = reasonId;
+            res.warningMessage = [resultSet stringForColumn:kWarningMessageColumn];
+            res.reason         = [resultSet stringForColumn:kReasonColumn];
         }
         [resultSet close];
         
@@ -93,7 +95,7 @@ static NSString * const kEndTimeColumn = @"End_time";
         }
     }
     
-    return [res copy];
+    return res;
 }
 
 - (NSString*)constructSmt:(NSDate*)date
