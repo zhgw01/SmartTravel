@@ -26,14 +26,14 @@ PODS:
   - FMDB/standard (2.5):
     - FMDB/common
   - Geo-Utilities (0.0.1)
-  - GoogleMaps (1.10.2)
-  - Mantle (2.0.4):
-    - Mantle/extobjc (= 2.0.4)
-  - Mantle/extobjc (2.0.4)
+  - GoogleMaps (1.10.3)
+  - Mantle (2.0.5):
+    - Mantle/extobjc (= 2.0.5)
+  - Mantle/extobjc (2.0.5)
   - MTLFMDBAdapter (0.2.0):
     - FMDB (~> 2.3)
     - Mantle (~> 2.0)
-  - OCHamcrest (4.1.1)
+  - OCHamcrest (4.2.0)
   - OCMockito (1.4.0):
     - OCHamcrest (~> 4.0)
   - SWRevealViewController (2.3.0)
@@ -51,11 +51,11 @@ SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   Geo-Utilities: ed3b96a7f572646b225f553d51902ba65872e1a7
-  GoogleMaps: 5c92e599b07b0a2a9b367c5dd128edc629bddfea
-  Mantle: 6bee68168423948be0c0c5924832bf3af188e099
+  GoogleMaps: 945e4ac3b74bcca3ddada51df256eb7beddb474d
+  Mantle: 1912395033f601de5adc8ee91e48f46e4c7051ad
   MTLFMDBAdapter: 8957b2fdb61cbf93ddd8739641310f835777e490
-  OCHamcrest: 6f03ffa81d12feab872638490a44ab0a6d3aca10
+  OCHamcrest: c14c0b3f4c4e99363e5b87d97bae38c4438b6d5d
   OCMockito: 4981140c9a9ec06c31af40f636e3c0f25f27e6b2
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.38.1

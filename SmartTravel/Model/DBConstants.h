@@ -19,3 +19,4 @@ extern NSString * const MAIN_DB_TBL_WM_REASON_CONDITION;
 extern NSString * const MAIN_DB_TBL_LOCATION_REASON;
 extern NSString * const MAIN_DB_TBL_WM_DAYTYPE;
 extern NSString * const MAIN_DB_TBL_NEW_VERSION;
+extern NSString * const MAIN_DB_TBL_SCHOOL;
