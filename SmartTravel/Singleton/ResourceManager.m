@@ -14,7 +14,6 @@
 
 NSString * const kNotificationNameVersionHasBeenUpdated = @"kNotificationNameVersionHasBeenUpdated";
 
-
 static NSString * const kURLOfCollisionLocation = @"http://129.128.250.97:8080/STRESTWeb/collisionLocation/jsonOfList";
 static NSString * const kURLOfLocationReason = @"http://129.128.250.97:8080/STRESTWeb/locationReason/jsonOfList";
 static NSString * const kURLOfWMDayType = @"http://129.128.250.97:8080/STRESTWeb/wmDayType/jsonOfList";
@@ -177,6 +176,11 @@ static NSString * const kURLOfSchool = @"http://129.128.250.97:8080/STRESTWeb/sc
     {
         return NO;
     }
+    
+    if (![ResourceManager updateSchoolTable])
+    {
+        return NO;
+    }
 
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationNameVersionHasBeenUpdated
                                                         object:nil
@@ -289,6 +293,22 @@ static NSString * const kURLOfSchool = @"http://129.128.250.97:8080/STRESTWeb/sc
     }
     
     return [DBManager insertJSON:res intoTable:MAIN_DB_TBL_NEW_VERSION];
+}
+
++ (BOOL)updateSchoolTable
+{
+    NSArray *res = [ResourceManager fetchJSONDataFromURL:kURLOfSchool];
+    if (!res)
+    {
+        return NO;
+    }
+    
+    if (![DBManager deleteFromTable:MAIN_DB_TBL_SCHOOL])
+    {
+        return NO;
+    }
+    
+    return [DBManager insertJSON:res intoTable:MAIN_DB_TBL_SCHOOL];
 }
 
 @end

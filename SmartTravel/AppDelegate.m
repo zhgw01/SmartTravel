@@ -17,6 +17,7 @@
 #import "StateMachine.h"
 #import <AVFoundation/AVFoundation.h>
 #import "Flurry.h"
+#import "STConstants.h"
 
 @interface AppDelegate ()
 
@@ -119,6 +120,8 @@ static NSString* FLURRY_TOKEN = @"TSWW3SMF623BGQ37NT6H";
         NSString *latestVersion = nil;
         if ([ResourceManager hasNewerDataVersion:&latestVersion])
         {
+            [Flurry logEvent:kFluryyEventNewDataVersionFound
+              withParameters:@{@"version": latestVersion}];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"NNNewerDataFound" object:nil];
         }
     }

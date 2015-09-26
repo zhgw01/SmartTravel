@@ -205,6 +205,33 @@
                     continue;
                 }
             }
+            else if ([tableName isEqualToString:MAIN_DB_TBL_SCHOOL])
+            {
+                id Id               = [dic valueForKey:@"id"];
+                id school_type      = [dic valueForKey:@"school_type"];
+                id school_name      = [dic valueForKey:@"school_name"];
+                id address          = [dic valueForKey:@"address"];
+                double longitude    = [[dic valueForKey:@"longitude"] doubleValue];
+                double latitude     = [[dic valueForKey:@"latitude"] doubleValue];
+                id grade_level      = [dic valueForKey:@"grade_level"];
+                id sz_segments      = [dic valueForKey:@"sz_segments"];
+             
+                NSString *sql = [NSString stringWithFormat:@"INSERT INTO %@ (id, school_type, school_name, address, longitude, latitude, grade_level, sz_segments) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", MAIN_DB_TBL_SCHOOL];
+                BOOL res = [db executeUpdate:sql,
+                            Id,
+                            school_type,
+                            school_name,
+                            address,
+                            @(longitude),
+                            @(latitude),
+                            grade_level,
+                            sz_segments];
+                if (!res)
+                {
+                    NSLog(@"Error insert %@ into %@", dic, MAIN_DB_TBL_SCHOOL);
+                    continue;
+                }
+            }
             else
             {
                 NSAssert(NO, @"Not implemented");

@@ -13,3 +13,4 @@ extern NSString * const kFlurryEventHotspotIgnoreByDirection;
 extern NSString * const kFlurryEventReasonNotMatchForInvalidMonthOrStartAndEndTime;
 extern NSString * const kFlurryEventNoVoicePromptForInActiveStatus;
 extern NSString * const kFlurryEventNoVoicePromptForDisabled;
+extern NSString * const kFluryyEventNewDataVersionFound;

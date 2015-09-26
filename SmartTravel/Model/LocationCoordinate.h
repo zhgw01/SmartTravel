@@ -18,4 +18,6 @@
 
 - (id)copyWithZone:(NSZone *)zone;
 
++ (NSArray*)parseSegmentsFromString:(NSString*)string;
+
 @end
