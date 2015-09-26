@@ -17,7 +17,9 @@
 
 #import "MarkerManager.h"
 #import "AnimatedGMSMarker.h"
-
+#import "GMSShapeManager.h"
+#import "DBSchoolAdapter.h"
+#import "LocationCoordinate.h"
 #import "WarningView.h"
 #import "ReasonInfo.h"
 
@@ -70,7 +72,10 @@ static double kDefaultLon = -113.4687100;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 
 @property (strong, nonatomic) MarkerManager *markerManager;
-
+@property (strong, nonatomic) UISegmentedControl *layerSegmentedControl;
+@property (strong, nonatomic) GMSShapeManager *gmsShapeManager;
+@property (strong, nonatomic) DBSchoolAdapter *schoolAdapter;
+@property (strong, nonatomic) NSArray *allSchools;
 @property (strong, nonatomic) DBLocationAdapter *locationAdapter;
 @property (weak, nonatomic) DBManager *dbManager;
 @property (weak, nonatomic) AppLocationManager *appLocationManager;
@@ -109,6 +114,7 @@ static double kDefaultLon = -113.4687100;
     self.noInterfereVCShowed = NO;
     
     // Initialize DB adapter and set delegate
+    self.schoolAdapter = [[DBSchoolAdapter alloc] init];
     self.locationAdapter = [[DBLocationAdapter alloc] init];
     
     self.appLocationManager = [AppLocationManager sharedInstance];
@@ -316,11 +322,52 @@ static double kDefaultLon = -113.4687100;
     self.markerManager = [[MarkerManager alloc] initWithType:HotSpotTypeAllExceptSchoolZone];
     [self.markerManager attachGMSMapView:self.mapView];
     
+    self.layerSegmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Collision", @"School"]];
+    self.layerSegmentedControl.frame = CGRectMake(10, 60, 120, 22);
+    [self.layerSegmentedControl addTarget:self
+                                   action:@selector(layerDidSelect:)
+                         forControlEvents:UIControlEventValueChanged];
+
+    [self.mapView insertSubview:self.layerSegmentedControl
+                        atIndex:self.mapView.subviews.count - 1];
+
+    self.gmsShapeManager = [[GMSShapeManager alloc] init];
+    
     // Set up GPSMapViewDelegate
     self.mapView.delegate = self;
     
     // Enable locate me
     self.mapView.myLocationEnabled = YES;
+}
+
+- (void)layerDidSelect:(id)sender
+{
+    UISegmentedControl *segmentedControl = (UISegmentedControl*)sender;
+    // Collision
+    if (segmentedControl.selectedSegmentIndex == 0)
+    {
+        [self.markerManager attachGMSMapView:self.mapView];
+
+        self.allSchools = nil;
+        [self.gmsShapeManager removeSchoolZonesOnMap:self.mapView];
+    }
+    // School
+    else if (segmentedControl.selectedSegmentIndex == 1)
+    {
+        [self.markerManager detachGMSMapView];
+
+        self.allSchools = [self.schoolAdapter selectAllSchools];
+        NSMutableArray *allSchoolZones = [[NSMutableArray alloc] init];
+        for (NSDictionary *school in self.allSchools)
+        {
+            NSString *segmentsStr = [school objectForKey:kColSzSegments];
+            NSArray *segments = [LocationCoordinate parseSegmentsFromString:segmentsStr];
+            [allSchoolZones addObject:segments];
+        }
+        
+        [self.gmsShapeManager drawSchoolZones:allSchoolZones
+                                        onMap:self.mapView];
+    }
 }
 
 - (void) setupSideBarMenu

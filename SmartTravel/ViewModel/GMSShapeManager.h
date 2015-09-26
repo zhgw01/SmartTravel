@@ -10,9 +10,9 @@
 
 @interface GMSShapeManager : NSObject
 
-- (void)drawSegments:(NSArray*)segments
-               onMap:(GMSMapView*)map;
+- (void)drawSchoolZones:(NSArray*)schoolZones
+                  onMap:(GMSMapView*)map;
 
-- (void)removeAllSegmentsOnMap:(GMSMapView*)map;
+- (void)removeSchoolZonesOnMap:(GMSMapView*)map;
 
 @end

@@ -72,6 +72,7 @@
 		84F38DF81B108D0900A0EB42 /* AppLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F38DF71B108D0900A0EB42 /* AppLocationManager.m */; };
 		8F44EBB91BB58629005A9E0B /* LocationCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9F1A21BAD840C000EAB39 /* LocationCoordinate.m */; settings = {ASSET_TAGS = (); }; };
 		8F44EBBB1BB58676005A9E0B /* LocationArrayParseTC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F44EBBA1BB58676005A9E0B /* LocationArrayParseTC.m */; settings = {ASSET_TAGS = (); }; };
+		8FE05CEC1BB63F0A00118F2A /* DBSchoolAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CEB1BB63F0A00118F2A /* DBSchoolAdapter.m */; settings = {ASSET_TAGS = (); }; };
 		9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B295C081ADFF0B200758837 /* FirstLaunch.storyboard */; };
 		9B5EE8641AF3EEE600524F4A /* default.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9B5EE8631AF3EEE600524F4A /* default.gpx */; };
 		9B6A85B11ADFDEFF00667170 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A85B01ADFDEFF00667170 /* main.m */; };
@@ -207,6 +208,8 @@
 		84F38DF71B108D0900A0EB42 /* AppLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppLocationManager.m; sourceTree = "<group>"; };
 		8D390935FB46D35A2294BF7D /* Pods-SmartTravelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravelTests/Pods-SmartTravelTests.release.xcconfig"; sourceTree = "<group>"; };
 		8F44EBBA1BB58676005A9E0B /* LocationArrayParseTC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationArrayParseTC.m; sourceTree = "<group>"; };
+		8FE05CEA1BB63F0A00118F2A /* DBSchoolAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBSchoolAdapter.h; path = Model/DBAdapter/DBSchoolAdapter.h; sourceTree = "<group>"; };
+		8FE05CEB1BB63F0A00118F2A /* DBSchoolAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBSchoolAdapter.m; path = Model/DBAdapter/DBSchoolAdapter.m; sourceTree = "<group>"; };
 		9B295C091ADFF0B200758837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FirstLaunch.storyboard; sourceTree = "<group>"; };
 		9B5EE8631AF3EEE600524F4A /* default.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default.gpx; sourceTree = "<group>"; };
 		9B6A85AB1ADFDEFF00667170 /* SmartTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -283,6 +286,7 @@
 		4225F82A1B08198900C5A73F /* DBAdapter */ = {
 			isa = PBXGroup;
 			children = (
+				8FE05CE91BB63EEC00118F2A /* New Group */,
 				84F38DDF1B1000E100A0EB42 /* DBDayTypeAdapter.h */,
 				84F38DE01B1000E100A0EB42 /* DBDayTypeAdapter.m */,
 				84F38DDA1B0FE86C00A0EB42 /* DBVersionAdapter.h */,
@@ -291,6 +295,8 @@
 				4225F82E1B081A4100C5A73F /* DBLocationAdapter.m */,
 				4225F8311B081A4100C5A73F /* DBReasonAdapter.h */,
 				4225F8321B081A4100C5A73F /* DBReasonAdapter.m */,
+				8FE05CEA1BB63F0A00118F2A /* DBSchoolAdapter.h */,
+				8FE05CEB1BB63F0A00118F2A /* DBSchoolAdapter.m */,
 			);
 			name = DBAdapter;
 			sourceTree = "<group>";
@@ -388,6 +394,13 @@
 				8475E8641B1218FB000E0AD5 /* smartTravel.sqlite */,
 			);
 			name = SQLite;
+			sourceTree = "<group>";
+		};
+		8FE05CE91BB63EEC00118F2A /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		9B295C071ADFF03200758837 /* View */ = {
@@ -815,6 +828,7 @@
 				42E518941BAC36C70084D683 /* Marker.m in Sources */,
 				42E9F19A1BACE702000EAB39 /* ReasonInfo.m in Sources */,
 				84F38DE11B1000E100A0EB42 /* DBDayTypeAdapter.m in Sources */,
+				8FE05CEC1BB63F0A00118F2A /* DBSchoolAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
