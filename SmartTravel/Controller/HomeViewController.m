@@ -19,7 +19,7 @@
 #import "AnimatedGMSMarker.h"
 #import "CollisionMarkerManager.h"
 #import "SchoolMarkerManager.h"
-#import "GMSShapeManager.h"
+#import "ShapeManager.h"
 #import "DBSchoolAdapter.h"
 #import "LocationCoordinate.h"
 #import "WarningView.h"
@@ -75,10 +75,8 @@ static double kDefaultLon = -113.4687100;
 
 //@property (strong, nonatomic) MarkerManager *markerManager;
 @property (strong, nonatomic) UISegmentedControl *layerSegmentedControl;
-@property (strong, nonatomic) GMSShapeManager *gmsShapeManager;
 @property (strong, nonatomic) LayerManager *layerManager;
 
-@property (strong, nonatomic) NSArray *allSchools;
 @property (strong, nonatomic) DBLocationAdapter *locationAdapter;
 @property (strong, nonatomic) DBSchoolAdapter *schoolAdapter;
 @property (weak, nonatomic) DBManager *dbManager;
@@ -332,11 +330,10 @@ static double kDefaultLon = -113.4687100;
     [self.layerSegmentedControl addTarget:self
                                    action:@selector(layerDidSelect:)
                          forControlEvents:UIControlEventValueChanged];
+    self.layerSegmentedControl.selectedSegmentIndex = 0;
 
     [self.mapView insertSubview:self.layerSegmentedControl
                         atIndex:self.mapView.subviews.count - 1];
-
-    self.gmsShapeManager = [[GMSShapeManager alloc] init];
     
     // Set up GPSMapViewDelegate
     self.mapView.delegate = self;
@@ -353,27 +350,12 @@ static double kDefaultLon = -113.4687100;
     {
         [self.layerManager switchToLayer:HotSpotTypeAllExceptSchoolZone
                                onMapView:self.mapView];
-
-        self.allSchools = nil;
-        [self.gmsShapeManager removeSchoolZonesOnMap:self.mapView];
     }
     // School
     else if (segmentedControl.selectedSegmentIndex == 1)
     {
         [self.layerManager switchToLayer:HotSpotTypeSchoolZone
                                onMapView:self.mapView];
-
-        self.allSchools = [self.schoolAdapter selectAllSchools];
-        NSMutableArray *allSchoolZones = [[NSMutableArray alloc] init];
-        for (NSDictionary *school in self.allSchools)
-        {
-            NSString *segmentsStr = [school objectForKey:kColSzSegments];
-            NSArray *segments = [LocationCoordinate parseSegmentsFromString:segmentsStr];
-            [allSchoolZones addObject:segments];
-        }
-        
-        [self.gmsShapeManager drawSchoolZones:allSchoolZones
-                                        onMap:self.mapView];
     }
 }
 
@@ -572,9 +554,9 @@ static double kDefaultLon = -113.4687100;
     [self resetWarningView];
     
     // Breath the marker
-    CollisionMarkerManager *collisionMarkerManager = (CollisionMarkerManager*)(self.layerManager.markerManager);
-    if (collisionMarkerManager)
+    if ([self.layerManager.markerManager isKindOfClass:[CollisionMarkerManager class]])
     {
+        CollisionMarkerManager *collisionMarkerManager = (CollisionMarkerManager*)(self.layerManager.markerManager);
         [collisionMarkerManager stopBreath];
     }
 }

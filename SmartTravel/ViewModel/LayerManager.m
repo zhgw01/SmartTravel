@@ -6,6 +6,7 @@
 //  Copyright © 2015年 Gongwei. All rights reserved.
 //
 #import "MarkerManagerFactory.h"
+#import "ShapeManagerFactory.h"
 #import "LayerManager.h"
 
 @implementation LayerManager
@@ -34,13 +35,14 @@
         return NO;
     }
     
-    [self.markerManager enable:NO
-                     onMapView:mapView];
+    [self.markerManager eraseMarkersOnMapAndReleaseMarkers:YES];
+    [self.shapeManager eraseShapesOnMapAndReleaseShapes:YES];
     
     self.markerManager = [MarkerManagerFactory createMarkerManager:hotSpotType];
-
-    [self.markerManager enable:YES
-                     onMapView:mapView];
+    [self.markerManager drawMarkersOnMapView:mapView];
+    
+    self.shapeManager = [ShapeManagerFactory createShapeManager:hotSpotType];
+    [self.shapeManager drawShapesOnMapView:mapView];
     
     self.hotSpotType = hotSpotType;
 

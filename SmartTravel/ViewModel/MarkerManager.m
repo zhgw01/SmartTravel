@@ -11,17 +11,24 @@
 
 @implementation MarkerManager
 
-- (void)enable:(BOOL)flag
-     onMapView:(GMSMapView*)mapView
+- (void)drawMarkersOnMapView:(GMSMapView*)mapView
 {
-    if (flag)
+    self.markers = [self createMarkers];
+    for (Marker *marker in self.markers)
     {
-        self.markers = [self createMarkers];
-        [self attachMapView:mapView];
+        marker.gmsMarker.map = mapView;
     }
-    else
+}
+
+- (void)eraseMarkersOnMapAndReleaseMarkers:(BOOL)releaeMarkers
+{
+    for (Marker *marker in self.markers)
     {
-        [self detachMapView];
+        marker.gmsMarker.map = nil;
+    }
+    
+    if (releaeMarkers)
+    {
         self.markers = nil;
     }
 }
@@ -30,22 +37,6 @@
 {
     // Override by sub classes
     return nil;
-}
-
-- (void)detachMapView
-{
-    for (Marker *marker in self.markers)
-    {
-        marker.gmsMarker.map = nil;
-    }
-}
-
-- (void)attachMapView:(GMSMapView*)mapView
-{
-    for (Marker *marker in self.markers)
-    {
-        marker.gmsMarker.map = mapView;
-    }
 }
 
 @end

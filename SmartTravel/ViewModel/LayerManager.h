@@ -7,13 +7,15 @@
 //
 #import "HotSpot.h"
 #import "MarkerManager.h"
+#import "ShapeManager.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <Foundation/Foundation.h>
 
 @interface LayerManager : NSObject
 
-@property (nonatomic, assign) HotSpotType   hotSpotType;
-@property (nonatomic, strong) MarkerManager *markerManager;
+@property (nonatomic, assign) HotSpotType    hotSpotType;
+@property (nonatomic, strong) MarkerManager  *markerManager;
+@property (nonatomic, strong) ShapeManager   *shapeManager;
 
 - (BOOL)switchToLayer:(HotSpotType)hotSpotType
             onMapView:(GMSMapView*)mapView;

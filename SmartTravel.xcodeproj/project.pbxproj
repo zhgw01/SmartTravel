@@ -33,7 +33,7 @@
 		42C6A8C91B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42C6A8C51B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib */; };
 		42E518941BAC36C70084D683 /* Marker.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E518931BAC36C70084D683 /* Marker.m */; };
 		42E9F19A1BACE702000EAB39 /* ReasonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9F1991BACE702000EAB39 /* ReasonInfo.m */; };
-		42E9F1A01BAD7FD2000EAB39 /* GMSShapeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9F19F1BAD7FD2000EAB39 /* GMSShapeManager.m */; };
+		42E9F1A01BAD7FD2000EAB39 /* ShapeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9F19F1BAD7FD2000EAB39 /* ShapeManager.m */; };
 		42E9F1A31BAD840C000EAB39 /* LocationCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9F1A21BAD840C000EAB39 /* LocationCoordinate.m */; };
 		6613E4635B5E884F0B519EDB /* libPods-SmartTravel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */; };
 		841EE2AE1B9482170022A067 /* STConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 841EE2AD1B9482170022A067 /* STConstants.m */; };
@@ -77,6 +77,9 @@
 		8FE05CF21BB7DF8F00118F2A /* SchoolMarkerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CF11BB7DF8F00118F2A /* SchoolMarkerManager.m */; settings = {ASSET_TAGS = (); }; };
 		8FE05CF51BB7DFAD00118F2A /* CollisionMarkerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CF41BB7DFAD00118F2A /* CollisionMarkerManager.m */; settings = {ASSET_TAGS = (); }; };
 		8FE05CF81BB7E68600118F2A /* LayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CF71BB7E68600118F2A /* LayerManager.m */; settings = {ASSET_TAGS = (); }; };
+		8FEFC8191BB8103E00A2F922 /* SchoolShapeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEFC8181BB8103E00A2F922 /* SchoolShapeManager.m */; settings = {ASSET_TAGS = (); }; };
+		8FEFC81C1BB810E300A2F922 /* CollisionShapeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEFC81B1BB810E300A2F922 /* CollisionShapeManager.m */; settings = {ASSET_TAGS = (); }; };
+		8FEFC81F1BB8156900A2F922 /* ShapeManagerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEFC81E1BB8156900A2F922 /* ShapeManagerFactory.m */; settings = {ASSET_TAGS = (); }; };
 		9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B295C081ADFF0B200758837 /* FirstLaunch.storyboard */; };
 		9B5EE8641AF3EEE600524F4A /* default.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9B5EE8631AF3EEE600524F4A /* default.gpx */; };
 		9B6A85B11ADFDEFF00667170 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A85B01ADFDEFF00667170 /* main.m */; };
@@ -155,8 +158,8 @@
 		42E518931BAC36C70084D683 /* Marker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Marker.m; path = ViewModel/Marker.m; sourceTree = "<group>"; };
 		42E9F1981BACE702000EAB39 /* ReasonInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReasonInfo.h; path = ViewModel/ReasonInfo.h; sourceTree = "<group>"; };
 		42E9F1991BACE702000EAB39 /* ReasonInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReasonInfo.m; path = ViewModel/ReasonInfo.m; sourceTree = "<group>"; };
-		42E9F19E1BAD7FD2000EAB39 /* GMSShapeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMSShapeManager.h; path = ViewModel/GMSShapeManager.h; sourceTree = "<group>"; };
-		42E9F19F1BAD7FD2000EAB39 /* GMSShapeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GMSShapeManager.m; path = ViewModel/GMSShapeManager.m; sourceTree = "<group>"; };
+		42E9F19E1BAD7FD2000EAB39 /* ShapeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShapeManager.h; path = ViewModel/ShapeManager.h; sourceTree = "<group>"; };
+		42E9F19F1BAD7FD2000EAB39 /* ShapeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShapeManager.m; path = ViewModel/ShapeManager.m; sourceTree = "<group>"; };
 		42E9F1A11BAD840C000EAB39 /* LocationCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationCoordinate.h; path = Model/LocationCoordinate.h; sourceTree = "<group>"; };
 		42E9F1A21BAD840C000EAB39 /* LocationCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationCoordinate.m; path = Model/LocationCoordinate.m; sourceTree = "<group>"; };
 		5EEEC9CCD391050A8D1BA199 /* libPods-SmartTravelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartTravelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +225,12 @@
 		8FE05CF41BB7DFAD00118F2A /* CollisionMarkerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionMarkerManager.m; path = ViewModel/CollisionMarkerManager.m; sourceTree = "<group>"; };
 		8FE05CF61BB7E68600118F2A /* LayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LayerManager.h; path = ViewModel/LayerManager.h; sourceTree = "<group>"; };
 		8FE05CF71BB7E68600118F2A /* LayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LayerManager.m; path = ViewModel/LayerManager.m; sourceTree = "<group>"; };
+		8FEFC8171BB8103E00A2F922 /* SchoolShapeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchoolShapeManager.h; path = ViewModel/SchoolShapeManager.h; sourceTree = "<group>"; };
+		8FEFC8181BB8103E00A2F922 /* SchoolShapeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SchoolShapeManager.m; path = ViewModel/SchoolShapeManager.m; sourceTree = "<group>"; };
+		8FEFC81A1BB810E300A2F922 /* CollisionShapeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionShapeManager.h; path = ViewModel/CollisionShapeManager.h; sourceTree = "<group>"; };
+		8FEFC81B1BB810E300A2F922 /* CollisionShapeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionShapeManager.m; path = ViewModel/CollisionShapeManager.m; sourceTree = "<group>"; };
+		8FEFC81D1BB8156900A2F922 /* ShapeManagerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShapeManagerFactory.h; path = ViewModel/ShapeManagerFactory.h; sourceTree = "<group>"; };
+		8FEFC81E1BB8156900A2F922 /* ShapeManagerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShapeManagerFactory.m; path = ViewModel/ShapeManagerFactory.m; sourceTree = "<group>"; };
 		9B295C091ADFF0B200758837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FirstLaunch.storyboard; sourceTree = "<group>"; };
 		9B5EE8631AF3EEE600524F4A /* default.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default.gpx; sourceTree = "<group>"; };
 		9B6A85AB1ADFDEFF00667170 /* SmartTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -580,8 +589,8 @@
 				42E518931BAC36C70084D683 /* Marker.m */,
 				42E9F1981BACE702000EAB39 /* ReasonInfo.h */,
 				42E9F1991BACE702000EAB39 /* ReasonInfo.m */,
-				42E9F19E1BAD7FD2000EAB39 /* GMSShapeManager.h */,
-				42E9F19F1BAD7FD2000EAB39 /* GMSShapeManager.m */,
+				42E9F19E1BAD7FD2000EAB39 /* ShapeManager.h */,
+				42E9F19F1BAD7FD2000EAB39 /* ShapeManager.m */,
 				8FE05CED1BB79AFB00118F2A /* MarkerManagerFactory.h */,
 				8FE05CEE1BB79AFB00118F2A /* MarkerManagerFactory.m */,
 				8FE05CF01BB7DF8F00118F2A /* SchoolMarkerManager.h */,
@@ -590,6 +599,12 @@
 				8FE05CF41BB7DFAD00118F2A /* CollisionMarkerManager.m */,
 				8FE05CF61BB7E68600118F2A /* LayerManager.h */,
 				8FE05CF71BB7E68600118F2A /* LayerManager.m */,
+				8FEFC8171BB8103E00A2F922 /* SchoolShapeManager.h */,
+				8FEFC8181BB8103E00A2F922 /* SchoolShapeManager.m */,
+				8FEFC81A1BB810E300A2F922 /* CollisionShapeManager.h */,
+				8FEFC81B1BB810E300A2F922 /* CollisionShapeManager.m */,
+				8FEFC81D1BB8156900A2F922 /* ShapeManagerFactory.h */,
+				8FEFC81E1BB8156900A2F922 /* ShapeManagerFactory.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -817,7 +832,8 @@
 				84A5BC561B7DFACC001EAECB /* StateMachine.m in Sources */,
 				9B6A85B41ADFDEFF00667170 /* AppDelegate.m in Sources */,
 				84A5BC541B7DFACC001EAECB /* MapModeManager.m in Sources */,
-				42E9F1A01BAD7FD2000EAB39 /* GMSShapeManager.m in Sources */,
+				8FEFC81C1BB810E300A2F922 /* CollisionShapeManager.m in Sources */,
+				42E9F1A01BAD7FD2000EAB39 /* ShapeManager.m in Sources */,
 				84A5BC551B7DFACC001EAECB /* ResourceManager.m in Sources */,
 				4290A0AD1AF6050100CB46E5 /* HotSpotTableViewCell.m in Sources */,
 				4203DDB91B0879350002D67F /* DateUtility.m in Sources */,
@@ -827,6 +843,7 @@
 				9B6C7DA81AF500C500DF6FA9 /* DBManager.m in Sources */,
 				8FE05CEF1BB79AFB00118F2A /* MarkerManagerFactory.m in Sources */,
 				42E9F1A31BAD840C000EAB39 /* LocationCoordinate.m in Sources */,
+				8FEFC8191BB8103E00A2F922 /* SchoolShapeManager.m in Sources */,
 				841EE2AE1B9482170022A067 /* STConstants.m in Sources */,
 				9B812DD91AEB3E9D008F17B6 /* ReasonListVC.m in Sources */,
 				9B812DDC1AEB3EB7008F17B6 /* SettingsViewController.m in Sources */,
@@ -847,6 +864,7 @@
 				42C6A8B21B0A0FAC00EE1518 /* HotSpotDetailView.m in Sources */,
 				84AC4A571B7D680A00842F88 /* Queue.m in Sources */,
 				9B7E59551AE3882A0008D25C /* GuideViewController.m in Sources */,
+				8FEFC81F1BB8156900A2F922 /* ShapeManagerFactory.m in Sources */,
 				9BDBCA461AF8EEE600F23275 /* MarkerManager.m in Sources */,
 				84F38DDC1B0FE86C00A0EB42 /* DBVersionAdapter.m in Sources */,
 				42E518941BAC36C70084D683 /* Marker.m in Sources */,

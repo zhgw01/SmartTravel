@@ -13,11 +13,8 @@
 
 @property (nonatomic, strong) NSArray *markers;
 
-- (void)enable:(BOOL)flag
-     onMapView:(GMSMapView*)mapView;
+- (void)drawMarkersOnMapView:(GMSMapView*)mapView;
 
-//- (void)detachMapView;
-
-//- (void)attachMapView:(GMSMapView*)mapView;
+- (void)eraseMarkersOnMapAndReleaseMarkers:(BOOL)releaeMarkers;
 
 @end
