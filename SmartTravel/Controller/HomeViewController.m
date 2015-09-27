@@ -15,8 +15,10 @@
 #import "HotspotListVC.h"
 #import "NoInterfereVC.h"
 
-#import "MarkerManager.h"
+#import "LayerManager.h"
 #import "AnimatedGMSMarker.h"
+#import "CollisionMarkerManager.h"
+#import "SchoolMarkerManager.h"
 #import "GMSShapeManager.h"
 #import "DBSchoolAdapter.h"
 #import "LocationCoordinate.h"
@@ -71,12 +73,14 @@ static double kDefaultLon = -113.4687100;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *hotspotListButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 
-@property (strong, nonatomic) MarkerManager *markerManager;
+//@property (strong, nonatomic) MarkerManager *markerManager;
 @property (strong, nonatomic) UISegmentedControl *layerSegmentedControl;
 @property (strong, nonatomic) GMSShapeManager *gmsShapeManager;
-@property (strong, nonatomic) DBSchoolAdapter *schoolAdapter;
+@property (strong, nonatomic) LayerManager *layerManager;
+
 @property (strong, nonatomic) NSArray *allSchools;
 @property (strong, nonatomic) DBLocationAdapter *locationAdapter;
+@property (strong, nonatomic) DBSchoolAdapter *schoolAdapter;
 @property (weak, nonatomic) DBManager *dbManager;
 @property (weak, nonatomic) AppLocationManager *appLocationManager;
 
@@ -319,8 +323,9 @@ static double kDefaultLon = -113.4687100;
                                                            zoom:12.0];
     
     // Draw marker on map to represent all hotspots except shool zones
-    self.markerManager = [[MarkerManager alloc] initWithType:HotSpotTypeAllExceptSchoolZone];
-    [self.markerManager attachGMSMapView:self.mapView];
+    self.layerManager = [[LayerManager alloc] init];
+    [self.layerManager switchToLayer:HotSpotTypeAllExceptSchoolZone
+                           onMapView:self.mapView];
     
     self.layerSegmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Collision", @"School"]];
     self.layerSegmentedControl.frame = CGRectMake(10, 60, 120, 22);
@@ -346,7 +351,8 @@ static double kDefaultLon = -113.4687100;
     // Collision
     if (segmentedControl.selectedSegmentIndex == 0)
     {
-        [self.markerManager attachGMSMapView:self.mapView];
+        [self.layerManager switchToLayer:HotSpotTypeAllExceptSchoolZone
+                               onMapView:self.mapView];
 
         self.allSchools = nil;
         [self.gmsShapeManager removeSchoolZonesOnMap:self.mapView];
@@ -354,7 +360,8 @@ static double kDefaultLon = -113.4687100;
     // School
     else if (segmentedControl.selectedSegmentIndex == 1)
     {
-        [self.markerManager detachGMSMapView];
+        [self.layerManager switchToLayer:HotSpotTypeSchoolZone
+                               onMapView:self.mapView];
 
         self.allSchools = [self.schoolAdapter selectAllSchools];
         NSMutableArray *allSchoolZones = [[NSMutableArray alloc] init];
@@ -498,7 +505,11 @@ static double kDefaultLon = -113.4687100;
     [[AudioManager sharedInstance] speekFromFile:audioPath];
 
     // Breath the marker
-    [self.markerManager breath:locCode];
+    CollisionMarkerManager *collisionMarkerManager = (CollisionMarkerManager*)(self.layerManager.markerManager);
+    if (collisionMarkerManager)
+    {
+        [collisionMarkerManager breath:locCode];
+    }
 }
 
 - (void)hotSpotDidGet:(NSDictionary *)hotSpot
@@ -559,7 +570,13 @@ static double kDefaultLon = -113.4687100;
 - (void)hotSpotDidNotGet
 {
     [self resetWarningView];
-    [self.markerManager stopBreath];
+    
+    // Breath the marker
+    CollisionMarkerManager *collisionMarkerManager = (CollisionMarkerManager*)(self.layerManager.markerManager);
+    if (collisionMarkerManager)
+    {
+        [collisionMarkerManager stopBreath];
+    }
 }
 
 - (void)updateCamera:(CLLocation*)location

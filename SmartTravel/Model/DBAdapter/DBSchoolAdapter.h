@@ -12,6 +12,7 @@ extern NSString * const kColId;
 extern NSString * const kColLongitude;
 extern NSString * const kColLatitude;
 extern NSString * const kColSzSegments;
+extern NSString * const kColSchoolName;
 
 @interface DBSchoolAdapter : NSObject
 

@@ -73,6 +73,10 @@
 		8F44EBB91BB58629005A9E0B /* LocationCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9F1A21BAD840C000EAB39 /* LocationCoordinate.m */; settings = {ASSET_TAGS = (); }; };
 		8F44EBBB1BB58676005A9E0B /* LocationArrayParseTC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F44EBBA1BB58676005A9E0B /* LocationArrayParseTC.m */; settings = {ASSET_TAGS = (); }; };
 		8FE05CEC1BB63F0A00118F2A /* DBSchoolAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CEB1BB63F0A00118F2A /* DBSchoolAdapter.m */; settings = {ASSET_TAGS = (); }; };
+		8FE05CEF1BB79AFB00118F2A /* MarkerManagerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CEE1BB79AFB00118F2A /* MarkerManagerFactory.m */; settings = {ASSET_TAGS = (); }; };
+		8FE05CF21BB7DF8F00118F2A /* SchoolMarkerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CF11BB7DF8F00118F2A /* SchoolMarkerManager.m */; settings = {ASSET_TAGS = (); }; };
+		8FE05CF51BB7DFAD00118F2A /* CollisionMarkerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CF41BB7DFAD00118F2A /* CollisionMarkerManager.m */; settings = {ASSET_TAGS = (); }; };
+		8FE05CF81BB7E68600118F2A /* LayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CF71BB7E68600118F2A /* LayerManager.m */; settings = {ASSET_TAGS = (); }; };
 		9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B295C081ADFF0B200758837 /* FirstLaunch.storyboard */; };
 		9B5EE8641AF3EEE600524F4A /* default.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9B5EE8631AF3EEE600524F4A /* default.gpx */; };
 		9B6A85B11ADFDEFF00667170 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A85B01ADFDEFF00667170 /* main.m */; };
@@ -210,6 +214,14 @@
 		8F44EBBA1BB58676005A9E0B /* LocationArrayParseTC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationArrayParseTC.m; sourceTree = "<group>"; };
 		8FE05CEA1BB63F0A00118F2A /* DBSchoolAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBSchoolAdapter.h; path = Model/DBAdapter/DBSchoolAdapter.h; sourceTree = "<group>"; };
 		8FE05CEB1BB63F0A00118F2A /* DBSchoolAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBSchoolAdapter.m; path = Model/DBAdapter/DBSchoolAdapter.m; sourceTree = "<group>"; };
+		8FE05CED1BB79AFB00118F2A /* MarkerManagerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkerManagerFactory.h; path = ViewModel/MarkerManagerFactory.h; sourceTree = "<group>"; };
+		8FE05CEE1BB79AFB00118F2A /* MarkerManagerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarkerManagerFactory.m; path = ViewModel/MarkerManagerFactory.m; sourceTree = "<group>"; };
+		8FE05CF01BB7DF8F00118F2A /* SchoolMarkerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchoolMarkerManager.h; path = ViewModel/SchoolMarkerManager.h; sourceTree = "<group>"; };
+		8FE05CF11BB7DF8F00118F2A /* SchoolMarkerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SchoolMarkerManager.m; path = ViewModel/SchoolMarkerManager.m; sourceTree = "<group>"; };
+		8FE05CF31BB7DFAD00118F2A /* CollisionMarkerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionMarkerManager.h; path = ViewModel/CollisionMarkerManager.h; sourceTree = "<group>"; };
+		8FE05CF41BB7DFAD00118F2A /* CollisionMarkerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionMarkerManager.m; path = ViewModel/CollisionMarkerManager.m; sourceTree = "<group>"; };
+		8FE05CF61BB7E68600118F2A /* LayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LayerManager.h; path = ViewModel/LayerManager.h; sourceTree = "<group>"; };
+		8FE05CF71BB7E68600118F2A /* LayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LayerManager.m; path = ViewModel/LayerManager.m; sourceTree = "<group>"; };
 		9B295C091ADFF0B200758837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FirstLaunch.storyboard; sourceTree = "<group>"; };
 		9B5EE8631AF3EEE600524F4A /* default.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default.gpx; sourceTree = "<group>"; };
 		9B6A85AB1ADFDEFF00667170 /* SmartTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -570,6 +582,14 @@
 				42E9F1991BACE702000EAB39 /* ReasonInfo.m */,
 				42E9F19E1BAD7FD2000EAB39 /* GMSShapeManager.h */,
 				42E9F19F1BAD7FD2000EAB39 /* GMSShapeManager.m */,
+				8FE05CED1BB79AFB00118F2A /* MarkerManagerFactory.h */,
+				8FE05CEE1BB79AFB00118F2A /* MarkerManagerFactory.m */,
+				8FE05CF01BB7DF8F00118F2A /* SchoolMarkerManager.h */,
+				8FE05CF11BB7DF8F00118F2A /* SchoolMarkerManager.m */,
+				8FE05CF31BB7DFAD00118F2A /* CollisionMarkerManager.h */,
+				8FE05CF41BB7DFAD00118F2A /* CollisionMarkerManager.m */,
+				8FE05CF61BB7E68600118F2A /* LayerManager.h */,
+				8FE05CF71BB7E68600118F2A /* LayerManager.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -786,6 +806,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				84A5BC531B7DFACC001EAECB /* LocationRecordManager.m in Sources */,
+				8FE05CF81BB7E68600118F2A /* LayerManager.m in Sources */,
+				8FE05CF51BB7DFAD00118F2A /* CollisionMarkerManager.m in Sources */,
 				42C6A8B41B0A0FAC00EE1518 /* WarningView.m in Sources */,
 				4225F8341B081A4100C5A73F /* DBLocationAdapter.m in Sources */,
 				84AC4A5A1B7D6C4600842F88 /* LocationRecord.m in Sources */,
@@ -803,6 +825,7 @@
 				42C6A8C81B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m in Sources */,
 				42C6A8C61B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.m in Sources */,
 				9B6C7DA81AF500C500DF6FA9 /* DBManager.m in Sources */,
+				8FE05CEF1BB79AFB00118F2A /* MarkerManagerFactory.m in Sources */,
 				42E9F1A31BAD840C000EAB39 /* LocationCoordinate.m in Sources */,
 				841EE2AE1B9482170022A067 /* STConstants.m in Sources */,
 				9B812DD91AEB3E9D008F17B6 /* ReasonListVC.m in Sources */,
@@ -813,6 +836,7 @@
 				9BF1281A1AFE537D008E72DA /* Direction.m in Sources */,
 				9B7E59511AE37FD10008D25C /* TermUsage.m in Sources */,
 				84A5BC521B7DFACC001EAECB /* AudioManager.m in Sources */,
+				8FE05CF21BB7DF8F00118F2A /* SchoolMarkerManager.m in Sources */,
 				849DE7D51B7B825400B1FA3D /* NoInterfereVC.m in Sources */,
 				84A5BC511B7DFACC001EAECB /* AppSettingManager.m in Sources */,
 				9B7E59601AE3966F0008D25C /* HomeViewController.m in Sources */,

@@ -14,6 +14,7 @@ NSString * const kColId = @"id";
 NSString * const kColLongitude = @"longitude";
 NSString * const kColLatitude = @"latitude";
 NSString * const kColSzSegments = @"sz_segments";
+NSString * const kColSchoolName = @"school_name";
 
 @implementation DBSchoolAdapter
 
@@ -24,7 +25,7 @@ NSString * const kColSzSegments = @"sz_segments";
     FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
     if ([db open])
     {
-        NSString *selectSmt = [NSString stringWithFormat:@"SELECT %@, %@, %@, %@ FROM %@", kColId, kColLongitude, kColLatitude, kColSzSegments, MAIN_DB_TBL_SCHOOL];
+        NSString *selectSmt = [NSString stringWithFormat:@"SELECT %@, %@, %@, %@, %@ FROM %@", kColId, kColLongitude, kColLatitude, kColSzSegments, kColSchoolName, MAIN_DB_TBL_SCHOOL];
         
         FMResultSet* resultSet = [db executeQuery:selectSmt];
         NSError* error = nil;
@@ -34,7 +35,8 @@ NSString * const kColSzSegments = @"sz_segments";
                                   kColId: [resultSet objectForColumnName:kColId],
                                   kColLongitude : [resultSet objectForColumnName:kColLongitude],
                                   kColLatitude : [resultSet objectForColumnName:kColLatitude],
-                                  kColSzSegments : [resultSet objectForColumnName:kColSzSegments]
+                                  kColSzSegments : [resultSet objectForColumnName:kColSzSegments],
+                                  kColSchoolName : [resultSet objectForColumnName:kColSchoolName]
                                   };
             [res addObject:dic];
         }

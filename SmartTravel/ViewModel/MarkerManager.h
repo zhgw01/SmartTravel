@@ -6,21 +6,18 @@
 //  Copyright (c) 2015年 Gongwei. All rights reserved.
 //
 #import "HotSpot.h"
-#import "Marker.h"
-#import <Foundation/Foundation.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import <Foundation/Foundation.h>
 
 @interface MarkerManager : NSObject
 
-- (instancetype)initWithType:(HotSpotType)type;
+@property (nonatomic, strong) NSArray *markers;
 
-- (void)detachGMSMapView;
-- (void)attachGMSMapView:(GMSMapView*)mapView;
+- (void)enable:(BOOL)flag
+     onMapView:(GMSMapView*)mapView;
 
-- (void)breath:(NSString*)locationCode;
-- (void)stopBreath;
+//- (void)detachMapView;
 
-- (void)changeType:(HotSpotType)type
-       withMapView:(GMSMapView*)mapView;
+//- (void)attachMapView:(GMSMapView*)mapView;
 
 @end
