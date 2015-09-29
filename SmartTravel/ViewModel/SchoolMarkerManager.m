@@ -11,19 +11,13 @@
 
 static NSString * const kMarkerSchoolIcon = @"school";
 
-@interface SchoolMarkerManager ()
-
-@property (nonatomic, strong) NSArray           *schoolMarkers;
-@property (nonatomic, strong) DBSchoolAdapter   *dbSchoolAdapter;
-
-@end
-
 @implementation SchoolMarkerManager
 
 // Override parent class
 - (NSArray*)createMarkers
 {
-    NSArray *allSchools = [self.dbSchoolAdapter selectAllSchools];
+    DBSchoolAdapter *dbSchoolAdapter = [[DBSchoolAdapter alloc] init];
+    NSArray *allSchools = [dbSchoolAdapter selectAllSchools];
     NSMutableArray *markers = [[NSMutableArray alloc] init];
     for (NSDictionary *school in allSchools)
     {
