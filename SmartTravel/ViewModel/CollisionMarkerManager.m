@@ -46,8 +46,9 @@ static NSString * const kBreathingIconBaseName  = @"breathing";
         AnimatedGMSMarker* gmsMarker = [[AnimatedGMSMarker alloc] init];
         gmsMarker.position           = CLLocationCoordinate2DMake(hotSpot.latitude.doubleValue, hotSpot.longtitude.doubleValue);
         gmsMarker.icon               = [UIImage imageNamed:kMarkerCollisionIcon];
-        gmsMarker.locCode            = hotSpot.locCode;
+        gmsMarker.locationCode       = hotSpot.locCode;
         gmsMarker.locationName       = hotSpot.location;
+        gmsMarker.hotSpotType        = hotSpot.type;
         
         Marker *marker = [[Marker alloc] initWithLocationId:hotSpot.locCode
                                                        type:hotSpot.type

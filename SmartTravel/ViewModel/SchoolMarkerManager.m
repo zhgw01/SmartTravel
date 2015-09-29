@@ -6,6 +6,7 @@
 //  Copyright © 2015年 Gongwei. All rights reserved.
 //
 #import "Marker.h"
+#import "AnimatedGMSMarker.h"
 #import "DBSchoolAdapter.h"
 #import "SchoolMarkerManager.h"
 
@@ -24,12 +25,15 @@ static NSString * const kMarkerSchoolIcon = @"school";
         double latitude = [[school valueForKey:kColLatitude] doubleValue];
         double longitude = [[school valueForKey:kColLongitude] doubleValue];
         
-        GMSMarker *gmsMarker    = [[GMSMarker alloc] init];
+        AnimatedGMSMarker *gmsMarker    = [[AnimatedGMSMarker alloc] init];
         gmsMarker.position      = CLLocationCoordinate2DMake(latitude, longitude);
         gmsMarker.icon          = [UIImage imageNamed:kMarkerSchoolIcon];
-        
+        gmsMarker.locationName  = [school valueForKey:kColSchoolName];
         // TODO: Need location id for school?
-        Marker *marker = [[Marker alloc] initWithLocationId:@"School Location ID"
+        gmsMarker.locationCode  = @"School Location Code";
+        gmsMarker.hotSpotType   = HotSpotTypeSchoolZone;
+
+        Marker *marker = [[Marker alloc] initWithLocationId:@"School Location Code"
                                                        type:HotSpotTypeSchoolZone
                                                   gmsMarker:gmsMarker];
         [markers addObject:marker];

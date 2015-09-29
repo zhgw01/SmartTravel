@@ -10,6 +10,7 @@
 
 @interface AnimatedGMSMarker ()
 
+@property (copy, nonatomic) NSString* animationBaseName;
 @property (assign, nonatomic) int currentFrame;
 @property (strong, nonatomic) NSArray* frameArray;
 @property (strong, nonatomic) NSTimer* timer;

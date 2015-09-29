@@ -741,10 +741,16 @@ static double kDefaultLon = -113.4687100;
     NSArray* hotSpotDetails = nil;
     if (hotSpot.type == HotSpotTypeSchoolZone)
     {
+        self.layerSegmentedControl.selectedSegmentIndex = 1;
+        [self.layerManager switchToLayer:HotSpotTypeSchoolZone
+                               onMapView:self.mapView];
         hotSpotDetails = @[];
     }
     else
     {
+        self.layerSegmentedControl.selectedSegmentIndex = 0;
+        [self.layerManager switchToLayer:HotSpotTypeAllExceptSchoolZone
+                               onMapView:self.mapView];
         hotSpotDetails = [self.dbManager getHotSpotDetailsByLocationCode:hotSpot.locCode];
     }
     [self.hotSpotDetailView configWithType:hotSpot.type
@@ -784,13 +790,27 @@ static double kDefaultLon = -113.4687100;
     AnimatedGMSMarker* animatedGMSMarker = (AnimatedGMSMarker*)marker;
     if (animatedGMSMarker)
     {
-        NSArray* hotSpotDetails = [self.dbManager getHotSpotDetailsByLocationCode:animatedGMSMarker.locCode];
-        // School zone has no marker
-        [self.hotSpotDetailView configWithType:HotSpotTypeAllExceptSchoolZone
-                                       andData:@{
-                                                 @"name":animatedGMSMarker.locationName,
-                                              @"details":hotSpotDetails
-                                                 }];
+        if (animatedGMSMarker.hotSpotType == HotSpotTypeSchoolZone)
+        {
+            [self.hotSpotDetailView configWithType:HotSpotTypeSchoolZone
+                                           andData:@{
+                                                     @"name":animatedGMSMarker.locationName,
+                                                  @"details":@[]
+                                                     }];
+        }
+        else if (animatedGMSMarker.hotSpotType != HotSpotTypeCnt)
+        {
+            NSArray* hotSpotDetails = [self.dbManager getHotSpotDetailsByLocationCode:animatedGMSMarker.locationCode];
+            [self.hotSpotDetailView configWithType:HotSpotTypeAllExceptSchoolZone
+                                           andData:@{
+                                                     @"name":animatedGMSMarker.locationName,
+                                                  @"details":hotSpotDetails
+                                                     }];
+        }
+        else
+        {
+            NSLog(@"User did select unsupported marker type");
+        }
     }
     
     return YES;
