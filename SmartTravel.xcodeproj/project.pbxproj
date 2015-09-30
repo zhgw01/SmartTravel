@@ -31,7 +31,6 @@
 		42C6A8C71B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42C6A8C21B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.xib */; };
 		42C6A8C81B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C6A8C41B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m */; };
 		42C6A8C91B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42C6A8C51B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib */; };
-		42E518941BAC36C70084D683 /* Marker.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E518931BAC36C70084D683 /* Marker.m */; };
 		42E9F19A1BACE702000EAB39 /* ReasonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9F1991BACE702000EAB39 /* ReasonInfo.m */; };
 		42E9F1A01BAD7FD2000EAB39 /* ShapeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9F19F1BAD7FD2000EAB39 /* ShapeManager.m */; };
 		42E9F1A31BAD840C000EAB39 /* LocationCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9F1A21BAD840C000EAB39 /* LocationCoordinate.m */; };
@@ -154,8 +153,6 @@
 		42C6A8C31B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HotSpotDetailViewHeaderCell.h; path = View/HotSpotDetailViewHeaderCell.h; sourceTree = "<group>"; };
 		42C6A8C41B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HotSpotDetailViewHeaderCell.m; path = View/HotSpotDetailViewHeaderCell.m; sourceTree = "<group>"; };
 		42C6A8C51B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HotSpotDetailViewHeaderCell.xib; path = View/HotSpotDetailViewHeaderCell.xib; sourceTree = "<group>"; };
-		42E518921BAC36C70084D683 /* Marker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Marker.h; path = ViewModel/Marker.h; sourceTree = "<group>"; };
-		42E518931BAC36C70084D683 /* Marker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Marker.m; path = ViewModel/Marker.m; sourceTree = "<group>"; };
 		42E9F1981BACE702000EAB39 /* ReasonInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReasonInfo.h; path = ViewModel/ReasonInfo.h; sourceTree = "<group>"; };
 		42E9F1991BACE702000EAB39 /* ReasonInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReasonInfo.m; path = ViewModel/ReasonInfo.m; sourceTree = "<group>"; };
 		42E9F19E1BAD7FD2000EAB39 /* ShapeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShapeManager.h; path = ViewModel/ShapeManager.h; sourceTree = "<group>"; };
@@ -585,8 +582,6 @@
 			children = (
 				9BDBCA441AF8EEE600F23275 /* MarkerManager.h */,
 				9BDBCA451AF8EEE600F23275 /* MarkerManager.m */,
-				42E518921BAC36C70084D683 /* Marker.h */,
-				42E518931BAC36C70084D683 /* Marker.m */,
 				42E9F1981BACE702000EAB39 /* ReasonInfo.h */,
 				42E9F1991BACE702000EAB39 /* ReasonInfo.m */,
 				42E9F19E1BAD7FD2000EAB39 /* ShapeManager.h */,
@@ -867,7 +862,6 @@
 				8FEFC81F1BB8156900A2F922 /* ShapeManagerFactory.m in Sources */,
 				9BDBCA461AF8EEE600F23275 /* MarkerManager.m in Sources */,
 				84F38DDC1B0FE86C00A0EB42 /* DBVersionAdapter.m in Sources */,
-				42E518941BAC36C70084D683 /* Marker.m in Sources */,
 				42E9F19A1BACE702000EAB39 /* ReasonInfo.m in Sources */,
 				84F38DE11B1000E100A0EB42 /* DBDayTypeAdapter.m in Sources */,
 				8FE05CEC1BB63F0A00118F2A /* DBSchoolAdapter.m in Sources */,

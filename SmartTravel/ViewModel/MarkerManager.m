@@ -5,8 +5,7 @@
 //  Created by Gongwei on 15/5/5.
 //  Copyright (c) 2015年 Gongwei. All rights reserved.
 //
-
-#import "Marker.h"
+#import "AnimatedGMSMarker.h"
 #import "MarkerManager.h"
 
 @implementation MarkerManager
@@ -14,17 +13,17 @@
 - (void)drawMarkersOnMapView:(GMSMapView*)mapView
 {
     self.markers = [self createMarkers];
-    for (Marker *marker in self.markers)
+    for (AnimatedGMSMarker *marker in self.markers)
     {
-        marker.gmsMarker.map = mapView;
+        marker.map = mapView;
     }
 }
 
 - (void)eraseMarkersOnMapAndReleaseMarkers:(BOOL)releaeMarkers
 {
-    for (Marker *marker in self.markers)
+    for (AnimatedGMSMarker *marker in self.markers)
     {
-        marker.gmsMarker.map = nil;
+        marker.map = nil;
     }
     
     if (releaeMarkers)

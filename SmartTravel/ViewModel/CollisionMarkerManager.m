@@ -6,7 +6,6 @@
 //  Copyright © 2015年 Gongwei. All rights reserved.
 //
 #import "AnimatedGMSMarker.h"
-#import "Marker.h"
 #import "DBManager.h"
 #import "CollisionMarkerManager.h"
 
@@ -49,11 +48,7 @@ static NSString * const kBreathingIconBaseName  = @"breathing";
         gmsMarker.locationCode       = hotSpot.locCode;
         gmsMarker.locationName       = hotSpot.location;
         gmsMarker.hotSpotType        = hotSpot.type;
-        
-        Marker *marker = [[Marker alloc] initWithLocationId:hotSpot.locCode
-                                                       type:hotSpot.type
-                                                  gmsMarker:gmsMarker];
-        [markers addObject:marker];
+        [markers addObject:gmsMarker];
     }
     return [markers copy];
 }
@@ -66,43 +61,32 @@ static NSString * const kBreathingIconBaseName  = @"breathing";
     }
     
     // Stop breathing last marker
-    Marker *lastBreathingMarker = [self selectMarker:self.preBreathLocationCode];
-    if (lastBreathingMarker)
-    {
-        AnimatedGMSMarker *animatedGMSMarker = (AnimatedGMSMarker *)lastBreathingMarker.gmsMarker;
-        [animatedGMSMarker stopAnimation:kMarkerCollisionIcon];
-    }
+    AnimatedGMSMarker *lastBreathingMarker = [self selectMarker:self.preBreathLocationCode];
+    [lastBreathingMarker stopAnimation:kMarkerCollisionIcon];
     
     self.preBreathLocationCode = locationCode;
     
     // Start breathing recent marker
-    Marker *curBreathingMarker = [self selectMarker:locationCode];
-    if (curBreathingMarker)
-    {
-        AnimatedGMSMarker *animatedGMSMarker = (AnimatedGMSMarker *)curBreathingMarker.gmsMarker;
-        [animatedGMSMarker setAnimation:kBreathingIconBaseName forFrames:self.breathFrameArray];
-    }
+    AnimatedGMSMarker *curBreathingMarker = [self selectMarker:locationCode];
+    [curBreathingMarker setAnimation:kBreathingIconBaseName forFrames:self.breathFrameArray];
+
 }
 
 - (void)stopBreath
 {
     if (self.preBreathLocationCode)
     {
-        Marker *lastBreathingMarker = [self selectMarker:self.preBreathLocationCode];
-        if (lastBreathingMarker)
-        {
-            AnimatedGMSMarker *animatedGMSMarker = (AnimatedGMSMarker *)lastBreathingMarker.gmsMarker;
-            [animatedGMSMarker stopAnimation:kMarkerCollisionIcon];
-        }
+        AnimatedGMSMarker *lastBreathingMarker = [self selectMarker:self.preBreathLocationCode];
+        [lastBreathingMarker stopAnimation:kMarkerCollisionIcon];
         
         self.preBreathLocationCode = nil;
     }
 }
 
-- (Marker*)selectMarker:(NSString*)locationCode
+- (AnimatedGMSMarker*)selectMarker:(NSString*)locationCode
 {
-    Marker *res = nil;
-    for (Marker *marker in self.markers)
+    AnimatedGMSMarker *res = nil;
+    for (AnimatedGMSMarker *marker in self.markers)
     {
         if ([marker.locationCode isEqualToString:locationCode])
         {
