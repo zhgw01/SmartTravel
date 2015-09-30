@@ -1,14 +1,14 @@
 //
-//  AnimatedGMSMarker.m
+//  Marker.m
 //  SmartTravel
 //
 //  Created by Pengyu Chen on 15/5/23.
 //  Copyright (c) 2015年 Gongwei. All rights reserved.
 //
 
-#import "AnimatedGMSMarker.h"
+#import "Marker.h"
 
-@interface AnimatedGMSMarker ()
+@interface Marker ()
 
 @property (copy, nonatomic) NSString* animationBaseName;
 @property (assign, nonatomic) int currentFrame;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation AnimatedGMSMarker
+@implementation Marker
 
 -(void)setAnimation:(NSString *)name
           forFrames:(NSArray *)frames

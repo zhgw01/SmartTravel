@@ -5,7 +5,7 @@
 //  Created by Yuan Huimin on 15/9/27.
 //  Copyright © 2015年 Gongwei. All rights reserved.
 //
-#import "AnimatedGMSMarker.h"
+#import "Marker.h"
 #import "DBManager.h"
 #import "CollisionMarkerManager.h"
 
@@ -42,7 +42,7 @@ static NSString * const kBreathingIconBaseName  = @"breathing";
     NSMutableArray *markers = [[NSMutableArray alloc] init];
     for (HotSpot* hotSpot in hotSpots)
     {
-        AnimatedGMSMarker* gmsMarker = [[AnimatedGMSMarker alloc] init];
+        Marker* gmsMarker            = [[Marker alloc] init];
         gmsMarker.position           = CLLocationCoordinate2DMake(hotSpot.latitude.doubleValue, hotSpot.longtitude.doubleValue);
         gmsMarker.icon               = [UIImage imageNamed:kMarkerCollisionIcon];
         gmsMarker.locationCode       = hotSpot.locCode;
@@ -61,13 +61,13 @@ static NSString * const kBreathingIconBaseName  = @"breathing";
     }
     
     // Stop breathing last marker
-    AnimatedGMSMarker *lastBreathingMarker = [self selectMarker:self.preBreathLocationCode];
+    Marker *lastBreathingMarker = [self selectMarker:self.preBreathLocationCode];
     [lastBreathingMarker stopAnimation:kMarkerCollisionIcon];
     
     self.preBreathLocationCode = locationCode;
     
     // Start breathing recent marker
-    AnimatedGMSMarker *curBreathingMarker = [self selectMarker:locationCode];
+    Marker *curBreathingMarker = [self selectMarker:locationCode];
     [curBreathingMarker setAnimation:kBreathingIconBaseName forFrames:self.breathFrameArray];
 
 }
@@ -76,17 +76,17 @@ static NSString * const kBreathingIconBaseName  = @"breathing";
 {
     if (self.preBreathLocationCode)
     {
-        AnimatedGMSMarker *lastBreathingMarker = [self selectMarker:self.preBreathLocationCode];
+        Marker *lastBreathingMarker = [self selectMarker:self.preBreathLocationCode];
         [lastBreathingMarker stopAnimation:kMarkerCollisionIcon];
         
         self.preBreathLocationCode = nil;
     }
 }
 
-- (AnimatedGMSMarker*)selectMarker:(NSString*)locationCode
+- (Marker*)selectMarker:(NSString*)locationCode
 {
-    AnimatedGMSMarker *res = nil;
-    for (AnimatedGMSMarker *marker in self.markers)
+    Marker *res = nil;
+    for (Marker *marker in self.markers)
     {
         if ([marker.locationCode isEqualToString:locationCode])
         {

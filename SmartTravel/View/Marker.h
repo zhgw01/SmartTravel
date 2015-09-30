@@ -1,5 +1,5 @@
 //
-//  AnimatedGMSMarker.h
+//  Marker.h
 //  SmartTravel
 //
 //  Created by Pengyu Chen on 15/5/23.
@@ -8,7 +8,7 @@
 #import "HotSpot.h"
 #import <GoogleMaps/GoogleMaps.h>
 
-@interface AnimatedGMSMarker : GMSMarker
+@interface Marker : GMSMarker
 
 @property (copy, nonatomic) NSString* locationCode;
 @property (copy, nonatomic) NSString* locationName;

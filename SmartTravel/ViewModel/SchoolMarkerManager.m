@@ -5,7 +5,7 @@
 //  Created by Yuan Huimin on 15/9/27.
 //  Copyright © 2015年 Gongwei. All rights reserved.
 //
-#import "AnimatedGMSMarker.h"
+#import "Marker.h"
 #import "DBSchoolAdapter.h"
 #import "SchoolMarkerManager.h"
 
@@ -24,7 +24,7 @@ static NSString * const kMarkerSchoolIcon = @"school";
         double latitude = [[school valueForKey:kColLatitude] doubleValue];
         double longitude = [[school valueForKey:kColLongitude] doubleValue];
         
-        AnimatedGMSMarker *gmsMarker    = [[AnimatedGMSMarker alloc] init];
+        Marker *gmsMarker       = [[Marker alloc] init];
         gmsMarker.position      = CLLocationCoordinate2DMake(latitude, longitude);
         gmsMarker.icon          = [UIImage imageNamed:kMarkerSchoolIcon];
         gmsMarker.locationName  = [school valueForKey:kColSchoolName];
