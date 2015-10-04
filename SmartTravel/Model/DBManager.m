@@ -296,7 +296,7 @@
     {
         smt = @"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, l.Roadway_portion, r.Total from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code";
     }
-    else if (hotSpotType == HotSpotTypeAllExceptSchoolZone)
+    else if (hotSpotType == HotSpotTypeAllExceptSchool)
     {
         smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Longitude, l.Latitude, l.Roadway_portion, r.Total from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and (l.Roadway_portion = '%@' or l.Roadway_portion = '%@' or l.Roadway_portion = '%@')", @"INTERSECTION", @"MID STREET", @"MID AVENUE"];
     }
@@ -369,7 +369,7 @@
     return [self sortHotSpotsOrderByLocationNameAsc:res];
 }
 
--(NSArray*)selectHotSpotsOfReason:(NSString*)reasonId
+-(NSArray*)selectHotSpotsOfReason:(int)reasonId
 {
     NSString* mainDBPath = [DBManager getPathOfMainDB];
     FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
@@ -381,7 +381,7 @@
     
     NSError* error = nil;
     NSMutableArray* res = [[NSMutableArray alloc] init];
-    NSString* smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Roadway_portion, l.Longitude, l.Latitude, r.Total from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and r.Reason_id='%@'", reasonId];
+    NSString* smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Roadway_portion, l.Longitude, l.Latitude, r.Total from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and r.Reason_id='%d'", reasonId];
     
     NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
     FMResultSet* resultSet = [db executeQuery:smt];
@@ -480,10 +480,22 @@
             continue;
         }
         
-        [res addObject:@{
-                        @"Reason_id":[resultSet stringForColumn:@"Reason_id"],
-                        @"Reason":[resultSet stringForColumn:@"Reason"]
-                        }];
+        int reasonId = [resultSet intForColumn:@"Reason_id"];
+        // NOTE: Special case, replace all school zones bound with reason 23 with school locations, use -1 as virtual reason id of school locations
+        if (reasonId == 23)
+        {
+            [res addObject:@{
+                             @"Reason_id":@(-1),
+                             @"Reason":@"School"
+                             }];
+        }
+        else
+        {
+            [res addObject:@{
+                            @"Reason_id":[resultSet stringForColumn:@"Reason_id"],
+                            @"Reason":[resultSet stringForColumn:@"Reason"]
+                            }];
+        }
     }
     
     if (![db close])

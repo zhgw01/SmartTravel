@@ -43,9 +43,9 @@
     {
         return @"MID AVENUE";
     }
-    else if (type == HotSpotTypeSchoolZone)
+    else if (type == HotSpotTypeSchoolLocation)
     {
-        return @"SCHOOL ZONE";
+        return @"SCHOOL";
     }
     return @"";
 }
@@ -64,9 +64,9 @@
     {
         return HotSpotTypeMidAvenue;
     }
-    else if ([typeStr isEqualToString:@"SCHOOL ZONE"])
+    else if ([typeStr isEqualToString:@"SCHOOL"])
     {
-        return HotSpotTypeSchoolZone;
+        return HotSpotTypeSchoolLocation;
     }
     return HotSpotTypeCnt;
 }

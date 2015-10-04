@@ -38,7 +38,7 @@
                andData:(id)data
 {
     self.titleLabel.text = [data objectForKey:@"name"];
-    if (type == HotSpotTypeSchoolZone)
+    if (type == HotSpotTypeSchoolLocation)
     {
         self.schoolView.hidden = NO;
         self.detailsTableView.hidden = YES;

@@ -90,7 +90,7 @@
     }
     
     // Don't show hot spot type count
-    if (hotSpotType == HotSpotTypeSchoolZone)
+    if (hotSpotType == HotSpotTypeSchoolLocation)
     {
         self.countLabel.hidden = YES;
     }

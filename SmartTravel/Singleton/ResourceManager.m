@@ -11,28 +11,16 @@
 #import "DBManager.h"
 #import "DBConstants.h"
 #import "DBVersionAdapter.h"
+#import "STConstants.h"
 
 NSString * const kNotificationNameVersionHasBeenUpdated = @"kNotificationNameVersionHasBeenUpdated";
 
-static NSString * const kURLOfCollisionLocation = @"http://129.128.250.97:8080/STRESTWeb/collisionLocation/jsonOfList";
-static NSString * const kURLOfLocationReason = @"http://129.128.250.97:8080/STRESTWeb/locationReason/jsonOfList";
-static NSString * const kURLOfWMDayType = @"http://129.128.250.97:8080/STRESTWeb/wmDayType/jsonOfList";
-static NSString * const kURLOfWMReasonCondition = @"http://129.128.250.97:8080/STRESTWeb/wmReasonCondition/jsonOfList";
-static NSString * const kURLOfNewVersion = @"http://129.128.250.97:8080/STRESTWeb/newVersion/json";
-
-/*
- "id":42,
-  "school_type":"Public”,
-  "lontitude":-113.440958114,
-  "school_name":"Ekota”,
-  "address":"1395 - Knottwood Road East NW”,
-  "sz_segments":”[
-  [-113.44081842600,53.44805739300,-113.44062148200,53.44828551500,-113.44043576800,53.44851838120,-113.44025462700,53.44886229170,-113.44023934700,53.44922268610,-113.44033134000,53.44947530660,-113.44071442100,53.44993267910,-113.44050561500,53.44971197040,-113.44040855700,53.44959624160,-113.44027472700,53.44935037400,-113.44022585400,53.44904216970,-113.44032505600,53.44868655580]
-  ]”,
- "latitude":53.4491888706,
- "grade_level":"Elementary"
- */
-static NSString * const kURLOfSchool = @"http://129.128.250.97:8080/STRESTWeb/school/jsonOfList";
+static NSString * const kURLOfCollisionLocation = @"collisionLocation/jsonOfList";
+static NSString * const kURLOfLocationReason    = @"locationReason/jsonOfList";
+static NSString * const kURLOfWMDayType         = @"wmDayType/jsonOfList";
+static NSString * const kURLOfWMReasonCondition = @"wmReasonCondition/jsonOfList";
+static NSString * const kURLOfNewVersion        = @"newVersion/json";
+static NSString * const kURLOfSchool            = @"school/jsonOfList";
 
 @interface ResourceManager ()
 
@@ -189,10 +177,23 @@ static NSString * const kURLOfSchool = @"http://129.128.250.97:8080/STRESTWeb/sc
     return YES;
 }
 
-+ (id)fetchJSONDataFromURL:(NSString*)urlStr
++ (NSString*)getServerBase
+{
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:kConstantPlist
+                                                          ofType:@"plist"];
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+    return [data valueForKey:kConstantPlistKeyOfServerBase];
+}
+
++ (NSURL*)makeFullURL:(NSString*)relativeUrlStr
+{
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", [self getServerBase], relativeUrlStr]];
+}
+
++ (id)fetchJSONDataFromURL:(NSString*)relativeUrlStr
 {
     NSError* error = nil;
-    NSURL* url = [NSURL URLWithString:urlStr];
+    NSURL* url = [self makeFullURL:relativeUrlStr];
     NSURLRequest* urlRequest = [[NSURLRequest alloc] initWithURL:url];
     NSData* data = [NSURLConnection sendSynchronousRequest:urlRequest
                                          returningResponse:nil

@@ -37,7 +37,7 @@ static NSString * const kBreathingIconBaseName  = @"breathing";
 // Override parent class
 - (NSArray*)createMarkers
 {
-    NSArray* hotSpots = [[DBManager sharedInstance] selectHotSpots:HotSpotTypeAllExceptSchoolZone];
+    NSArray* hotSpots = [[DBManager sharedInstance] selectHotSpots:HotSpotTypeAllExceptSchool];
     
     NSMutableArray *markers = [[NSMutableArray alloc] init];
     for (HotSpot* hotSpot in hotSpots)

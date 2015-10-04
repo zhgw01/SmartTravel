@@ -16,10 +16,10 @@
 {
     MarkerManager *markerManager = nil;
     switch (type) {
-        case HotSpotTypeAllExceptSchoolZone:
+        case HotSpotTypeAllExceptSchool:
             markerManager = [[CollisionMarkerManager alloc] init];
             break;
-        case HotSpotTypeSchoolZone:
+        case HotSpotTypeSchoolLocation:
             markerManager = [[SchoolMarkerManager alloc] init];
             break;
         default:

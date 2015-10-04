@@ -30,7 +30,7 @@ static NSString * const kMarkerSchoolIcon = @"school";
         gmsMarker.locationName  = [school valueForKey:kColSchoolName];
         // TODO: Need location id for school?
         gmsMarker.locationCode  = @"School Location Code";
-        gmsMarker.hotSpotType   = HotSpotTypeSchoolZone;
+        gmsMarker.hotSpotType   = HotSpotTypeSchoolLocation;
         [markers addObject:gmsMarker];
     }
     return [markers copy];

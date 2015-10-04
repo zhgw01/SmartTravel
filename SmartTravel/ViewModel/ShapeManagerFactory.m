@@ -15,10 +15,10 @@
 {
     ShapeManager *shapeManager = nil;
     switch (hotSpotType) {
-        case HotSpotTypeSchoolZone:
+        case HotSpotTypeSchoolLocation:
             shapeManager = [[SchoolShapeManager alloc] init];
             break;
-        case HotSpotTypeAllExceptSchoolZone:
+        case HotSpotTypeAllExceptSchool:
             shapeManager = [[CollisionShapeManager alloc] init];
         default:
             break;

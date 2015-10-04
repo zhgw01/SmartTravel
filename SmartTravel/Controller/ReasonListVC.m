@@ -94,7 +94,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HotspotListVC *hotspotListVC = [[HotspotListVC alloc] initWithNibName:@"HotspotListVC" bundle:nil];
-    hotspotListVC.reasonId = [[self.reasons objectAtIndex:indexPath.row] valueForKey:@"Reason_id"];
+    hotspotListVC.reasonId = [[[self.reasons objectAtIndex:indexPath.row] objectForKey:@"Reason_id"] intValue];
 
     [self.navigationController pushViewController:hotspotListVC animated:YES];
 }

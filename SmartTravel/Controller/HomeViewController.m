@@ -20,7 +20,6 @@
 #import "CollisionMarkerManager.h"
 #import "SchoolMarkerManager.h"
 #import "ShapeManager.h"
-#import "DBSchoolAdapter.h"
 #import "LocationCoordinate.h"
 #import "WarningView.h"
 #import "ReasonInfo.h"
@@ -78,7 +77,6 @@ static double kDefaultLon = -113.4687100;
 @property (strong, nonatomic) LayerManager *layerManager;
 
 @property (strong, nonatomic) DBLocationAdapter *locationAdapter;
-@property (strong, nonatomic) DBSchoolAdapter *schoolAdapter;
 @property (weak, nonatomic) DBManager *dbManager;
 @property (weak, nonatomic) AppLocationManager *appLocationManager;
 
@@ -116,7 +114,6 @@ static double kDefaultLon = -113.4687100;
     self.noInterfereVCShowed = NO;
     
     // Initialize DB adapter and set delegate
-    self.schoolAdapter = [[DBSchoolAdapter alloc] init];
     self.locationAdapter = [[DBLocationAdapter alloc] init];
     
     self.appLocationManager = [AppLocationManager sharedInstance];
@@ -320,9 +317,9 @@ static double kDefaultLon = -113.4687100;
                                                       longitude:defaultLocation.coordinate.longitude
                                                            zoom:12.0];
     
-    // Draw marker on map to represent all hotspots except shool zones
+    // Draw marker on map to represent all hotspots except shools
     self.layerManager = [[LayerManager alloc] init];
-    [self.layerManager switchToLayer:HotSpotTypeAllExceptSchoolZone
+    [self.layerManager switchToLayer:HotSpotTypeAllExceptSchool
                            onMapView:self.mapView];
     
     self.layerSegmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Collision", @"School"]];
@@ -348,13 +345,13 @@ static double kDefaultLon = -113.4687100;
     // Collision
     if (segmentedControl.selectedSegmentIndex == 0)
     {
-        [self.layerManager switchToLayer:HotSpotTypeAllExceptSchoolZone
+        [self.layerManager switchToLayer:HotSpotTypeAllExceptSchool
                                onMapView:self.mapView];
     }
     // School
     else if (segmentedControl.selectedSegmentIndex == 1)
     {
-        [self.layerManager switchToLayer:HotSpotTypeSchoolZone
+        [self.layerManager switchToLayer:HotSpotTypeSchoolLocation
                                onMapView:self.mapView];
     }
 }
@@ -739,17 +736,17 @@ static double kDefaultLon = -113.4687100;
     [[MapModeManager sharedInstance] eventHappened:kMapModeUserClickHotSpot];
 
     NSArray* hotSpotDetails = nil;
-    if (hotSpot.type == HotSpotTypeSchoolZone)
+    if (hotSpot.type == HotSpotTypeSchoolLocation)
     {
         self.layerSegmentedControl.selectedSegmentIndex = 1;
-        [self.layerManager switchToLayer:HotSpotTypeSchoolZone
+        [self.layerManager switchToLayer:HotSpotTypeSchoolLocation
                                onMapView:self.mapView];
         hotSpotDetails = @[];
     }
     else
     {
         self.layerSegmentedControl.selectedSegmentIndex = 0;
-        [self.layerManager switchToLayer:HotSpotTypeAllExceptSchoolZone
+        [self.layerManager switchToLayer:HotSpotTypeAllExceptSchool
                                onMapView:self.mapView];
         hotSpotDetails = [self.dbManager getHotSpotDetailsByLocationCode:hotSpot.locCode];
     }
@@ -792,9 +789,9 @@ static double kDefaultLon = -113.4687100;
         Marker* animatedGMSMarker = (Marker*)marker;
         if (animatedGMSMarker)
         {
-            if (animatedGMSMarker.hotSpotType == HotSpotTypeSchoolZone)
+            if (animatedGMSMarker.hotSpotType == HotSpotTypeSchoolLocation)
             {
-                [self.hotSpotDetailView configWithType:HotSpotTypeSchoolZone
+                [self.hotSpotDetailView configWithType:HotSpotTypeSchoolLocation
                                                andData:@{
                                                          @"name":animatedGMSMarker.locationName,
                                                       @"details":@[]
@@ -803,7 +800,7 @@ static double kDefaultLon = -113.4687100;
             else if (animatedGMSMarker.hotSpotType != HotSpotTypeCnt)
             {
                 NSArray* hotSpotDetails = [self.dbManager getHotSpotDetailsByLocationCode:animatedGMSMarker.locationCode];
-                [self.hotSpotDetailView configWithType:HotSpotTypeAllExceptSchoolZone
+                [self.hotSpotDetailView configWithType:HotSpotTypeAllExceptSchool
                                                andData:@{
                                                          @"name":animatedGMSMarker.locationName,
                                                       @"details":hotSpotDetails

@@ -23,9 +23,9 @@
 - (BOOL)switchToLayer:(HotSpotType)hotSpotType
             onMapView:(GMSMapView*)mapView
 {
-    // Only support HotSpotTypeAllExceptSchoolZone and HotSpotTypeAllExceptSchoolZone
-    if (hotSpotType != HotSpotTypeAllExceptSchoolZone &&
-        hotSpotType != HotSpotTypeSchoolZone)
+    // Only support HotSpotTypeAllExceptSchoolZone and HotSpotTypeSchoolLocation
+    if (hotSpotType != HotSpotTypeAllExceptSchool &&
+        hotSpotType != HotSpotTypeSchoolLocation)
     {
         return NO;
     }

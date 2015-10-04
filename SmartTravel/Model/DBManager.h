@@ -31,7 +31,7 @@
  *
  *  @return array of hotspot of HotSpot type
  */
--(NSArray*)selectHotSpotsOfReason:(NSString*)reasonId;
+-(NSArray*)selectHotSpotsOfReason:(int)reasonId;
 
 -(NSArray*)getHotSpotDetailsByLocationCode:(NSString*)locCode;
 
