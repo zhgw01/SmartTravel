@@ -57,7 +57,10 @@
 // Override parent class
 - (void)drawShapesOnMapView:(GMSMapView*)mapView
 {
-    self.shapes = [self createShapes];
+    if (!self.shapes)
+    {
+        self.shapes = [self createShapes];
+    }
     
     for (NSArray *schoolZone in self.shapes)
     {

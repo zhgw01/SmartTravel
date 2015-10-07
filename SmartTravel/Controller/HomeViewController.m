@@ -19,7 +19,6 @@
 #import "Marker.h"
 #import "CollisionMarkerManager.h"
 #import "SchoolMarkerManager.h"
-#import "ShapeManager.h"
 #import "LocationCoordinate.h"
 #import "WarningView.h"
 #import "ReasonInfo.h"
@@ -48,6 +47,8 @@ static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
 static CGFloat kHotSpotZoonRadius = 150.0;
 static CGFloat kHotSpotEarlyWarningInterval = 10.0;
+
+static CGFloat kZoomLevelToShowShoolZones = 13.0;
 
 // Default location is Edmonton, CA
 static double kDefaultLat = 53.5501400;
@@ -377,6 +378,11 @@ static double kDefaultLon = -113.4687100;
 
 - (IBAction)zoomIn:(id)sender
 {
+    if (self.mapView.camera.zoom >= kZoomLevelToShowShoolZones)
+    {
+        [self.layerManager showShapesOnMapView:self.mapView];
+    }
+    
     GMSCameraUpdate *zoomIn = [GMSCameraUpdate zoomIn];
     [self.mapView animateWithCameraUpdate:zoomIn];
     [[MapModeManager sharedInstance] eventHappened:kMapModeUserGesture];
@@ -384,6 +390,11 @@ static double kDefaultLon = -113.4687100;
 
 - (IBAction)zoomOut:(id)sender
 {
+    if (self.mapView.camera.zoom < kZoomLevelToShowShoolZones)
+    {
+        [self.layerManager hideShapes];
+    }
+    
     GMSCameraUpdate *zoomOut = [GMSCameraUpdate zoomOut];
     [self.mapView animateWithCameraUpdate:zoomOut];
     [[MapModeManager sharedInstance] eventHappened:kMapModeUserGesture];

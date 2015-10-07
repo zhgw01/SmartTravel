@@ -49,4 +49,15 @@
     return YES;
 }
 
+- (void)showShapesOnMapView:(GMSMapView*)mapView
+{
+    [self.shapeManager drawShapesOnMapView:mapView];
+}
+
+- (void)hideShapes
+{
+    [self.shapeManager eraseShapesOnMapAndReleaseShapes:NO];
+
+}
+
 @end

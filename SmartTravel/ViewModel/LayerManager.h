@@ -20,4 +20,8 @@
 - (BOOL)switchToLayer:(HotSpotType)hotSpotType
             onMapView:(GMSMapView*)mapView;
 
+- (void)showShapesOnMapView:(GMSMapView*)mapView;
+
+- (void)hideShapes;
+
 @end
