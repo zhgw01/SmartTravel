@@ -1,2 +1,17 @@
 language: objective-c
-script: xctool -workspace SmartTravel.xcworkspace -scheme SmartTravel -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+before_script:
+- ./scripts/travis/decrypt.sh
+- ./scripts/travis/add-key.sh
+script: 
+- ./scripts/travis/buildRelease.sh
+after_success:
+- ./scripts/travis/sign-and-upload.sh
+after_script:
+- ./scripts/travis/remove-key.sh
+env:
+  global:
+  - APP_NAME="SmartTravel"
+  - 'DEVELOPER_NAME="iPhone Distribution: Uniproud Technologies Co., Ltd."'
+  - PROFILE_NAME="SmartTravelInHouse"
+  - secure: TTkpSZ74xfUtjmcbrgt4rRQlXt1CQz4QFhjcYHkvx9SycBDeUPpZ5PEQT/P27zz+x539Um4RcRs+VVC2AbXYX6OebL6gkz9AGsw6MPeF1LlJF59CKHnspGI/A1xk/FaPJm8XhiWJlc4aIqy++sI93dokgjw0JUGgrle2/MDPuLVhTSI56/BTNmWsNe8B/RpdsIGr/dBMtN/nVn2RLupY5+D6sIiL5GHdsrH/5FOCWAJSnhohNh4J4wvWgvPe0Xsi5nzyaE8vx1CFIkIWh1EhfeYuRDDPidDMeQA/I9mFBwB0jA1pB8OT5ARSbBq37HsG5plo9udnjh8sYbTM+7p6DFBjs+FXovnlq/eeq5Ce0kgGZVn44kr6UHeo9euR3WtqcAMjVRybYC5XBRfPtDnkyrq4DAup5PiAzdreWlalY/JQT1vq9cPHqdsPVGnF70U2AO2FQBPyEZnCoi7Qrx0LbIiVv9LOj5Y0FWj1JYqhasehd1cjt+EXippfFcDpRLGgZpdhgBZgoSZ2tnZOEd9w7Ig3vfVz02z8DnNmPSJFEbQDJwWXVIITm9DhlB9zXoJOfJO/f+WH3G7SHaZ1ifwqxitBRe6QAJYPX1aEX6Q1tpO013okCW70V65ZAF+3M4q2jQ/TrTEboyGeAmHi/xwofQk5BygDUpPN6+T+koNZ6M8=
+  secure: oRamnHzOzOBxdingurgF8GtetkQjHXMNCg3jRDoctukIyMLgS+pAyveLi8CBJgVl0+YdiJ5gWWF2LTRdkhGJc/4/mrAUmXvFbYMcb0QZbSj5X+wxhncrUZn/XiKtoKcE7DUhwqsG+dk6RFzvQ1Dk+plbm274CIBr+rLxwacTSMUgk5e4OuVz42QUOfvNC++4dGTsL3JP7cqQR57KZi7j+nc3Ata4l8vX6nz0duBt37VsYk4Zdt3hxFHBzsfgHuX5sXedmNy+vow387nw7PefBfj0T9kUr+SbE/hxHV1++XCu+sFQYV/bT0ZfUMRJegxuv2c89H1XLd7wiknhjwmNSjIRWzvfTHezuVdUQGodmVphdtu1N9m1TAoCBMz3wkaWWfTN8cPJ5nkyiSu9h0/+58aEVkUHiHRiXry+oEVj3qDv7SJv5kTIpCecWhZaM6v2ZHgOdl3KMjYpaBIxHCibZDcuZiA1oyZe+XFQfpCVU28zT7pLEnJIj4GMP1121UuZOPnqO0/jK7XRNs3iylIK7qmLMv2CM8KnhUSRNVpvOLDZz1VmhVoKBtY/TlB+COmxhUCj6OjFQRoA0dl7/Up46gt8GjN5TxKMZcJcmDB10z95lTpF5/v3ryKm9v4uq+mQDiDd9ijNa3xr/6tjw8EPWM728sJvggHx/QVfC+3iPdo=
