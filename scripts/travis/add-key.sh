@@ -1,5 +1,6 @@
 #!/bin/sh
 
+echo "=========start to add key=========="
 # Create a custom keychain
 security create-keychain -p travis ios-build.keychain
 
