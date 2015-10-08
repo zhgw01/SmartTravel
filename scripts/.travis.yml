@@ -1,0 +1,9 @@
+language: objective-c
+script: xctool -workspace SmartTravel.xcworkspace -scheme SmartTravel -sdk iphonesimulator
+  ONLY_ACTIVE_ARCH=NO
+env:
+  global:
+    APP_NAME="SmartTravel"
+    'DEVELOPER_NAME="iPhone Distribution: Uniproud Technologies Co., Ltd."'
+    PROFILE_NAME="SmartTravelInHouse"
+    secure: oRamnHzOzOBxdingurgF8GtetkQjHXMNCg3jRDoctukIyMLgS+pAyveLi8CBJgVl0+YdiJ5gWWF2LTRdkhGJc/4/mrAUmXvFbYMcb0QZbSj5X+wxhncrUZn/XiKtoKcE7DUhwqsG+dk6RFzvQ1Dk+plbm274CIBr+rLxwacTSMUgk5e4OuVz42QUOfvNC++4dGTsL3JP7cqQR57KZi7j+nc3Ata4l8vX6nz0duBt37VsYk4Zdt3hxFHBzsfgHuX5sXedmNy+vow387nw7PefBfj0T9kUr+SbE/hxHV1++XCu+sFQYV/bT0ZfUMRJegxuv2c89H1XLd7wiknhjwmNSjIRWzvfTHezuVdUQGodmVphdtu1N9m1TAoCBMz3wkaWWfTN8cPJ5nkyiSu9h0/+58aEVkUHiHRiXry+oEVj3qDv7SJv5kTIpCecWhZaM6v2ZHgOdl3KMjYpaBIxHCibZDcuZiA1oyZe+XFQfpCVU28zT7pLEnJIj4GMP1121UuZOPnqO0/jK7XRNs3iylIK7qmLMv2CM8KnhUSRNVpvOLDZz1VmhVoKBtY/TlB+COmxhUCj6OjFQRoA0dl7/Up46gt8GjN5TxKMZcJcmDB10z95lTpF5/v3ryKm9v4uq+mQDiDd9ijNa3xr/6tjw8EPWM728sJvggHx/QVfC+3iPdo=
