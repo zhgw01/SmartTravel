@@ -7,7 +7,7 @@ fi
 PROVISIONING_PROFILE="$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_NAME.mobileprovision"
 OUTPUTDIR="$PWD/build/Release-iphoneos"
 
-if [ ! -f "$OUTPUTDIR/$APP_NAME.app" ]; then
+if [ ! -d "$OUTPUTDIR/$APP_NAME.app" ]; then
    echo "cannot find app"
    exit 0
 fi
