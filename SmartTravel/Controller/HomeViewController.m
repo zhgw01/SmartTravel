@@ -495,9 +495,9 @@ static double kDefaultLon = -113.4687100;
     [[AudioManager sharedInstance] speekFromFile:audioPath];
 
     // Breath the marker
-    CollisionMarkerManager *collisionMarkerManager = (CollisionMarkerManager*)(self.layerManager.markerManager);
-    if (collisionMarkerManager)
+    if ([self.layerManager.markerManager isKindOfClass:[CollisionMarkerManager class]])
     {
+        CollisionMarkerManager *collisionMarkerManager = (CollisionMarkerManager*)(self.layerManager.markerManager);
         [collisionMarkerManager breath:locCode];
     }
 }
