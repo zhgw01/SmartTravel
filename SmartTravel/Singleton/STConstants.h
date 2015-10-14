@@ -17,3 +17,4 @@ extern NSString * const kFluryyEventNewDataVersionFound;
 
 extern NSString * const kConstantPlist;
 extern NSString * const kConstantPlistKeyOfServerBase;
+extern NSString * const kConstantPlistKeyOfServerBaseDev;

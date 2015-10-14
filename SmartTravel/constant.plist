@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ServerBaseDev</key>
+	<string>http://101.231.116.154:8080/STRESTWeb</string>
 	<key>ServerBase</key>
 	<string>http://129.128.250.97:8080/STRESTWeb</string>
 </dict>

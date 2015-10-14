@@ -182,7 +182,11 @@ static NSString * const kURLOfSchool            = @"school/jsonOfList";
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:kConstantPlist
                                                           ofType:@"plist"];
     NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+#if (DEBUG == 1)
+    return [data valueForKey:kConstantPlistKeyOfServerBaseDev];
+#else
     return [data valueForKey:kConstantPlistKeyOfServerBase];
+#endif
 }
 
 + (NSURL*)makeFullURL:(NSString*)relativeUrlStr

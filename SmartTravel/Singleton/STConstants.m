@@ -16,5 +16,7 @@ NSString * const kFlurryEventNoVoicePromptForInActiveStatus = @"Voice not speak 
 NSString * const kFlurryEventNoVoicePromptForDisabled = @"Voice not speak out for user turn it off";
 NSString * const kFluryyEventNewDataVersionFound = @"New data version found";
 
+#pragma mark - Keys of constants in constant.plist
 NSString * const kConstantPlist = @"constant";
 NSString * const kConstantPlistKeyOfServerBase = @"ServerBase";
+NSString * const kConstantPlistKeyOfServerBaseDev = @"ServerBaseDev";
