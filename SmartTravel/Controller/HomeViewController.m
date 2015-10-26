@@ -578,6 +578,17 @@ static double kDefaultLon = -113.4687100;
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray *)locations
 {
+#ifdef DEBUG
+    // Print log if in background and still has been receiving location update signals
+    UIApplicationState appState = [UIApplication sharedApplication].applicationState;
+    if (appState == UIApplicationStateInactive ||
+        appState == UIApplicationStateBackground)
+    {
+        CLLocation *loc = [locations lastObject];
+        NSLog(@"Location update: %lf", loc.speed);
+    }
+#endif
+    
     // Whatever status, should
     // 1) Update recent location
     CLLocation* lastLocation = [self.recentLocation copy];

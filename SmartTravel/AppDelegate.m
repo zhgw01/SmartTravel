@@ -56,10 +56,6 @@ static NSString* FLURRY_TOKEN = @"TSWW3SMF623BGQ37NT6H";
 #endif
 
     [appSettings setRunCount:(runCount + 1)];
-
-    // Create voice prompt engine
-    
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.26 green:0.73 blue:0.89 alpha:1]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{
@@ -76,24 +72,41 @@ static NSString* FLURRY_TOKEN = @"TSWW3SMF623BGQ37NT6H";
     return [storyboard instantiateInitialViewController];
 }
 
+- (BOOL)keepAudioSessionActive
+{
+    NSError *error = nil;
+    [[AVAudioSession sharedInstance] setActive:YES
+                                         error:&error];
+    if (error)
+    {
+        NSLog(@"Error:%@", error.description);
+        return NO;
+    }
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
+                                           error:&error];
+    if (error)
+    {
+        NSLog(@"Error:%@", error.description);
+        return NO;
+    }
+    
+    return YES;
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    
-    CLAuthorizationStatus clAuthStatus = [AppLocationManager authorizationStatus];
-    if (clAuthStatus == kCLAuthorizationStatusAuthorizedWhenInUse ||
-        clAuthStatus == kCLAuthorizationStatusAuthorizedAlways)
-    {
-        [[AppLocationManager sharedInstance] stopUpdatingHeading];
-        [[AppLocationManager sharedInstance] stopUpdatingLocation];
-    }
-    
+        
     [[StateMachine sharedInstance] eventHappend:kEventUserResignActive];
+    
+    [self keepAudioSessionActive];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    [self keepAudioSessionActive];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
