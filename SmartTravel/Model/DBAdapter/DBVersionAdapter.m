@@ -22,7 +22,7 @@ static NSString * const kVersionColumn = @"Version";
 -(NSString*)getLatestVersion
 {
     NSString* latestVersion = nil;
-    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
+    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfDB:DB_NAME_MAIN]];
     if ([db open])
     {
         NSString* smt = [self constructSmt];

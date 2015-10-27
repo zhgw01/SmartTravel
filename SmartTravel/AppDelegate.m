@@ -18,6 +18,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "Flurry.h"
 #import "STConstants.h"
+#import "DataUpdateVC.h"
 
 @interface AppDelegate ()
 
@@ -43,18 +44,6 @@ static NSString* FLURRY_TOKEN = @"TSWW3SMF623BGQ37NT6H";
         [appSettings setIsWarningVoice:YES];
         [appSettings setIsAutoCheckUpdate:YES];
     }
-    
-    //Copy database from main bundle with data ready.
-    //Only force overwrite for 1st time;
-    //later check only and copy in case it was removed by unknown exceptions.
-    [ResourceManager copyResourceFromAppBundle:DB_NAME_MAIN
-                     toUserDocumentWithNewName:DB_NAME_MAIN
-                                       withExt:DB_EXT
-                                forceOverwrite:(runCount == 0)];
-#ifdef DEBUG
-    NSLog(@"User document dir is :%@", [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]);
-#endif
-
     [appSettings setRunCount:(runCount + 1)];
     
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.26 green:0.73 blue:0.89 alpha:1]];
@@ -100,6 +89,7 @@ static NSString* FLURRY_TOKEN = @"TSWW3SMF623BGQ37NT6H";
     [[StateMachine sharedInstance] eventHappend:kEventUserResignActive];
     
     [self keepAudioSessionActive];
+    
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -115,31 +105,44 @@ static NSString* FLURRY_TOKEN = @"TSWW3SMF623BGQ37NT6H";
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    CLAuthorizationStatus clAuthStatus = [AppLocationManager authorizationStatus];
-    if (clAuthStatus != kCLAuthorizationStatusAuthorizedWhenInUse &&
-        clAuthStatus != kCLAuthorizationStatusAuthorizedAlways)
+    NSString *mainDBPath = [DBManager getPathOfDB:DB_NAME_MAIN];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:mainDBPath])
     {
-        [[AppLocationManager sharedInstance] requestAlwaysAuthorization];
-    }
-    else
-    {
-        [[AppLocationManager sharedInstance] startUpdatingHeading];
-        [[AppLocationManager sharedInstance] startUpdatingLocation];
+        [ResourceManager copyResourceFromAppBundle:DB_NAME_MAIN
+                         toUserDocumentWithNewName:DB_NAME_MAIN
+                                           withExt:DB_EXT
+                                    forceOverwrite:YES];
     }
     
-    // Update data online if auto check update is chosen.
+    BOOL needSyncDB = NO;
     if ([[AppSettingManager sharedInstance] getIsAutoCheckUpdate])
     {
         NSString *latestVersion = nil;
-        if ([ResourceManager hasNewerDataVersion:&latestVersion])
+        if ([[ResourceManager sharedInstance] hasNewerDataVersion:&latestVersion])
         {
+            needSyncDB = YES;
+            
             [Flurry logEvent:kFluryyEventNewDataVersionFound
               withParameters:@{@"version": latestVersion}];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"NNNewerDataFound" object:nil];
         }
     }
     
-    [[StateMachine sharedInstance] eventHappend:kEventUserUse];
+    if (needSyncDB)
+    {
+        DataUpdateVC *dataUpdateVC = [[DataUpdateVC alloc] init];
+        self.window.rootViewController = dataUpdateVC;
+    }
+    else
+    {
+        [[StateMachine sharedInstance] eventHappend:kEventUserUse];
+
+        CLAuthorizationStatus clAuthStatus = [AppLocationManager authorizationStatus];
+        if (clAuthStatus != kCLAuthorizationStatusAuthorizedWhenInUse &&
+            clAuthStatus != kCLAuthorizationStatusAuthorizedAlways)
+        {
+            [[AppLocationManager sharedInstance] requestAlwaysAuthorization];
+        }
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

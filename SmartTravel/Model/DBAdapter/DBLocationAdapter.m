@@ -35,7 +35,7 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
 {
     NSMutableArray* res = [[NSMutableArray alloc] init];
     
-    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
+    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfDB:DB_NAME_MAIN]];
     if ([db open])
     {
         NSString*(^constructSqlSmt)(double, double, double) = ^(double latitude, double longitude, double radius) {
@@ -82,7 +82,7 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
 {
     BOOL res = NO;
     
-    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
+    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfDB:DB_NAME_MAIN]];
     if ([db open])
     {
         NSString* smt = [NSString stringWithFormat:@"select Location_name, Latitude, Longitude from %@ where Loc_code ='%@'", MAIN_DB_TBL_COLLISION_LOCATION, locCode];
@@ -163,7 +163,7 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
     
     NSDictionary* res = nil;
     
-    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
+    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfDB:DB_NAME_MAIN]];
     if ([db open])
     {
         FMResultSet* resultSet = [db executeQuery:smt withArgumentsInArray:locCodes];

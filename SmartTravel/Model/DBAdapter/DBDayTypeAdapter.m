@@ -33,7 +33,7 @@ static NSString * const kDateColumn = @"Date";
     {
         BOOL foundInDb = NO;
         
-        FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
+        FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfDB:DB_NAME_MAIN]];
         if (date && [db open])
         {
             NSString* smt = [self constructSmt:date];

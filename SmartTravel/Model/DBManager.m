@@ -44,7 +44,7 @@
     BOOL showTestDataOfShanghai = [[[sender userInfo] objectForKey:@"ShowTestDataOfShanghai"] boolValue];
     if (!showTestDataOfShanghai)
     {
-        NSString* mainDBPath = [DBManager getPathOfMainDB];
+        NSString* mainDBPath = [DBManager getPathOfDB:DB_NAME_MAIN];
         FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
         if (![db open])
         {
@@ -72,7 +72,7 @@
     
     NSString* smt = [NSString stringWithFormat:@"DELETE FROM %@", tableName];
     
-    NSString* mainDBPath = [DBManager getPathOfMainDB];
+    NSString* mainDBPath = [DBManager getPathOfDB:DB_NAME_MAIN];
     FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
     if (![db open])
     {
@@ -97,9 +97,10 @@
 
 +(BOOL)insertJSON:(id)jsonArrayOrDic
         intoTable:(NSString*)tableName
+             ofDB:(NSString*)dbName
 {
-    NSString* mainDBPath = [DBManager getPathOfMainDB];
-    FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
+    NSString* dbPath = [DBManager getPathOfDB:dbName];
+    FMDatabase* db = [FMDatabase databaseWithPath:dbPath];
     if (![db open])
     {
         NSAssert(NO, @"Open db failed");
@@ -272,15 +273,21 @@
     return YES;
 }
 
-+(NSString*)getPathOfMainDB
++(NSString*)getPathOfDB:(NSString*)dbName
 {
     NSString* userDocumentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-    return [[userDocumentDir stringByAppendingPathComponent:DB_NAME_MAIN] stringByAppendingPathExtension:DB_EXT];
+    return [[userDocumentDir stringByAppendingPathComponent:dbName] stringByAppendingPathExtension:DB_EXT];
 }
+
+//+(NSString*)getPathOfMainDB
+//{
+//    NSString* userDocumentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+//    return [[userDocumentDir stringByAppendingPathComponent:DB_NAME_MAIN] stringByAppendingPathExtension:DB_EXT];
+//}
 
 -(NSArray*)selectHotSpots:(HotSpotType)hotSpotType
 {
-    NSString* mainDBPath = [DBManager getPathOfMainDB];
+    NSString* mainDBPath = [DBManager getPathOfDB:DB_NAME_MAIN];
     FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
     if (![db open])
     {
@@ -371,7 +378,7 @@
 
 -(NSArray*)selectHotSpotsOfReason:(int)reasonId
 {
-    NSString* mainDBPath = [DBManager getPathOfMainDB];
+    NSString* mainDBPath = [DBManager getPathOfDB:DB_NAME_MAIN];
     FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
     if (![db open])
     {
@@ -460,7 +467,7 @@
 
 -(NSArray*)selectAllReasonNames
 {
-    NSString* mainDBPath = [DBManager getPathOfMainDB];
+    NSString* mainDBPath = [DBManager getPathOfDB:DB_NAME_MAIN];
     FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
     if (![db open])
     {
@@ -508,7 +515,7 @@
 
 -(NSArray*)getHotSpotDetailsByLocationCode:(NSString*)locCode
 {
-    NSString* mainDBPath = [DBManager getPathOfMainDB];
+    NSString* mainDBPath = [DBManager getPathOfDB:DB_NAME_MAIN];
     FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
     if (![db open])
     {

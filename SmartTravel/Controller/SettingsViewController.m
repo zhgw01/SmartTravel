@@ -41,29 +41,6 @@
     NSDictionary *bundleDic = [[NSBundle mainBundle] infoDictionary];
     NSString *bundleShortVersionString = [bundleDic objectForKey:@"CFBundleShortVersionString"];
     self.versionLabel.text = bundleShortVersionString;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(versionHasBeenUpdated:)
-                                                 name:kNotificationNameVersionHasBeenUpdated
-                                               object:nil];
-}
-
-- (void)versionHasBeenUpdated:(NSDictionary*)data
-{
-    if (data)
-    {
-        NSDictionary *userInfo = [data valueForKey:@"userInfo"];
-        if (userInfo)
-        {
-            self.dateUpdateLabel.text = [userInfo valueForKey:@"version"];
-            [self.view setNeedsDisplay];
-        }
-    }
-}
-
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {

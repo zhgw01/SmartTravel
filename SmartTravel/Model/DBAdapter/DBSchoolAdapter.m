@@ -22,7 +22,7 @@ NSString * const kColSchoolName = @"school_name";
 {    
     NSMutableArray* res = [[NSMutableArray alloc] init];
     
-    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
+    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfDB:DB_NAME_MAIN]];
     if ([db open])
     {
         NSString *selectSmt = [NSString stringWithFormat:@"SELECT %@, %@, %@, %@, %@ FROM %@", kColId, kColLongitude, kColLatitude, kColSzSegments, kColSchoolName, MAIN_DB_TBL_SCHOOL];

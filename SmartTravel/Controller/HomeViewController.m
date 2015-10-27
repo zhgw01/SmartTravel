@@ -127,11 +127,6 @@ static double kDefaultLon = -113.4687100;
                                              selector:@selector(statusHasBeenChanged:)
                                                  name:kStatusHasBeenChanged
                                                object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(newerDataFound)
-                                                 name:@"NNNewerDataFound"
-                                               object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(mapModeChanged:)
@@ -155,14 +150,6 @@ static double kDefaultLon = -113.4687100;
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.appLocationManager setDelegate:nil];
-}
-
-- (void)newerDataFound
-{
-    DataUpdateVC *dataUpdateVC =[[DataUpdateVC alloc] init];
-    [self.navigationController presentViewController:dataUpdateVC
-                                            animated:NO
-                                          completion:nil];
 }
 
 - (void)invalidateTimers
@@ -598,13 +585,15 @@ static double kDefaultLon = -113.4687100;
     if (!self.locationDidEverUpdate)
     {
         self.locationDidEverUpdate = YES;
-        
+#ifndef DEBUG        
         // Tricky code to control UI whether to show
         // test data of Shanghai
         BOOL showTestDataOfShanghai = (self.recentLocation.coordinate.longitude > 0);
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowTestDataOfShanghai"
                                                             object:nil
                                                           userInfo:@{@"ShowTestDataOfShanghai": @(showTestDataOfShanghai)}];
+#endif
     }
     
     LocationRecordManager* locationRecordManager = [LocationRecordManager sharedInstance];

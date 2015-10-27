@@ -37,15 +37,23 @@
     [super viewDidAppear:animated];
     [self.indicatorView startAnimating];
     
-    dispatch_queue_t updateQueue = dispatch_queue_create("update_data", nil);
-    dispatch_async(updateQueue, ^{
-        [ResourceManager updateOnline];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.indicatorView stopAnimating];
-            self.indicatorView.hidden = YES;
-            self.updateDataLabel.hidden = YES;
-            self.stopButton.hidden = NO;
-        });
+    dispatch_async(dispatch_queue_create("com.gongwei.smarttravel.update_data", nil), ^{
+        [[ResourceManager sharedInstance] updateOnlineWithCompletion:^(BOOL res) {
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [self.indicatorView stopAnimating];
+                self.indicatorView.hidden = YES;
+                self.stopButton.hidden = NO;
+                if (res)
+                {
+                    self.updateDataLabel.hidden = YES;
+                }
+                else
+                {
+                    self.updateDataLabel.text = NSLocalizedString(@"Update failed!", nil);
+                    self.updateDataLabel.hidden = NO;
+                }
+            });
+        }];
     });
 }
 

@@ -13,8 +13,9 @@ NSString * const DB_EXT = @"sqlite";
 
 // DB names
 NSString * const DB_NAME_MAIN = @"smartTravel";
+NSString * const DB_NAME_TEMPLATE = @"template";
 
-// Table names of main db
+// Table names of main/template db
 NSString * const MAIN_DB_TBL_COLLISION_LOCATION = @"TBL_COLLISION_LOCATION";
 NSString * const MAIN_DB_TBL_WM_REASON_CONDITION = @"TBL_WM_REASON_CONDITION";
 NSString * const MAIN_DB_TBL_LOCATION_REASON = @"TBL_LOCATION_REASON";

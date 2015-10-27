@@ -18,9 +18,11 @@
 +(BOOL)deleteFromTable:(NSString*)tableName;
 
 +(BOOL)insertJSON:(id)jsonArrayOrDic
-        intoTable:(NSString*)tableName;
+        intoTable:(NSString*)tableName
+             ofDB:(NSString*)dbName;
 
-+(NSString*)getPathOfMainDB;
+//+(NSString*)getPathOfMainDB;
++(NSString*)getPathOfDB:(NSString*)dbName;
 
 -(NSArray*)selectHotSpots:(HotSpotType)hotSpotType;
 

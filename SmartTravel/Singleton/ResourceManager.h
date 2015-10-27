@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const kNotificationNameVersionHasBeenUpdated;
-
 @interface ResourceManager : NSObject
 
 + (ResourceManager *)sharedInstance;
@@ -22,12 +20,12 @@ extern NSString * const kNotificationNameVersionHasBeenUpdated;
 
 // Check if there's newer version online.
 // If YES returned, lastestVersion will be returned.
-+ (BOOL)hasNewerDataVersion:(NSString**)lastestVersion;
+- (BOOL)hasNewerDataVersion:(NSString**)lastestVersion;
 
-// Update the data.
-+ (BOOL)updateOnline;
+// Update the data online.
+- (void)updateOnlineWithCompletion:(void(^)(BOOL))completion;
 
-// Get audio file path for the specific reasonØ
+// Get audio file path for the specific reason
 - (NSString*)getAudioFilePathByReasonID:(NSNumber*)reasonId;
 
 @end

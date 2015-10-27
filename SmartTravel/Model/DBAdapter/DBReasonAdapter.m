@@ -32,7 +32,7 @@ static NSString * const kEndTimeColumn        = @"End_time";
 {
     NSMutableArray* res = [[NSMutableArray alloc] init];
     
-    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
+    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfDB:DB_NAME_MAIN]];
     if ([db open])
     {
         NSString* smt = [self constructSmt:date];
@@ -75,7 +75,7 @@ static NSString * const kEndTimeColumn        = @"End_time";
 {
     ReasonInfo *res = [[ReasonInfo alloc] init];
     
-    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfMainDB]];
+    FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfDB:DB_NAME_MAIN]];
     if ([db open])
     {
         NSString* smt = [NSString stringWithFormat:@"select %@, %@ from %@ where %@=%d", kReasonColumn, kWarningMessageColumn, MAIN_DB_TBL_WM_REASON_CONDITION, kReasonIdColumn, reasonId];
