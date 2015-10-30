@@ -88,9 +88,6 @@ NSString * const kStatusHasBeenChanged = @"kStatusHasBeenChanged";
         case kEventUserMove:
             [self ignoreEvent:event];
             break;
-        case kEventUserResignActive:
-            self.status = kStateClose;
-            break;
         case kEventUnKnown:
         default:
             NSAssert(NO, @"State machine can't answer unknown event");
@@ -114,9 +111,6 @@ NSString * const kStatusHasBeenChanged = @"kStatusHasBeenChanged";
         case kEventUserMove:
             [self ignoreEvent:event];
             break;
-        case kEventUserResignActive:
-            self.status = kStateClose;
-            break;
         case kEventUnKnown:
         default:
             NSAssert(NO, @"State machien can't answer unknown event");
@@ -139,9 +133,6 @@ NSString * const kStatusHasBeenChanged = @"kStatusHasBeenChanged";
             break;
         case kEventUserMove:
             self.status = kStateActive;
-            break;
-        case kEventUserResignActive:
-            self.status = kStateClose;
             break;
         case kEventUnKnown:
         default:
@@ -185,8 +176,6 @@ NSString * const kStatusHasBeenChanged = @"kStatusHasBeenChanged";
             return @"kEventUserStay";
         case kEventUserMove:
             return @"kEventUserMove";
-        case kEventUserResignActive:
-            return @"kEventUserResignActive";
         case kEventUnKnown:
         default:
             return @"kEventUnKnown";

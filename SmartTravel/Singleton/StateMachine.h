@@ -22,8 +22,7 @@ typedef enum {
     kEventUserUse          = 1,// 语音提示从关闭自动转变为开启的条件为:用户再次使用app。
     kEventUserStay         = 2,// 激活态转变为非激活态的条件为:用户是否在某地点半径100米范围内停留超过30分钟。
     kEventUserMove         = 3,// 非激活态转变为激活态的条件为:用户再次使用app或者速度大于20公里每小时。
-    kEventUserResignActive = 4,// 语音提示从开启自动转变为关闭的条件为:用户暂停app。
-    kEventUnKnown          = 5
+    kEventUnKnown          = 4
 } StateMachineEvent;
 
 @interface StateMachine : NSObject
