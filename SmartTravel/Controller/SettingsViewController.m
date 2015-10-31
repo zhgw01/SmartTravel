@@ -37,10 +37,13 @@
     NSString *currentVersion = [[[DBVersionAdapter alloc] init] getLatestVersion];
     self.dateUpdateLabel.text = currentVersion;
     
-    
     NSDictionary *bundleDic = [[NSBundle mainBundle] infoDictionary];
     NSString *bundleShortVersionString = [bundleDic objectForKey:@"CFBundleShortVersionString"];
+#ifdef DEBUG
+    self.versionLabel.text = [NSString stringWithFormat:@"%@ %@", bundleShortVersionString, @"test"];
+#else
     self.versionLabel.text = bundleShortVersionString;
+#endif
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(versionHasBeenUpdated:)
