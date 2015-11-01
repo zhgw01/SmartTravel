@@ -16,6 +16,6 @@ extern NSString * const kColSchoolName;
 
 @interface DBSchoolAdapter : NSObject
 
-- (NSArray*)selectAllSchools;
+- (NSArray*)selectAllSchoolsOrderByName;
 
 @end

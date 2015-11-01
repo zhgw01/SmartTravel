@@ -55,7 +55,7 @@ UITableViewDelegate
     if (self.reasonId == -1)
     {
         DBSchoolAdapter *dbSchoolAdapter = [[DBSchoolAdapter alloc] init];
-        NSArray *allSchools = [dbSchoolAdapter selectAllSchools];
+        NSArray *allSchools = [dbSchoolAdapter selectAllSchoolsOrderByName];
         
         NSMutableArray *hotspots = [[NSMutableArray alloc] init];
         // Adapt all school format to hot spot format

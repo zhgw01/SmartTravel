@@ -51,4 +51,14 @@ NSString * const kColSchoolName = @"school_name";
     return [res copy];
 }
 
+- (NSArray*)selectAllSchoolsOrderByName
+{
+    NSArray *unordered = [self selectAllSchools];
+    return [unordered sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        NSString *school1Name = [obj1 valueForKey:kColSchoolName];
+        NSString *school2Name = [obj2 valueForKey:kColSchoolName];
+        return [school1Name compare:school2Name options:NSLiteralSearch];
+    }];
+}
+
 @end

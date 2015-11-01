@@ -31,7 +31,7 @@
 {
     NSMutableArray *allSchoolZones = [[NSMutableArray alloc] init];
 
-    NSArray *allSchools = [self.dbSchoolAdapter selectAllSchools];
+    NSArray *allSchools = [self.dbSchoolAdapter selectAllSchoolsOrderByName];
     for (NSDictionary *school in allSchools)
     {
         NSString *segmentsStr = [school objectForKey:kColSzSegments];

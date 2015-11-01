@@ -17,7 +17,7 @@ static NSString * const kMarkerSchoolIcon = @"school";
 - (NSArray*)createMarkers
 {
     DBSchoolAdapter *dbSchoolAdapter = [[DBSchoolAdapter alloc] init];
-    NSArray *allSchools = [dbSchoolAdapter selectAllSchools];
+    NSArray *allSchools = [dbSchoolAdapter selectAllSchoolsOrderByName];
     NSMutableArray *markers = [[NSMutableArray alloc] init];
     for (NSDictionary *school in allSchools)
     {
