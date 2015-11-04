@@ -31,21 +31,37 @@ static NSString* FLURRY_TOKEN = @"TSWW3SMF623BGQ37NT6H";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Initialize Flurry
     [Flurry setCrashReportingEnabled:YES];
     [Flurry startSession:FLURRY_TOKEN];
     
     //Initialize GMap
     [GMSServices provideAPIKey:GMAP_API_KEY];
     
+    // Register default user values
+    NSDictionary *defaultValues = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   @(0), kRunCount,
+                                   @(1), kIsWarningVoice,
+                                   @(1), kIsAutoCheckUpdate,
+                                   nil];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
+    
+    // Increase run time
     AppSettingManager* appSettings = [AppSettingManager sharedInstance];
     NSInteger runCount = [appSettings getRunCount];
-    if (runCount == 0)
-    {
-        [appSettings setIsWarningVoice:YES];
-        [appSettings setIsAutoCheckUpdate:YES];
-    }
     [appSettings setRunCount:(runCount + 1)];
     
+    // Copy default DB
+    NSString *mainDBPath = [DBManager getPathOfDB:DB_NAME_MAIN];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:mainDBPath])
+    {
+        [ResourceManager copyResourceFromAppBundle:DB_NAME_MAIN
+                         toUserDocumentWithNewName:DB_NAME_MAIN
+                                           withExt:DB_EXT
+                                    forceOverwrite:YES];
+    }
+    
+    // Global Apperance
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.26 green:0.73 blue:0.89 alpha:1]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{
                                                            NSForegroundColorAttributeName : [UIColor whiteColor],
@@ -102,15 +118,6 @@ static NSString* FLURRY_TOKEN = @"TSWW3SMF623BGQ37NT6H";
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    NSString *mainDBPath = [DBManager getPathOfDB:DB_NAME_MAIN];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:mainDBPath])
-    {
-        [ResourceManager copyResourceFromAppBundle:DB_NAME_MAIN
-                         toUserDocumentWithNewName:DB_NAME_MAIN
-                                           withExt:DB_EXT
-                                    forceOverwrite:YES];
-    }
-    
     BOOL needSyncDB = NO;
     if ([[AppSettingManager sharedInstance] getIsAutoCheckUpdate])
     {

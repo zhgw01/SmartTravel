@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const kRunCount;
+extern NSString * const kIsWarningVoice;
+extern NSString * const kIsAutoCheckUpdate;
+
 @interface AppSettingManager : NSObject
 
 +(AppSettingManager *)sharedInstance;

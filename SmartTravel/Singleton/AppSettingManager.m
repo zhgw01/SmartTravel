@@ -8,10 +8,10 @@
 
 #import "AppSettingManager.h"
 
-static NSString * const kRunCount = @"run-count";
-static NSString * const kIsWarningVoice = @"is-warning-voice";
-static NSString * const kIsAutoCheckUpdate = @"is-auto-check-update";
-static NSString * const kShowNoInterfereUI = @"show-no-interfere-UI";
+NSString * const kRunCount = @"run-count";
+NSString * const kIsWarningVoice = @"is-warning-voice";
+NSString * const kIsAutoCheckUpdate = @"is-auto-check-update";
+NSString * const kShowNoInterfereUI = @"show-no-interfere-UI";
 
 @implementation AppSettingManager
 
