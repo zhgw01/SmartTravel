@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<gpx
+    version="1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.topografix.com/GPX/1/0"
+    xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+    
+     <wpt lat="52.52249" lon="13.410089999999999">
+        <time>2014-11-07T11:26:12Z</time>
+    </wpt>
+    <wpt lat="52.5225" lon="13.410109999999998">
+        <time>2014-11-07T11:26:15Z</time>
+    </wpt>
+    <wpt lat="52.5225" lon="13.410119999999997">
+        <time>2014-11-07T11:26:18Z</time>
+    </wpt>
+    <wpt lat="52.52253" lon="13.410179999999997">
+        <time>2014-11-07T11:26:21Z</time>
+    </wpt>
+    <wpt lat="52.52253" lon="13.41018">
+        <time>2014-11-07T11:26:24Z</time>
+    </wpt>
+    <wpt lat="52.52214" lon="13.41085">
+        <time>2014-11-07T11:26:27Z</time>
+    </wpt>
+    <wpt lat="52.52194" lon="13.41118">
+        <time>2014-11-07T11:26:30Z</time>
+    </wpt>
+    <wpt lat="52.52189" lon="13.41127">
+        <time>2014-11-07T11:26:33Z</time>
+    </wpt>
+    <wpt lat="52.521699999999996" lon="13.41158">
+        <time>2014-11-07T11:26:36Z</time>
+    </wpt>
+    <wpt lat="52.521508" lon="13.411267">
+        <time>2014-11-07T11:26:39Z</time>
+    </wpt>
+    
+</gpx>

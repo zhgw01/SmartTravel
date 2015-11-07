@@ -98,6 +98,7 @@
 		9B812DD91AEB3E9D008F17B6 /* ReasonListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B812DD81AEB3E9D008F17B6 /* ReasonListVC.m */; };
 		9B812DDC1AEB3EB7008F17B6 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B812DDB1AEB3EB7008F17B6 /* SettingsViewController.m */; };
 		9BC3392F1AE296250046AAB5 /* termofusage.html in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3392E1AE296250046AAB5 /* termofusage.html */; };
+		9BC461CD1BEE5A860011354F /* drive.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9BC461CC1BEE5A860011354F /* drive.gpx */; };
 		9BCEBC791ADFF317003C9F05 /* TermOfUsageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCEBC781ADFF317003C9F05 /* TermOfUsageViewController.m */; };
 		9BDBCA461AF8EEE600F23275 /* MarkerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDBCA451AF8EEE600F23275 /* MarkerManager.m */; };
 		9BF1281A1AFE537D008E72DA /* Direction.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF128191AFE537D008E72DA /* Direction.m */; };
@@ -260,6 +261,7 @@
 		9B812DDA1AEB3EB7008F17B6 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = Controller/SettingsViewController.h; sourceTree = "<group>"; };
 		9B812DDB1AEB3EB7008F17B6 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = Controller/SettingsViewController.m; sourceTree = "<group>"; };
 		9BC3392E1AE296250046AAB5 /* termofusage.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = termofusage.html; sourceTree = "<group>"; };
+		9BC461CC1BEE5A860011354F /* drive.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = drive.gpx; sourceTree = "<group>"; };
 		9BCEBC771ADFF317003C9F05 /* TermOfUsageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TermOfUsageViewController.h; path = Controller/TermOfUsageViewController.h; sourceTree = "<group>"; };
 		9BCEBC781ADFF317003C9F05 /* TermOfUsageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TermOfUsageViewController.m; path = Controller/TermOfUsageViewController.m; sourceTree = "<group>"; };
 		9BDBCA441AF8EEE600F23275 /* MarkerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkerManager.h; path = ViewModel/MarkerManager.h; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 		425754B81B088BA60046433F /* GPX */ = {
 			isa = PBXGroup;
 			children = (
+				9BC461CC1BEE5A860011354F /* drive.gpx */,
 				425754B61B088BA20046433F /* 20150517013203-58195-data.gpx */,
 			);
 			name = GPX;
@@ -735,6 +738,7 @@
 				9B6A85BF1ADFDF0000667170 /* LaunchScreen.xib in Resources */,
 				849289B01B7733C900837FF7 /* DataUpdateVC.xib in Resources */,
 				9B6A85BC1ADFDF0000667170 /* Images.xcassets in Resources */,
+				9BC461CD1BEE5A860011354F /* drive.gpx in Resources */,
 				84232CDC1B2D7DE000E0BE11 /* Ran off road.m4a in Resources */,
 				849DE7D61B7B825400B1FA3D /* NoInterfereVC.xib in Resources */,
 				84232CD91B2D7DE000E0BE11 /* Morning rush hour.m4a in Resources */,
