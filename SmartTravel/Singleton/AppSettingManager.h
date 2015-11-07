@@ -11,6 +11,7 @@
 extern NSString * const kRunCount;
 extern NSString * const kIsWarningVoice;
 extern NSString * const kIsAutoCheckUpdate;
+extern NSString * const kShowNoInterfereUI;
 
 @interface AppSettingManager : NSObject
 

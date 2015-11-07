@@ -43,8 +43,10 @@ static NSString* FLURRY_TOKEN = @"TSWW3SMF623BGQ37NT6H";
                                    @(0), kRunCount,
                                    @(1), kIsWarningVoice,
                                    @(1), kIsAutoCheckUpdate,
+                                   @(1), kShowNoInterfereUI,
                                    nil];
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     // Increase run time
     AppSettingManager* appSettings = [AppSettingManager sharedInstance];
