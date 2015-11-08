@@ -130,19 +130,10 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
 }
 
 
-- (NSDictionary*)getLocationReasonAtLatitude:(double)latitude
-                                   longitude:(double)longitude
-                                 ofReasonIds:(NSArray*)reasonIds
-                                 inDirection:(Direction)direction
-                                withinRadius:(double)radius
+- (NSDictionary*)getLocationReasonOfReasonIds:(NSArray*)reasonIds
+                                  inDirection:(Direction)direction
+                           amongLocationCodes:(NSArray*)locCodes
 {
-    // Get loc codes
-    NSArray* locCodes = [self getLocCodesInRange:radius atLatitude:latitude longitude:longitude];
-    if (locCodes.count == 0)
-    {
-        return nil;
-    }
-    
     // Get location_reasons
     NSString* smt = [NSString  stringWithFormat:
                      @"select %@, %@, %@, %@, %@ from %@ where (%@ = '%@' or %@ = 'ALL') and %@ in (%@) and %@ in %@ order by %@ desc limit 1",
@@ -194,7 +185,7 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
 
     if (!res || res.count == 0)
     {
-        [Flurry logEvent:kFlurryEventHotspotIgnoreByDirection
+        [Flurry logEvent:kFlurryEventHotspotIgnored
           withParameters:@{
                            @"direction": [LocationDirection directionToString:direction],
                            @"location codes" : [locCodes componentsJoinedByString:@","],

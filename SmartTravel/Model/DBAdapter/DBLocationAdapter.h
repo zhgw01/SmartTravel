@@ -17,11 +17,9 @@
 @interface DBLocationAdapter : NSObject
 
 // Get top 1 location_reason which satisfy all the requirements
-- (NSDictionary*)getLocationReasonAtLatitude:(double)latitude
-                                   longitude:(double)longitude
-                                 ofReasonIds:(NSArray*)reasonIds
-                                 inDirection:(Direction)direction
-                                withinRadius:(double)radius;
+- (NSDictionary*)getLocationReasonOfReasonIds:(NSArray*)reasonIds
+                                  inDirection:(Direction)direction
+                           amongLocationCodes:(NSArray*)locCodes;
 
 - (NSArray*)getLocCodesInRange:(double)radius
                     atLatitude:(double)latitude

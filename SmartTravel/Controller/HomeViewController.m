@@ -715,11 +715,24 @@ static double kDefaultLon = -113.4687100;
     {
         hotSpotZoonRadius = curLocation.speed * kHotSpotEarlyWarningInterval;
     }
-    NSDictionary *hotSpot = [self.locationAdapter getLocationReasonAtLatitude:curLocation.coordinate.latitude
-                                                                    longitude:curLocation.coordinate.longitude
-                                                                  ofReasonIds:reasonIds
-                                                                  inDirection:direction
-                                                                 withinRadius:hotSpotZoonRadius];
+    
+
+    // Get loc codes
+    NSArray* locCodes = [self.locationAdapter getLocCodesInRange:hotSpotZoonRadius
+                                                      atLatitude:curLocation.coordinate.latitude
+                                                       longitude:curLocation.coordinate.longitude];
+    if (locCodes.count == 0)
+    {
+        return nil;
+    }
+
+    NSDictionary *hotSpot = [self.locationAdapter getLocationReasonOfReasonIds:reasonIds
+                                                                   inDirection:direction
+                                                            amongLocationCodes:locCodes];
+    if (hotSpot == nil)
+    {
+        // TODO: CPY
+    }
     
     return hotSpot;
 }
