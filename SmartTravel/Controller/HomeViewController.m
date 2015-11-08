@@ -665,7 +665,7 @@ static double kDefaultLon = -113.4687100;
                     }
                     else
                     {
-                        [Flurry logEvent:kFlurryEventNoVoicePromptForInActiveStatus
+                        [Flurry logEvent:kFlurryEventNoVoicePromptForDisabled
                           withParameters:@{
                                            @"reason id" : @(reasonId),
                                            @"location code" : locationCode
@@ -674,7 +674,7 @@ static double kDefaultLon = -113.4687100;
                 }
                 else
                 {
-                    [Flurry logEvent:kFlurryEventReasonNotMatchForInvalidMonthOrStartAndEndTime
+                    [Flurry logEvent:kFlurryEventNoVoicePromptForInActiveStatus
                       withParameters:@{
                                        @"reason id" : @(reasonId),
                                        @"location code" : locationCode
