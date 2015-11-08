@@ -565,11 +565,10 @@ static double kDefaultLon = -113.4687100;
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray *)locations
 {
+    UIApplicationState appState = [UIApplication sharedApplication].applicationState;
 #ifdef DEBUG
     // Print log if in background and still has been receiving location update signals
-    UIApplicationState appState = [UIApplication sharedApplication].applicationState;
-    if (appState == UIApplicationStateInactive ||
-        appState == UIApplicationStateBackground)
+    if (appState == UIApplicationStateInactive || appState == UIApplicationStateBackground)
     {
         CLLocation *loc = [locations lastObject];
         NSLog(@"Location update: %lf", loc.speed);
@@ -622,14 +621,17 @@ static double kDefaultLon = -113.4687100;
         
         [[StateMachine sharedInstance] eventHappend:kEventUserMove];
         
-        if (!self.noInterfereVCShowed)
+        if (appState != UIApplicationStateInactive && appState != UIApplicationStateBackground)
         {
-            if ([StateMachine sharedInstance].status == kStateActive)
+            if (!self.noInterfereVCShowed)
             {
-                if ([AppSettingManager sharedInstance].getShowNoInterfereUI)
+                if ([StateMachine sharedInstance].status == kStateActive)
                 {
-                    [self.navigationController pushViewController:self.noInterfereVC animated:NO];
-                    self.noInterfereVCShowed = YES;
+                    if ([AppSettingManager sharedInstance].getShowNoInterfereUI)
+                    {
+                        [self.navigationController pushViewController:self.noInterfereVC animated:NO];
+                        self.noInterfereVCShowed = YES;
+                    }
                 }
             }
         }
@@ -642,13 +644,16 @@ static double kDefaultLon = -113.4687100;
         [self hotSpotDidGet:hotSpot
            visualCompletion:^(double dis, NSString *locationName, NSString *warningReason)
             {
-                // Show warning view
-                self.warningView.hidden = NO;
-                
-                // Update warning view in time
-                [self.warningView updateLocation:locationName
-                                          reason:warningReason
-                                        distance:@(dis)];
+                if (appState != UIApplicationStateInactive && appState != UIApplicationStateBackground)
+                {
+                    // Show warning view
+                    self.warningView.hidden = NO;
+                    
+                    // Update warning view in time
+                    [self.warningView updateLocation:locationName
+                                              reason:warningReason
+                                            distance:@(dis)];
+                }
             }
           hearingCompletion:^(int reasonId, NSString *locationCode, NSString* warningMessage)
             {
@@ -685,13 +690,19 @@ static double kDefaultLon = -113.4687100;
     }
     else
     {
-        [self hotSpotDidNotGet];
+        if (appState != UIApplicationStateInactive && appState != UIApplicationStateBackground)
+        {
+            [self hotSpotDidNotGet];
+        }
     }
     
     // Only update camera of map if in navigation mode.
     if ([MapModeManager sharedInstance].isNavigationOn)
     {
-        [self updateCamera:self.recentLocation];
+        if (appState != UIApplicationStateInactive && appState != UIApplicationStateBackground)
+        {
+            [self updateCamera:self.recentLocation];
+        }
     }
 }
 
