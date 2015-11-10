@@ -84,8 +84,14 @@ static NSString* FLURRY_TOKEN = @"TSWW3SMF623BGQ37NT6H";
 
 - (BOOL)keepAudioSessionActive
 {
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    NSError *error;
+    
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
+                                     withOptions:AVAudioSessionCategoryOptionInterruptSpokenAudioAndMixWithOthers|AVAudioSessionCategoryOptionDuckOthers
+                                           error:&error];
+    if (error) {
+        NSLog(@"setup audio session error:%@", error);
+    }
     [[AVAudioSession sharedInstance] setActive: YES error: nil];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
