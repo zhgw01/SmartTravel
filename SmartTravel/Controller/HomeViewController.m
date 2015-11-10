@@ -426,6 +426,11 @@ static double kDefaultLon = -113.4687100;
                               onDate:(NSDate*)date
                           atDistance:(double)distance
 {
+    if ([AudioManager sharedInstance].isPlaying)
+    {
+        return NO;
+    }
+    
     NSTimeInterval nowTimeStamp = [date timeIntervalSince1970];
     if ([locCode isEqualToString:self.voicePromptInfo.locationCode])
     {

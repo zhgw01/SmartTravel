@@ -9,10 +9,8 @@
 #import "AudioManager.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface AudioManager ()
+@interface AudioManager () <AVAudioPlayerDelegate>
 
-@property (strong, nonatomic) AVSpeechSynthesizer *avSpeechSynthesizer;
-@property (strong, nonatomic) AVSpeechSynthesisVoice *avSpeechSynthesisVoice;
 @property (strong, nonatomic) AVAudioPlayer *avAudioPlayer;
 
 @end
@@ -33,17 +31,9 @@
 {
     if (self = [super init])
     {
-        self.avSpeechSynthesizer = [[AVSpeechSynthesizer alloc] init];
-        self.avAudioPlayer = [[AVAudioPlayer alloc] init];
+        self.isPlaying = NO;
     }
     return self;
-}
-
-- (void)speekText:(NSString*)text
-{
-    AVSpeechUtterance *avSpeechUtterance = [[AVSpeechUtterance alloc] initWithString:text];
-    avSpeechUtterance.rate = 0.6;
-    [self.avSpeechSynthesizer speakUtterance:avSpeechUtterance];
 }
 
 - (void)speekFromFile:(NSString*)audioPath
@@ -54,7 +44,8 @@
         NSError *error = nil;
         
         self.avAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioURL error:&error];
-        
+        self.avAudioPlayer.delegate = self;
+
         if (!error)
         {
             if (![self.avAudioPlayer prepareToPlay])
@@ -63,17 +54,23 @@
             }
             [self.avAudioPlayer setVolume:1.0];
             [self.avAudioPlayer setNumberOfLoops:0];
-            if (![self.avAudioPlayer play])
+            if ([self.avAudioPlayer play])
             {
+                self.isPlaying = YES;
+            }
+            else
+            {
+                self.isPlaying = NO;
                 NSLog(@"%@", @"self.avAudioPlay play failed");
             }
         }
     }
 }
 
-- (BOOL)isSlient:(float)lowBoundary
+#pragma mark - AVAudioPlayerDelegate
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-    return self.avAudioPlayer.volume < lowBoundary ;
+    self.isPlaying = NO;
 }
 
 @end

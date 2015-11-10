@@ -10,9 +10,10 @@
 
 @interface AudioManager : NSObject
 
+@property (assign, nonatomic) BOOL isPlaying;
+
 + (AudioManager*)sharedInstance;
-- (void)speekText:(NSString*)text;
+
 - (void)speekFromFile:(NSString*)audioPath;
-- (BOOL)isSlient:(float)lowBoundary;
 
 @end
