@@ -130,11 +130,10 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
 }
 
 
-- (NSDictionary*)getLocationReasonOfReasonIds:(NSArray*)reasonIds
-                                  inDirection:(Direction)direction
-                           amongLocationCodes:(NSArray*)locCodes
+- (NSArray*)getLocationsOfReasonIds:(NSArray*)reasonIds
+                        inDirection:(Direction)direction
+                withinLocationCodes:(NSArray*)locCodes
 {
-    // Get location_reasons
     NSString* smt = [NSString  stringWithFormat:
                      @"select %@, %@, %@, %@, %@ from %@ where (%@ = '%@' or %@ = 'ALL') and %@ in (%@) and %@ in %@ order by %@ desc limit 1",
                      kLocCodeColumn,
@@ -144,7 +143,7 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
                      kWarningPriorityColumn,
                      MAIN_DB_TBL_LOCATION_REASON,
                      kTravelDirectionColumn,
-                     [LocationDirection directionToString:direction],
+                     [DirectionUtility directionToString:direction],
                      kTravelDirectionColumn,
                      kLocCodeColumn,
                      [self locCodesToSQLParameters:locCodes],
@@ -152,14 +151,14 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
                      reasonIds,
                      kWarningPriorityColumn];
     
-    NSDictionary* res = nil;
+    NSMutableArray *res = [[NSMutableArray alloc] init];
     
     FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfDB:DB_NAME_MAIN]];
     if ([db open])
     {
         FMResultSet* resultSet = [db executeQuery:smt withArgumentsInArray:locCodes];
         NSError* error = nil;
-        if([resultSet nextWithError:&error])
+        while ([resultSet nextWithError:&error])
         {
             NSString* locCodeValue = [resultSet stringForColumn:kLocCodeColumn];
             NSString* directionValue = [resultSet stringForColumn:kTravelDirectionColumn];
@@ -167,13 +166,14 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
             int totalValue = [resultSet intForColumn:kTotalColumn];
             int warningPriorityValue = [resultSet intForColumn:kWarningPriorityColumn];
             
-            res = [NSDictionary dictionaryWithObjectsAndKeys:
-                   locCodeValue, kLocCodeColumn,
-                   directionValue, kTravelDirectionColumn,
-                   [NSNumber numberWithInt:reasonIdValue], kReasonIdColumn,
-                   [NSNumber numberWithInt:totalValue], kTotalColumn,
-                   [NSNumber numberWithInt:warningPriorityValue], kWarningPriorityColumn,
-                   nil];
+            NSDictionary* hotSpot = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     locCodeValue, kLocCodeColumn,
+                                     directionValue, kTravelDirectionColumn,
+                                     [NSNumber numberWithInt:reasonIdValue], kReasonIdColumn,
+                                     [NSNumber numberWithInt:totalValue], kTotalColumn,
+                                     [NSNumber numberWithInt:warningPriorityValue], kWarningPriorityColumn,
+                                     nil];
+            [res addObject:hotSpot];
         }
         [resultSet close];
         
@@ -181,17 +181,6 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
         {
             NSAssert(NO, @"Close db failed");
         }
-    }
-
-    if (!res || res.count == 0)
-    {
-        [Flurry logEvent:kFlurryEventHotspotIgnored
-          withParameters:@{
-                           @"direction": [LocationDirection directionToString:direction],
-                           @"location codes" : [locCodes componentsJoinedByString:@","],
-                           @"reason ids" : [reasonIds componentsJoinedByString:@","]
-                           }
-         ];
     }
     return [res copy];
 }

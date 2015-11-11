@@ -14,6 +14,8 @@ extern NSString * const kFlurryEventReasonNotMatchForInvalidMonthOrStartAndEndTi
 extern NSString * const kFlurryEventNoVoicePromptForInActiveStatus;
 extern NSString * const kFlurryEventNoVoicePromptForDisabled;
 extern NSString * const kFluryyEventNewDataVersionFound;
+extern NSString * const kFlurryEventCurrentLocationIsNotInMiddle;
+extern NSString * const kFlurryEventHotspotIngoredForLowerPriority;
 
 extern NSString * const kConstantPlist;
 extern NSString * const kConstantPlistKeyOfServerBase;

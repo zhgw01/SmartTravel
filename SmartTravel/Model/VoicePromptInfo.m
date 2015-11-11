@@ -18,7 +18,6 @@
         self.locationCode       = @"";
         self.windowStartTime    = [[NSDate date] timeIntervalSince1970] - kMaxWindowDuration;
         self.lastTime           = self.windowStartTime;
-        self.lastDistance       = MAXFLOAT;
         self.count              = 0;
     }
     return self;

@@ -43,6 +43,8 @@
 #import "Flurry.h"
 #import "STConstants.h"
 
+#import "DirectionUtility.h"
+
 static CGFloat kWarningViewHeightProportion = 0.3;
 static CGFloat kHotSpotDetailViewHeightProportion = 0.3;
 static CGFloat kHotSpotZoonRadius = 150.0;
@@ -440,7 +442,6 @@ static double kDefaultLon = -113.4687100;
             self.voicePromptInfo.count              = 1;
             self.voicePromptInfo.windowStartTime    = nowTimeStamp;
             self.voicePromptInfo.lastTime           = nowTimeStamp;
-            self.voicePromptInfo.lastDistance       = distance;
             return YES;
         }
         else
@@ -455,15 +456,9 @@ static double kDefaultLon = -113.4687100;
                 return NO;
             }
             
-            if (distance > self.voicePromptInfo.lastDistance)
-            {
-                return NO;
-            }
-
             self.voicePromptInfo.count              += 1;
             self.voicePromptInfo.canShowWarningView = self.voicePromptInfo.count < kMaxPromptCount;
             self.voicePromptInfo.lastTime           = nowTimeStamp;
-            self.voicePromptInfo.lastDistance       = distance;
             return YES;
         }
     }
@@ -474,7 +469,6 @@ static double kDefaultLon = -113.4687100;
         self.voicePromptInfo.count              = 1;
         self.voicePromptInfo.windowStartTime    = nowTimeStamp;
         self.voicePromptInfo.lastTime           = nowTimeStamp;
-        self.voicePromptInfo.lastDistance       = distance;
         return YES;
     }
 }
@@ -494,50 +488,39 @@ static double kDefaultLon = -113.4687100;
     }
 }
 
-- (void)hotSpotDidGet:(NSDictionary *)hotSpot
-     visualCompletion:(void(^)(double /*distance*/, NSString */*locationName*/, NSString */*warningReason*/))vc
-    hearingCompletion:(void(^)(int /*reasonId*/, NSString */*locationCode*/, NSString */*warningMessage*/))hc;
+- (void)hotSpotDidGetWithLocationCode:(NSString*)code
+                          andReasonId:(int)reasonId
+                          andLatitude:(double)latitude
+                         andLongitude:(double)longitude
+                              andName:(NSString*)name
+                     visualCompletion:(void(^)(double /*distance*/, NSString */*locationName*/, NSString */*warningReason*/))vc
+                    hearingCompletion:(void(^)(int /*reasonId*/, NSString */*locationCode*/, NSString */*warningMessage*/))hc;
 {
     // Show warning and hide hotspot detail
-    
     [[MapModeManager sharedInstance] eventHappened:kMapModeUserApproachHotSpot];
-
-    // Get details of dangerous location
-    NSString *locationCode = [hotSpot objectForKey:@"Loc_code"];
-    NSString *locationName = [[NSString alloc] init];
-    int reasonId           = [[hotSpot objectForKey:@"Reason_id"] intValue];
     
-    double latitude = 0;
-    double longitude = 0;
+    ReasonInfo* reasonIfo = [[[DBReasonAdapter alloc] init] getReasonInfo:reasonId];
     
-    if ([self.locationAdapter getLocationName:&locationName
-                                     latitude:&latitude
-                                    longitude:&longitude
-                                    ofLocCode:locationCode])
+    CLLocation* location = [[CLLocation alloc] initWithLatitude:latitude
+                                                      longitude:longitude];
+    double dis = [location distanceFromLocation:self.recentLocation];
+    
+    // Hearing action need be done when dangerous location found
+    if ([self shouldReportWarningOfLocCode:code
+                                    onDate:[NSDate date]
+                                atDistance:dis])
     {
-        ReasonInfo* reasonIfo = [[[DBReasonAdapter alloc] init] getReasonInfo:reasonId];
-        
-        CLLocation* location = [[CLLocation alloc] initWithLatitude:latitude
-                                                          longitude:longitude];
-        double dis = [location distanceFromLocation:self.recentLocation];
-        
-        // Hearing action need be done when dangerous location found
-        if ([self shouldReportWarningOfLocCode:locationCode
-                                        onDate:[NSDate date]
-                                    atDistance:dis])
-        {
-            hc(reasonId, locationCode, reasonIfo.warningMessage);
-        }
-        
-        // Visual action need be done when dangerous location found
-        if (self.voicePromptInfo.canShowWarningView)
-        {
-            vc(dis, locationName, reasonIfo.reason);
-        }
-        else
-        {
-            [self resetWarningView];
-        }
+        hc(reasonId, code, reasonIfo.warningMessage);
+    }
+    
+    // Visual action need be done when dangerous location found
+    if (self.voicePromptInfo.canShowWarningView)
+    {
+        vc(dis, name, reasonIfo.reason);
+    }
+    else
+    {
+        [self resetWarningView];
     }
 }
 
@@ -642,56 +625,107 @@ static double kDefaultLon = -113.4687100;
         }
     }
 
-    NSDictionary* hotSpot = [self getApproachingHotSpot:lastLocation
-                                        currentLocation:self.recentLocation];
+    NSDictionary* hotSpot = [self getHotSpotWithStartLocation:lastLocation
+                                           andCurrentLocation:self.recentLocation];
     if (hotSpot)
     {
-        [self hotSpotDidGet:hotSpot
-           visualCompletion:^(double dis, NSString *locationName, NSString *warningReason)
+        NSString *code = [hotSpot objectForKey:@"Loc_code"];
+        int reasonId = [[hotSpot objectForKey:@"Reason_id"] intValue];
+        NSString *name = [[NSString alloc] init];
+        double latitude = 0;
+        double longitude = 0;
+        
+        if ([self.locationAdapter getLocationName:&name
+                                         latitude:&latitude
+                                        longitude:&longitude
+                                        ofLocCode:code])
+        {
+            CLLocationCoordinate2D start = {
+                .latitude = lastLocation.coordinate.latitude,
+                .longitude = lastLocation.coordinate.longitude
+            };
+            
+            CLLocationCoordinate2D current = {
+                .latitude = self.recentLocation.coordinate.latitude,
+                .longitude = self.recentLocation.coordinate.longitude
+            };
+
+            CLLocationCoordinate2D end = {
+                .latitude = latitude,
+                .longitude = longitude
+            };
+            
+            if ([DirectionUtility isLocation:current
+                          inMiddleOfLocation:start
+                                 andLocation:end])
             {
-                if (appState != UIApplicationStateInactive && appState != UIApplicationStateBackground)
-                {
-                    // Show warning view
-                    self.warningView.hidden = NO;
-                    
-                    // Update warning view in time
-                    [self.warningView updateLocation:locationName
-                                              reason:warningReason
-                                            distance:@(dis)];
-                }
+                [self hotSpotDidGetWithLocationCode:code
+                                        andReasonId:reasonId
+                                        andLatitude:latitude
+                                       andLongitude:longitude
+                                            andName:name
+                                   visualCompletion:^(double dis, NSString *locationName, NSString *warningReason)
+                    {
+                        if (appState != UIApplicationStateInactive && appState != UIApplicationStateBackground)
+                        {
+                            // Show warning view
+                            self.warningView.hidden = NO;
+                            
+                            // Update warning view in time
+                            [self.warningView updateLocation:locationName
+                                                      reason:warningReason
+                                                    distance:@(dis)];
+                        }
+                    }
+                  hearingCompletion:^(int reasonId, NSString *locationCode, NSString* warningMessage)
+                    {
+                        // Only speak out the warning message in active status
+                        // and it's enabled.
+                        if ([StateMachine sharedInstance].status == kStateActive)
+                        {
+                            if ([[AppSettingManager sharedInstance] getIsWarningVoice])
+                            {
+                                [self speakOutWarningMessage:warningMessage
+                                                     locCode:locationCode
+                                                    reasonID:@(reasonId)];
+                                NSLog(@"Voice prompt at loc code %@ of reason %d", locationCode, reasonId);
+                            }
+                            else
+                            {
+                                [Flurry logEvent:kFlurryEventNoVoicePromptForDisabled
+                                  withParameters:@{
+                                                   @"reason id" : @(reasonId),
+                                                   @"location code" : locationCode
+                                                   }];
+                            }
+                        }
+                        else
+                        {
+                            [Flurry logEvent:kFlurryEventNoVoicePromptForInActiveStatus
+                              withParameters:@{
+                                               @"reason id" : @(reasonId),
+                                               @"location code" : locationCode
+                                               }];
+                        }
+                    }
+                ];
             }
-          hearingCompletion:^(int reasonId, NSString *locationCode, NSString* warningMessage)
+            else
             {
-                // Only speak out the warning message in active status
-                // and it's enabled.
-                if ([StateMachine sharedInstance].status == kStateActive)
-                {
-                    if ([[AppSettingManager sharedInstance] getIsWarningVoice])
-                    {
-                        [self speakOutWarningMessage:warningMessage
-                                             locCode:locationCode
-                                            reasonID:@(reasonId)];
-                        NSLog(@"Voice prompt at loc code %@ of reason %d", locationCode, reasonId);
-                    }
-                    else
-                    {
-                        [Flurry logEvent:kFlurryEventNoVoicePromptForDisabled
-                          withParameters:@{
-                                           @"reason id" : @(reasonId),
-                                           @"location code" : locationCode
-                                           }];
-                    }
-                }
-                else
-                {
-                    [Flurry logEvent:kFlurryEventNoVoicePromptForInActiveStatus
-                      withParameters:@{
-                                       @"reason id" : @(reasonId),
-                                       @"location code" : locationCode
-                                       }];
-                }
+                [Flurry logEvent:kFlurryEventCurrentLocationIsNotInMiddle
+                  withParameters:@{
+                                   @"reason id" : @(reasonId),
+                                   @"location code" : code,
+                                   @"location name": name,
+                                   @"previous latitude": @(start.latitude),
+                                   @"previous longitude": @(start.longitude),
+                                   @"current latitude": @(current.latitude),
+                                   @"current longitude": @(current.longitude),
+                                   @"target latitude": @(end.latitude),
+                                   @"target longitude": @(end.longitude)
+                                   }];
             }
-        ];
+        }
     }
     else
     {
@@ -711,12 +745,12 @@ static double kDefaultLon = -113.4687100;
     }
 }
 
-- (NSDictionary*)getApproachingHotSpot:(CLLocation*)lastLocation
-                        currentLocation:(CLLocation*)curLocation
+- (NSDictionary*)getHotSpotWithStartLocation:(CLLocation*)startLocation
+                          andCurrentLocation:(CLLocation*)currentLocation
 {
     // Compute direction
-    CLLocationDirection accurateDir = [lastLocation kv_bearingOnRhumbLineToCoordinate:curLocation.coordinate];
-    Direction direction = [[LocationDirection alloc] initWithCLLocationDirection:accurateDir].direction;
+    CLLocationDirection accurateDir = [startLocation kv_bearingOnRhumbLineToCoordinate:currentLocation.coordinate];
+    Direction direction = [DirectionUtility fromCLLocationDirection:accurateDir];
     
     // Filter out reasons
     NSArray* reasonIds = [[[DBReasonAdapter alloc] init] getReasonIDsOfDate:[NSDate date]];
@@ -727,30 +761,55 @@ static double kDefaultLon = -113.4687100;
     
     // Filter out hot spot
     CGFloat hotSpotZoonRadius = kHotSpotZoonRadius;
-    if (curLocation.speed > 0)
+    if (currentLocation.speed > 0)
     {
-        hotSpotZoonRadius = curLocation.speed * kHotSpotEarlyWarningInterval;
+        hotSpotZoonRadius = currentLocation.speed * kHotSpotEarlyWarningInterval;
     }
-    
 
     // Get loc codes
     NSArray* locCodes = [self.locationAdapter getLocCodesInRange:hotSpotZoonRadius
-                                                      atLatitude:curLocation.coordinate.latitude
-                                                       longitude:curLocation.coordinate.longitude];
+                                                      atLatitude:currentLocation.coordinate.latitude
+                                                       longitude:currentLocation.coordinate.longitude];
     if (locCodes.count == 0)
     {
         return nil;
     }
-
-    NSDictionary *hotSpot = [self.locationAdapter getLocationReasonOfReasonIds:reasonIds
-                                                                   inDirection:direction
-                                                            amongLocationCodes:locCodes];
-    if (hotSpot == nil)
-    {
-        // TODO: CPY
-    }
     
-    return hotSpot;
+    // Find top 1 hotspot
+    NSDictionary *hotspot = nil;
+    NSArray *hotspots = [self.locationAdapter getLocationsOfReasonIds:reasonIds
+                                                          inDirection:direction
+                                                  withinLocationCodes:locCodes];
+    NSUInteger count = hotspots.count;
+    if (count == 1)
+    {
+        hotspot = [hotspots objectAtIndex:0];
+    }
+    else
+    {
+        if (count == 0)
+        {
+            [Flurry logEvent:kFlurryEventHotspotIgnored
+              withParameters:@{
+                               @"direction": [DirectionUtility directionToString:direction],
+                               @"location codes" : [locCodes componentsJoinedByString:@","],
+                               @"reason ids" : [reasonIds componentsJoinedByString:@","]
+                               }
+             ];
+        }
+        else
+        {
+            NSUInteger idx = 1;
+            while (idx < count)
+            {
+                [Flurry logEvent:kFlurryEventHotspotIngoredForLowerPriority
+                  withParameters:[hotspots objectAtIndex:idx]];
+                ++idx;
+            }
+        }
+    }
+
+    return hotspot;
 }
 
 - (void)hotspotCellDidSelect:(id)data
