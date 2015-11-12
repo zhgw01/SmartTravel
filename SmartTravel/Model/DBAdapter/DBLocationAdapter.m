@@ -135,7 +135,7 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
                 withinLocationCodes:(NSArray*)locCodes
 {
     NSString* smt = [NSString  stringWithFormat:
-                     @"select %@, %@, %@, %@, %@ from %@ where (%@ = '%@' or %@ = 'ALL') and %@ in (%@) and %@ in %@ order by %@ desc limit 1",
+                     @"select %@, %@, %@, %@, %@ from %@ where (%@ = '%@' or %@ = 'ALL') and %@ in (%@) and %@ in %@ order by %@ desc",
                      kLocCodeColumn,
                      kTravelDirectionColumn,
                      kReasonIdColumn,

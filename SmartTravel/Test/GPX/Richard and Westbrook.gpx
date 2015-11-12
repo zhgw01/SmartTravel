@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?><gpx creator="Lockito" version="1.1">
   <metadata>
     <name><![CDATA[Richard and Westbrook ]]></name>
-    <desc><![CDATA[speed=13.89,accuracyBase=40.0,accuracyDelta=10.0]]></desc>
+    <desc><![CDATA[speed=3.89,accuracyBase=40.0,accuracyDelta=10.0]]></desc>
   </metadata>
-  <!--
-  <wpt lat="53.47523419" lon="-113.5429166">
-      <time>2014-11-07T11:26:15Z</time>
-  </wpt>
-  <wpt lat="53.47526919" lon="-113.5428166">
+  <wpt lat="53.47495419" lon="-113.5460166">
       <time>2014-11-07T11:26:25Z</time>
   </wpt>
-  <wpt lat="53.47529419" lon="-113.5427166">
-      <time>2014-11-07T11:26:35Z</time>
+  <wpt lat="53.47520919" lon="-113.5436166">
+      <time>2014-11-07T11:26:40Z</time>
   </wpt>
-   -->
-  <!-- wrong direction -->
-  <wpt lat="53.47549419" lon="-113.5410166">
-      <time>2014-11-07T11:26:15Z</time>
+  <wpt lat="53.47550919" lon="-113.5413166">
+      <time>2014-11-07T11:26:55Z</time>
   </wpt>
-  <wpt lat="53.47530919" lon="-113.5430166"> <!-- around the location -->
-      <time>2014-11-07T11:26:20Z</time>
+  <wpt lat="53.47629419" lon="-113.5412166">
+      <time>2014-11-07T11:27:05Z</time>
   </wpt>
-  <wpt lat="53.47508419" lon="-113.5439166">
-      <time>2014-11-07T11:26:25Z</time>
+  <wpt lat="53.47632943" lon="-113.5401166">
+      <time>2014-11-07T11:27:20Z</time>
+  </wpt>
+  <wpt lat="53.47632943" lon="-113.5387953">
+      <time>2014-11-07T11:27:30Z</time>
+  </wpt>
+  <wpt lat="53.47632943" lon="-113.5386936">
+      <time>2014-11-07T11:27:40Z</time>
+  </wpt>
+  <wpt lat="53.47632943" lon="-113.5306936">
+      <time>2014-11-07T11:27:50Z</time>
   </wpt>
 </gpx>

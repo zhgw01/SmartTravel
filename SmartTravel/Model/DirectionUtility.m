@@ -7,6 +7,7 @@
 //
 
 #import "DirectionUtility.h"
+#import <Geo-Utilities/CLLocation+Navigation.h>
 
 @implementation DirectionUtility
 
@@ -48,15 +49,21 @@
     }
 }
 
-+ (BOOL)isLocation:(CLLocationCoordinate2D)locMiddle
-inMiddleOfLocation:(CLLocationCoordinate2D)locStart
-       andLocation:(CLLocationCoordinate2D)locEnd
++ (BOOL)isLocation:(CLLocationCoordinate2D)currenCoor
+ approachingTarget:(CLLocationCoordinate2D)targetCoor
+     withDirection:(CLLocationDirection)dir1
 {
-    double x1 = locMiddle.longitude - locStart.longitude;
-    double y1 = locMiddle.latitude - locStart.latitude;
-    double x2 = locEnd.longitude - locMiddle.longitude;
-    double y2 = locEnd.latitude - locMiddle.latitude;
-    return ((x1 * x2 + y1 * y2) > 0);
+    CLLocationDirection dir2 = [[[CLLocation alloc] initWithLatitude:currenCoor.latitude
+                                                           longitude:currenCoor.longitude] kv_bearingOnRhumbLineToCoordinate:targetCoor];
+    
+    if (dir1 <= dir2)
+    {
+        return ((dir2 - dir1) > 270 || (dir2 - dir1) < 90);
+    }
+    else
+    {
+        return ((dir1 - dir2) > 270 || (dir1 - dir2) < 90);
+    }
 }
 
 @end

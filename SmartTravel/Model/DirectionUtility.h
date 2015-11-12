@@ -22,8 +22,8 @@ typedef NS_ENUM(NSUInteger, Direction) {
 
 + (NSString*)directionToString:(Direction)direction;
 
-+ (BOOL)isLocation:(CLLocationCoordinate2D)locMiddle
-inMiddleOfLocation:(CLLocationCoordinate2D)locStart
-       andLocation:(CLLocationCoordinate2D)locEnd;
++ (BOOL)isLocation:(CLLocationCoordinate2D)currenCoor
+ approachingTarget:(CLLocationCoordinate2D)targetCoor
+     withDirection:(CLLocationDirection)dir1;
 
 @end

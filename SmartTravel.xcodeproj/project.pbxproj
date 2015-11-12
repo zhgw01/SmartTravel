@@ -72,6 +72,8 @@
 		8F1E645B1BE247EA00E1DE37 /* template.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8F1E645A1BE247EA00E1DE37 /* template.sqlite */; };
 		8F44EBB91BB58629005A9E0B /* LocationCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9F1A21BAD840C000EAB39 /* LocationCoordinate.m */; };
 		8F44EBBB1BB58676005A9E0B /* LocationArrayParseTC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F44EBBA1BB58676005A9E0B /* LocationArrayParseTC.m */; };
+		8F4F49701BF4E6F5008779E3 /* 117Street_north_to_south.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8F4F496E1BF4E6F5008779E3 /* 117Street_north_to_south.gpx */; };
+		8F4F49711BF4E6F5008779E3 /* 117Street_south_to_north.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8F4F496F1BF4E6F5008779E3 /* 117Street_south_to_north.gpx */; };
 		8FC3362F1BF2466F0020E34F /* Richard and Westbrook.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8FC3362C1BF2466F0020E34F /* Richard and Westbrook.gpx */; };
 		8FC336341BF389540020E34F /* J. H. Picard_1_from_north_turn.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8FC336321BF389540020E34F /* J. H. Picard_1_from_north_turn.gpx */; };
 		8FC336351BF389540020E34F /* J. H. Picard_1_from_west.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8FC336331BF389540020E34F /* J. H. Picard_1_from_west.gpx */; };
@@ -218,6 +220,8 @@
 		8F0DC9111BC1294800BE6496 /* constant.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = constant.plist; sourceTree = "<group>"; };
 		8F1E645A1BE247EA00E1DE37 /* template.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = template.sqlite; path = Resource/SQLite/template.sqlite; sourceTree = "<group>"; };
 		8F44EBBA1BB58676005A9E0B /* LocationArrayParseTC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationArrayParseTC.m; sourceTree = "<group>"; };
+		8F4F496E1BF4E6F5008779E3 /* 117Street_north_to_south.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 117Street_north_to_south.gpx; path = Test/GPX/117Street_north_to_south.gpx; sourceTree = "<group>"; };
+		8F4F496F1BF4E6F5008779E3 /* 117Street_south_to_north.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 117Street_south_to_north.gpx; path = Test/GPX/117Street_south_to_north.gpx; sourceTree = "<group>"; };
 		8FC3362C1BF2466F0020E34F /* Richard and Westbrook.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Richard and Westbrook.gpx"; path = "Test/GPX/Richard and Westbrook.gpx"; sourceTree = "<group>"; };
 		8FC336321BF389540020E34F /* J. H. Picard_1_from_north_turn.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "J. H. Picard_1_from_north_turn.gpx"; path = "Test/GPX/J. H. Picard_1_from_north_turn.gpx"; sourceTree = "<group>"; };
 		8FC336331BF389540020E34F /* J. H. Picard_1_from_west.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "J. H. Picard_1_from_west.gpx"; path = "Test/GPX/J. H. Picard_1_from_west.gpx"; sourceTree = "<group>"; };
@@ -351,6 +355,8 @@
 		425754B81B088BA60046433F /* GPX */ = {
 			isa = PBXGroup;
 			children = (
+				8F4F496E1BF4E6F5008779E3 /* 117Street_north_to_south.gpx */,
+				8F4F496F1BF4E6F5008779E3 /* 117Street_south_to_north.gpx */,
 				8FC336361BF3896A0020E34F /* drive.gpx */,
 				8FC336321BF389540020E34F /* J. H. Picard_1_from_north_turn.gpx */,
 				8FC336331BF389540020E34F /* J. H. Picard_1_from_west.gpx */,
@@ -729,6 +735,7 @@
 				4290A0AE1AF6050100CB46E5 /* HotSpotTableViewCell.xib in Resources */,
 				9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */,
 				84232CD61B2D7DE000E0BE11 /* Cyclist.m4a in Resources */,
+				8F4F49701BF4E6F5008779E3 /* 117Street_north_to_south.gpx in Resources */,
 				84232CD41B2D7DE000E0BE11 /* afternoon rush hour.m4a in Resources */,
 				42C6A8B31B0A0FAC00EE1518 /* HotSpotDetailView.xib in Resources */,
 				84232CDD1B2D7DE000E0BE11 /* Red-light running.m4a in Resources */,
@@ -738,6 +745,7 @@
 				8475E8651B1218FB000E0AD5 /* smartTravel.sqlite in Resources */,
 				84232CDA1B2D7DE000E0BE11 /* Motorcyclist.m4a in Resources */,
 				8FC336351BF389540020E34F /* J. H. Picard_1_from_west.gpx in Resources */,
+				8F4F49711BF4E6F5008779E3 /* 117Street_south_to_north.gpx in Resources */,
 				84232CD71B2D7DE000E0BE11 /* Improper lane change.m4a in Resources */,
 				84232CDB1B2D7DE000E0BE11 /* Pedestrians.m4a in Resources */,
 				8FC336371BF3896A0020E34F /* drive.gpx in Resources */,
