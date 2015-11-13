@@ -16,7 +16,7 @@ notifications:
     recipients:
       - lan.cheng@outlook.com
       - 18621190525@126.com
-      - zhgw01@163.com
+      - zhgw01@gmail.com
     on_success: always # default: change
     #on_failure: [always|never|change] # default: always
 env:
