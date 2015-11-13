@@ -86,6 +86,8 @@
 		8FEC5E351BF61059005F4DA5 /* Speed Limit (Dennis).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E261BF61059005F4DA5 /* Speed Limit (Dennis).wav */; };
 		8FEC5E361BF61059005F4DA5 /* Stop Sign (Nicola).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E271BF61059005F4DA5 /* Stop Sign (Nicola).wav */; };
 		8FEC5E371BF61059005F4DA5 /* Weekend (Nicola).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E281BF61059005F4DA5 /* Weekend (Nicola).wav */; };
+		8FEC5E3A1BF61661005F4DA5 /* Teresa_north_to_south.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E381BF61661005F4DA5 /* Teresa_north_to_south.gpx */; };
+		8FEC5E3B1BF61661005F4DA5 /* Teresa_south_to_north.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E391BF61661005F4DA5 /* Teresa_south_to_north.gpx */; };
 		8FEFC8191BB8103E00A2F922 /* SchoolShapeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEFC8181BB8103E00A2F922 /* SchoolShapeManager.m */; };
 		8FEFC81C1BB810E300A2F922 /* CollisionShapeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEFC81B1BB810E300A2F922 /* CollisionShapeManager.m */; };
 		8FEFC81F1BB8156900A2F922 /* ShapeManagerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEFC81E1BB8156900A2F922 /* ShapeManagerFactory.m */; };
@@ -242,6 +244,8 @@
 		8FEC5E261BF61059005F4DA5 /* Speed Limit (Dennis).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Speed Limit (Dennis).wav"; path = "Resource/WAV/Speed Limit (Dennis).wav"; sourceTree = "<group>"; };
 		8FEC5E271BF61059005F4DA5 /* Stop Sign (Nicola).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Stop Sign (Nicola).wav"; path = "Resource/WAV/Stop Sign (Nicola).wav"; sourceTree = "<group>"; };
 		8FEC5E281BF61059005F4DA5 /* Weekend (Nicola).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Weekend (Nicola).wav"; path = "Resource/WAV/Weekend (Nicola).wav"; sourceTree = "<group>"; };
+		8FEC5E381BF61661005F4DA5 /* Teresa_north_to_south.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Teresa_north_to_south.gpx; path = Test/GPX/Teresa_north_to_south.gpx; sourceTree = "<group>"; };
+		8FEC5E391BF61661005F4DA5 /* Teresa_south_to_north.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Teresa_south_to_north.gpx; path = Test/GPX/Teresa_south_to_north.gpx; sourceTree = "<group>"; };
 		8FEFC8171BB8103E00A2F922 /* SchoolShapeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchoolShapeManager.h; path = ViewModel/SchoolShapeManager.h; sourceTree = "<group>"; };
 		8FEFC8181BB8103E00A2F922 /* SchoolShapeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SchoolShapeManager.m; path = ViewModel/SchoolShapeManager.m; sourceTree = "<group>"; };
 		8FEFC81A1BB810E300A2F922 /* CollisionShapeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionShapeManager.h; path = ViewModel/CollisionShapeManager.h; sourceTree = "<group>"; };
@@ -361,6 +365,8 @@
 		425754B81B088BA60046433F /* GPX */ = {
 			isa = PBXGroup;
 			children = (
+				8FEC5E381BF61661005F4DA5 /* Teresa_north_to_south.gpx */,
+				8FEC5E391BF61661005F4DA5 /* Teresa_south_to_north.gpx */,
 				8F2A95AB1BF6068500028FF4 /* 72ave_14ST.gpx */,
 				8F4F496E1BF4E6F5008779E3 /* 117Street_north_to_south.gpx */,
 				8F4F496F1BF4E6F5008779E3 /* 117Street_south_to_north.gpx */,
@@ -759,6 +765,7 @@
 				8F4F49711BF4E6F5008779E3 /* 117Street_south_to_north.gpx in Resources */,
 				8FEC5E331BF61059005F4DA5 /* Red Light (Dennis).wav in Resources */,
 				8FC336371BF3896A0020E34F /* drive.gpx in Resources */,
+				8FEC5E3A1BF61661005F4DA5 /* Teresa_north_to_south.gpx in Resources */,
 				9B6A85BA1ADFDF0000667170 /* Main.storyboard in Resources */,
 				8FEC5E2A1BF61059005F4DA5 /* Cyclist (Nicola).wav in Resources */,
 				9B6A85BF1ADFDF0000667170 /* LaunchScreen.xib in Resources */,
@@ -769,6 +776,7 @@
 				8FC336341BF389540020E34F /* J. H. Picard_1_from_north_turn.gpx in Resources */,
 				8FEC5E341BF61059005F4DA5 /* School Zone (Naomi).wav in Resources */,
 				8FEC5E2C1BF61059005F4DA5 /* Lane Change (Elizabeth).wav in Resources */,
+				8FEC5E3B1BF61661005F4DA5 /* Teresa_south_to_north.gpx in Resources */,
 				849DE7D61B7B825400B1FA3D /* NoInterfereVC.xib in Resources */,
 				8F2A95AC1BF6068500028FF4 /* 72ave_14ST.gpx in Resources */,
 				9B5EE8641AF3EEE600524F4A /* default.gpx in Resources */,

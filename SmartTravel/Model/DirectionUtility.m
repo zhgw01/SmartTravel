@@ -58,11 +58,11 @@
     
     if (dir1 <= dir2)
     {
-        return ((dir2 - dir1) > 270 || (dir2 - dir1) < 90);
+        return ((dir2 - dir1) > (270 + 45) || (dir2 - dir1) < (90 - 45));
     }
     else
     {
-        return ((dir1 - dir2) > 270 || (dir1 - dir2) < 90);
+        return ((dir1 - dir2) > (270 + 45) || (dir1 - dir2) < (90 - 45));
     }
 }
 
