@@ -35,19 +35,6 @@
 		42E9F1A31BAD840C000EAB39 /* LocationCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9F1A21BAD840C000EAB39 /* LocationCoordinate.m */; };
 		6613E4635B5E884F0B519EDB /* libPods-SmartTravel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC29DFEB55D05F2F0E0316D /* libPods-SmartTravel.a */; };
 		841EE2AE1B9482170022A067 /* STConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 841EE2AD1B9482170022A067 /* STConstants.m */; };
-		84232CD41B2D7DE000E0BE11 /* afternoon rush hour.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CC71B2D7DE000E0BE11 /* afternoon rush hour.m4a */; };
-		84232CD51B2D7DE000E0BE11 /* attention high risk collision area.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CC81B2D7DE000E0BE11 /* attention high risk collision area.m4a */; };
-		84232CD61B2D7DE000E0BE11 /* Cyclist.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CC91B2D7DE000E0BE11 /* Cyclist.m4a */; };
-		84232CD71B2D7DE000E0BE11 /* Improper lane change.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CCA1B2D7DE000E0BE11 /* Improper lane change.m4a */; };
-		84232CD81B2D7DE000E0BE11 /* increase the gap.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CCB1B2D7DE000E0BE11 /* increase the gap.m4a */; };
-		84232CD91B2D7DE000E0BE11 /* Morning rush hour.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CCC1B2D7DE000E0BE11 /* Morning rush hour.m4a */; };
-		84232CDA1B2D7DE000E0BE11 /* Motorcyclist.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CCD1B2D7DE000E0BE11 /* Motorcyclist.m4a */; };
-		84232CDB1B2D7DE000E0BE11 /* Pedestrians.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CCE1B2D7DE000E0BE11 /* Pedestrians.m4a */; };
-		84232CDC1B2D7DE000E0BE11 /* Ran off road.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CCF1B2D7DE000E0BE11 /* Ran off road.m4a */; };
-		84232CDD1B2D7DE000E0BE11 /* Red-light running.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CD01B2D7DE000E0BE11 /* Red-light running.m4a */; };
-		84232CDE1B2D7DE000E0BE11 /* School zone.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CD11B2D7DE000E0BE11 /* School zone.m4a */; };
-		84232CDF1B2D7DE000E0BE11 /* Stop sign violation.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CD21B2D7DE000E0BE11 /* Stop sign violation.m4a */; };
-		84232CE01B2D7DE000E0BE11 /* weekend early morning.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 84232CD31B2D7DE000E0BE11 /* weekend early morning.m4a */; };
 		8475E8651B1218FB000E0AD5 /* smartTravel.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8475E8641B1218FB000E0AD5 /* smartTravel.sqlite */; };
 		849289AF1B7733C900837FF7 /* DataUpdateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849289AD1B7733C900837FF7 /* DataUpdateVC.m */; };
 		849289B01B7733C900837FF7 /* DataUpdateVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849289AE1B7733C900837FF7 /* DataUpdateVC.xib */; };
@@ -84,7 +71,21 @@
 		8FE05CF21BB7DF8F00118F2A /* SchoolMarkerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CF11BB7DF8F00118F2A /* SchoolMarkerManager.m */; };
 		8FE05CF51BB7DFAD00118F2A /* CollisionMarkerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CF41BB7DFAD00118F2A /* CollisionMarkerManager.m */; };
 		8FE05CF81BB7E68600118F2A /* LayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CF71BB7E68600118F2A /* LayerManager.m */; };
-		8FEC5E181BF60A98005F4DA5 /* Left Turn.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E171BF60A98005F4DA5 /* Left Turn.m4a */; };
+		8FEC5E291BF61059005F4DA5 /* AM (Nicola).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E1A1BF61059005F4DA5 /* AM (Nicola).wav */; };
+		8FEC5E2A1BF61059005F4DA5 /* Cyclist (Nicola).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E1B1BF61059005F4DA5 /* Cyclist (Nicola).wav */; };
+		8FEC5E2B1BF61059005F4DA5 /* High Risk (Dennis).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E1C1BF61059005F4DA5 /* High Risk (Dennis).wav */; };
+		8FEC5E2C1BF61059005F4DA5 /* Lane Change (Elizabeth).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E1D1BF61059005F4DA5 /* Lane Change (Elizabeth).wav */; };
+		8FEC5E2D1BF61059005F4DA5 /* Left Turn (Elizabeth).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E1E1BF61059005F4DA5 /* Left Turn (Elizabeth).wav */; };
+		8FEC5E2E1BF61059005F4DA5 /* Motorcyclist (Dennis).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E1F1BF61059005F4DA5 /* Motorcyclist (Dennis).wav */; };
+		8FEC5E2F1BF61059005F4DA5 /* Pedestrian (Elizabeth).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E201BF61059005F4DA5 /* Pedestrian (Elizabeth).wav */; };
+		8FEC5E301BF61059005F4DA5 /* PM (Dennis).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E211BF61059005F4DA5 /* PM (Dennis).wav */; };
+		8FEC5E311BF61059005F4DA5 /* Ran Off Road (Elizabeth).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E221BF61059005F4DA5 /* Ran Off Road (Elizabeth).wav */; };
+		8FEC5E321BF61059005F4DA5 /* Rear End (Nicola).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E231BF61059005F4DA5 /* Rear End (Nicola).wav */; };
+		8FEC5E331BF61059005F4DA5 /* Red Light (Dennis).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E241BF61059005F4DA5 /* Red Light (Dennis).wav */; };
+		8FEC5E341BF61059005F4DA5 /* School Zone (Naomi).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E251BF61059005F4DA5 /* School Zone (Naomi).wav */; };
+		8FEC5E351BF61059005F4DA5 /* Speed Limit (Dennis).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E261BF61059005F4DA5 /* Speed Limit (Dennis).wav */; };
+		8FEC5E361BF61059005F4DA5 /* Stop Sign (Nicola).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E271BF61059005F4DA5 /* Stop Sign (Nicola).wav */; };
+		8FEC5E371BF61059005F4DA5 /* Weekend (Nicola).wav in Resources */ = {isa = PBXBuildFile; fileRef = 8FEC5E281BF61059005F4DA5 /* Weekend (Nicola).wav */; };
 		8FEFC8191BB8103E00A2F922 /* SchoolShapeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEFC8181BB8103E00A2F922 /* SchoolShapeManager.m */; };
 		8FEFC81C1BB810E300A2F922 /* CollisionShapeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEFC81B1BB810E300A2F922 /* CollisionShapeManager.m */; };
 		8FEFC81F1BB8156900A2F922 /* ShapeManagerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEFC81E1BB8156900A2F922 /* ShapeManagerFactory.m */; };
@@ -171,19 +172,6 @@
 		6928DA7D73FEF35E1EBF313F /* Pods-SmartTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartTravel/Pods-SmartTravel.release.xcconfig"; sourceTree = "<group>"; };
 		841EE2AC1B9482170022A067 /* STConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STConstants.h; path = Singleton/STConstants.h; sourceTree = "<group>"; };
 		841EE2AD1B9482170022A067 /* STConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STConstants.m; path = Singleton/STConstants.m; sourceTree = "<group>"; };
-		84232CC71B2D7DE000E0BE11 /* afternoon rush hour.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "afternoon rush hour.m4a"; path = "Resource/M4a/afternoon rush hour.m4a"; sourceTree = "<group>"; };
-		84232CC81B2D7DE000E0BE11 /* attention high risk collision area.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "attention high risk collision area.m4a"; path = "Resource/M4a/attention high risk collision area.m4a"; sourceTree = "<group>"; };
-		84232CC91B2D7DE000E0BE11 /* Cyclist.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = Cyclist.m4a; path = Resource/M4a/Cyclist.m4a; sourceTree = "<group>"; };
-		84232CCA1B2D7DE000E0BE11 /* Improper lane change.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Improper lane change.m4a"; path = "Resource/M4a/Improper lane change.m4a"; sourceTree = "<group>"; };
-		84232CCB1B2D7DE000E0BE11 /* increase the gap.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "increase the gap.m4a"; path = "Resource/M4a/increase the gap.m4a"; sourceTree = "<group>"; };
-		84232CCC1B2D7DE000E0BE11 /* Morning rush hour.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Morning rush hour.m4a"; path = "Resource/M4a/Morning rush hour.m4a"; sourceTree = "<group>"; };
-		84232CCD1B2D7DE000E0BE11 /* Motorcyclist.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = Motorcyclist.m4a; path = Resource/M4a/Motorcyclist.m4a; sourceTree = "<group>"; };
-		84232CCE1B2D7DE000E0BE11 /* Pedestrians.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = Pedestrians.m4a; path = Resource/M4a/Pedestrians.m4a; sourceTree = "<group>"; };
-		84232CCF1B2D7DE000E0BE11 /* Ran off road.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ran off road.m4a"; path = "Resource/M4a/Ran off road.m4a"; sourceTree = "<group>"; };
-		84232CD01B2D7DE000E0BE11 /* Red-light running.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Red-light running.m4a"; path = "Resource/M4a/Red-light running.m4a"; sourceTree = "<group>"; };
-		84232CD11B2D7DE000E0BE11 /* School zone.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "School zone.m4a"; path = "Resource/M4a/School zone.m4a"; sourceTree = "<group>"; };
-		84232CD21B2D7DE000E0BE11 /* Stop sign violation.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stop sign violation.m4a"; path = "Resource/M4a/Stop sign violation.m4a"; sourceTree = "<group>"; };
-		84232CD31B2D7DE000E0BE11 /* weekend early morning.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "weekend early morning.m4a"; path = "Resource/M4a/weekend early morning.m4a"; sourceTree = "<group>"; };
 		8475E8641B1218FB000E0AD5 /* smartTravel.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = smartTravel.sqlite; path = Resource/SQLite/smartTravel.sqlite; sourceTree = "<group>"; };
 		849289AC1B7733C900837FF7 /* DataUpdateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataUpdateVC.h; path = Controller/DataUpdateVC.h; sourceTree = "<group>"; };
 		849289AD1B7733C900837FF7 /* DataUpdateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataUpdateVC.m; path = Controller/DataUpdateVC.m; sourceTree = "<group>"; };
@@ -239,7 +227,21 @@
 		8FE05CF41BB7DFAD00118F2A /* CollisionMarkerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionMarkerManager.m; path = ViewModel/CollisionMarkerManager.m; sourceTree = "<group>"; };
 		8FE05CF61BB7E68600118F2A /* LayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LayerManager.h; path = ViewModel/LayerManager.h; sourceTree = "<group>"; };
 		8FE05CF71BB7E68600118F2A /* LayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LayerManager.m; path = ViewModel/LayerManager.m; sourceTree = "<group>"; };
-		8FEC5E171BF60A98005F4DA5 /* Left Turn.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Left Turn.m4a"; path = "Resource/M4a/Left Turn.m4a"; sourceTree = "<group>"; };
+		8FEC5E1A1BF61059005F4DA5 /* AM (Nicola).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "AM (Nicola).wav"; path = "Resource/WAV/AM (Nicola).wav"; sourceTree = "<group>"; };
+		8FEC5E1B1BF61059005F4DA5 /* Cyclist (Nicola).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Cyclist (Nicola).wav"; path = "Resource/WAV/Cyclist (Nicola).wav"; sourceTree = "<group>"; };
+		8FEC5E1C1BF61059005F4DA5 /* High Risk (Dennis).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "High Risk (Dennis).wav"; path = "Resource/WAV/High Risk (Dennis).wav"; sourceTree = "<group>"; };
+		8FEC5E1D1BF61059005F4DA5 /* Lane Change (Elizabeth).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Lane Change (Elizabeth).wav"; path = "Resource/WAV/Lane Change (Elizabeth).wav"; sourceTree = "<group>"; };
+		8FEC5E1E1BF61059005F4DA5 /* Left Turn (Elizabeth).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Left Turn (Elizabeth).wav"; path = "Resource/WAV/Left Turn (Elizabeth).wav"; sourceTree = "<group>"; };
+		8FEC5E1F1BF61059005F4DA5 /* Motorcyclist (Dennis).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Motorcyclist (Dennis).wav"; path = "Resource/WAV/Motorcyclist (Dennis).wav"; sourceTree = "<group>"; };
+		8FEC5E201BF61059005F4DA5 /* Pedestrian (Elizabeth).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Pedestrian (Elizabeth).wav"; path = "Resource/WAV/Pedestrian (Elizabeth).wav"; sourceTree = "<group>"; };
+		8FEC5E211BF61059005F4DA5 /* PM (Dennis).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "PM (Dennis).wav"; path = "Resource/WAV/PM (Dennis).wav"; sourceTree = "<group>"; };
+		8FEC5E221BF61059005F4DA5 /* Ran Off Road (Elizabeth).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Ran Off Road (Elizabeth).wav"; path = "Resource/WAV/Ran Off Road (Elizabeth).wav"; sourceTree = "<group>"; };
+		8FEC5E231BF61059005F4DA5 /* Rear End (Nicola).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Rear End (Nicola).wav"; path = "Resource/WAV/Rear End (Nicola).wav"; sourceTree = "<group>"; };
+		8FEC5E241BF61059005F4DA5 /* Red Light (Dennis).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Red Light (Dennis).wav"; path = "Resource/WAV/Red Light (Dennis).wav"; sourceTree = "<group>"; };
+		8FEC5E251BF61059005F4DA5 /* School Zone (Naomi).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "School Zone (Naomi).wav"; path = "Resource/WAV/School Zone (Naomi).wav"; sourceTree = "<group>"; };
+		8FEC5E261BF61059005F4DA5 /* Speed Limit (Dennis).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Speed Limit (Dennis).wav"; path = "Resource/WAV/Speed Limit (Dennis).wav"; sourceTree = "<group>"; };
+		8FEC5E271BF61059005F4DA5 /* Stop Sign (Nicola).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Stop Sign (Nicola).wav"; path = "Resource/WAV/Stop Sign (Nicola).wav"; sourceTree = "<group>"; };
+		8FEC5E281BF61059005F4DA5 /* Weekend (Nicola).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Weekend (Nicola).wav"; path = "Resource/WAV/Weekend (Nicola).wav"; sourceTree = "<group>"; };
 		8FEFC8171BB8103E00A2F922 /* SchoolShapeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchoolShapeManager.h; path = ViewModel/SchoolShapeManager.h; sourceTree = "<group>"; };
 		8FEFC8181BB8103E00A2F922 /* SchoolShapeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SchoolShapeManager.m; path = ViewModel/SchoolShapeManager.m; sourceTree = "<group>"; };
 		8FEFC81A1BB810E300A2F922 /* CollisionShapeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollisionShapeManager.h; path = ViewModel/CollisionShapeManager.h; sourceTree = "<group>"; };
@@ -385,27 +387,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		84232CC61B2D7DAF00E0BE11 /* M4a */ = {
-			isa = PBXGroup;
-			children = (
-				8FEC5E171BF60A98005F4DA5 /* Left Turn.m4a */,
-				84232CC71B2D7DE000E0BE11 /* afternoon rush hour.m4a */,
-				84232CC81B2D7DE000E0BE11 /* attention high risk collision area.m4a */,
-				84232CC91B2D7DE000E0BE11 /* Cyclist.m4a */,
-				84232CCA1B2D7DE000E0BE11 /* Improper lane change.m4a */,
-				84232CCB1B2D7DE000E0BE11 /* increase the gap.m4a */,
-				84232CCC1B2D7DE000E0BE11 /* Morning rush hour.m4a */,
-				84232CCD1B2D7DE000E0BE11 /* Motorcyclist.m4a */,
-				84232CCE1B2D7DE000E0BE11 /* Pedestrians.m4a */,
-				84232CCF1B2D7DE000E0BE11 /* Ran off road.m4a */,
-				84232CD01B2D7DE000E0BE11 /* Red-light running.m4a */,
-				84232CD11B2D7DE000E0BE11 /* School zone.m4a */,
-				84232CD21B2D7DE000E0BE11 /* Stop sign violation.m4a */,
-				84232CD31B2D7DE000E0BE11 /* weekend early morning.m4a */,
-			);
-			name = M4a;
-			sourceTree = "<group>";
-		};
 		84A5BC441B7DFA51001EAECB /* Singleton */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,6 +426,28 @@
 			children = (
 			);
 			name = "New Group";
+			sourceTree = "<group>";
+		};
+		8FEC5E191BF6103E005F4DA5 /* wav */ = {
+			isa = PBXGroup;
+			children = (
+				8FEC5E1A1BF61059005F4DA5 /* AM (Nicola).wav */,
+				8FEC5E1B1BF61059005F4DA5 /* Cyclist (Nicola).wav */,
+				8FEC5E1C1BF61059005F4DA5 /* High Risk (Dennis).wav */,
+				8FEC5E1D1BF61059005F4DA5 /* Lane Change (Elizabeth).wav */,
+				8FEC5E1E1BF61059005F4DA5 /* Left Turn (Elizabeth).wav */,
+				8FEC5E1F1BF61059005F4DA5 /* Motorcyclist (Dennis).wav */,
+				8FEC5E201BF61059005F4DA5 /* Pedestrian (Elizabeth).wav */,
+				8FEC5E211BF61059005F4DA5 /* PM (Dennis).wav */,
+				8FEC5E221BF61059005F4DA5 /* Ran Off Road (Elizabeth).wav */,
+				8FEC5E231BF61059005F4DA5 /* Rear End (Nicola).wav */,
+				8FEC5E241BF61059005F4DA5 /* Red Light (Dennis).wav */,
+				8FEC5E251BF61059005F4DA5 /* School Zone (Naomi).wav */,
+				8FEC5E261BF61059005F4DA5 /* Speed Limit (Dennis).wav */,
+				8FEC5E271BF61059005F4DA5 /* Stop Sign (Nicola).wav */,
+				8FEC5E281BF61059005F4DA5 /* Weekend (Nicola).wav */,
+			);
+			name = wav;
 			sourceTree = "<group>";
 		};
 		9B295C071ADFF03200758837 /* View */ = {
@@ -573,7 +576,7 @@
 		9B6A85AE1ADFDEFF00667170 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				84232CC61B2D7DAF00E0BE11 /* M4a */,
+				8FEC5E191BF6103E005F4DA5 /* wav */,
 				84F38DEB1B10122800A0EB42 /* SQLite */,
 				425754B81B088BA60046433F /* GPX */,
 				9B5EE8631AF3EEE600524F4A /* default.gpx */,
@@ -732,44 +735,45 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84232CD51B2D7DE000E0BE11 /* attention high risk collision area.m4a in Resources */,
+				8FEC5E2F1BF61059005F4DA5 /* Pedestrian (Elizabeth).wav in Resources */,
 				42C6A8B51B0A0FAC00EE1518 /* WarningView.xib in Resources */,
-				84232CDF1B2D7DE000E0BE11 /* Stop sign violation.m4a in Resources */,
+				8FEC5E311BF61059005F4DA5 /* Ran Off Road (Elizabeth).wav in Resources */,
+				8FEC5E351BF61059005F4DA5 /* Speed Limit (Dennis).wav in Resources */,
 				9BC3392F1AE296250046AAB5 /* termofusage.html in Resources */,
-				84232CDE1B2D7DE000E0BE11 /* School zone.m4a in Resources */,
 				42C6A8C91B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib in Resources */,
 				4290A0AE1AF6050100CB46E5 /* HotSpotTableViewCell.xib in Resources */,
 				9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */,
-				84232CD61B2D7DE000E0BE11 /* Cyclist.m4a in Resources */,
 				8F4F49701BF4E6F5008779E3 /* 117Street_north_to_south.gpx in Resources */,
-				84232CD41B2D7DE000E0BE11 /* afternoon rush hour.m4a in Resources */,
 				42C6A8B31B0A0FAC00EE1518 /* HotSpotDetailView.xib in Resources */,
-				84232CDD1B2D7DE000E0BE11 /* Red-light running.m4a in Resources */,
+				8FEC5E2B1BF61059005F4DA5 /* High Risk (Dennis).wav in Resources */,
+				8FEC5E361BF61059005F4DA5 /* Stop Sign (Nicola).wav in Resources */,
 				8F0DC9121BC1294800BE6496 /* constant.plist in Resources */,
+				8FEC5E301BF61059005F4DA5 /* PM (Dennis).wav in Resources */,
+				8FEC5E291BF61059005F4DA5 /* AM (Nicola).wav in Resources */,
 				426EC3471B92E67100ED4BBA /* HotspotListVC.xib in Resources */,
 				42C6A8C71B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.xib in Resources */,
 				8475E8651B1218FB000E0AD5 /* smartTravel.sqlite in Resources */,
-				84232CDA1B2D7DE000E0BE11 /* Motorcyclist.m4a in Resources */,
+				8FEC5E371BF61059005F4DA5 /* Weekend (Nicola).wav in Resources */,
 				8FC336351BF389540020E34F /* J. H. Picard_1_from_west.gpx in Resources */,
-				8FEC5E181BF60A98005F4DA5 /* Left Turn.m4a in Resources */,
+				8FEC5E321BF61059005F4DA5 /* Rear End (Nicola).wav in Resources */,
 				8F4F49711BF4E6F5008779E3 /* 117Street_south_to_north.gpx in Resources */,
-				84232CD71B2D7DE000E0BE11 /* Improper lane change.m4a in Resources */,
-				84232CDB1B2D7DE000E0BE11 /* Pedestrians.m4a in Resources */,
+				8FEC5E331BF61059005F4DA5 /* Red Light (Dennis).wav in Resources */,
 				8FC336371BF3896A0020E34F /* drive.gpx in Resources */,
 				9B6A85BA1ADFDF0000667170 /* Main.storyboard in Resources */,
+				8FEC5E2A1BF61059005F4DA5 /* Cyclist (Nicola).wav in Resources */,
 				9B6A85BF1ADFDF0000667170 /* LaunchScreen.xib in Resources */,
+				8FEC5E2D1BF61059005F4DA5 /* Left Turn (Elizabeth).wav in Resources */,
 				849289B01B7733C900837FF7 /* DataUpdateVC.xib in Resources */,
 				9B6A85BC1ADFDF0000667170 /* Images.xcassets in Resources */,
 				8FC3362F1BF2466F0020E34F /* Richard and Westbrook.gpx in Resources */,
 				8FC336341BF389540020E34F /* J. H. Picard_1_from_north_turn.gpx in Resources */,
-				84232CDC1B2D7DE000E0BE11 /* Ran off road.m4a in Resources */,
+				8FEC5E341BF61059005F4DA5 /* School Zone (Naomi).wav in Resources */,
+				8FEC5E2C1BF61059005F4DA5 /* Lane Change (Elizabeth).wav in Resources */,
 				849DE7D61B7B825400B1FA3D /* NoInterfereVC.xib in Resources */,
 				8F2A95AC1BF6068500028FF4 /* 72ave_14ST.gpx in Resources */,
-				84232CD91B2D7DE000E0BE11 /* Morning rush hour.m4a in Resources */,
-				84232CE01B2D7DE000E0BE11 /* weekend early morning.m4a in Resources */,
 				9B5EE8641AF3EEE600524F4A /* default.gpx in Resources */,
-				84232CD81B2D7DE000E0BE11 /* increase the gap.m4a in Resources */,
 				8F1E645B1BE247EA00E1DE37 /* template.sqlite in Resources */,
+				8FEC5E2E1BF61059005F4DA5 /* Motorcyclist (Dennis).wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

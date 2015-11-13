@@ -43,29 +43,30 @@ static NSString * const kURLOfSchool            = @"school/jsonOfList";
     if (self = [super init])
     {
         self.reasonIDToAudioFile = @{
-            @1: @"Morning rush hour",
-            @2: @"Morning rush hour",
-            @3: @"afternoon rush hour",
-            @4: @"afternoon rush hour",
-            @5: @"weekend early morning",
-            @6: @"weekend early morning",
-            @7: @"Pedestrians",
-            @8: @"Pedestrians",
-            @9: @"Cyclist",
-            @10: @"Cyclist",
-            @11: @"Motorcyclist",
-            @12: @"Motorcyclist",
-            @13: @"increase the gap",
-            @14: @"increase the gap",
-            @15: @"Left Turn",
-            @16: @"Red-light running",
-            @17: @"Stop sign violation",
-            @18: @"Improper lane change",
-            @19: @"Improper lane change",
-            @20: @"Ran off road",
-            @21: @"attention high risk collision area",
-            @22: @"attention high risk collision area",
-            @23: @"School zone"
+            @1: @"AM (Nicola)",
+            @2: @"AM (Nicola)",
+            @3: @"PM (Dennis)",
+            @4: @"PM (Dennis)",
+            @5: @"Weekend (Nicola)",
+            @6: @"Weekend (Nicola)",
+            @7: @"Pedestrian (Elizabeth)",
+            @8: @"Pedestrian (Elizabeth)",
+            @9: @"Cyclist (Nicola)",
+            @10: @"Cyclist (Nicola)",
+            @11: @"Motorcyclist (Dennis)",
+            @12: @"Motorcyclist (Dennis)",
+            @13: @"Rear End (Nicola)",
+            @14: @"Rear End (Nicola)",
+            @15: @"Left Turn (Elizabeth)",
+            @16: @"Red Light (Dennis)",
+            @17: @"Stop Sign (Nicola)",
+            @18: @"Lane Change (Elizabeth)",
+            @19: @"Lane Change (Elizabeth)",
+            @20: @"Ran Off Road (Elizabeth)",
+            @21: @"High Risk (Dennis)",
+            @22: @"High Risk (Dennis)",
+            @23: @"School Zone (Naomi)",
+            @24: @"Speed Limit (Dennis)"
         };
     }
     return self;
@@ -76,7 +77,7 @@ static NSString * const kURLOfSchool            = @"school/jsonOfList";
     if ([self.reasonIDToAudioFile objectForKey:reasonId])
     {
         NSString* fileName = [self.reasonIDToAudioFile objectForKey:reasonId];
-        return [[NSBundle mainBundle] pathForResource:fileName ofType:@"m4a"];
+        return [[NSBundle mainBundle] pathForResource:fileName ofType:@"wav"];
     }
     return nil;
 }
