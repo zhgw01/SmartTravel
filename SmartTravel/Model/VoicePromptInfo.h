@@ -10,7 +10,7 @@
 
 #define kMaxSubWindowDuration (5)
 #define kMaxWindowDuration (600)
-#define kMaxPromptCount (3)
+#define kMaxPromptCount (2)
 
 @interface VoicePromptInfo : NSObject
 
