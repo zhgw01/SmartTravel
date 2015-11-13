@@ -43,8 +43,12 @@
         NSURL *audioURL = [NSURL fileURLWithPath:audioPath];
         NSError *error = nil;
         
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
+                                         withOptions:AVAudioSessionCategoryOptionMixWithOthers|AVAudioSessionCategoryOptionDuckOthers
+                                               error:&error];
         self.avAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioURL error:&error];
         self.avAudioPlayer.delegate = self;
+        
 
         if (!error)
         {
