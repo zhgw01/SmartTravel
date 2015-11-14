@@ -66,6 +66,7 @@
 		8FC336341BF389540020E34F /* J. H. Picard_1_from_north_turn.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8FC336321BF389540020E34F /* J. H. Picard_1_from_north_turn.gpx */; };
 		8FC336351BF389540020E34F /* J. H. Picard_1_from_west.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8FC336331BF389540020E34F /* J. H. Picard_1_from_west.gpx */; };
 		8FC336371BF3896A0020E34F /* drive.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8FC336361BF3896A0020E34F /* drive.gpx */; };
+		8FDEDDA91BF712FB009E8A09 /* 23Ave_111Street.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8FDEDDA81BF712FB009E8A09 /* 23Ave_111Street.gpx */; };
 		8FE05CEC1BB63F0A00118F2A /* DBSchoolAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CEB1BB63F0A00118F2A /* DBSchoolAdapter.m */; };
 		8FE05CEF1BB79AFB00118F2A /* MarkerManagerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CEE1BB79AFB00118F2A /* MarkerManagerFactory.m */; };
 		8FE05CF21BB7DF8F00118F2A /* SchoolMarkerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CF11BB7DF8F00118F2A /* SchoolMarkerManager.m */; };
@@ -219,6 +220,7 @@
 		8FC336321BF389540020E34F /* J. H. Picard_1_from_north_turn.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "J. H. Picard_1_from_north_turn.gpx"; path = "Test/GPX/J. H. Picard_1_from_north_turn.gpx"; sourceTree = "<group>"; };
 		8FC336331BF389540020E34F /* J. H. Picard_1_from_west.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "J. H. Picard_1_from_west.gpx"; path = "Test/GPX/J. H. Picard_1_from_west.gpx"; sourceTree = "<group>"; };
 		8FC336361BF3896A0020E34F /* drive.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = drive.gpx; sourceTree = "<group>"; };
+		8FDEDDA81BF712FB009E8A09 /* 23Ave_111Street.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 23Ave_111Street.gpx; path = Test/GPX/23Ave_111Street.gpx; sourceTree = "<group>"; };
 		8FE05CEA1BB63F0A00118F2A /* DBSchoolAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBSchoolAdapter.h; path = Model/DBAdapter/DBSchoolAdapter.h; sourceTree = "<group>"; };
 		8FE05CEB1BB63F0A00118F2A /* DBSchoolAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBSchoolAdapter.m; path = Model/DBAdapter/DBSchoolAdapter.m; sourceTree = "<group>"; };
 		8FE05CED1BB79AFB00118F2A /* MarkerManagerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkerManagerFactory.h; path = ViewModel/MarkerManagerFactory.h; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 		425754B81B088BA60046433F /* GPX */ = {
 			isa = PBXGroup;
 			children = (
+				8FDEDDA81BF712FB009E8A09 /* 23Ave_111Street.gpx */,
 				8FEC5E381BF61661005F4DA5 /* Teresa_north_to_south.gpx */,
 				8FEC5E391BF61661005F4DA5 /* Teresa_south_to_north.gpx */,
 				8F2A95AB1BF6068500028FF4 /* 72ave_14ST.gpx */,
@@ -777,6 +780,7 @@
 				8FEC5E341BF61059005F4DA5 /* School Zone (Naomi).wav in Resources */,
 				8FEC5E2C1BF61059005F4DA5 /* Lane Change (Elizabeth).wav in Resources */,
 				8FEC5E3B1BF61661005F4DA5 /* Teresa_south_to_north.gpx in Resources */,
+				8FDEDDA91BF712FB009E8A09 /* 23Ave_111Street.gpx in Resources */,
 				849DE7D61B7B825400B1FA3D /* NoInterfereVC.xib in Resources */,
 				8F2A95AC1BF6068500028FF4 /* 72ave_14ST.gpx in Resources */,
 				9B5EE8641AF3EEE600524F4A /* default.gpx in Resources */,
