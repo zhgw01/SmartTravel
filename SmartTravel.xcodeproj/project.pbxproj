@@ -67,6 +67,8 @@
 		8FC336351BF389540020E34F /* J. H. Picard_1_from_west.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8FC336331BF389540020E34F /* J. H. Picard_1_from_west.gpx */; };
 		8FC336371BF3896A0020E34F /* drive.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8FC336361BF3896A0020E34F /* drive.gpx */; };
 		8FDEDDA91BF712FB009E8A09 /* 23Ave_111Street.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8FDEDDA81BF712FB009E8A09 /* 23Ave_111Street.gpx */; };
+		8FDEDDAB1BF75E95009E8A09 /* 120Street_ Westbrook_from_north.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8FDEDDAA1BF75E95009E8A09 /* 120Street_ Westbrook_from_north.gpx */; };
+		8FDEDDAF1BF7602B009E8A09 /* 120Street_ Westbrook_from_west_9.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8FDEDDAE1BF7602B009E8A09 /* 120Street_ Westbrook_from_west_9.gpx */; };
 		8FE05CEC1BB63F0A00118F2A /* DBSchoolAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CEB1BB63F0A00118F2A /* DBSchoolAdapter.m */; };
 		8FE05CEF1BB79AFB00118F2A /* MarkerManagerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CEE1BB79AFB00118F2A /* MarkerManagerFactory.m */; };
 		8FE05CF21BB7DF8F00118F2A /* SchoolMarkerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE05CF11BB7DF8F00118F2A /* SchoolMarkerManager.m */; };
@@ -221,6 +223,8 @@
 		8FC336331BF389540020E34F /* J. H. Picard_1_from_west.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "J. H. Picard_1_from_west.gpx"; path = "Test/GPX/J. H. Picard_1_from_west.gpx"; sourceTree = "<group>"; };
 		8FC336361BF3896A0020E34F /* drive.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = drive.gpx; sourceTree = "<group>"; };
 		8FDEDDA81BF712FB009E8A09 /* 23Ave_111Street.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 23Ave_111Street.gpx; path = Test/GPX/23Ave_111Street.gpx; sourceTree = "<group>"; };
+		8FDEDDAA1BF75E95009E8A09 /* 120Street_ Westbrook_from_north.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "120Street_ Westbrook_from_north.gpx"; path = "Test/GPX/120Street_ Westbrook_from_north.gpx"; sourceTree = "<group>"; };
+		8FDEDDAE1BF7602B009E8A09 /* 120Street_ Westbrook_from_west_9.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "120Street_ Westbrook_from_west_9.gpx"; path = "Test/GPX/120Street_ Westbrook_from_west_9.gpx"; sourceTree = "<group>"; };
 		8FE05CEA1BB63F0A00118F2A /* DBSchoolAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBSchoolAdapter.h; path = Model/DBAdapter/DBSchoolAdapter.h; sourceTree = "<group>"; };
 		8FE05CEB1BB63F0A00118F2A /* DBSchoolAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBSchoolAdapter.m; path = Model/DBAdapter/DBSchoolAdapter.m; sourceTree = "<group>"; };
 		8FE05CED1BB79AFB00118F2A /* MarkerManagerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkerManagerFactory.h; path = ViewModel/MarkerManagerFactory.h; sourceTree = "<group>"; };
@@ -367,6 +371,8 @@
 		425754B81B088BA60046433F /* GPX */ = {
 			isa = PBXGroup;
 			children = (
+				8FDEDDAE1BF7602B009E8A09 /* 120Street_ Westbrook_from_west_9.gpx */,
+				8FDEDDAA1BF75E95009E8A09 /* 120Street_ Westbrook_from_north.gpx */,
 				8FDEDDA81BF712FB009E8A09 /* 23Ave_111Street.gpx */,
 				8FEC5E381BF61661005F4DA5 /* Teresa_north_to_south.gpx */,
 				8FEC5E391BF61661005F4DA5 /* Teresa_south_to_north.gpx */,
@@ -759,6 +765,7 @@
 				8F0DC9121BC1294800BE6496 /* constant.plist in Resources */,
 				8FEC5E301BF61059005F4DA5 /* PM (Dennis).wav in Resources */,
 				8FEC5E291BF61059005F4DA5 /* AM (Nicola).wav in Resources */,
+				8FDEDDAF1BF7602B009E8A09 /* 120Street_ Westbrook_from_west_9.gpx in Resources */,
 				426EC3471B92E67100ED4BBA /* HotspotListVC.xib in Resources */,
 				42C6A8C71B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.xib in Resources */,
 				8475E8651B1218FB000E0AD5 /* smartTravel.sqlite in Resources */,
@@ -777,6 +784,7 @@
 				9B6A85BC1ADFDF0000667170 /* Images.xcassets in Resources */,
 				8FC3362F1BF2466F0020E34F /* Richard and Westbrook.gpx in Resources */,
 				8FC336341BF389540020E34F /* J. H. Picard_1_from_north_turn.gpx in Resources */,
+				8FDEDDAB1BF75E95009E8A09 /* 120Street_ Westbrook_from_north.gpx in Resources */,
 				8FEC5E341BF61059005F4DA5 /* School Zone (Naomi).wav in Resources */,
 				8FEC5E2C1BF61059005F4DA5 /* Lane Change (Elizabeth).wav in Resources */,
 				8FEC5E3B1BF61661005F4DA5 /* Teresa_south_to_north.gpx in Resources */,
