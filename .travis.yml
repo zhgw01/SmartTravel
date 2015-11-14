@@ -11,14 +11,6 @@ after_success:
 - ./scripts/travis/uploadToFIR.sh
 after_script:
 - ./scripts/travis/remove-key.sh
-notifications:
-  email:
-    recipients:
-      - lan.cheng@outlook.com
-      - 18621190525@126.com
-      - zhgw01@gmail.com
-    on_success: always # default: change
-    #on_failure: [always|never|change] # default: always
 env:
   global:
   - APP_NAME="SmartTravel"
