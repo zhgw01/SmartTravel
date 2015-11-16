@@ -624,6 +624,12 @@ static double kDefaultLon = -113.4687100;
             }
         }
     }
+    
+    if (self.recentLocation.speed <= 0)
+    {
+        // Please comment out if using GPX as location update input
+        return;
+    }
 
     CLLocationDirection accurateDir = [lastLocation kv_bearingOnRhumbLineToCoordinate:self.recentLocation.coordinate];
     

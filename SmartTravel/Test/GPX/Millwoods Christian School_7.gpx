@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<gpx
+    version="1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.topografix.com/GPX/1/0"
+    xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+    <metadata>
+        <desc><![CDATA[speed=3.89,accuracyBase=40.0,accuracyDelta=10.0]]></desc>
+    </metadata>
+    
+    <wpt lat="53.47651415" lon="-113.4623721">
+        <time>2014-11-07T11:26:25Z</time>
+    </wpt>
+    <wpt lat="53.47651415" lon="-113.4583721">
+        <time>2014-11-07T11:26:35Z</time>
+    </wpt>
+    <wpt lat="53.47651415" lon="-113.4583721">
+        <time>2014-11-07T11:26:40Z</time>
+    </wpt>
+</gpx>

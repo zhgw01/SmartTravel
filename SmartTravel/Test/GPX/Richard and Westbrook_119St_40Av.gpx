@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><gpx creator="Lockito" version="1.1">
+  <metadata>
+    <name><![CDATA[Richard and Westbrook ]]></name>
+    <desc><![CDATA[speed=3.89,accuracyBase=40.0,accuracyDelta=10.0]]></desc>
+  </metadata>
+  <wpt lat="53.47734437" lon="-113.5386936">
+      <time>2014-11-07T11:26:15Z</time>
+  </wpt>
+  <wpt lat="53.47634437" lon="-113.5386936">
+      <time>2014-11-07T11:26:25Z</time>
+  </wpt>
+  <wpt lat="53.47634437" lon="-113.5366936">
+      <time>2014-11-07T11:26:35Z</time>
+  </wpt>
+</gpx>
