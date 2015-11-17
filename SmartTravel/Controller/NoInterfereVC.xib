@@ -17,16 +17,15 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptI-Wp-NfH">
-                    <rect key="frame" x="175" y="500" width="250" height="50"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptI-Wp-NfH">
+                    <rect key="frame" x="175" y="75" width="250" height="50"/>
                     <animations/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="250" id="hVo-Ur-iMz"/>
                         <constraint firstAttribute="height" constant="50" id="pPJ-5D-KF1"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                    <state key="normal" title="I'm not driving now">
+                    <state key="normal" image="press this button only if you are not driving">
                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -34,24 +33,16 @@
                         <action selector="notDrivingButtonDidPress:" destination="-1" eventType="touchUpInside" id="izh-wZ-d8n"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmartTravel-app-loading" translatesAutoresizingMaskIntoConstraints="NO" id="GHF-9G-V0d">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <animations/>
-                </imageView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="ptI-Wp-NfH" secondAttribute="centerX" id="3Na-d0-twr"/>
-                <constraint firstAttribute="trailing" secondItem="GHF-9G-V0d" secondAttribute="trailing" id="4un-AR-s6w"/>
-                <constraint firstItem="GHF-9G-V0d" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="K4Z-mB-PTv"/>
-                <constraint firstAttribute="centerY" secondItem="ptI-Wp-NfH" secondAttribute="centerY" multiplier="1:1.75" id="dhA-bJ-rk4"/>
-                <constraint firstAttribute="bottom" secondItem="GHF-9G-V0d" secondAttribute="bottom" id="fra-h7-zqi"/>
-                <constraint firstItem="GHF-9G-V0d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pQO-uh-Z9p"/>
+                <constraint firstAttribute="centerY" secondItem="ptI-Wp-NfH" secondAttribute="centerY" multiplier="3:1" id="dhA-bJ-rk4"/>
             </constraints>
         </view>
     </objects>
     <resources>
-        <image name="SmartTravel-app-loading" width="640" height="960"/>
+        <image name="press this button only if you are not driving" width="555" height="143"/>
     </resources>
 </document>
