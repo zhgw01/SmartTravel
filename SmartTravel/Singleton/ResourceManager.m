@@ -183,70 +183,53 @@ static NSString * const kURLOfSchool            = @"school/jsonOfList";
                                            withExt:DB_EXT
                                     forceOverwrite:YES];
         
-        dispatch_group_t group = dispatch_group_create();
-        dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
-        
-        dispatch_group_async(group, queue, ^{
-            syncOnlineTable(tempDbName,
-                            MAIN_DB_TBL_COLLISION_LOCATION,
-                            kURLOfCollisionLocation);
-        });
-        
-        dispatch_group_async(group, queue, ^{
-            syncOnlineTable(tempDbName,
-                            MAIN_DB_TBL_LOCATION_REASON,
-                            kURLOfLocationReason);
-        });
+        syncOnlineTable(tempDbName,
+                        MAIN_DB_TBL_COLLISION_LOCATION,
+                        kURLOfCollisionLocation);
+    
+        syncOnlineTable(tempDbName,
+                        MAIN_DB_TBL_LOCATION_REASON,
+                        kURLOfLocationReason);
 
-        dispatch_group_async(group, queue, ^{
-            syncOnlineTable(tempDbName,
-                            MAIN_DB_TBL_WM_REASON_CONDITION,
-                            kURLOfWMReasonCondition);
-        });
+        syncOnlineTable(tempDbName,
+                        MAIN_DB_TBL_WM_REASON_CONDITION,
+                        kURLOfWMReasonCondition);
+    
+        syncOnlineTable(tempDbName,
+                        MAIN_DB_TBL_WM_DAYTYPE,
+                        kURLOfWMDayType);
+    
+        syncOnlineTable(tempDbName,
+                        MAIN_DB_TBL_SCHOOL,
+                        kURLOfSchool);
+    
+        syncOnlineTable(tempDbName,
+                        MAIN_DB_TBL_NEW_VERSION,
+                        kURLOfNewVersion);
+    
+        NSString *mainDbPath = [DBManager getPathOfDB:DB_NAME_MAIN];
+        NSString *tempDbPath = [DBManager getPathOfDB:tempDbName];
         
-        dispatch_group_async(group, queue, ^{
-            syncOnlineTable(tempDbName,
-                            MAIN_DB_TBL_WM_DAYTYPE,
-                            kURLOfWMDayType);
-        });
-        
-        dispatch_group_async(group, queue, ^{
-            syncOnlineTable(tempDbName,
-                            MAIN_DB_TBL_SCHOOL,
-                            kURLOfSchool);
-        });
-        
-        dispatch_group_async(group, queue, ^{
-            syncOnlineTable(tempDbName,
-                            MAIN_DB_TBL_NEW_VERSION,
-                            kURLOfNewVersion);
-        });
-        
-        dispatch_group_notify(group, queue, ^{
-            NSString *mainDbPath = [DBManager getPathOfDB:DB_NAME_MAIN];
-            NSString *tempDbPath = [DBManager getPathOfDB:tempDbName];
-            
-            NSError *error = nil;
-            NSFileManager *fm = [NSFileManager defaultManager];
-            if ([fm fileExistsAtPath:mainDbPath])
-            {
-                [fm removeItemAtPath:mainDbPath error:&error];
-                if (error)
-                {
-                    NSLog(@"Error: %@", [error localizedDescription]);
-                    res = NO;
-                }
-            }
-            
-            [fm moveItemAtPath:tempDbPath toPath:mainDbPath error:&error];
+        NSError *error = nil;
+        NSFileManager *fm = [NSFileManager defaultManager];
+        if ([fm fileExistsAtPath:mainDbPath])
+        {
+            [fm removeItemAtPath:mainDbPath error:&error];
             if (error)
             {
                 NSLog(@"Error: %@", [error localizedDescription]);
                 res = NO;
             }
-            
-            completion(res);
-        });
+        }
+        
+        [fm moveItemAtPath:tempDbPath toPath:mainDbPath error:&error];
+        if (error)
+        {
+            NSLog(@"Error: %@", [error localizedDescription]);
+            res = NO;
+        }
+        
+        completion(res);
     }];
 }
 

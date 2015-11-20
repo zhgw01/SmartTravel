@@ -51,10 +51,11 @@
     {
         [self.locationManager requestAlwaysAuthorization];
     }
-    
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000
-    [self.locationManager setAllowsBackgroundLocationUpdates:YES];
-#endif
+        
+    if ([self.locationManager respondsToSelector:@selector(setAllowsBackgroundLocationUpdates:)])
+    {
+        [self.locationManager setAllowsBackgroundLocationUpdates:YES];
+    }
 }
 
 -(void)setDelegate:(id<CLLocationManagerDelegate>)delegate

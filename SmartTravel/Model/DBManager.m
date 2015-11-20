@@ -127,7 +127,6 @@
                 id latitude = [dic valueForKey:@"latitude"];
 
                 id loc_code = [dic valueForKey:@"loc_code"];
-
                 
                 NSString* sql = [NSString stringWithFormat:@"INSERT INTO %@ (Loc_code, Location_name, Roadway_portion, Latitude, Longitude) VALUES (?, ?, ?, ?, ?)", MAIN_DB_TBL_COLLISION_LOCATION];
                 BOOL res = [db executeUpdate:sql, loc_code, location_name, roadway_portion, latitude, longitude];
@@ -278,12 +277,6 @@
     NSString* userDocumentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     return [[userDocumentDir stringByAppendingPathComponent:dbName] stringByAppendingPathExtension:DB_EXT];
 }
-
-//+(NSString*)getPathOfMainDB
-//{
-//    NSString* userDocumentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-//    return [[userDocumentDir stringByAppendingPathComponent:DB_NAME_MAIN] stringByAppendingPathExtension:DB_EXT];
-//}
 
 -(NSArray*)selectHotSpots:(HotSpotType)hotSpotType
 {
