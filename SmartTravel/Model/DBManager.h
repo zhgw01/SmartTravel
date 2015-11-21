@@ -38,10 +38,10 @@
 -(NSArray*)getHotSpotDetailsByLocationCode:(NSString*)locCode;
 
 /**
- *  Select all reason names
+ *  Select all reason categories
  *
- *  @return array of {Reason_id:@"", Reason:""}
+ *  @return array of {Reason_id:@"", Category:""}
  */
--(NSArray*)selectAllReasonNames;
+-(NSArray*)selectReasonCategories;
 
 @end

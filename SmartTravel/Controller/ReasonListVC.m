@@ -11,9 +11,10 @@
 #import "UIColor+ST.h"
 #import "HotspotListVC.h"
 
+static const NSInteger kSectionCnt = 2;
+
 @interface ReasonListVC ()
 
-@property (weak, nonatomic) IBOutlet UIView *logoView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *placeholderView;
 
@@ -27,11 +28,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.logoView.backgroundColor = [UIColor getSTGray];
     self.placeholderView.backgroundColor = [UIColor getSTGray];
     self.tableView.separatorColor = [UIColor lightGrayColor];
     
-    self.reasons = [[DBManager sharedInstance] selectAllReasonNames];
+    self.reasons = [[DBManager sharedInstance] selectReasonCategories];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,38 +57,87 @@
 
 #pragma mark - <UITableViewDataSource> methods
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return kSectionCnt;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.reasons.count;
+    if (section == 0)
+    {
+        return 1;
+    }
+    else if (section == 1)
+    {
+        return self.reasons.count;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString* kCellIdentifier = @"ReasonCell";
-    
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
-    if (cell == nil)
+    if (indexPath.section == 0)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:kCellIdentifier];
-        cell.backgroundColor = [UIColor getSTGray];
-        cell.textLabel.textAlignment = NSTextAlignmentLeft;
-        cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        cell.textLabel.numberOfLines = 0;
-        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        static NSString* kHeadCellIdentifier = @"ReasonListHeadCell";
+        
+        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kHeadCellIdentifier];
+        {
+            if (!cell)
+            {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                              reuseIdentifier:kHeadCellIdentifier];
+                cell.backgroundColor = [UIColor getSTGray];
+                
+                NSString *text = @"High-Collision Locations";
+                NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"High-Collision Locations"];
+                [attrStr addAttributes:@{
+                                         NSFontAttributeName  : [UIFont systemFontOfSize:16],
+                                         NSForegroundColorAttributeName  : [UIColor whiteColor]
+                                         }
+                                 range:[text rangeOfString:text]];
+                cell.textLabel.attributedText = attrStr;
+            }
+        }
+        return cell;
     }
-    
-    // Configure Cell
-    NSString *reason = [[self.reasons objectAtIndex:indexPath.row] valueForKey:@"Reason"];
-    cell.textLabel.text = reason;
-    
-    return cell;
+    else if (indexPath.section == 1)
+    {
+        static NSString* kCellIdentifier = @"ReasonCell";
+        
+        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
+        if (cell == nil)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                          reuseIdentifier:kCellIdentifier];
+            cell.backgroundColor = [UIColor getSTGray];
+            cell.textLabel.textAlignment = NSTextAlignmentLeft;
+            cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+            cell.textLabel.numberOfLines = 0;
+            cell.textLabel.font = [UIFont systemFontOfSize:14];
+        }
+        
+        // Configure Cell
+        NSString *category = [[self.reasons objectAtIndex:indexPath.row] valueForKey:@"Category"];
+        cell.textLabel.text = category;
+        
+        return cell;
+    }
+    return nil;
 }
 
 #pragma mark - <UITableViewDelegate> methods
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60.f;
+    if (indexPath.section == 0)
+    {
+        return 44;
+    }
+    else if (indexPath.section == 1)
+    {
+        return 60.f;
+    }
+    return 0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

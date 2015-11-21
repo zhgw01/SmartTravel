@@ -458,7 +458,7 @@
     return [hotSpots sortedArrayUsingComparator:cmptr];
 }
 
--(NSArray*)selectAllReasonNames
+-(NSArray*)selectReasonCategories
 {
     NSString* mainDBPath = [DBManager getPathOfDB:DB_NAME_MAIN];
     FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
@@ -470,7 +470,7 @@
     
     NSMutableArray *res = [[NSMutableArray alloc] init];
     
-    FMResultSet* resultSet = [db executeQuery:@"select Reason_id, Reason from TBL_WM_REASON_CONDITION asc order by Reason"];
+    FMResultSet* resultSet = [db executeQuery:@"select Reason_id, Category from TBL_WM_REASON_CONDITION asc order by Category"];
     NSError *error = nil;
     while ([resultSet nextWithError:&error])
     {
@@ -482,18 +482,11 @@
         
         int reasonId = [resultSet intForColumn:@"Reason_id"];
         // NOTE: Special case, replace all school zones bound with reason 23 with school locations, use -1 as virtual reason id of school locations
-        if (reasonId == 23)
-        {
-            [res addObject:@{
-                             @"Reason_id":@(-1),
-                             @"Reason":@"School"
-                             }];
-        }
-        else
+        if (reasonId != 23)
         {
             [res addObject:@{
                             @"Reason_id":[resultSet stringForColumn:@"Reason_id"],
-                            @"Reason":[resultSet stringForColumn:@"Reason"]
+                            @"Category":[resultSet stringForColumn:@"Category"]
                             }];
         }
     }
