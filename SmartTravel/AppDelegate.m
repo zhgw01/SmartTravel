@@ -114,35 +114,35 @@ static NSString* FLURRY_TOKEN = @"TSWW3SMF623BGQ37NT6H";
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-//    BOOL needSyncDB = NO;
-//    if ([[AppSettingManager sharedInstance] getIsAutoCheckUpdate])
-//    {
-//        NSString *latestVersion = nil;
-//        if ([[ResourceManager sharedInstance] hasNewerDataVersion:&latestVersion])
-//        {
-//            needSyncDB = YES;
-//            
-//            [Flurry logEvent:kFluryyEventNewDataVersionFound
-//              withParameters:@{@"version": latestVersion}];
-//        }
-//    }
-//    
-//    if (needSyncDB)
-//    {
-//        DataUpdateVC *dataUpdateVC = [[DataUpdateVC alloc] init];
-//        self.window.rootViewController = dataUpdateVC;
-//    }
-//    else
-//    {
-//        [[StateMachine sharedInstance] eventHappend:kEventUserUse];
-//
-//        CLAuthorizationStatus clAuthStatus = [AppLocationManager authorizationStatus];
-//        if (clAuthStatus != kCLAuthorizationStatusAuthorizedWhenInUse &&
-//            clAuthStatus != kCLAuthorizationStatusAuthorizedAlways)
-//        {
-//            [[AppLocationManager sharedInstance] requestAlwaysAuthorization];
-//        }
-//    }
+    BOOL needSyncDB = NO;
+    if ([[AppSettingManager sharedInstance] getIsAutoCheckUpdate])
+    {
+        NSString *latestVersion = nil;
+        if ([[ResourceManager sharedInstance] hasNewerDataVersion:&latestVersion])
+        {
+            needSyncDB = YES;
+            
+            [Flurry logEvent:kFluryyEventNewDataVersionFound
+              withParameters:@{@"version": latestVersion}];
+        }
+    }
+    
+    if (needSyncDB)
+    {
+        DataUpdateVC *dataUpdateVC = [[DataUpdateVC alloc] init];
+        self.window.rootViewController = dataUpdateVC;
+    }
+    else
+    {
+        [[StateMachine sharedInstance] eventHappend:kEventUserUse];
+
+        CLAuthorizationStatus clAuthStatus = [AppLocationManager authorizationStatus];
+        if (clAuthStatus != kCLAuthorizationStatusAuthorizedWhenInUse &&
+            clAuthStatus != kCLAuthorizationStatusAuthorizedAlways)
+        {
+            [[AppLocationManager sharedInstance] requestAlwaysAuthorization];
+        }
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
