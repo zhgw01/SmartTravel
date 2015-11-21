@@ -20,3 +20,4 @@ extern NSString * const kFlurryEventHotspotIngoredForLowerPriority;
 extern NSString * const kConstantPlist;
 extern NSString * const kConstantPlistKeyOfServerBase;
 extern NSString * const kConstantPlistKeyOfServerBaseDev;
+extern NSString * const kConstantPlistKeyOfReasonCategory;

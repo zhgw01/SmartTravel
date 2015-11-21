@@ -10,6 +10,7 @@
 #import "DBManager.h"
 #import "UIColor+ST.h"
 #import "HotspotListVC.h"
+#import "STConstants.h"
 
 static const NSInteger kSectionCnt = 2;
 
@@ -18,7 +19,7 @@ static const NSInteger kSectionCnt = 2;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *placeholderView;
 
-@property (nonatomic, strong) NSArray *reasons;
+@property (nonatomic, strong) NSArray *reasonCategories;
 
 @end
 
@@ -31,7 +32,7 @@ static const NSInteger kSectionCnt = 2;
     self.placeholderView.backgroundColor = [UIColor getSTGray];
     self.tableView.separatorColor = [UIColor lightGrayColor];
     
-    self.reasons = [[DBManager sharedInstance] selectReasonCategories];
+    self.reasonCategories = [self orderCategories:[[DBManager sharedInstance] selectReasonCategories]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,6 +44,39 @@ static const NSInteger kSectionCnt = 2;
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+}
+
+- (NSArray*)orderCategories:(NSArray*)reasonCategories
+{
+    // Get reason category order list
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:kConstantPlist
+                                                          ofType:@"plist"];
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+    NSDictionary *reasonCategoryDic = [data valueForKey:kConstantPlistKeyOfReasonCategory];
+    
+    NSUInteger totalCount = reasonCategoryDic.count;
+    NSMutableArray *res = [[NSMutableArray alloc] initWithCapacity:totalCount];
+    for (NSUInteger idx = 0; idx < totalCount; ++idx)
+    {
+        [res addObject:@{@"Reason_id": @(-1), @"Category": @"Unknown"}];
+    }
+
+    // Insert the reason category at the told index
+    for(NSDictionary *reasonCategory in reasonCategories)
+    {
+        NSString *category = [reasonCategory valueForKey:@"Category"];
+        NSString *orderStr = [reasonCategoryDic objectForKey:category];
+        if (orderStr)
+        {
+            NSInteger order = [orderStr integerValue];
+            if (order >= 0 && order < totalCount)
+            {
+                [res setObject:reasonCategory atIndexedSubscript:order];
+            }
+        }
+    }
+    
+    return res;
 }
 
 /*
@@ -70,7 +104,7 @@ static const NSInteger kSectionCnt = 2;
     }
     else if (section == 1)
     {
-        return self.reasons.count;
+        return self.reasonCategories.count;
     }
     return 0;
 }
@@ -118,7 +152,7 @@ static const NSInteger kSectionCnt = 2;
         }
         
         // Configure Cell
-        NSString *category = [[self.reasons objectAtIndex:indexPath.row] valueForKey:@"Category"];
+        NSString *category = [[self.reasonCategories objectAtIndex:indexPath.row] valueForKey:@"Category"];
         cell.textLabel.text = category;
         
         return cell;
@@ -143,7 +177,7 @@ static const NSInteger kSectionCnt = 2;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HotspotListVC *hotspotListVC = [[HotspotListVC alloc] initWithNibName:@"HotspotListVC" bundle:nil];
-    hotspotListVC.reasonId = [[[self.reasons objectAtIndex:indexPath.row] objectForKey:@"Reason_id"] intValue];
+    hotspotListVC.reasonId = [[[self.reasonCategories objectAtIndex:indexPath.row] objectForKey:@"Reason_id"] intValue];
 
     [self.navigationController pushViewController:hotspotListVC animated:YES];
 }

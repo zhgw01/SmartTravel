@@ -2,6 +2,35 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ReasonCategory</key>
+	<dict>
+		<key>TOP LOCATION BY ALL CAUSES</key>
+		<string>12</string>
+		<key>WEEKEND EARLY MORNING</key>
+		<string>11</string>
+		<key>AFTERNOON RUSH HOUR</key>
+		<string>10</string>
+		<key>MORNING RUSH HOUR</key>
+		<string>9</string>
+		<key>RAN OFF ROAD</key>
+		<string>8</string>
+		<key>IMPROPER CHANGE LANE</key>
+		<string>7</string>
+		<key>STOP SIGN VIOLATION</key>
+		<string>6</string>
+		<key>RED-LIGHT RUNNING</key>
+		<string>5</string>
+		<key>LEFT TURN</key>
+		<string>4</string>
+		<key>FOLLOWED TOO CLOSELY</key>
+		<string>3</string>
+		<key>CYCLISTS</key>
+		<string>2</string>
+		<key>MOTORCYCLISTS</key>
+		<string>1</string>
+		<key>PEDESTRIANS</key>
+		<string>0</string>
+	</dict>
 	<key>ServerBaseDev</key>
 	<string>http://101.231.116.154:8080/STRESTWeb</string>
 	<key>ServerBase</key>

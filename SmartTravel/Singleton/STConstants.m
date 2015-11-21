@@ -22,3 +22,4 @@ NSString * const kFlurryEventHotspotIngoredForLowerPriority = @"Hotspot ingored 
 NSString * const kConstantPlist = @"constant";
 NSString * const kConstantPlistKeyOfServerBase = @"ServerBase";
 NSString * const kConstantPlistKeyOfServerBaseDev = @"ServerBaseDev";
+NSString * const kConstantPlistKeyOfReasonCategory = @"ReasonCategory";
