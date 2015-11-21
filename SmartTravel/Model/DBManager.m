@@ -187,8 +187,9 @@
                 id start_time = [dic valueForKey:@"start_time"];
                 id end_time = [dic valueForKey:@"end_time"];
                 id school_day = [dic valueForKey:@"school_day"];
+                id category = [dic valueForKey:@"category"];
                 
-                NSString* sql =[NSString stringWithFormat:@"INSERT INTO %@ (Reason_id, Reason, Month, Weekday, Weekend, School_day, Start_time, End_time, Warning_message) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", MAIN_DB_TBL_WM_REASON_CONDITION];
+                NSString* sql =[NSString stringWithFormat:@"INSERT INTO %@ (Reason_id, Reason, Month, Weekday, Weekend, School_day, Start_time, End_time, Warning_message, Category) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", MAIN_DB_TBL_WM_REASON_CONDITION];
                 BOOL res = [db executeUpdate:sql,
                             reason_id,
                             reason,
@@ -198,7 +199,8 @@
                             [school_day isEqual:@"TRUE"] ? @1 : @0,
                             start_time,
                             end_time,
-                            warning_message];
+                            warning_message,
+                            category ? category : @""];
                 if (!res)
                 {
                     NSLog(@"Error insert %@ into %@", dic, MAIN_DB_TBL_WM_REASON_CONDITION);
@@ -470,7 +472,7 @@
     
     NSMutableArray *res = [[NSMutableArray alloc] init];
     
-    FMResultSet* resultSet = [db executeQuery:@"select Reason_id, Category from TBL_WM_REASON_CONDITION asc order by Category"];
+    FMResultSet* resultSet = [db executeQuery:@"select Reason_id, Category from TBL_WM_REASON_CONDITION"];
     NSError *error = nil;
     while ([resultSet nextWithError:&error])
     {

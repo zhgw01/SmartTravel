@@ -90,7 +90,7 @@ static const NSInteger kSectionCnt = 2;
                 cell.backgroundColor = [UIColor getSTGray];
                 
                 NSString *text = @"High-Collision Locations";
-                NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"High-Collision Locations"];
+                NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:text];
                 [attrStr addAttributes:@{
                                          NSFontAttributeName  : [UIFont systemFontOfSize:16],
                                          NSForegroundColorAttributeName  : [UIColor whiteColor]
