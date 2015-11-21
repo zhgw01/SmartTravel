@@ -60,6 +60,7 @@
 		8F2A95AC1BF6068500028FF4 /* 72ave_14ST.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8F2A95AB1BF6068500028FF4 /* 72ave_14ST.gpx */; };
 		8F44EBB91BB58629005A9E0B /* LocationCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9F1A21BAD840C000EAB39 /* LocationCoordinate.m */; };
 		8F44EBBB1BB58676005A9E0B /* LocationArrayParseTC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F44EBBA1BB58676005A9E0B /* LocationArrayParseTC.m */; };
+		8F47FAD11C000AB700DBCA50 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F47FAD01C000AB700DBCA50 /* HomePageViewController.m */; };
 		8F4F49701BF4E6F5008779E3 /* 117Street_north_to_south.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8F4F496E1BF4E6F5008779E3 /* 117Street_north_to_south.gpx */; };
 		8F4F49711BF4E6F5008779E3 /* 117Street_south_to_north.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8F4F496F1BF4E6F5008779E3 /* 117Street_south_to_north.gpx */; };
 		8FAD004E1BF9FEF900EAD98E /* Mount Pleasant_1_2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 8FAD004D1BF9FEF900EAD98E /* Mount Pleasant_1_2.gpx */; };
@@ -226,6 +227,8 @@
 		8F1E645A1BE247EA00E1DE37 /* template.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = template.sqlite; path = Resource/SQLite/template.sqlite; sourceTree = "<group>"; };
 		8F2A95AB1BF6068500028FF4 /* 72ave_14ST.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 72ave_14ST.gpx; path = Test/GPX/72ave_14ST.gpx; sourceTree = "<group>"; };
 		8F44EBBA1BB58676005A9E0B /* LocationArrayParseTC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationArrayParseTC.m; sourceTree = "<group>"; };
+		8F47FACF1C000AB700DBCA50 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageViewController.h; path = Controller/HomePageViewController.h; sourceTree = "<group>"; };
+		8F47FAD01C000AB700DBCA50 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageViewController.m; path = Controller/HomePageViewController.m; sourceTree = "<group>"; };
 		8F4F496E1BF4E6F5008779E3 /* 117Street_north_to_south.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 117Street_north_to_south.gpx; path = Test/GPX/117Street_north_to_south.gpx; sourceTree = "<group>"; };
 		8F4F496F1BF4E6F5008779E3 /* 117Street_south_to_north.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 117Street_south_to_north.gpx; path = Test/GPX/117Street_south_to_north.gpx; sourceTree = "<group>"; };
 		8FAD004D1BF9FEF900EAD98E /* Mount Pleasant_1_2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Mount Pleasant_1_2.gpx"; path = "Test/GPX/Mount Pleasant_1_2.gpx"; sourceTree = "<group>"; };
@@ -541,6 +544,8 @@
 				426EC3431B92E67100ED4BBA /* HotspotListVC.h */,
 				426EC3441B92E67100ED4BBA /* HotspotListVC.m */,
 				426EC3451B92E67100ED4BBA /* HotspotListVC.xib */,
+				8F47FACF1C000AB700DBCA50 /* HomePageViewController.h */,
+				8F47FAD01C000AB700DBCA50 /* HomePageViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -953,6 +958,7 @@
 				84A5BC511B7DFACC001EAECB /* AppSettingManager.m in Sources */,
 				9B7E59601AE3966F0008D25C /* HomeViewController.m in Sources */,
 				426EC3461B92E67100ED4BBA /* HotspotListVC.m in Sources */,
+				8F47FAD11C000AB700DBCA50 /* HomePageViewController.m in Sources */,
 				426BC42D1B9D3CD50094F509 /* VoicePromptInfo.m in Sources */,
 				849289AF1B7733C900837FF7 /* DataUpdateVC.m in Sources */,
 				84F38DF21B102B3300A0EB42 /* Marker.m in Sources */,

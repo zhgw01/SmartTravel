@@ -72,8 +72,10 @@ static double kDefaultLon = -113.4687100;
 >
 
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *hotspotListButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
+//@property (weak, nonatomic) IBOutlet UIBarButtonItem *hotspotListButton;
+//@property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backHomeButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *categoriesButton;
 
 //@property (strong, nonatomic) MarkerManager *markerManager;
 @property (strong, nonatomic) UISegmentedControl *layerSegmentedControl;
@@ -345,18 +347,24 @@ static double kDefaultLon = -113.4687100;
                                onMapView:self.mapView];
     }
 }
+- (IBAction)backHome:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (void) setupSideBarMenu
 {
     if (self.revealViewController != nil) {
-        self.hotspotListButton.target = self.revealViewController;
-        self.hotspotListButton.action = @selector(revealToggle:);
+//        self.hotspotListButton.target = self.revealViewController;
+//        self.hotspotListButton.action = @selector(revealToggle:);
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
         
-        self.settingsButton.target = self.revealViewController;
-        self.settingsButton.action = @selector(rightRevealToggle:);
+//        self.settingsButton.target = self.revealViewController;
+//        self.settingsButton.action = @selector(rightRevealToggle:);
         
-        self.revealViewController.rearViewRevealWidth = 300;
+        self.categoriesButton.target = self.revealViewController;
+        self.categoriesButton.action = @selector(rightRevealToggle:);
+        
+//        self.revealViewController.rearViewRevealWidth = 300;
         self.revealViewController.rightViewRevealWidth = 300;
         
         self.revealViewController.delegate = self;
