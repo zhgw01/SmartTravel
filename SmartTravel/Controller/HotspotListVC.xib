@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HotspotListVC">
             <connections>
-                <outlet property="placeholderView" destination="pVn-Oc-uG5" id="Sez-Q2-8xE"/>
                 <outlet property="tableView" destination="RXM-9h-xsZ" id="W84-cB-zPL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,23 +17,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RXM-9h-xsZ">
-                    <rect key="frame" x="0.0" y="0.0" width="500" height="600"/>
+                    <rect key="frame" x="60" y="0.0" width="540" height="600"/>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVn-Oc-uG5" userLabel="PlaceholderView">
-                    <rect key="frame" x="500" y="0.0" width="100" height="600"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="pVn-Oc-uG5" firstAttribute="leading" secondItem="RXM-9h-xsZ" secondAttribute="trailing" id="4mX-ad-xqT"/>
-                <constraint firstItem="RXM-9h-xsZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="88b-E2-EMd"/>
-                <constraint firstItem="pVn-Oc-uG5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DTc-yJ-lqh"/>
-                <constraint firstItem="RXM-9h-xsZ" firstAttribute="width" secondItem="pVn-Oc-uG5" secondAttribute="width" multiplier="5:1" id="ICC-WB-T0i"/>
+                <constraint firstItem="RXM-9h-xsZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="88b-E2-EMd"/>
+                <constraint firstAttribute="trailing" secondItem="RXM-9h-xsZ" secondAttribute="trailing" id="FFd-48-QnA"/>
                 <constraint firstItem="RXM-9h-xsZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YgF-pE-KpZ"/>
-                <constraint firstAttribute="bottom" secondItem="pVn-Oc-uG5" secondAttribute="bottom" id="aXQ-Kw-TfU"/>
-                <constraint firstAttribute="trailing" secondItem="pVn-Oc-uG5" secondAttribute="trailing" id="fLZ-C4-2TW"/>
                 <constraint firstAttribute="bottom" secondItem="RXM-9h-xsZ" secondAttribute="bottom" id="hFm-0p-iUC"/>
             </constraints>
         </view>

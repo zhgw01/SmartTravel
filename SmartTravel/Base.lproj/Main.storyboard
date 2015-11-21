@@ -246,15 +246,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGL-py-JlO" userLabel="PlaceholderView">
-                                <rect key="frame" x="0.0" y="0.0" width="100" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="60" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="3Yb-oF-MsD"/>
+                                    <constraint firstAttribute="width" constant="60" id="3Yb-oF-MsD"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e8B-aC-8n1">
-                                <rect key="frame" x="100" y="0.0" width="500" height="600"/>
+                                <rect key="frame" x="60" y="0.0" width="540" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
