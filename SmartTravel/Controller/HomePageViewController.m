@@ -5,7 +5,7 @@
 //  Created by Yuan Huimin on 15/11/21.
 //  Copyright © 2015年 Gongwei. All rights reserved.
 //
-
+#import "HotSpot.h"
 #import "HomePageViewController.h"
 #import "HomeViewController.h"
 
@@ -55,12 +55,14 @@
     {
         HomeViewController *homeVC = [segue destinationViewController];
         homeVC.title = @"School Zones";
+        homeVC.type = HotSpotTypeSchoolLocation;
     }
     else if([segue.identifier isEqualToString:@"homepage_button12"])
     {
-                HomeViewController *homeVC = [segue destinationViewController];
+        HomeViewController *homeVC = [segue destinationViewController];
         homeVC.title = @"High-Collision Locations"
         ;
+        homeVC.type = HotSpotTypeAllExceptSchool;
     }
 }
 

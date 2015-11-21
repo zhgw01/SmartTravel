@@ -72,13 +72,9 @@ static double kDefaultLon = -113.4687100;
 >
 
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
-//@property (weak, nonatomic) IBOutlet UIBarButtonItem *hotspotListButton;
-//@property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backHomeButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *categoriesButton;
 
-//@property (strong, nonatomic) MarkerManager *markerManager;
-@property (strong, nonatomic) UISegmentedControl *layerSegmentedControl;
 @property (strong, nonatomic) LayerManager *layerManager;
 
 @property (strong, nonatomic) DBLocationAdapter *locationAdapter;
@@ -142,13 +138,6 @@ static double kDefaultLon = -113.4687100;
                                                  name:kNotificatonNameHotSpotSelected
                                                object:nil];
 }
-
-//- (void) viewWillAppear:(BOOL)animated
-//{
-//    [super viewWillAppear:animated];
-//    self.navigationController.navigationBar.hidden = NO;
-//    self.title = @"Smart Travel";
-//}
 
 - (void)dealloc
 {
@@ -311,18 +300,8 @@ static double kDefaultLon = -113.4687100;
     
     // Draw marker on map to represent all hotspots except shools
     self.layerManager = [[LayerManager alloc] init];
-    [self.layerManager switchToLayer:HotSpotTypeAllExceptSchool
+    [self.layerManager switchToLayer:self.type
                            onMapView:self.mapView];
-    
-    self.layerSegmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Collision", @"School"]];
-    self.layerSegmentedControl.frame = CGRectMake(10, 60, 120, 22);
-    [self.layerSegmentedControl addTarget:self
-                                   action:@selector(layerDidSelect:)
-                         forControlEvents:UIControlEventValueChanged];
-    self.layerSegmentedControl.selectedSegmentIndex = 0;
-
-    [self.mapView insertSubview:self.layerSegmentedControl
-                        atIndex:self.mapView.subviews.count - 1];
     
     // Set up GPSMapViewDelegate
     self.mapView.delegate = self;
@@ -331,43 +310,35 @@ static double kDefaultLon = -113.4687100;
     self.mapView.myLocationEnabled = YES;
 }
 
-- (void)layerDidSelect:(id)sender
+- (void)viewWillAppear:(BOOL)animated
 {
-    UISegmentedControl *segmentedControl = (UISegmentedControl*)sender;
-    // Collision
-    if (segmentedControl.selectedSegmentIndex == 0)
+    [super viewWillAppear:animated];
+    if (self.type == HotSpotTypeSchoolLocation)
     {
-        [self.layerManager switchToLayer:HotSpotTypeAllExceptSchool
-                               onMapView:self.mapView];
+        self.categoriesButton.enabled = NO;
     }
-    // School
-    else if (segmentedControl.selectedSegmentIndex == 1)
+    else
     {
-        [self.layerManager switchToLayer:HotSpotTypeSchoolLocation
-                               onMapView:self.mapView];
+        self.categoriesButton.enabled = YES;
     }
 }
-- (IBAction)backHome:(id)sender {
+
+- (IBAction)backHome:(id)sender
+{
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void) setupSideBarMenu
+- (void)setupSideBarMenu
 {
-    if (self.revealViewController != nil) {
-//        self.hotspotListButton.target = self.revealViewController;
-//        self.hotspotListButton.action = @selector(revealToggle:);
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-        
-//        self.settingsButton.target = self.revealViewController;
-//        self.settingsButton.action = @selector(rightRevealToggle:);
-        
+    if (self.revealViewController)
+    {
         self.categoriesButton.target = self.revealViewController;
         self.categoriesButton.action = @selector(rightRevealToggle:);
         
-//        self.revealViewController.rearViewRevealWidth = 300;
-        self.revealViewController.rightViewRevealWidth = 300;
-        
+        self.revealViewController.rightViewRevealWidth = 280;
         self.revealViewController.delegate = self;
+        
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
 }
 
@@ -809,14 +780,12 @@ static double kDefaultLon = -113.4687100;
     NSArray* hotSpotDetails = nil;
     if (hotSpot.type == HotSpotTypeSchoolLocation)
     {
-        self.layerSegmentedControl.selectedSegmentIndex = 1;
         [self.layerManager switchToLayer:HotSpotTypeSchoolLocation
                                onMapView:self.mapView];
         hotSpotDetails = @[];
     }
     else
     {
-        self.layerSegmentedControl.selectedSegmentIndex = 0;
         [self.layerManager switchToLayer:HotSpotTypeAllExceptSchool
                                onMapView:self.mapView];
         hotSpotDetails = [self.dbManager getHotSpotDetailsByLocationCode:hotSpot.locCode];

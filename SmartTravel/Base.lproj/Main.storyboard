@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -244,8 +245,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGL-py-JlO" userLabel="PlaceholderView">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="3Yb-oF-MsD"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="e8B-aC-8n1">
-                                <rect key="frame" x="0.0" y="45" width="500" height="555"/>
+                                <rect key="frame" x="100" y="0.0" width="500" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
@@ -254,56 +263,21 @@
                                     <outlet property="delegate" destination="tEd-je-gPE" id="Udi-uB-Zyd"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFE-vU-s9j" userLabel="LogoView">
-                                <rect key="frame" x="0.0" y="0.0" width="500" height="44"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cityLogo" translatesAutoresizingMaskIntoConstraints="NO" id="DvD-9i-NiN">
-                                        <rect key="frame" x="158" y="8" width="184" height="28"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="ULM-Bb-OsM"/>
-                                            <constraint firstAttribute="width" constant="184" id="ajS-Ef-MCK"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="DvD-9i-NiN" secondAttribute="centerX" id="PCF-Rf-QbY"/>
-                                    <constraint firstAttribute="width" constant="300" id="T9V-tu-QD1"/>
-                                    <constraint firstAttribute="centerY" secondItem="DvD-9i-NiN" secondAttribute="centerY" id="bf5-X5-osv"/>
-                                    <constraint firstAttribute="height" constant="44" id="rRo-Zn-bHK"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="T9V-tu-QD1"/>
-                                    </mask>
-                                </variation>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGL-py-JlO" userLabel="PlaceholderView">
-                                <rect key="frame" x="500" y="0.0" width="100" height="600"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xQt-NA-kcm" firstAttribute="top" secondItem="JGL-py-JlO" secondAttribute="bottom" id="6JQ-Zq-ghU"/>
-                            <constraint firstItem="JGL-py-JlO" firstAttribute="leading" secondItem="NFE-vU-s9j" secondAttribute="trailing" id="9Pg-p0-beQ"/>
-                            <constraint firstItem="e8B-aC-8n1" firstAttribute="top" secondItem="NFE-vU-s9j" secondAttribute="bottom" constant="1" id="AxN-rY-G37"/>
-                            <constraint firstItem="e8B-aC-8n1" firstAttribute="leading" secondItem="OXf-0N-oam" secondAttribute="leading" id="J8h-Dh-46m"/>
-                            <constraint firstAttribute="trailing" secondItem="JGL-py-JlO" secondAttribute="trailing" id="KLA-dm-lUN"/>
-                            <constraint firstItem="NFE-vU-s9j" firstAttribute="top" secondItem="OXf-0N-oam" secondAttribute="top" id="Lo0-M2-789"/>
-                            <constraint firstItem="NFE-vU-s9j" firstAttribute="leading" secondItem="OXf-0N-oam" secondAttribute="leading" id="Zsx-va-epS"/>
-                            <constraint firstItem="NFE-vU-s9j" firstAttribute="width" secondItem="JGL-py-JlO" secondAttribute="width" multiplier="5:1" id="bbb-yo-SwQ"/>
-                            <constraint firstItem="xQt-NA-kcm" firstAttribute="top" secondItem="e8B-aC-8n1" secondAttribute="bottom" id="drD-hh-Wpu"/>
-                            <constraint firstItem="JGL-py-JlO" firstAttribute="leading" secondItem="e8B-aC-8n1" secondAttribute="trailing" id="qFq-MP-fVa"/>
-                            <constraint firstItem="JGL-py-JlO" firstAttribute="top" secondItem="OXf-0N-oam" secondAttribute="top" id="v1c-mx-Er6"/>
+                            <constraint firstItem="JGL-py-JlO" firstAttribute="top" secondItem="OXf-0N-oam" secondAttribute="top" id="Mnm-lh-GOD"/>
+                            <constraint firstAttribute="trailing" secondItem="e8B-aC-8n1" secondAttribute="trailing" id="PQg-RW-M2b"/>
+                            <constraint firstItem="JGL-py-JlO" firstAttribute="trailing" secondItem="e8B-aC-8n1" secondAttribute="leading" id="RWu-Kl-xAL"/>
+                            <constraint firstItem="e8B-aC-8n1" firstAttribute="top" secondItem="OXf-0N-oam" secondAttribute="topMargin" id="W3G-Xe-Jdm"/>
+                            <constraint firstItem="xQt-NA-kcm" firstAttribute="top" secondItem="e8B-aC-8n1" secondAttribute="bottom" id="bUt-BN-2rD"/>
+                            <constraint firstItem="xQt-NA-kcm" firstAttribute="top" secondItem="JGL-py-JlO" secondAttribute="bottom" id="sCh-zu-8eq"/>
+                            <constraint firstItem="JGL-py-JlO" firstAttribute="leading" secondItem="OXf-0N-oam" secondAttribute="leading" id="vLl-lH-n6h"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Md8-j7-TG3"/>
                     <connections>
-                        <outlet property="logoView" destination="NFE-vU-s9j" id="nu6-Ub-ba5"/>
                         <outlet property="placeholderView" destination="JGL-py-JlO" id="Xok-pV-DWh"/>
                         <outlet property="tableView" destination="e8B-aC-8n1" id="i9L-33-sOO"/>
                     </connections>
@@ -349,9 +323,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="Kdb-ZC-NjL" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="R5t-4R-YJF"/>
+                        <segue destination="Kdb-ZC-NjL" kind="custom" identifier="sw_right" customClass="SWRevealViewControllerSegueSetController" id="R5t-4R-YJF"/>
                         <segue destination="baB-r8-cLL" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="YaR-78-mbs"/>
-                        <segue destination="JBD-u7-yrp" kind="custom" identifier="sw_right" customClass="SWRevealViewControllerSegueSetController" id="25L-PX-FBI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgi-hT-Vgs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -573,7 +546,6 @@
         <image name="button_list" width="56" height="39"/>
         <image name="button_locateme" width="80" height="79"/>
         <image name="button_zoom" width="106" height="206"/>
-        <image name="cityLogo" width="184" height="56"/>
         <image name="title_setting" width="194" height="53"/>
         <image name="top_bg" width="85" height="89"/>
     </resources>
