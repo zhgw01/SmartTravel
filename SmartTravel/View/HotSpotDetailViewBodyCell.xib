@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50a-FY-M1p">
@@ -20,6 +20,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reason" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUe-SK-tBI" userLabel="Reason">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="WNT-hD-1lP"/>
                                     <constraint firstAttribute="height" constant="44" id="qDZ-AF-LuT"/>
@@ -29,6 +30,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <animations/>
                         <constraints>
                             <constraint firstItem="cUe-SK-tBI" firstAttribute="top" secondItem="50a-FY-M1p" secondAttribute="top" id="194-eq-bGC"/>
                             <constraint firstAttribute="centerX" secondItem="cUe-SK-tBI" secondAttribute="centerX" constant="4.5" id="CFE-6J-LOW"/>
@@ -39,6 +41,7 @@
                     </scrollView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Direction" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71q-AO-say" userLabel="DirectionLabel">
                         <rect key="frame" x="13" y="14.5" width="50" height="14.5"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="AHe-nn-IFZ"/>
                         </constraints>
@@ -48,6 +51,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqF-Q9-xJZ" userLabel="TotalLabel">
                         <rect key="frame" x="272" y="14.5" width="35" height="14.5"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="35" id="ReK-TN-zcY"/>
                         </constraints>
@@ -56,6 +60,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstAttribute="centerY" secondItem="HqF-Q9-xJZ" secondAttribute="centerY" id="5cy-A3-nrb"/>
                     <constraint firstAttribute="bottomMargin" secondItem="50a-FY-M1p" secondAttribute="bottom" id="JX2-nS-27G"/>
@@ -67,6 +72,7 @@
                     <constraint firstAttribute="centerY" secondItem="71q-AO-say" secondAttribute="centerY" id="tev-jZ-9h2"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="directionLabel" destination="71q-AO-say" id="ihX-Ih-cru"/>
                 <outlet property="reasonLabel" destination="cUe-SK-tBI" id="11p-Jd-ZhG"/>

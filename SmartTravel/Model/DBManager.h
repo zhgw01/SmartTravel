@@ -35,6 +35,8 @@
  */
 -(NSArray*)selectHotSpotsOfReason:(int)reasonId;
 
+-(NSArray*)selectReasonsOfCategory:(NSString*)category;
+
 -(NSArray*)getHotSpotDetailsByLocationCode:(NSString*)locCode;
 
 /**

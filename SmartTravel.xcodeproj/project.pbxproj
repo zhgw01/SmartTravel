@@ -105,6 +105,8 @@
 		8FEFC8191BB8103E00A2F922 /* SchoolShapeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEFC8181BB8103E00A2F922 /* SchoolShapeManager.m */; };
 		8FEFC81C1BB810E300A2F922 /* CollisionShapeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEFC81B1BB810E300A2F922 /* CollisionShapeManager.m */; };
 		8FEFC81F1BB8156900A2F922 /* ShapeManagerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEFC81E1BB8156900A2F922 /* ShapeManagerFactory.m */; };
+		8FF78C021C00B64200ABBAAF /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF78C001C00B64200ABBAAF /* CategoryTableViewCell.m */; };
+		8FF78C031C00B64200ABBAAF /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF78C011C00B64200ABBAAF /* CategoryTableViewCell.xib */; };
 		9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B295C081ADFF0B200758837 /* FirstLaunch.storyboard */; };
 		9B5EE8641AF3EEE600524F4A /* default.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9B5EE8631AF3EEE600524F4A /* default.gpx */; };
 		9B6A85B11ADFDEFF00667170 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A85B01ADFDEFF00667170 /* main.m */; };
@@ -281,6 +283,9 @@
 		8FEFC81B1BB810E300A2F922 /* CollisionShapeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollisionShapeManager.m; path = ViewModel/CollisionShapeManager.m; sourceTree = "<group>"; };
 		8FEFC81D1BB8156900A2F922 /* ShapeManagerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShapeManagerFactory.h; path = ViewModel/ShapeManagerFactory.h; sourceTree = "<group>"; };
 		8FEFC81E1BB8156900A2F922 /* ShapeManagerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShapeManagerFactory.m; path = ViewModel/ShapeManagerFactory.m; sourceTree = "<group>"; };
+		8FF78BFF1C00B64200ABBAAF /* CategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryTableViewCell.h; path = View/CategoryTableViewCell.h; sourceTree = "<group>"; };
+		8FF78C001C00B64200ABBAAF /* CategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryTableViewCell.m; path = View/CategoryTableViewCell.m; sourceTree = "<group>"; };
+		8FF78C011C00B64200ABBAAF /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryTableViewCell.xib; path = View/CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		9B295C091ADFF0B200758837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FirstLaunch.storyboard; sourceTree = "<group>"; };
 		9B5EE8631AF3EEE600524F4A /* default.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default.gpx; sourceTree = "<group>"; };
 		9B6A85AB1ADFDEFF00667170 /* SmartTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -518,6 +523,9 @@
 				42C6A8B11B0A0FAC00EE1518 /* WarningView.xib */,
 				84F38DF01B102B3300A0EB42 /* Marker.h */,
 				84F38DF11B102B3300A0EB42 /* Marker.m */,
+				8FF78BFF1C00B64200ABBAAF /* CategoryTableViewCell.h */,
+				8FF78C001C00B64200ABBAAF /* CategoryTableViewCell.m */,
+				8FF78C011C00B64200ABBAAF /* CategoryTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -796,6 +804,7 @@
 				42C6A8C91B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.xib in Resources */,
 				4290A0AE1AF6050100CB46E5 /* HotSpotTableViewCell.xib in Resources */,
 				9B295C0A1ADFF0B200758837 /* FirstLaunch.storyboard in Resources */,
+				8FF78C031C00B64200ABBAAF /* CategoryTableViewCell.xib in Resources */,
 				8F4F49701BF4E6F5008779E3 /* 117Street_north_to_south.gpx in Resources */,
 				42C6A8B31B0A0FAC00EE1518 /* HotSpotDetailView.xib in Resources */,
 				8FEC5E2B1BF61059005F4DA5 /* High Risk (Dennis).wav in Resources */,
@@ -939,6 +948,7 @@
 				4203DDB91B0879350002D67F /* DateUtility.m in Sources */,
 				84F38DF81B108D0900A0EB42 /* AppLocationManager.m in Sources */,
 				42C6A8C81B0A1B6300EE1518 /* HotSpotDetailViewHeaderCell.m in Sources */,
+				8FF78C021C00B64200ABBAAF /* CategoryTableViewCell.m in Sources */,
 				42C6A8C61B0A1B6300EE1518 /* HotSpotDetailViewBodyCell.m in Sources */,
 				9B6C7DA81AF500C500DF6FA9 /* DBManager.m in Sources */,
 				8FE05CEF1BB79AFB00118F2A /* MarkerManagerFactory.m in Sources */,

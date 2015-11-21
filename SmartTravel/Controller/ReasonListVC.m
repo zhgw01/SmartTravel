@@ -11,8 +11,10 @@
 #import "UIColor+ST.h"
 #import "HotspotListVC.h"
 #import "STConstants.h"
+#import "CategoryTableViewCell.h"
 
 static const NSInteger kSectionCnt = 2;
+static NSString * kCategoryCellIdentifier = @"CategoryTableViewCell";
 
 @interface ReasonListVC ()
 
@@ -31,6 +33,8 @@ static const NSInteger kSectionCnt = 2;
     
     self.placeholderView.backgroundColor = [UIColor getSTGray];
     self.tableView.separatorColor = [UIColor lightGrayColor];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"CategoryTableViewCell" bundle:nil] forCellReuseIdentifier:kCategoryCellIdentifier];
     
     self.reasonCategories = [self orderCategories:[[DBManager sharedInstance] selectReasonCategories]];
 }
@@ -58,21 +62,18 @@ static const NSInteger kSectionCnt = 2;
     NSMutableArray *res = [[NSMutableArray alloc] initWithCapacity:totalCount];
     for (NSUInteger idx = 0; idx < totalCount; ++idx)
     {
-        [res addObject:@{@"Reason_id": @(-1), @"Category": @"Unknown"}];
+        [res addObject:@{@"Reason_id": @(-1),
+                         @"Category": @"Unknown"}];
     }
 
     // Insert the reason category at the told index
     for(NSDictionary *reasonCategory in reasonCategories)
     {
         NSString *category = [reasonCategory valueForKey:@"Category"];
-        NSString *orderStr = [reasonCategoryDic objectForKey:category];
-        if (orderStr)
+        NSInteger order = [[[reasonCategoryDic objectForKey:category] valueForKey:@"order"] integerValue];
+        if (order >= 0 && order < totalCount)
         {
-            NSInteger order = [orderStr integerValue];
-            if (order >= 0 && order < totalCount)
-            {
-                [res setObject:reasonCategory atIndexedSubscript:order];
-            }
+            [res setObject:reasonCategory atIndexedSubscript:order];
         }
     }
     
@@ -136,25 +137,11 @@ static const NSInteger kSectionCnt = 2;
         return cell;
     }
     else if (indexPath.section == 1)
-    {
-        static NSString* kCellIdentifier = @"ReasonCell";
+    {        
+        CategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCategoryCellIdentifier];
         
-        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
-        if (cell == nil)
-        {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                          reuseIdentifier:kCellIdentifier];
-            cell.backgroundColor = [UIColor getSTGray];
-            cell.textLabel.textAlignment = NSTextAlignmentLeft;
-            cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-            cell.textLabel.numberOfLines = 0;
-            cell.textLabel.font = [UIFont systemFontOfSize:14];
-        }
-        
-        // Configure Cell
         NSString *category = [[self.reasonCategories objectAtIndex:indexPath.row] valueForKey:@"Category"];
-        cell.textLabel.text = category;
-        
+        [cell configureWithCategory:category];
         return cell;
     }
     return nil;

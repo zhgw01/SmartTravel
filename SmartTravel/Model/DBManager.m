@@ -501,6 +501,45 @@
     return res;
 }
 
+-(NSArray*)selectReasonsOfCategory:(NSString*)category
+{
+    NSString* mainDBPath = [DBManager getPathOfDB:DB_NAME_MAIN];
+    FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
+    if (![db open])
+    {
+        NSAssert(NO, @"Open db failed");
+        return nil;
+    }
+    
+    NSMutableArray *res = [[NSMutableArray alloc] init];
+    
+    NSString *smt = [NSString stringWithFormat:@"select Reason_id from TBL_WM_REASON_CONDITION where Category=\'%@\'", category];
+    FMResultSet* resultSet = [db executeQuery:smt];
+    NSError *error = nil;
+    while ([resultSet nextWithError:&error])
+    {
+        if (error)
+        {
+            NSLog(@"File: %s\nLine:%d\nError:%@\n", __FILE__, __LINE__, error.description);
+            continue;
+        }
+        
+        int reasonId = [resultSet intForColumn:@"Reason_id"];
+        // NOTE: Special case, replace all school zones bound with reason 23 with school locations, use -1 as virtual reason id of school locations
+        if (reasonId != 23)
+        {
+            [res addObject:@(reasonId)];
+        }
+    }
+    
+    if (![db close])
+    {
+        NSAssert(NO, @"Close db failed");
+    }
+    
+    return res;
+}
+
 -(NSArray*)getHotSpotDetailsByLocationCode:(NSString*)locCode
 {
     NSString* mainDBPath = [DBManager getPathOfDB:DB_NAME_MAIN];
