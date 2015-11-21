@@ -143,12 +143,12 @@ static double kDefaultLon = -113.4687100;
                                                object:nil];
 }
 
-- (void) viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = NO;
-    self.title = @"Smart Travel";
-}
+//- (void) viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    self.navigationController.navigationBar.hidden = NO;
+//    self.title = @"Smart Travel";
+//}
 
 - (void)dealloc
 {
