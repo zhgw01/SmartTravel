@@ -44,7 +44,7 @@ static NSString * const kVersionColumn = @"Version";
 
 - (NSString*)constructSmt
 {
-    return [NSString stringWithFormat:@"select %@ from %@ order by %@ desc limit 1", kVersionColumn, MAIN_DB_TBL_NEW_VERSION, kVersionColumn];
+    return [NSString stringWithFormat:@"select %@ from %@ order by %@ desc limit 1", kVersionColumn, TBL_NEW_VERSION, kVersionColumn];
 }
 
 @end

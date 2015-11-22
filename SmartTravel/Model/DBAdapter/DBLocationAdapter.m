@@ -46,7 +46,7 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
             return [NSString stringWithFormat:
                     @"select %@ from %@ where (%@ > %g and %@ < %g) and (%@ > %g and %@ < %g)",
                     kLocCodeColumn,
-                    MAIN_DB_TBL_COLLISION_LOCATION,
+                    TBL_COLLISION_LOCATION,
                     kLatitudeColumn,
                     latitude - latInset,
                     kLatitudeColumn,
@@ -85,7 +85,7 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
     FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfDB:DB_NAME_MAIN]];
     if ([db open])
     {
-        NSString* smt = [NSString stringWithFormat:@"select Location_name, Latitude, Longitude from %@ where Loc_code ='%@'", MAIN_DB_TBL_COLLISION_LOCATION, locCode];
+        NSString* smt = [NSString stringWithFormat:@"select Location_name, Latitude, Longitude from %@ where Loc_code ='%@'", TBL_COLLISION_LOCATION, locCode];
         FMResultSet* resultSet = [db executeQuery:smt];
         NSError* error = nil;
         if([resultSet nextWithError:&error])
@@ -141,7 +141,7 @@ static NSString * const kTravelDirectionColumn = @"Travel_direction";
                      kReasonIdColumn,
                      kTotalColumn,
                      kWarningPriorityColumn,
-                     MAIN_DB_TBL_LOCATION_REASON,
+                     TBL_LOCATION_REASON,
                      kTravelDirectionColumn,
                      [DirectionUtility directionToString:direction],
                      kTravelDirectionColumn,

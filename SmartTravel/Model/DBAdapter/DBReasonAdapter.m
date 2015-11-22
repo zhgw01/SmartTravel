@@ -78,7 +78,7 @@ static NSString * const kEndTimeColumn        = @"End_time";
     FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfDB:DB_NAME_MAIN]];
     if ([db open])
     {
-        NSString* smt = [NSString stringWithFormat:@"select %@, %@ from %@ where %@=%d", kReasonColumn, kWarningMessageColumn, MAIN_DB_TBL_WM_REASON_CONDITION, kReasonIdColumn, reasonId];
+        NSString* smt = [NSString stringWithFormat:@"select %@, %@ from %@ where %@=%d", kReasonColumn, kWarningMessageColumn, TBL_WM_REASON_CONDITION, kReasonIdColumn, reasonId];
         FMResultSet* resultSet = [db executeQuery:smt];
         NSError* error = nil;
         if ([resultSet nextWithError:&error] && !error)
@@ -107,7 +107,7 @@ static NSString * const kEndTimeColumn        = @"End_time";
             kMonthColumn,
             kStartTimeColumn,
             kEndTimeColumn,
-            MAIN_DB_TBL_WM_REASON_CONDITION,
+            TBL_WM_REASON_CONDITION,
             dbDateAdapter.isWeekDay ? kWeekdayColumn : kWeekendColumn,
             1,
             kSchoolDayColumn,

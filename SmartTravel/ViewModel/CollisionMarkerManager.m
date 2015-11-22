@@ -53,6 +53,28 @@ static NSString * const kBreathingIconBaseName  = @"breathing";
     return [markers copy];
 }
 
+- (NSString*)getImageOfLocationCode:(NSString*)locationCode
+{
+    NSString *category = [[DBManager sharedInstance] selectCategoryOfLocationCode:locationCode];
+    
+    if ([[NSPredicate predicateWithFormat:@"name CONTAIN[cd] '%@'", @"PEDESTRIAN"] evaluateWithObject:category])
+    {
+        return @"Pedestrian_iOS_22";
+    }
+    else if ([[NSPredicate predicateWithFormat:@"name CONTAIN[cd] '%@'", @"MOTORCYCLIST"] evaluateWithObject:category])
+    {
+        return @"Motorcyclist_iOS_22";
+    }
+    else if([[NSPredicate predicateWithFormat:@"name CONTAIN[cd] '%@'", @"CYCLIST"] evaluateWithObject:category])
+    {
+        return @"Cyclist_iOS_22";
+    }
+    else
+    {
+        return kMarkerCollisionIcon;
+    }
+}
+
 - (void)breath:(NSString*)locationCode
 {
     if ([self.preBreathLocationCode isEqualToString:locationCode])

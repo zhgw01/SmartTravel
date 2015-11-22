@@ -15,9 +15,9 @@ extern NSString * const DB_NAME_MAIN;
 extern NSString * const DB_NAME_TEMPLATE;
 
 // Table names of main db
-extern NSString * const MAIN_DB_TBL_COLLISION_LOCATION;
-extern NSString * const MAIN_DB_TBL_WM_REASON_CONDITION;
-extern NSString * const MAIN_DB_TBL_LOCATION_REASON;
-extern NSString * const MAIN_DB_TBL_WM_DAYTYPE;
-extern NSString * const MAIN_DB_TBL_NEW_VERSION;
-extern NSString * const MAIN_DB_TBL_SCHOOL;
+extern NSString * const TBL_COLLISION_LOCATION;
+extern NSString * const TBL_WM_REASON_CONDITION;
+extern NSString * const TBL_LOCATION_REASON;
+extern NSString * const TBL_WM_DAYTYPE;
+extern NSString * const TBL_NEW_VERSION;
+extern NSString * const TBL_SCHOOL;

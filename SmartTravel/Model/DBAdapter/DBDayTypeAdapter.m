@@ -72,7 +72,7 @@ static NSString * const kDateColumn = @"Date";
 - (NSString*)constructSmt:(NSDate*)date
 {    
     NSString* dateStr = [DateUtility getDateString:date];
-    return [NSString stringWithFormat:@"select %@, %@, %@ from %@ where %@='%@'", kWeekdayColumn, kWeekendColumn, kSchooldayColumn, MAIN_DB_TBL_WM_DAYTYPE, kDateColumn, dateStr];
+    return [NSString stringWithFormat:@"select %@, %@, %@ from %@ where %@='%@'", kWeekdayColumn, kWeekendColumn, kSchooldayColumn, TBL_WM_DAYTYPE, kDateColumn, dateStr];
 }
 
 @end

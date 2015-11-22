@@ -31,4 +31,6 @@
 
 -(NSArray*)selectCategories;
 
+-(NSString*)selectCategoryOfLocationCode:(NSString*)locationCode;
+
 @end

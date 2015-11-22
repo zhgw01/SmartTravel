@@ -184,27 +184,27 @@ static NSString * const kURLOfSchool            = @"school/jsonOfList";
                                     forceOverwrite:YES];
         
         syncOnlineTable(tempDbName,
-                        MAIN_DB_TBL_COLLISION_LOCATION,
+                        TBL_COLLISION_LOCATION,
                         kURLOfCollisionLocation);
     
         syncOnlineTable(tempDbName,
-                        MAIN_DB_TBL_LOCATION_REASON,
+                        TBL_LOCATION_REASON,
                         kURLOfLocationReason);
 
         syncOnlineTable(tempDbName,
-                        MAIN_DB_TBL_WM_REASON_CONDITION,
+                        TBL_WM_REASON_CONDITION,
                         kURLOfWMReasonCondition);
     
         syncOnlineTable(tempDbName,
-                        MAIN_DB_TBL_WM_DAYTYPE,
+                        TBL_WM_DAYTYPE,
                         kURLOfWMDayType);
     
         syncOnlineTable(tempDbName,
-                        MAIN_DB_TBL_SCHOOL,
+                        TBL_SCHOOL,
                         kURLOfSchool);
     
         syncOnlineTable(tempDbName,
-                        MAIN_DB_TBL_NEW_VERSION,
+                        TBL_NEW_VERSION,
                         kURLOfNewVersion);
     
         NSString *mainDbPath = [DBManager getPathOfDB:DB_NAME_MAIN];

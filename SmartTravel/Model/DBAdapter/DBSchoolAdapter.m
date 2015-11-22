@@ -25,7 +25,7 @@ NSString * const kColSchoolName = @"school_name";
     FMDatabase* db = [FMDatabase databaseWithPath:[DBManager getPathOfDB:DB_NAME_MAIN]];
     if ([db open])
     {
-        NSString *selectSmt = [NSString stringWithFormat:@"SELECT %@, %@, %@, %@, %@ FROM %@", kColId, kColLongitude, kColLatitude, kColSzSegments, kColSchoolName, MAIN_DB_TBL_SCHOOL];
+        NSString *selectSmt = [NSString stringWithFormat:@"SELECT %@, %@, %@, %@, %@ FROM %@", kColId, kColLongitude, kColLatitude, kColSzSegments, kColSchoolName, TBL_SCHOOL];
         
         FMResultSet* resultSet = [db executeQuery:selectSmt];
         NSError* error = nil;
