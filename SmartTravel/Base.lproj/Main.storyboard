@@ -164,6 +164,9 @@
                                         <rect key="frame" x="300" y="0.0" width="300" height="179"/>
                                         <animations/>
                                         <state key="normal" title="Button" image="Traffic Safety Information"/>
+                                        <connections>
+                                            <segue destination="BwP-Qp-mdl" kind="show" identifier="homepage_button21" id="JjS-cN-XAC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -373,7 +376,52 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXH-JH-gbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1139" y="1031"/>
+            <point key="canvasLocation" x="1139" y="1095"/>
+        </scene>
+        <!--Traffic Safety Information-->
+        <scene sceneID="LwX-je-6m9">
+            <objects>
+                <viewController id="BwP-Qp-mdl" customClass="InfoVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GLa-63-4pj"/>
+                        <viewControllerLayoutGuide type="bottom" id="P53-Ad-Ohf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SwI-s6-PKC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vI-Am-Jvo">
+                                <rect key="frame" x="200.5" y="90" width="200" height="120"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="A5Q-cd-t9A"/>
+                                    <constraint firstAttribute="height" constant="120" id="bVY-qE-g7w"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="road safety everyone responsibility"/>
+                                <connections>
+                                    <action selector="roadSafetyPressed:" destination="BwP-Qp-mdl" eventType="touchUpInside" id="fZt-2U-avO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0vI-Am-Jvo" firstAttribute="centerX" secondItem="SwI-s6-PKC" secondAttribute="centerX" id="8m5-pf-iOz"/>
+                            <constraint firstItem="0vI-Am-Jvo" firstAttribute="centerY" secondItem="SwI-s6-PKC" secondAttribute="centerY" multiplier="1:2" id="maR-hi-dqZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Traffic Safety Information" id="JhV-30-NeE" userLabel="Traffic Safety Information">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;Home" id="FR0-sD-ICw">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="backHomePressed:" destination="BwP-Qp-mdl" id="1JG-TM-DPG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0W9-J2-jsm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1816" y="1095"/>
         </scene>
         <!--Category ListVC-->
         <scene sceneID="XRr-NO-U6R">
@@ -690,6 +738,7 @@
         <image name="button_list" width="56" height="39"/>
         <image name="button_locateme" width="80" height="79"/>
         <image name="button_zoom" width="106" height="206"/>
+        <image name="road safety everyone responsibility" width="250" height="197"/>
         <image name="terms of service" width="250" height="266"/>
         <image name="title_setting" width="194" height="53"/>
         <image name="top_bg" width="85" height="89"/>
