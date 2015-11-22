@@ -44,7 +44,8 @@ static NSString * const kBreathingIconBaseName  = @"breathing";
     {
         Marker* gmsMarker            = [[Marker alloc] init];
         gmsMarker.position           = CLLocationCoordinate2DMake(hotSpot.latitude.doubleValue, hotSpot.longtitude.doubleValue);
-        gmsMarker.icon               = [UIImage imageNamed:kMarkerCollisionIcon];
+        NSString *imageName          = [self getImageOfLocationCode:hotSpot.locCode];
+        gmsMarker.icon               = [UIImage imageNamed:imageName];
         gmsMarker.locationCode       = hotSpot.locCode;
         gmsMarker.locationName       = hotSpot.location;
         gmsMarker.hotSpotType        = hotSpot.type;
@@ -56,16 +57,17 @@ static NSString * const kBreathingIconBaseName  = @"breathing";
 - (NSString*)getImageOfLocationCode:(NSString*)locationCode
 {
     NSString *category = [[DBManager sharedInstance] selectCategoryOfLocationCode:locationCode];
+    NSLog(@"Category = %@", category);
     
-    if ([[NSPredicate predicateWithFormat:@"name CONTAIN[cd] '%@'", @"PEDESTRIAN"] evaluateWithObject:category])
+    if ([[NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@", @"PEDESTRIAN"] evaluateWithObject:category])
     {
         return @"Pedestrian_iOS_22";
     }
-    else if ([[NSPredicate predicateWithFormat:@"name CONTAIN[cd] '%@'", @"MOTORCYCLIST"] evaluateWithObject:category])
+    else if ([[NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@", @"MOTORCYCLIST"] evaluateWithObject:category])
     {
         return @"Motorcyclist_iOS_22";
     }
-    else if([[NSPredicate predicateWithFormat:@"name CONTAIN[cd] '%@'", @"CYCLIST"] evaluateWithObject:category])
+    else if([[NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@", @"CYCLIST"] evaluateWithObject:category])
     {
         return @"Cyclist_iOS_22";
     }
