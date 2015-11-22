@@ -152,9 +152,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7dh-e2-e4l" userLabel="View2">
                                 <rect key="frame" x="0.0" y="242.5" width="600" height="179"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Rf-HU-b5H" userLabel="Button21">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Rf-HU-b5H" userLabel="Button21">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="179"/>
                                         <animations/>
+                                        <state key="normal" image="About"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O24-op-zWY" userLabel="Button22">
                                         <rect key="frame" x="300" y="0.0" width="300" height="179"/>
@@ -181,7 +182,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qo8-Vs-Iux" userLabel="Button31">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="178.5"/>
                                         <animations/>
-                                        <state key="normal" title="Button" image="About"/>
+                                        <state key="normal" title="Button"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGk-ab-gid" userLabel="Button32">
                                         <rect key="frame" x="300" y="0.0" width="300" height="178.5"/>
