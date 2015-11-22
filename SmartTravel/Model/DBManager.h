@@ -21,29 +21,14 @@
         intoTable:(NSString*)tableName
              ofDB:(NSString*)dbName;
 
-//+(NSString*)getPathOfMainDB;
 +(NSString*)getPathOfDB:(NSString*)dbName;
 
 -(NSArray*)selectHotSpots:(HotSpotType)hotSpotType;
 
-/**
- *  Selecta all hot spots of specific reason
- *
- *  @param reasonId ID of reason
- *
- *  @return array of hotspot of HotSpot type
- */
--(NSArray*)selectHotSpotsOfReason:(int)reasonId;
-
--(NSArray*)selectReasonsOfCategory:(NSString*)category;
+-(NSArray*)selectHotSpotsOfCategory:(NSString*)category;
 
 -(NSArray*)getHotSpotDetailsByLocationCode:(NSString*)locCode;
 
-/**
- *  Select all reason categories
- *
- *  @return array of {Reason_id:@"", Category:""}
- */
--(NSArray*)selectReasonCategories;
+-(NSArray*)selectCategories;
 
 @end

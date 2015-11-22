@@ -448,6 +448,24 @@
     return [self sortHotSpotsOrderByLocationNameAsc:res];
 }
 
+-(NSArray*)selectHotSpotsOfCategory:(NSString*)category;
+{
+    NSArray *reasonIds = [self selectReasonsOfCategory:category];
+    return [self selectHotSpotsOfReasons:reasonIds];
+}
+
+-(NSArray*)selectHotSpotsOfReasons:(NSArray*)reasonIds;
+{
+    NSMutableArray *res = [[NSMutableArray alloc] init];
+    for (NSNumber *reasonIdNum in reasonIds)
+    {
+        int reasonId = [reasonIdNum intValue];
+        NSArray *arr = [self selectHotSpotsOfReason:reasonId];
+        [res addObjectsFromArray:arr];
+    }
+    return res;
+}
+
 -(NSArray*)sortHotSpotsOrderByLocationNameAsc:(NSArray*)hotSpots
 {
     NSComparator cmptr = ^(id obj1, id obj2)
@@ -460,7 +478,7 @@
     return [hotSpots sortedArrayUsingComparator:cmptr];
 }
 
--(NSArray*)selectReasonCategories
+-(NSArray*)selectCategories
 {
     NSString* mainDBPath = [DBManager getPathOfDB:DB_NAME_MAIN];
     FMDatabase* db = [FMDatabase databaseWithPath:mainDBPath];
@@ -472,7 +490,7 @@
     
     NSMutableArray *res = [[NSMutableArray alloc] init];
     
-    FMResultSet* resultSet = [db executeQuery:@"select Reason_id, Category from TBL_WM_REASON_CONDITION"];
+    FMResultSet* resultSet = [db executeQuery:@"select distinct Category from TBL_WM_REASON_CONDITION where Reason_id <> 23"];
     NSError *error = nil;
     while ([resultSet nextWithError:&error])
     {
@@ -481,16 +499,8 @@
             NSLog(@"File: %s\nLine:%d\nError:%@\n", __FILE__, __LINE__, error.description);
             continue;
         }
-        
-        int reasonId = [resultSet intForColumn:@"Reason_id"];
-        // NOTE: Special case, replace all school zones bound with reason 23 with school locations, use -1 as virtual reason id of school locations
-        if (reasonId != 23)
-        {
-            [res addObject:@{
-                            @"Reason_id":[resultSet stringForColumn:@"Reason_id"],
-                            @"Category":[resultSet stringForColumn:@"Category"]
-                            }];
-        }
+
+        [res addObject:[resultSet stringForColumn:@"Category"]];
     }
     
     if (![db close])

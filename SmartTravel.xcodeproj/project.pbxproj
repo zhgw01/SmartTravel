@@ -121,7 +121,7 @@
 		9B7E595B1AE38F610008D25C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B7E595A1AE38F610008D25C /* MapKit.framework */; };
 		9B7E595D1AE38F660008D25C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B7E595C1AE38F660008D25C /* CoreLocation.framework */; };
 		9B7E59601AE3966F0008D25C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E595F1AE3966F0008D25C /* HomeViewController.m */; };
-		9B812DD91AEB3E9D008F17B6 /* ReasonListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B812DD81AEB3E9D008F17B6 /* ReasonListVC.m */; };
+		9B812DD91AEB3E9D008F17B6 /* CategoryListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B812DD81AEB3E9D008F17B6 /* CategoryListVC.m */; };
 		9B812DDC1AEB3EB7008F17B6 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B812DDB1AEB3EB7008F17B6 /* SettingsViewController.m */; };
 		9BC3392F1AE296250046AAB5 /* termofusage.html in Resources */ = {isa = PBXBuildFile; fileRef = 9BC3392E1AE296250046AAB5 /* termofusage.html */; };
 		9BCEBC791ADFF317003C9F05 /* TermOfUsageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCEBC781ADFF317003C9F05 /* TermOfUsageViewController.m */; };
@@ -309,8 +309,8 @@
 		9B7E595C1AE38F660008D25C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9B7E595E1AE3966F0008D25C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Controller/HomeViewController.h; sourceTree = "<group>"; };
 		9B7E595F1AE3966F0008D25C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Controller/HomeViewController.m; sourceTree = "<group>"; };
-		9B812DD71AEB3E9D008F17B6 /* ReasonListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReasonListVC.h; path = Controller/ReasonListVC.h; sourceTree = "<group>"; };
-		9B812DD81AEB3E9D008F17B6 /* ReasonListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReasonListVC.m; path = Controller/ReasonListVC.m; sourceTree = "<group>"; };
+		9B812DD71AEB3E9D008F17B6 /* CategoryListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryListVC.h; path = Controller/CategoryListVC.h; sourceTree = "<group>"; };
+		9B812DD81AEB3E9D008F17B6 /* CategoryListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryListVC.m; path = Controller/CategoryListVC.m; sourceTree = "<group>"; };
 		9B812DDA1AEB3EB7008F17B6 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = Controller/SettingsViewController.h; sourceTree = "<group>"; };
 		9B812DDB1AEB3EB7008F17B6 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = Controller/SettingsViewController.m; sourceTree = "<group>"; };
 		9BC3392E1AE296250046AAB5 /* termofusage.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = termofusage.html; sourceTree = "<group>"; };
@@ -534,8 +534,8 @@
 			isa = PBXGroup;
 			children = (
 				9BCEBC771ADFF317003C9F05 /* TermOfUsageViewController.h */,
-				9B812DD71AEB3E9D008F17B6 /* ReasonListVC.h */,
-				9B812DD81AEB3E9D008F17B6 /* ReasonListVC.m */,
+				9B812DD71AEB3E9D008F17B6 /* CategoryListVC.h */,
+				9B812DD81AEB3E9D008F17B6 /* CategoryListVC.m */,
 				9BCEBC781ADFF317003C9F05 /* TermOfUsageViewController.m */,
 				9B7E59521AE3882A0008D25C /* GuideViewController.h */,
 				9B7E59531AE3882A0008D25C /* GuideViewController.m */,
@@ -955,7 +955,7 @@
 				42E9F1A31BAD840C000EAB39 /* LocationCoordinate.m in Sources */,
 				8FEFC8191BB8103E00A2F922 /* SchoolShapeManager.m in Sources */,
 				841EE2AE1B9482170022A067 /* STConstants.m in Sources */,
-				9B812DD91AEB3E9D008F17B6 /* ReasonListVC.m in Sources */,
+				9B812DD91AEB3E9D008F17B6 /* CategoryListVC.m in Sources */,
 				9B812DDC1AEB3EB7008F17B6 /* SettingsViewController.m in Sources */,
 				426EC33A1B92D9AF00ED4BBA /* UIColor+ST.m in Sources */,
 				9B6A85B11ADFDEFF00667170 /* main.m in Sources */,

@@ -62,16 +62,10 @@
 - (int)getTotalCollisionCountOfCategory:(NSString*)category
 {
     int total = 0;
-    DBManager *dbManager = [DBManager sharedInstance];
-    NSArray *reasonIds = [dbManager selectReasonsOfCategory:category];
-    for (NSNumber *reasonIdNumber in reasonIds)
+    NSArray *hotspots = [[DBManager sharedInstance] selectHotSpotsOfCategory:category];
+    for (HotSpot *hotspot in hotspots)
     {
-        int reasonId = [reasonIdNumber intValue];
-        NSArray *hotspots = [dbManager selectHotSpotsOfReason:reasonId];
-        for (HotSpot *hotspot in hotspots)
-        {
-            total += [[hotspot count] intValue];
-        }
+        total += [[hotspot count] intValue];
     }
     return total;
 }

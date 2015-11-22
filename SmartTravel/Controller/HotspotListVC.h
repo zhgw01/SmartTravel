@@ -13,6 +13,6 @@ extern NSString * kNotificatonNameHotSpotSelected;
 
 @interface HotspotListVC : UIViewController
 
-@property (nonatomic, assign) int reasonId;
+@property (nonatomic, copy) NSString *category;
 
 @end

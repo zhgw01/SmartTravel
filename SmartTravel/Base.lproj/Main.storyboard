@@ -233,10 +233,10 @@
             </objects>
             <point key="canvasLocation" x="1139" y="305"/>
         </scene>
-        <!--Reason ListVC-->
+        <!--Category ListVC-->
         <scene sceneID="XRr-NO-U6R">
             <objects>
-                <viewController id="tEd-je-gPE" customClass="ReasonListVC" sceneMemberID="viewController">
+                <viewController id="tEd-je-gPE" customClass="CategoryListVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TTN-nK-yQm"/>
                         <viewControllerLayoutGuide type="bottom" id="xQt-NA-kcm"/>

@@ -50,38 +50,8 @@ UITableViewDelegate
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
-    
-    // Reason id -1 represents school locations
-    if (self.reasonId == -1)
-    {
-        DBSchoolAdapter *dbSchoolAdapter = [[DBSchoolAdapter alloc] init];
-        NSArray *allSchools = [dbSchoolAdapter selectAllSchoolsOrderByName];
-        
-        NSMutableArray *hotspots = [[NSMutableArray alloc] init];
-        // Adapt all school format to hot spot format
-        for (NSDictionary *school in allSchools)
-        {
-            NSString *schoolId              = [school valueForKey:kColId];
-            NSString *schoolLocationName    = [school valueForKey:kColSchoolName];
-            double schoolLatitude           = [[school objectForKey:kColLatitude] doubleValue];
-            double schoolLongitude          = [[school objectForKey:kColLongitude] doubleValue];
-            int schoolTotal                 = 1;
 
-            HotSpot* hotSpot = [[HotSpot alloc] initWithLocCode:schoolId
-                                                       location:schoolLocationName
-                                                          count:schoolTotal
-                                                       latitude:schoolLatitude
-                                                     longtitude:schoolLongitude
-                                                           type:HotSpotTypeSchoolLocation];
-
-            [hotspots addObject:hotSpot];
-        }
-        self.hotspots = hotspots;
-    }
-    else
-    {
-        self.hotspots = [[DBManager sharedInstance] selectHotSpotsOfReason:self.reasonId];
-    }
+    self.hotspots = [[DBManager sharedInstance] selectHotSpotsOfCategory:self.category];
 }
 
 /*

@@ -1,12 +1,12 @@
 //
-//  ReasonListVC.m
+//  CategoryListVC.m
 //  SmartTravel
 //
 //  Created by Gongwei on 15/4/25.
 //  Copyright (c) 2015年 Gongwei. All rights reserved.
 //
 
-#import "ReasonListVC.h"
+#import "CategoryListVC.h"
 #import "DBManager.h"
 #import "UIColor+ST.h"
 #import "HotspotListVC.h"
@@ -16,16 +16,15 @@
 static const NSInteger kSectionCnt = 2;
 static NSString * kCategoryCellIdentifier = @"CategoryTableViewCell";
 
-@interface ReasonListVC ()
+@interface CategoryListVC ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *placeholderView;
-
-@property (nonatomic, strong) NSArray *reasonCategories;
+@property (nonatomic, strong) NSArray *categories;
 
 @end
 
-@implementation ReasonListVC
+@implementation CategoryListVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,7 +35,12 @@ static NSString * kCategoryCellIdentifier = @"CategoryTableViewCell";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CategoryTableViewCell" bundle:nil] forCellReuseIdentifier:kCategoryCellIdentifier];
     
-    self.reasonCategories = [self orderCategories:[[DBManager sharedInstance] selectReasonCategories]];
+    self.categories = [self orderCategories:[[DBManager sharedInstance] selectCategories]];
+    
+    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] init];
+    backButtonItem.title = @"        <";
+    backButtonItem.style = UIBarButtonItemStylePlain;
+    self.navigationItem.backBarButtonItem = backButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,7 +54,7 @@ static NSString * kCategoryCellIdentifier = @"CategoryTableViewCell";
     self.navigationController.navigationBarHidden = YES;
 }
 
-- (NSArray*)orderCategories:(NSArray*)reasonCategories
+- (NSArray*)orderCategories:(NSArray*)categories
 {
     // Get reason category order list
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:kConstantPlist
@@ -62,18 +66,16 @@ static NSString * kCategoryCellIdentifier = @"CategoryTableViewCell";
     NSMutableArray *res = [[NSMutableArray alloc] initWithCapacity:totalCount];
     for (NSUInteger idx = 0; idx < totalCount; ++idx)
     {
-        [res addObject:@{@"Reason_id": @(-1),
-                         @"Category": @"Unknown"}];
+        [res addObject:@"Unknown category"];
     }
 
     // Insert the reason category at the told index
-    for(NSDictionary *reasonCategory in reasonCategories)
+    for(NSString *category in categories)
     {
-        NSString *category = [reasonCategory valueForKey:@"Category"];
         NSInteger order = [[[reasonCategoryDic objectForKey:category] valueForKey:@"order"] integerValue];
         if (order >= 0 && order < totalCount)
         {
-            [res setObject:reasonCategory atIndexedSubscript:order];
+            [res setObject:category atIndexedSubscript:order];
         }
     }
     
@@ -105,7 +107,7 @@ static NSString * kCategoryCellIdentifier = @"CategoryTableViewCell";
     }
     else if (section == 1)
     {
-        return self.reasonCategories.count;
+        return self.categories.count;
     }
     return 0;
 }
@@ -140,7 +142,7 @@ static NSString * kCategoryCellIdentifier = @"CategoryTableViewCell";
     {        
         CategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCategoryCellIdentifier];
         
-        NSString *category = [[self.reasonCategories objectAtIndex:indexPath.row] valueForKey:@"Category"];
+        NSString *category = [self.categories objectAtIndex:indexPath.row];
         [cell configureWithCategory:category];
         return cell;
     }
@@ -164,7 +166,7 @@ static NSString * kCategoryCellIdentifier = @"CategoryTableViewCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HotspotListVC *hotspotListVC = [[HotspotListVC alloc] initWithNibName:@"HotspotListVC" bundle:nil];
-    hotspotListVC.reasonId = [[[self.reasonCategories objectAtIndex:indexPath.row] objectForKey:@"Reason_id"] intValue];
+    hotspotListVC.category = [self.categories objectAtIndex:indexPath.row];
 
     [self.navigationController pushViewController:hotspotListVC animated:YES];
 }

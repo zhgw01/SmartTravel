@@ -10,7 +10,7 @@
 #import <Geo-Utilities/CLLocation+Navigation.h>
 
 #import "HomeViewController.h"
-#import "ReasonListVC.h"
+#import "CategoryListVC.h"
 #import "HotspotListVC.h"
 #import "NoInterfereVC.h"
 
