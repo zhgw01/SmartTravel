@@ -16,17 +16,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vf7-7p-Oaw" userLabel="Icon">
-                        <rect key="frame" x="6" y="6" width="52.5" height="31.5"/>
+                        <rect key="frame" x="6" y="6" width="31.5" height="31.5"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="Vf7-7p-Oaw" secondAttribute="height" multiplier="5:3" id="Hu9-O2-FEe"/>
+                            <constraint firstAttribute="width" secondItem="Vf7-7p-Oaw" secondAttribute="height" id="Hu9-O2-FEe"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xfc-Jh-y1y" userLabel="NameLabel">
-                        <rect key="frame" x="64.5" y="0.0" width="175.5" height="43.5"/>
+                        <rect key="frame" x="43.5" y="0.0" width="196.5" height="43.5"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkf-Ff-XPR" userLabel="CountLabel">
@@ -37,7 +37,7 @@
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="WMK-sg-SPa"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">

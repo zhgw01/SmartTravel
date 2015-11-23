@@ -7,6 +7,7 @@
 //
 
 #import "AboutVC.h"
+#import "DBVersionAdapter.h"
 
 @interface AboutVC ()
 
@@ -14,8 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *button12;
 @property (weak, nonatomic) IBOutlet UIButton *button21;
 @property (weak, nonatomic) IBOutlet UIButton *button22;
-@property (weak, nonatomic) IBOutlet UIButton *button31;
-@property (weak, nonatomic) IBOutlet UIButton *button32;
+@property (weak, nonatomic) IBOutlet UILabel *updateDateValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *versionValueLabel;
 
 @end
 
@@ -28,8 +29,24 @@
     self.button12.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.button21.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.button22.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    self.button31.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    self.button32.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"homepage_background"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    
+    NSString *currentVersion = [[[DBVersionAdapter alloc] init] getLatestVersion];
+    self.updateDateValueLabel.text = currentVersion;
+    
+    NSDictionary *bundleDic = [[NSBundle mainBundle] infoDictionary];
+    NSString *bundleShortVersionString = [bundleDic objectForKey:@"CFBundleShortVersionString"];
+#ifdef DEBUG
+    self.versionValueLabel.text = [NSString stringWithFormat:@"%@ %@", bundleShortVersionString, @"test"];
+#else
+    self.versionValueLabel.text = bundleShortVersionString;
+#endif
 }
 
 - (void)didReceiveMemoryWarning {
