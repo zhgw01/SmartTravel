@@ -12,15 +12,23 @@
 #import "HotspotListVC.h"
 #import "STConstants.h"
 #import "CategoryTableViewCell.h"
+#import "AppSettingManager.h"
+#import "HotSpotTableViewCell.h"
+#import "DBSchoolAdapter.h"
 
 static const NSInteger kSectionCnt = 2;
-static NSString * kCategoryCellIdentifier = @"CategoryTableViewCell";
+static NSString * kCategoryCellIdentifier = @"CategoryTableViewCellId";
+static NSString * kSchoolCellIdentifier = @"HotSpotTableViewCellId";
 
 @interface CategoryListVC ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *placeholderView;
+
 @property (nonatomic, strong) NSArray *categories;
+@property (nonatomic, strong) NSArray *schools;
+
+@property (nonatomic, assign) MenuEnum menu;
 
 @end
 
@@ -33,53 +41,62 @@ static NSString * kCategoryCellIdentifier = @"CategoryTableViewCell";
     self.placeholderView.backgroundColor = [UIColor getSTGray];
     self.tableView.separatorColor = [UIColor lightGrayColor];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"CategoryTableViewCell" bundle:nil] forCellReuseIdentifier:kCategoryCellIdentifier];
-    
-    self.categories = [self orderCategories:[[DBManager sharedInstance] selectCategories]];
-    
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] init];
     backButtonItem.title = @"        <";
     backButtonItem.style = UIBarButtonItemStylePlain;
     self.navigationItem.backBarButtonItem = backButtonItem;
+    
+    self.menu = [AppSettingManager sharedInstance].menu;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"HotSpotTableViewCell" bundle:nil] forCellReuseIdentifier:kSchoolCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:@"CategoryTableViewCell" bundle:nil] forCellReuseIdentifier:kCategoryCellIdentifier];
+
+    // Get all schools
+    DBSchoolAdapter *dbSchoolAdapter = [[DBSchoolAdapter alloc] init];
+    NSArray *allSchools = [dbSchoolAdapter selectAllSchoolsOrderByName];
+    
+    NSMutableArray *hotspots = [[NSMutableArray alloc] init];
+    // Adapt all school format to hot spot format
+    for (NSDictionary *school in allSchools)
+    {
+        NSString *schoolId              = [school valueForKey:kColId];
+        NSString *schoolLocationName    = [school valueForKey:kColSchoolName];
+        double schoolLatitude           = [[school objectForKey:kColLatitude] doubleValue];
+        double schoolLongitude          = [[school objectForKey:kColLongitude] doubleValue];
+        int schoolTotal                 = 1;
+        
+        HotSpot* hotSpot = [[HotSpot alloc] initWithLocCode:schoolId
+                                                   location:schoolLocationName
+                                                      count:schoolTotal
+                                                   latitude:schoolLatitude
+                                                 longtitude:schoolLongitude
+                                                       type:HotSpotTypeSchoolLocation];
+        
+        [hotspots addObject:hotSpot];
+    }
+    self.schools = hotspots;
+
+    // Get all categories
+    self.categories = [[DBManager sharedInstance] selectCategories];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(willRightRevealToggle:)
+                                                 name:@"WillRightRevealToggle" object:nil];
+}
+
+- (void)willRightRevealToggle:(id)sender
+{
+    if (self.menu != [AppSettingManager sharedInstance].menu)
+    {
+        self.menu = [AppSettingManager sharedInstance].menu;
+        [self.tableView reloadData];
+        [self.navigationController popViewControllerAnimated:NO];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
-}
-
-- (NSArray*)orderCategories:(NSArray*)categories
-{
-    // Get reason category order list
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:kConstantPlist
-                                                          ofType:@"plist"];
-    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-    NSDictionary *reasonCategoryDic = [data valueForKey:kConstantPlistKeyOfReasonCategory];
-    
-    NSUInteger totalCount = reasonCategoryDic.count;
-    NSMutableArray *res = [[NSMutableArray alloc] initWithCapacity:totalCount];
-    for (NSUInteger idx = 0; idx < totalCount; ++idx)
-    {
-        [res addObject:@"Unknown category"];
-    }
-
-    // Insert the reason category at the told index
-    for(NSString *category in categories)
-    {
-        NSInteger order = [[[reasonCategoryDic objectForKey:category] valueForKey:@"order"] integerValue];
-        if (order >= 0 && order < totalCount)
-        {
-            [res setObject:category atIndexedSubscript:order];
-        }
-    }
-    
-    return res;
 }
 
 /*
@@ -107,7 +124,15 @@ static NSString * kCategoryCellIdentifier = @"CategoryTableViewCell";
     }
     else if (section == 1)
     {
-        return self.categories.count;
+        if (self.menu == MenuSchoolZones)
+        {
+            return self.schools.count;
+        }
+        else if (self.menu == MenuHighCollisionLocations)
+        {
+            return self.categories.count;
+        }
+        return 0;
     }
     return 0;
 }
@@ -116,7 +141,7 @@ static NSString * kCategoryCellIdentifier = @"CategoryTableViewCell";
 {
     if (indexPath.section == 0)
     {
-        static NSString* kHeadCellIdentifier = @"ReasonListHeadCell";
+        static NSString* kHeadCellIdentifier = @"Section0CellID";
         
         UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kHeadCellIdentifier];
         {
@@ -126,7 +151,15 @@ static NSString * kCategoryCellIdentifier = @"CategoryTableViewCell";
                                               reuseIdentifier:kHeadCellIdentifier];
                 cell.backgroundColor = [UIColor getSTGray];
                 
-                NSString *text = @"High-Collision Locations";
+                NSString *text = nil;
+                if (self.menu == MenuHighCollisionLocations)
+                {
+                    text = @"High-Collision Locations";
+                }
+                else if (self.menu == MenuSchoolZones)
+                {
+                    text = @"Schools";
+                }
                 NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:text];
                 [attrStr addAttributes:@{
                                          NSFontAttributeName  : [UIFont systemFontOfSize:16],
@@ -139,12 +172,27 @@ static NSString * kCategoryCellIdentifier = @"CategoryTableViewCell";
         return cell;
     }
     else if (indexPath.section == 1)
-    {        
-        CategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCategoryCellIdentifier];
-        
-        NSString *category = [self.categories objectAtIndex:indexPath.row];
-        [cell configureWithCategory:category];
-        return cell;
+    {
+        if (self.menu == MenuHighCollisionLocations)
+        {
+            CategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCategoryCellIdentifier];
+            
+            NSString *category = [self.categories objectAtIndex:indexPath.row];
+            [cell configureWithCategory:category];
+            return cell;
+        }
+        else if (self.menu == MenuSchoolZones)
+        {
+            HotSpotTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kSchoolCellIdentifier];
+            
+            HotSpot* hotSpot = [self.schools objectAtIndex:indexPath.row];
+            [cell configureCellWithLocation:hotSpot.location
+                                   andCount:hotSpot.count
+                                     ofType:hotSpot.type];
+            return cell;
+        }
+        return nil;
+
     }
     return nil;
 }
@@ -165,10 +213,20 @@ static NSString * kCategoryCellIdentifier = @"CategoryTableViewCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HotspotListVC *hotspotListVC = [[HotspotListVC alloc] initWithNibName:@"HotspotListVC" bundle:nil];
-    hotspotListVC.category = [self.categories objectAtIndex:indexPath.row];
+    if (self.menu == MenuHighCollisionLocations)
+    {
+        HotspotListVC *hotspotListVC = [[HotspotListVC alloc] initWithNibName:@"HotspotListVC" bundle:nil];
+        hotspotListVC.category = [self.categories objectAtIndex:indexPath.row];
 
-    [self.navigationController pushViewController:hotspotListVC animated:YES];
+        [self.navigationController pushViewController:hotspotListVC animated:YES];
+    }
+    else if (self.menu == MenuSchoolZones)
+    {
+        HotSpot* hotSpot = [self.schools objectAtIndex:indexPath.row];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificatonNameHotSpotSelected
+                                                            object:nil
+                                                          userInfo:@{@"HotSpot":hotSpot}];
+    }
 }
 
 @end

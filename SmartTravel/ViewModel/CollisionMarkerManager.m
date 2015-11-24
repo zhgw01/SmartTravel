@@ -57,7 +57,6 @@ static NSString * const kBreathingIconBaseName  = @"breathing";
 - (NSString*)getImageOfLocationCode:(NSString*)locationCode
 {
     NSString *category = [[DBManager sharedInstance] selectCategoryOfLocationCode:locationCode];
-    NSLog(@"Category = %@", category);
     
     if ([[NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@", @"PEDESTRIAN"] evaluateWithObject:category])
     {

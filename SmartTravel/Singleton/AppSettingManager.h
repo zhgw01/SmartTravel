@@ -13,7 +13,17 @@ extern NSString * const kIsWarningVoice;
 extern NSString * const kIsAutoCheckUpdate;
 extern NSString * const kShowNoInterfereUI;
 
+typedef enum
+{
+    MenuSchoolZones,
+    MenuHighCollisionLocations,
+    MenuAbout,
+    MenuInfo,
+} MenuEnum;
+
 @interface AppSettingManager : NSObject
+
+@property (assign, nonatomic) MenuEnum menu;
 
 +(AppSettingManager *)sharedInstance;
 

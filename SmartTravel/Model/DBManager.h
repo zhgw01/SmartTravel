@@ -29,6 +29,8 @@
 
 -(NSArray*)getHotSpotDetailsByLocationCode:(NSString*)locCode;
 
+-(NSArray*)selectHotSpotsOfReason:(int)reasonId;
+
 -(NSArray*)selectCategories;
 
 -(NSString*)selectCategoryOfLocationCode:(NSString*)locationCode;

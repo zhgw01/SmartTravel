@@ -9,6 +9,7 @@
 #import "DBManager.h"
 #import "DBConstants.h"
 #import "HotSpot.h"
+#import "STConstants.h"
 
 @implementation DBManager
 
@@ -509,7 +510,30 @@
         NSAssert(NO, @"Close db failed");
     }
     
-    return res;
+    // Get reason category order list
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:kConstantPlist
+                                                          ofType:@"plist"];
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+    NSDictionary *reasonCategoryDic = [data valueForKey:kConstantPlistKeyOfReasonCategory];
+    
+    NSUInteger totalCount = reasonCategoryDic.count;
+    NSMutableArray *mutRes = [[NSMutableArray alloc] initWithCapacity:totalCount];
+    for (NSUInteger idx = 0; idx < totalCount; ++idx)
+    {
+        [mutRes addObject:@"Unknown category"];
+    }
+    
+    // Insert the reason category at the told index
+    for(NSString *category in res)
+    {
+        NSInteger order = [[[reasonCategoryDic objectForKey:category] valueForKey:@"order"] integerValue];
+        if (order >= 0 && order < totalCount)
+        {
+            [mutRes setObject:category atIndexedSubscript:order];
+        }
+    }
+    
+    return mutRes;
 }
 
 -(NSString*)selectCategoryOfLocationCode:(NSString*)locationCode

@@ -8,6 +8,7 @@
 #import "HotSpot.h"
 #import "HomePageViewController.h"
 #import "HomeViewController.h"
+#import "AppSettingManager.h"
 
 @interface HomePageViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *button11;
@@ -56,6 +57,7 @@
         HomeViewController *homeVC = [segue destinationViewController];
         homeVC.title = @"School Zones";
         homeVC.type = HotSpotTypeSchoolLocation;
+        [AppSettingManager sharedInstance].menu = MenuSchoolZones;
     }
     else if([segue.identifier isEqualToString:@"homepage_button12"])
     {
@@ -63,6 +65,7 @@
         homeVC.title = @"High-Collision Locations"
         ;
         homeVC.type = HotSpotTypeAllExceptSchool;
+        [AppSettingManager sharedInstance].menu = MenuHighCollisionLocations;
     }
 }
 

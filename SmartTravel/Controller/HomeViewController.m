@@ -10,7 +10,6 @@
 #import <Geo-Utilities/CLLocation+Navigation.h>
 
 #import "HomeViewController.h"
-#import "CategoryListVC.h"
 #import "HotspotListVC.h"
 #import "NoInterfereVC.h"
 
@@ -309,19 +308,6 @@ static double kDefaultLon = -113.4687100;
     self.mapView.myLocationEnabled = YES;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    if (self.type == HotSpotTypeSchoolLocation)
-    {
-        self.categoriesButton.enabled = NO;
-    }
-    else
-    {
-        self.categoriesButton.enabled = YES;
-    }
-}
-
 - (IBAction)backHome:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -331,14 +317,21 @@ static double kDefaultLon = -113.4687100;
 {
     if (self.revealViewController)
     {
-        self.categoriesButton.target = self.revealViewController;
-        self.categoriesButton.action = @selector(rightRevealToggle:);
+        self.categoriesButton.target = self;
+        self.categoriesButton.action = @selector(nextButtonPressed:);
         
         self.revealViewController.rightViewRevealWidth = 280;
         self.revealViewController.delegate = self;
         
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
+}
+
+- (void)nextButtonPressed:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"WillRightRevealToggle"
+                                                        object:nil];
+    [self.revealViewController rightRevealToggle:sender];
 }
 
 #pragma mark - Map Button Action
