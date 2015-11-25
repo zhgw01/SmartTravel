@@ -543,7 +543,6 @@ static double kDefaultLon = -113.4687100;
     if (!self.locationDidEverUpdate)
     {
         self.locationDidEverUpdate = YES;
-#ifndef DEBUG        
         // Tricky code to control UI whether to show
         // test data of Shanghai
         BOOL showTestDataOfShanghai = (self.recentLocation.coordinate.longitude > 0);
@@ -551,7 +550,6 @@ static double kDefaultLon = -113.4687100;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowTestDataOfShanghai"
                                                             object:nil
                                                           userInfo:@{@"ShowTestDataOfShanghai": @(showTestDataOfShanghai)}];
-#endif
     }
     
     LocationRecordManager* locationRecordManager = [LocationRecordManager sharedInstance];
