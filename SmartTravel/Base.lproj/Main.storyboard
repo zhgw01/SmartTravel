@@ -343,7 +343,7 @@
                                             </button>
                                         </subviews>
                                         <animations/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="n7T-aE-rko" firstAttribute="top" secondItem="net-jN-rVX" secondAttribute="top" constant="5" id="Bme-g9-ONo"/>
                                             <constraint firstAttribute="bottom" secondItem="n7T-aE-rko" secondAttribute="bottom" constant="15" id="MUn-fH-m3S"/>
@@ -364,7 +364,7 @@
                                             </button>
                                         </subviews>
                                         <animations/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="CP4-Cq-hU3" firstAttribute="leading" secondItem="yI2-dl-mab" secondAttribute="leading" constant="30" id="YpM-da-oXy"/>
                                             <constraint firstAttribute="trailing" secondItem="CP4-Cq-hU3" secondAttribute="trailing" constant="30" id="co4-7f-5rJ"/>
@@ -374,7 +374,7 @@
                                     </view>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="net-jN-rVX" secondAttribute="bottom" id="5LE-uF-70w"/>
                                     <constraint firstAttribute="trailing" secondItem="yI2-dl-mab" secondAttribute="trailing" id="6tn-qQ-lm8"/>
@@ -402,7 +402,7 @@
                                             </button>
                                         </subviews>
                                         <animations/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="4rm-I4-h5o" secondAttribute="bottom" constant="10" id="BlZ-H5-XKg"/>
                                             <constraint firstItem="4rm-I4-h5o" firstAttribute="top" secondItem="pw4-3t-unE" secondAttribute="top" constant="20" id="Dh7-G5-fLw"/>
@@ -419,7 +419,7 @@
                                             </button>
                                         </subviews>
                                         <animations/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="pok-cN-qwF" secondAttribute="bottom" id="CXb-gu-XZT"/>
                                             <constraint firstItem="pok-cN-qwF" firstAttribute="leading" secondItem="pyX-Oq-dwY" secondAttribute="leading" id="GEK-uJ-J5p"/>
@@ -429,7 +429,7 @@
                                     </view>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="pyX-Oq-dwY" firstAttribute="top" secondItem="uXH-fe-61f" secondAttribute="top" id="1Yg-Tu-5Sx"/>
                                     <constraint firstItem="pyX-Oq-dwY" firstAttribute="leading" secondItem="pw4-3t-unE" secondAttribute="trailing" id="Day-Yj-tXz"/>
@@ -451,7 +451,7 @@
                                             <constraint firstAttribute="width" constant="120" id="By7-Dl-nrn"/>
                                             <constraint firstAttribute="height" constant="22" id="roe-2Q-wtM"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -462,7 +462,7 @@
                                             <constraint firstAttribute="height" constant="22" id="H1G-zF-K1w"/>
                                             <constraint firstAttribute="width" constant="120" id="N69-JJ-UFm"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -473,7 +473,7 @@
                                             <constraint firstAttribute="width" constant="100" id="sMF-S7-64J"/>
                                             <constraint firstAttribute="height" constant="22" id="tS9-Oh-7Tx"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -484,13 +484,13 @@
                                             <constraint firstAttribute="width" constant="100" id="Gvm-Ig-grg"/>
                                             <constraint firstAttribute="height" constant="22" id="lMv-3F-asR"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="vBz-d1-k4X" firstAttribute="leading" secondItem="nKd-fh-V6x" secondAttribute="trailing" constant="10" id="FPj-5y-ITv"/>
                                     <constraint firstItem="lvd-au-xnc" firstAttribute="leading" secondItem="gdI-Ds-QAr" secondAttribute="trailing" constant="10" id="Qif-au-O98"/>

@@ -150,24 +150,23 @@ static NSString * kSchoolCellIdentifier = @"HotSpotTableViewCellId";
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                               reuseIdentifier:kHeadCellIdentifier];
                 cell.backgroundColor = [UIColor getSTGray];
-                
-                NSString *text = nil;
-                if (self.menu == MenuHighCollisionLocations)
-                {
-                    text = @"High-Collision Locations";
-                }
-                else if (self.menu == MenuSchoolZones)
-                {
-                    text = @"Schools";
-                }
-                NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:text];
-                [attrStr addAttributes:@{
-                                         NSFontAttributeName  : [UIFont systemFontOfSize:16],
-                                         NSForegroundColorAttributeName  : [UIColor whiteColor]
-                                         }
-                                 range:[text rangeOfString:text]];
-                cell.textLabel.attributedText = attrStr;
             }
+            NSString *text = nil;
+            if (self.menu == MenuHighCollisionLocations)
+            {
+                text = @"High-Collision Locations";
+            }
+            else if (self.menu == MenuSchoolZones)
+            {
+                text = @"Schools";
+            }
+            NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:text];
+            [attrStr addAttributes:@{
+                                     NSFontAttributeName  : [UIFont systemFontOfSize:16],
+                                     NSForegroundColorAttributeName  : [UIColor whiteColor]
+                                     }
+                             range:[text rangeOfString:text]];
+            cell.textLabel.attributedText = attrStr;
         }
         return cell;
     }
