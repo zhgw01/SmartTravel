@@ -5,7 +5,7 @@
 //  Created by ChenPengyu on 15/5/23.
 //  Copyright (c) 2015年 Gongwei. All rights reserved.
 //
-
+#import <CoreLocation/CLLocationManager.h>
 #import <Foundation/Foundation.h>
 
 @interface AppLocationManager : NSObject

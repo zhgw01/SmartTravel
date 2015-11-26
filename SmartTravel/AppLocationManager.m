@@ -5,9 +5,8 @@
 //  Created by ChenPengyu on 15/5/23.
 //  Copyright (c) 2015年 Gongwei. All rights reserved.
 //
-
-#import <CoreLocation/CLLocationManager.h>
 #import "AppLocationManager.h"
+#import <UIKit/UIKit.h>
 
 @interface AppLocationManager ()
 
@@ -56,6 +55,8 @@
     {
         [self.locationManager setAllowsBackgroundLocationUpdates:YES];
     }
+    
+    self.locationManager.pausesLocationUpdatesAutomatically = NO;
 }
 
 -(void)setDelegate:(id<CLLocationManagerDelegate>)delegate

@@ -445,7 +445,7 @@
                                 <rect key="frame" x="0.0" y="421" width="600" height="178.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKd-fh-V6x" userLabel="Date Update Label">
-                                        <rect key="frame" x="350" y="118" width="120" height="22"/>
+                                        <rect key="frame" x="440" y="148.5" width="120" height="22"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="By7-Dl-nrn"/>
@@ -456,21 +456,21 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdI-Ds-QAr" userLabel="Version Label">
-                                        <rect key="frame" x="350" y="142" width="120" height="22"/>
+                                        <rect key="frame" x="440" y="126.5" width="80" height="22"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="H1G-zF-K1w"/>
-                                            <constraint firstAttribute="width" constant="120" id="N69-JJ-UFm"/>
+                                            <constraint firstAttribute="width" constant="80" id="N69-JJ-UFm"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvd-au-xnc" userLabel="Version Value">
-                                        <rect key="frame" x="480" y="142" width="100" height="22"/>
+                                        <rect key="frame" x="520" y="126.5" width="80" height="22"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="sMF-S7-64J"/>
+                                            <constraint firstAttribute="width" constant="80" id="sMF-S7-64J"/>
                                             <constraint firstAttribute="height" constant="22" id="tS9-Oh-7Tx"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -478,7 +478,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBz-d1-k4X" userLabel="Date Value">
-                                        <rect key="frame" x="480" y="118" width="100" height="22"/>
+                                        <rect key="frame" x="520" y="148.5" width="80" height="22"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="Gvm-Ig-grg"/>
@@ -487,19 +487,25 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Gvm-Ig-grg"/>
+                                            </mask>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="vBz-d1-k4X" firstAttribute="leading" secondItem="nKd-fh-V6x" secondAttribute="trailing" constant="10" id="FPj-5y-ITv"/>
-                                    <constraint firstItem="lvd-au-xnc" firstAttribute="leading" secondItem="gdI-Ds-QAr" secondAttribute="trailing" constant="10" id="Qif-au-O98"/>
-                                    <constraint firstAttribute="trailing" secondItem="lvd-au-xnc" secondAttribute="trailing" constant="20" id="RMa-oa-FlC"/>
-                                    <constraint firstItem="lvd-au-xnc" firstAttribute="top" secondItem="vBz-d1-k4X" secondAttribute="bottom" constant="2" id="Win-xM-uzZ"/>
-                                    <constraint firstItem="gdI-Ds-QAr" firstAttribute="baseline" secondItem="lvd-au-xnc" secondAttribute="baseline" id="dCx-0h-xzb"/>
-                                    <constraint firstItem="vBz-d1-k4X" firstAttribute="baseline" secondItem="nKd-fh-V6x" secondAttribute="baseline" id="e9B-3u-2DO"/>
-                                    <constraint firstAttribute="bottom" secondItem="vBz-d1-k4X" secondAttribute="bottom" constant="38" id="jFP-fi-asd"/>
-                                    <constraint firstAttribute="trailing" secondItem="vBz-d1-k4X" secondAttribute="trailing" constant="20" id="rDX-Tk-2TM"/>
+                                    <constraint firstItem="lvd-au-xnc" firstAttribute="leading" secondItem="gdI-Ds-QAr" secondAttribute="trailing" id="9vS-pB-vRg"/>
+                                    <constraint firstItem="lvd-au-xnc" firstAttribute="baseline" secondItem="gdI-Ds-QAr" secondAttribute="baseline" id="KFL-vc-L5R"/>
+                                    <constraint firstAttribute="trailing" secondItem="lvd-au-xnc" secondAttribute="trailing" id="VcD-cJ-wKi"/>
+                                    <constraint firstItem="vBz-d1-k4X" firstAttribute="baseline" secondItem="nKd-fh-V6x" secondAttribute="baseline" id="Yba-k8-aGu"/>
+                                    <constraint firstItem="gdI-Ds-QAr" firstAttribute="leading" secondItem="nKd-fh-V6x" secondAttribute="leading" id="apU-iS-3ld"/>
+                                    <constraint firstAttribute="bottom" secondItem="vBz-d1-k4X" secondAttribute="bottom" constant="8" id="j02-ya-l1i"/>
+                                    <constraint firstItem="vBz-d1-k4X" firstAttribute="top" secondItem="lvd-au-xnc" secondAttribute="bottom" id="mIc-Rp-6Jv"/>
+                                    <constraint firstItem="lvd-au-xnc" firstAttribute="trailing" secondItem="vBz-d1-k4X" secondAttribute="trailing" id="mVe-jM-pDw"/>
+                                    <constraint firstItem="vBz-d1-k4X" firstAttribute="width" secondItem="lvd-au-xnc" secondAttribute="width" id="ssG-Jo-ibl"/>
                                 </constraints>
                             </view>
                         </subviews>
