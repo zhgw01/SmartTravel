@@ -50,7 +50,7 @@
         }
         else
         {
-            self.schoolDayLabel.text = @"No School Today";
+            self.schoolDayLabel.text = @"No School Day";
         }
     }
     else
