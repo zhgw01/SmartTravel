@@ -1,6 +1,6 @@
 #!/bin/sh
 
-IPA_FILE="$PWD/build/Release-iphoneos/$APP_NAME.ipa"
+IPA_FILE="$PWD/build/Debug-iphoneos/$APP_NAME.ipa"
 PGY_UKEY="d53cbab4252ad5baeb6deb540a6fa9fd"
 PGY_APIKEY="18c5a1fa54f90beb4682c1820583549f"
 

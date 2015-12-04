@@ -7,8 +7,8 @@ script:
 - ./scripts/travis/buildRelease.sh
 after_success:
 - ./scripts/travis/sign-and-upload.sh
-#- ./scripts/travis/uploadToPGY.sh
-- ./scripts/travis/uploadToFIR.sh
+- ./scripts/travis/uploadToPGY.sh
+#- ./scripts/travis/uploadToFIR.sh
 after_script:
 - ./scripts/travis/remove-key.sh
 env:
