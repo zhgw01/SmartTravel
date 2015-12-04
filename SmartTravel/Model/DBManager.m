@@ -384,7 +384,7 @@
     
     NSError* error = nil;
     NSMutableArray* res = [[NSMutableArray alloc] init];
-    NSString* smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Roadway_portion, l.Longitude, l.Latitude, r.Total from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and r.Reason_id='%d'", reasonId];
+    NSString* smt = [NSString stringWithFormat:@"select l.Loc_code, l.Location_name, l.Roadway_portion, l.Longitude, l.Latitude, r.Total from TBL_COLLISION_LOCATION as l, TBL_LOCATION_REASON as r where l.Loc_code = r.Loc_code and r.Reason_id='%d' order by l.Location_name asc", reasonId];
     
     NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
     FMResultSet* resultSet = [db executeQuery:smt];
@@ -464,6 +464,14 @@
         NSArray *arr = [self selectHotSpotsOfReason:reasonId];
         [res addObjectsFromArray:arr];
     }
+    
+    // Sort the arry by location name
+    [res sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        HotSpot *lhs = obj1;
+        HotSpot *rhs = obj2;
+        return [lhs.location compare:rhs.location];
+    }];
+    
     return res;
 }
 
