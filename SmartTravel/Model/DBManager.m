@@ -469,7 +469,7 @@
     [res sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         HotSpot *lhs = obj1;
         HotSpot *rhs = obj2;
-        return [lhs.location compare:rhs.location];
+        return [lhs.location compare:rhs.location options:NSNumericSearch];
     }];
     
     return res;
